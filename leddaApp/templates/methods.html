@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+
+
+{% block body2 %}
+
+<div class="methods">
+
+<h1>Methods</h1>
+
+<p>This page provides technical information about how incidence and population projections are
+produced. The last section contains a roadmap for improving OmitApp. The current version is simple and 
+is intended as a first step in developing more accurate and useful models.</p>
+
+
+<h2>Population Projection Methods</h2>
+<p>Analysis in OmitApp starts by calculating population projections for the selected geography codes and 
+years of interest. 
+The current population model is a simple linear extrapolation using two years of data. The base 
+years for the Claritas population data source are 2013 and 2018. Population is given per zip code, 
+for 5-year age groups, and for each sex separately. The 2018 data represent population projections 
+made by Claritas.</p>
+
+<p>In the OmitApp, populations are aggregated over all selected geography codes for each age-sex
+group. As an option, projections can also be made for all individual geography codes. In either
+case, a separate linear extrapolation is made for each age-sex group. Based on these projections,
+sums are calculated for both sexes per age group and for all age groups combinded. </p>
+
+<p>Due to extrapolation beyond observed data, use of future estimates as base data (e.g., 2018), and 
+the simple nature of the linear projection, a number of issues arise, including:</p>
+<ul>
+
+<li>The population in any geography code-age-sex group can go negative. This is especially true for 
+geography codes associated with small populations and for long projection periods. </li>
+
+<li>The longer the projection into the future, the more likely it is to be innacurate.</li>
+
+<li>Estimates for small population areas, such as small-population zip codes, are likely to 
+be of low accuracy relative to those for larger population areas.</li>
+
+<li>All else being equal, population projections based on zip codes are inherently more suspect than 
+those based on Census units. This is because the raw data for projections almost assuradly comes from 
+Census sources, but all such data would be based on Census units, not zip codes. Zip code areas change 
+shape frequently relative to census units, are not themselves well defined spatially (they are based 
+on lists of addresses rather than on geographic areas), and zip codes can span census tracts, 
+county lines, and even state lines.</li> 
+
+<li>The model might be sufficiently misspecified to be of low accuracy in some situations. For example,
+the population in a given area might change according to a non-linear trend.</li>
+
+<li>Confidence intervals cannot be constructed for the projections. It is possible that a projection might 
+be of little value (for example, a projection of 20,000 +/- 100,000 people). Without
+confidence intervals, there is no way to identify such situations if and when they
+occur.</li>
+
+<li>The projections are based, at least in part, on population trend information. A great amount
+of additional information is available that might be associated with and useful for predicting 
+population. For example, areas of rising income might also experience rising populations. Such information
+is not necessarily included in the model. In particular, the projections are not 
+based, or are only indirectly based, on birth, death, and migration information.</p>
+
+
+
+<h2>Incidence Projection Methods</h2>
+<p>Once a population projection is available for age-sex groups over the range of selected
+years, projected cancer cases can be calculated. The incidence model is simple. Area-wide incidence
+rates, such as over all 18 SEER regions, are obtained from SEER or other sources. Rates are 
+obtained for cancer sites of interest, for each distinct age-sex group in the population projections. Cancer case 
+projections are calculated by multiplying incidence rates by population projections.</p>
+
+<p>Projections for aggregated groups, such as the "All Ages" and "Both Sexes" groups, are calculated 
+by summing the projections of individual age-sex groups.</p>
+
+<p>Due to the simple nature of the case projection model, several issues arise, including:</p> 
+
+<ul>
+
+<li>Rates are obtained as the average over a recent period, often the last five years for which incidence data are
+available. As such, trends in incidence rates over time are not taken into account. It is known that 
+incidence rates for many cancer sites are not constant over time.</li>
+
+<li>Area-wide (spatially averaged) incidence rates are used, rather than area-specific ones. It is known that incidence 
+rates can markedly vary over geographic regions.</li>
+
+<li>For reasons discussed in relation to population projections, confidence intervals cannot be 
+constructed for the case projections. Thus, the accuracy of the projections is unknown. As with population
+projections, case projections into the far future are likely to be less accurate than those into the
+near future. Projections for small versus large population areas can also be expected to be less accurate.</li>
+
+</ul>
+
+
+
+<h2>Roadmap For Improving OmitApp</h2>
+
+<p>The roadmap for improving the OmitApp projection models is still under development. 
+Several ideas are being considered, some of which are listed below. In general, an iterative approach is
+anticipated, with a large number of small improvements and a small number of large ones. The
+development process will likely resemble Agile in some respects. Possible future enhancements include:</p>
+
+<ol>
+
+<li>Prediction of local incidence rates for small areas based on national SEER and NCI county-level
+data. An extention to this would be prediction of incidence trends for small areas, in addtion to temporal
+averages. It is known that
+incidence rates can vary over geographic regions as well as over time.</li>
+
+<li>Predition of population using a more sophistated model that would incorporate brith, death, migration,
+and other data, and that would allow for construction of prediction confidence intervals.</li>
+
+<li>Prediction of cancer mortality, stage at diagnosis, and costs of cancer care for small areas.</li>
+
+<li>The next several improvements to OmitApp models will be likely be based on population-level data 
+(for large or small areas), but 
+later models could leverage the large and valuable volume of data available in microdata sets made public by
+the Census, Centers for Disease Control, and other agencies. Potentially, such data would allow for 
+more accurate, informative, and useful models.</li> 
+
+<li>Modeling the impacts of social determinants of disease and other factors on cancer incidence and
+mortality. Such models could allow, for example, exploration of strategies to improve cancer detection 
+and prevention and to reduce cancer mortality.</li>
+
+
+</ol>
+
+
+</div>
+
+{% endblock %}
+

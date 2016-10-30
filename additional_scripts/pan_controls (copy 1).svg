@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="main"
+   version="1.1">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <!--  =============== Main Group =============== -->
+  <rect
+     id="pan_outer_box"
+     y="159.06883"
+     x="173.49754"
+     height="349.72021"
+     width="106.67066"
+     style="fill:#f9f9f9;stroke:#000000;stroke-width:1.08243096" />
+  <g
+     id="pointer" class="pan_button">
+    <rect
+       style="fill:#e6e6e6"
+       id="rect3364-9-4-8-6"
+       width="76.815445"
+       height="40.764877"
+       x="188.34282"
+       y="174.47002" />
+    <path
+       id="pointer_path"
+       d="m 238.24511,197.24456 q 0.62167,0.49461 0.28074,1.13759 -0.34092,0.65948 -1.18317,0.65948 l -7.66059,0 4.03083,7.84781 q 0.20045,0.41218 0,0.80787 -0.20045,0.39569 -0.68183,0.57705 l -3.54955,1.23651 q -0.50135,0.16487 -0.98264,0 -0.4813,-0.16487 -0.70187,-0.56056 l -3.8303,-7.45212 -6.25682,5.14394 q -0.38102,0.31326 -0.90243,0.31326 -0.24054,0 -0.4813,-0.0823 -0.80215,-0.28028 -0.80215,-0.97274 l 0,-24.79645 q 0,-0.69245 0.80215,-0.97271 0.24054,-0.0823 0.4813,-0.0823 0.54146,0 0.90243,0.31326 z" />
+  </g>
+  <g
+     id="zoom_in" class="pan_button">
+    <rect
+       id="zoomIn_rect"
+       width="76.815445"
+       height="40.764877"
+       x="187.87076"
+       y="229.46452"
+       style="fill:#e6e6e6" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;"
+       x="192.4635"
+       y="259.70004"
+       id="text3338"><tspan
+         id="tspan3340"
+         x="192.4635"
+         y="259.70004"
+         >🔍+</tspan></text>
+  </g>
+  <g
+     id="zoom_out" class="pan_button">
+    <rect
+       style="fill:#e6e6e6"
+       id="rect3364-8"
+       width="76.815445"
+       height="40.764877"
+       x="187.61453"
+       y="285.6933" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;"
+       x="195.14474"
+       y="316.2887"
+       id="text3338-3"><tspan
+         id="tspan3340-1"
+         x="195.14474"
+         y="316.2887">🔍 –</tspan></text>
+  </g>
+  <g
+     id="pan" class="pan_button">
+    <rect
+       style="fill:#e6e6e6"
+       id="rect3364-9-4"
+       width="76.815445"
+       height="40.764877"
+       x="187.44035"
+       y="340.42151" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;"
+       x="190.62943"
+       y="369.26837"
+       id="text3360-3"><tspan
+         id="tspan3362-3"
+         x="190.62943"
+         y="369.26837"
+         style="font-size:25px;"><tspan
+           style="font-size:35px;"
+           id="tspan3460">⬄</tspan><tspan
+           style="font-size:22.5px;"
+           id="tspan3464">Pan</tspan></tspan></text>
+  </g>
+  <g
+     style="fill:#e6e6e6"
+     id="info" class="pan_button">
+    <rect
+       id="rect3364-9-4-8"
+       width="76.815445"
+       height="40.764877"
+       x="187.43054"
+       y="395.36832" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;"
+       x="191.6246"
+       y="423.25845"
+       id="text3360-3-6"><tspan
+         id="tspan3362-3-0"
+         x="191.6246"
+         y="423.25845"
+         style="font-size:25px;"><tspan
+           style="font-size:22.5px;"
+           id="tspan3464-8">🛈Info</tspan></tspan></text>
+  </g>
+  <g
+     id="reset" class="pan_button">
+    <rect
+       id="rect3364-9"
+       width="76.815445"
+       height="40.764877"
+       x="188.3732"
+       y="450.95816"
+       style="fill:#e6e6e6" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;"
+       x="190.73033"
+       y="480.49191"
+       id="text3360"><tspan
+         id="tspan3362"
+         x="190.73033"
+         y="480.49191"
+         style="font-size:25px;">Reset</tspan></text>
+  </g>
+</svg>

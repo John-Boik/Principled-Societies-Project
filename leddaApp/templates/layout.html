@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html  lang="en-US">
+
+<meta charset="UTF-8"> 
+
+<title>Principled Societies Project</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
+
+<script src="{{ url_for('static', filename='javascript/jquery-1.11.2.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='javascript/brython-dev_brython_3.2.7.js') }}"></script>
+
+
+<script type="text/python"
+src="{{ url_for('static', filename='python/layout.py') }}"></script>
+
+<header >
+  <span id="headLeft">
+    <img src="{{ url_for('static', filename='images/PSP-earth-4-100w.png') }}" 
+      alt="Logo" style="height:100px;"> 
+  </span>
+  
+  <span id="headRight">
+    <span id="banner">Principled Societies Project</span> 
+    <span id="banner_sub">Developing the LEDDA Economic Direct Democracy Framework</span>
+  </span>
+</header>
+
+
+
+<nav class="dropNav">
+  <ul>
+    
+    <li><a id="menu_index" href="/index">Home</a>
+      <ul>
+        <li><a  id="menu_about" href="/about">About PSP</a></li>
+        <li><a  id="menu_newsletter" href="/newsletter">Newsletter</a></li>
+        <li><a  id="menu_contact" href="/contact">Contact</a></li>
+      </ul>
+    </li>
+
+    <li><a id="menu_book" href="javascript:void(0)">Book</a>
+      <ul>
+        <li><a  id="menu_praise" href="/praise">Praise for <i>Economic Direct Democracy</i></a></li>
+        <li><a  id="menu_toc" href="/toc">Table of Contents</a></li>
+        <li><a  id="menu_download" href="/download">Free Download</a></li>
+      </ul>
+    </li>
+
+    <li><a id="menu_interactive" href="javascript:void(0)">Interactive Apps</a>
+      <ul>
+        <li><a  id="menu_steady_01" href="/steady_01">Steady-State 01</a></li>
+      </ul>
+    </li>    
+    
+    <li><a id="menu_publications" href="/publications">Publications</a></li>
+
+    <li><a id="menu_involved" href="javascript:void(0)">Get Involved</a>
+      <ul>
+        <li><a  id="menu_engage" href="/engage">Get On The Map</a></li>
+        <li><a  id="menu_contribute" href="/contribute">Contribute Funds</a></li>
+        <li><a  id="menu_volunteer" href="/volunteer">Volunteer</a></li>
+        <li><a  id="menu_collaborate" href="/collaborate">Scientific Collaboration</a></li>
+        <li><a  id="menu_jobs" href="/jobs">Join PSP Staff</a></li>
+        <li><a  id="menu_invite" href="/invite">Speaker Invite</a></li>
+      </ul>
+    </li>    
+  </ul>
+</nav>  
+
+
+
+<body onload="brython(1)">
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash"><h1>Messages:</h1>
+        <ul>
+        {% for message in get_flashed_messages() %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+    <br /> 
+    {% endif %} 
+  {% endwith %} 
+  
+  {% block body2 %}
+  
+  {% endblock %}
+  
+  <div id="footer"></div>
+</body>
+
+</html>
+
+

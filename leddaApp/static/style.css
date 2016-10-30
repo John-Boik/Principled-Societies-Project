@@ -1,0 +1,452 @@
+
+/*  Color Scheme  --------------------------------------------
+http://www.colorsontheweb.com/colorwizard.asp
+    logo red is: 013209
+    9F130C is darker red tint
+  vv = very-very
+  
+  green logo is 002e09ff, websafe is 003300
+*/
+
+:root {
+  --v-dark-green: #011905;
+  --dark-green: #013209;
+  --green: #013219;
+  --med-green: 	#024b0e;
+  --purple: #220132;
+  --red: #320111;
+  --gray: #1a1a1a;
+  --light-gray: #545454;
+  --v-light-gray: #a3a3a3;
+  --black: #000000;  
+  --brown: #320901;
+  --blue: #090132;
+  --light-blue: #1b0396;
+  --v-light-blue: #6d50fb; 
+  --vv-light-blue: #B3ffff;
+  --vv-light-orange: #c8ffc8;
+  --vv-light-red: #ffe1c8;
+  --vv-light-gray: #F8F8F8   
+  }
+
+
+/*
+#013209   dark green
+#013219   green
+#220132   purple
+#320111   red
+#1a1a1a   gray
+#000000   black
+"""
+
+
+
+/* banner etc. --------------------------------------------*/
+
+header {
+  display: block;
+    
+
+  }
+html {
+  /*background: var(--vv-light-blue);*/
+  }
+
+#headLeft {
+  float: left;
+  margin-bottom: 20px;
+  }
+
+#headRight{
+  float: left;
+  margin-left:30px;
+  margin-bottom: 20px;
+
+}
+
+#banner {
+  font-size: 300%;
+  font-weight: bold;
+  color:  var(--blue);
+  font-family: Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+  
+  }
+
+#banner_sub {
+  font-size: 1.1em;
+  font-weight: bold;
+  font-style: italic;
+  color:  var(--v-light-gray);
+  display: block;
+  font-family: Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+  }
+
+.flash {
+  background: #dd7878;
+  padding: 10px;
+  width: 400px;
+  margin-left: 30px;
+  }
+
+
+/* body etc. --------------------------------------------*/
+body {
+  font-family: Verdana;
+  margin-left:10px;
+  }
+
+#page {
+  
+  }
+
+
+#odd {
+  padding-left: 20px;
+  /*background: var(--vv-light-blue);*/
+  
+  }
+
+#even {
+  padding-left: 20px;
+  /*background: var(--vv-light-orange);*/
+  
+
+  }
+
+.flash ul{
+  margin-left: 10px;
+  }
+
+h {
+  font-family: Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+  }
+  
+h1 {
+  color: var(--v-dark-green);
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+  }
+
+h2 {
+  color:var(--v-dark-green);
+  margin-top: 25px;
+  margin-bottom: 15px;
+
+  }
+
+h3 {
+  color:var(--v-dark-green);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  }
+
+h4 {
+
+  }
+
+#footer {
+  width: 100%;
+  height: 10px;
+}
+
+p {
+
+  }
+
+
+ul {
+
+  }
+
+ol {
+
+  }
+
+.container {
+  overflow: auto;
+  }
+
+.image_left {
+  margin-top: 20px;
+  margin-right: 60px;
+  margin-bottom: 30px;
+  float: left;
+  }
+
+.text_right {
+  margin-top: 0px;
+  margin-left: 0px;
+  }
+
+.claim {
+  font-size: 120%;
+  color:  var(--red);
+
+  }
+
+dl {
+  font-family: Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+  display: inline-block;
+  }
+       
+dt {
+  font-weight: bold;
+  display: inline-block;
+    
+
+  }
+  
+dd {
+  margin-bottom: 20px;
+  
+  }
+
+
+body li {
+  margin-bottom: 10px;
+  }
+
+
+.controls {
+  margin-top: 30px;
+  font-size: 80%;
+  }
+
+#table_input {
+  border:solid;
+  }
+
+table {
+  margin-top: 40px;
+  
+  }
+
+td, th {
+  border: 1px dotted black;
+  padding: 2px;
+  }
+
+caption {
+
+  }
+
+/* ============ range widgets ====================*/
+
+input[type=range]{
+    /* fix for FF unable to apply focus style bug  */
+    border: 1px solid white; 
+
+    /*required for proper track sizing in FF*/
+    width: 200px;
+}
+
+input[type=range]::-moz-range-track {
+    width: 200px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: blue;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: #ccc;
+}
+
+
+
+
+
+/* menus   -------------------------------------------- */
+/*http://www.inmotionhosting.com/support/edu/website-design/using-css/simple-css-drop-down-menu  */
+
+nav {
+  /*background: var(--vv-light-blue);*/
+  display: inline-block;
+  margin-bottom: 30px;
+  width:100%;
+  }
+
+.dropNav li {
+  margin-bottom: 0px;
+  }
+  
+.dropNav {font-size: 95%;}
+.dropNav ul {list-style:none; padding:0px; margin:0px;}
+.dropNav ul li {display:block; position:relative; float:left; border:1px solid #000; margin-right:5px;}
+.dropNav li ul {display:none;}
+.dropNav ul li a {display:block; background:var(--v-dark-green); padding:5px 10px 5px 10px; text-decoration:none;
+         white-space:nowrap; color:white; font-weight: bold;}  /* this is the font color */
+
+.dropNav ul li a:hover {background:var(--med-green); text-decoration:underline;}  /*this is the color of hover at level 0 */
+
+/* color gray on hover of unused label */
+.dropNav ul li:hover  a#menu_interactive {text-decoration:initial; background:var(--light-gray);}
+.dropNav ul li:hover  a#menu_book {text-decoration:initial; background:var(--light-gray);}
+.dropNav ul li:hover  a#menu_involved {text-decoration:initial; background:var(--light-gray);}
+
+.dropNav li:hover ul {display:block; position:absolute;}
+.dropNav li:hover li {float:none;}
+
+.dropNav li:hover a {background:var(--med-green);}  /*this is the color of submenu when level 0 hovered */
+
+.dropNav li:hover li a:hover {background:var(--med-green);}  /*this is the color of hover at level 1 */
+.dropNav li ul li {border-top:0px;}
+
+
+
+.compass{
+  fill:  #fff;
+  stroke:  #000;
+  stroke-width:  1.5;
+}
+.pan_button{
+  fill:  #B0E0E6;
+  stroke:  #0C2C84;
+  stroke-miterlimit:	6;
+  stroke-linecap:  round;
+}
+.pan_button:hover{
+  stroke-width:  2;
+}
+.plus-minus{
+  fill:  #fff;
+  pointer-events: none;
+}  
+
+
+#summary_graph_container {
+  width: 100%; 
+  height: auto;  
+  }
+
+#detailed_graph_container {
+  width: 100%; 
+  height: auto;
+  }
+
+#graph_left {
+  width: 100px;
+  padding-left: 0px;
+  float: left;  
+  }
+
+#svg_pan_buttons {
+  width:100px;
+  margin-top:200px;
+  }
+
+#pan_outer_box{
+  fill:  #DCDCDC;
+  stroke:  #000;
+  stroke-width:  1.5;
+  opacity: 0.3;
+  }
+
+#graph_right {
+  float: right;
+  }
+
+#svg_detailed_graph {
+  overflow:hidden;  
+  height: 1000px;
+  width: 90%;
+  border: 1px solid gray;
+  float: left;
+  }
+
+#svg_summary_graph {
+  overflow:hidden;  
+  height: 800px; 
+  width:60%;
+  border: 1px solid gray;
+  }
+
+
+.node {
+  stroke-width: 6px;
+  }
+
+.node:hover {
+  stroke-width: 8px;
+  }
+
+
+.edge {
+  stroke-width: 1px;
+  }
+
+.edge:hover {
+  stroke-width: 2px;
+  
+  }
+
+
+.cluster {
+  stroke-width: 6px;
+  }
+
+.cluster:hover {
+  stroke-width: 8px;
+  }
+
+
+#modal_container {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    
+    z-index: 1; /* Sit on top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    top:0;
+    left:0;
+  }
+
+/* Modal Content/Box */
+#modalContentContainer {
+    background-color: #fefefe;
+    margin-left: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #888;
+  }
+
+/* The Close Button */
+#closeModal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+#closeModal:hover,
+#closeModal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+.infoTable {
+  cellpadding: 3px;
+  font-size: small;
+  
+  }
+

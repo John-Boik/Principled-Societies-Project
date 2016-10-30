@@ -1,0 +1,381 @@
+{% extends "layout.html" %}
+
+
+
+{% block body2 %}
+
+<!-- ========================== Details ============================================== -->
+
+
+<script type="text/python"
+src="{{ url_for('static', filename='python/steady_01.py') }}"></script>
+
+<script src="http://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+
+<script type="text/javascript" 
+src="{{ url_for('static', filename='javascript/highcharts.js')  }}"></script>
+
+<script type="text/javascript" 
+src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
+
+
+
+<h1>Steady State Model</h1>
+
+
+
+<div class="image_left">
+  <img src="/static/images/Components_of_GDP.jpg" alt="National Income" width="500px">
+  <figcaption>Figure 1. Compartments and flows in national accounts [source]</figcaption>
+  
+  <br><br>
+
+  <img src="/static/images/sim_objects-01.png" alt="Simulation Agents" width="500px">
+  <figcaption>Figure 2. Compartments and flows in agent-based model [source]</figcaption>
+
+</div>
+
+<div class="text_right">
+
+<h2>The Story</h2>
+<p>You are an incipient LEDDA that is exploring its long-term economic goals. Because a LEDDA economy functions as a democratic decision-making system, and because it uses money as a voting tool, your goal is to create a currency circulation that: 
+<ol>
+<li>Provides every member family with a sufficiently high final (steady-state) target income. This includes families with members who are not in the work force (NIWF).</li>
+
+<li>Funds job creation in nonprofit and for-profit sectors, such that they employ desired target percentages of the workforce.</li>
+
+<li>Is distributed evenly so that no nodes in the model receive an excess or deficiency of token or dollar flow.</li>
+</ol>
+
+<p>Think of the LEDDA as a novel jetliner that is undergoing phased development and think of yourself as its engineer. You have in mind, at the beginning, certain requirements that the jetliner must meet in each phase, as well as at the end. Whereas agent-based models can illustrate how a LEDDA is expected to progress year by year, starting from initial conditions, the simpler steady-state model on this page illustrates how targets impact conditions in the long term.</p>
+
+
+<h3>Model Overview</h3>
+
+<p>The 20-node, 5-compartment interactive model illustrates how membership choices might affect steady-state currency flows in an idealized Token Exchange System (TES), one of eight components of the LEDDA framework. Flows in the model resemble flows in a national income diagram, an example of which is shown in Figure 1. Here, however, flows are for a US county, not a nation. Synthetic baseline income distributions are derived from 2011 census data for Lane County, Oregon.</p>
+
+<p>The steady-state model provides a high-level description of currency flows at a point in time after a LEDDA reaches equilibrium (perhaps 10-30 years after initiation, depending on design goals and conditions). The model is not intended to be predictive or to capture all or even most salient characteristics of a real economy. Rather, it provides an abstracted, compartmental view of local currency circulation in an idealized TES. It serves as a steppingstone toward future, more sophisticated models.</p>
+
+<p>The five primary compartments of the steady-state model, shown in Figure 2, are the same as those used in the published agent-based model [ref]. These are subdivided into 20 nodes. A more detailed overview and an explanation of abbreviations and terms is given at [a link].</p>
+
+<p>An important concept illustrated by the steady state model is that members choose the long-term makeup of their economy.  Not only do they fund job creation via CBFS contributions, in doing so they choose a balance between the sizes of different for-profit and nonprofit sectors. Further, in choosing the magnitude of CBFS earmarks, they decide the portion of total organization funding that is obtained though CBFS funding versus person spending (i.e., the purchasing of goods and services in the local marketplace).</p> 
+
+<p>As one example, funding of a community clinic might come wholly from CBFS funding, wholly from person spending (that is, via patient fees), or any combination of CBFS funding and person spending. The same could be said of funding for a school, a service, arts programs, or any organization. The membership might choose that all or nearly all jobs occur in the nonprofit sector, for example, or that few do. Said another way, the membership decides how their economy functions and feels, not the other way around.</p>
+
+
+<h2>How to run the simulation</h2>
+<p>
+<ol>
+<li><b>Choose a family income target.</b> This is the pre-tax, post-CBFS target income (in tokens and dollars, T&D) that all member families will achieve at steady-state. [popup for issues to consider]</li>
+
+<li><b>Choose a token-share of income (TSI) target.</b>  This is the percent of wage that member employers pay member employees in tokens, at steady state.  The remainder is paid in dollars. [popup for issues to consider]</li>
+
+<li><b>Choose CBFS earmarks.</b>  These are the percentages of gross income that members contribute to the four arms of the CBFS: standard business (SB) subsidies, principled business (PB) subsidies, nonprofit (NP) donations, and nurture support. Nurture support are CBFS payments to members who are unemployed or NIWF. A fifth arm, interest-free lending to organizations, is not modeled here (at equilibrium, loans to organizations equal principal payments made by them to the CBFS). [popup for issues to consider]</li>
+
+<li><b>Choose a workforce partition target.</b> This is the percentage of the workforce that is employed by each of the three primary types of organizations: standard businesses, principled businesses, and nonprofits. [popup for issues to consider]</li>
+
+<li><b>Tune the values of all other parameters.</b> The task is to tune the other parameters so that for each of the 20 nodes, the sum of inflows equals the sum of outflows, for both tokens and dollars. Nodes that achieve this balance are colored yellow in the graphics. Those that spend more then their inflows are colored red, and those that do not spend all their inflows are colored purple. Line width changes to reflex the magnitude of flow.</li>
+
+</ol>
+</p>
+
+<h2>Group 1 Parameters </h2>  
+
+  <div id="controls" class="controls">
+
+  <p>Adult Population (all in 2-person families)<br>
+    <input type="range" id="range_population" value="10000" min="1000" max="1000000"> 
+    <input type='text' id="population" value="10000">
+  </p>
+
+  <p>Final family income target, T&D, post-CBFS:<br>
+    <input type="range" id="range_family_income_target_final" value="50000" min="21600" max="300000"> 
+    <input type='text' id="family_income_target_final" value="110000">
+  </p>
+
+  <p>Token share of income (TSI), percent:<br>
+    <input type="range" id="range-TSI" value="50" min="0" max="100"> <input type='text' id="TSI" value=35>
+  </p>
+
+  <p>Initial unemployment rate, percent:<br>
+    <select id="unemployment_rate">
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="7">7</option>
+      <option value="11">11</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+    </select>
+  </p>
+
+  <table id="table_wf">
+     <caption>Workforce Partition</caption>
+    <tr>
+      <th></th>
+      <th>Percentage</th>    
+    </tr>
+    <tr>
+      <td>Standard Business</td>
+      <td><input type="range" id="range_workforce_partition_SB" value="50" min="0" max="100"> 
+          <input type='text' id="workforce_partition_SB" value="33"></td>
+    </tr>
+    <tr>
+      <td>Nonprofit</td>
+      <td><input type="range" id="range_workforce_partition_NP" value="50" min="0" max="100"> 
+          <input type='text' id="workforce_partition_NP" value="34"></td>
+    </tr>
+    <tr>
+      <td>Principled Business</td>
+      <td><input type="range" id="range_workforce_partition_PB" value="50" min="0" max="100"> 
+          <input type='text' id="workforce_partition_PB" value="33"></td>
+    </tr>
+  </table>  
+  </div>
+
+
+<h2>Group 2 Parameters or Variables </h2>    
+  <div id="controls" class="controls">
+
+  <p> <input type="button" id="set_all_variables" value="Check All As Variables, Clear All As Parameters"></input><br>
+      <input type="button" id="clear_all_variables" value="Set All As Parameters, Clear All As Variables"></input>
+  </p>
+  
+  <table id="table_cbfs">
+     <caption>CBFS Earmarks (percent of pre-CBFS income) and Token Share</caption>
+    <tr>
+      <th></th>
+      <th>Earmark</th>  
+      <th>Token Share</th>  
+    </tr>
+    
+    <tr>
+      <td>Subsidy, SB</td>
+      <td><input type="range" id="range_earmark_SB_subsidy" value="6" min="0" max="100"> 
+          <input type='text' id="earmark_SB_subsidy" value="6">
+          <br><input type='checkbox' id="variable_earmark_SB_subsidy" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_earmark_SB_subsidy_TS" value="50" min="0" max="100"> 
+          <input type='text' id="earmark_SB_subsidy_TS" value="35">
+          <br><input type='checkbox' id="variable_earmark_SB_subsidy_TS" checked>
+          Variable during minimization<br>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>Donation, NP</td>
+      <td><input type="range" id="range_earmark_NP_donation" value="50" min="0" max="100"> 
+          <input type='text' id="earmark_NP_donation" value="8">
+          <br><input type='checkbox' id="variable_earmark_NP_donation" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_earmark_NP_donation_TS" value="50" min="0" max="100"> 
+          <input type='text' id="earmark_NP_donation_TS"value="35">
+          <br><input type='checkbox' id="variable_earmark_NP_donation_TS" checked>
+          Variable during minimization<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Subsidy, PB</td>
+      <td><input type="range" id="range_earmark_PB_subsidy" value="10" min="0" max="100"> 
+          <input type='text' id="earmark_PB_subsidy" value="10">
+          <br><input type='checkbox' id="variable_earmark_PB_subsidy" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_earmark_PB_subsidy_TS" value="50" min="0" max="100"> 
+          <input type='text' id="earmark_PB_subsidy_TS"value="35">
+          <br><input type='checkbox' id="variable_earmark_PB_subsidy_TS" checked>
+          Variable during minimization<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Nurture</td>
+      <td><input type="range" id="range_earmark_nurture" value="50" min="0" max="100"> 
+          <input type='text' id="earmark_nurture" value="37">
+          <br><input type='checkbox' id="variable_earmark_nurture" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_earmark_nurture_TS" value="50" min="0" max="100"> 
+          <input type='text' id="earmark_nurture_TS"value="35">
+          <br><input type='checkbox' id="variable_earmark_nurture_TS" checked>
+          Variable during minimization<br>
+      </td>
+    </tr>
+  </table>  
+
+
+
+  <table id="table_spending">
+     <caption>Percent of Person Total Spending To Organization Nodes and Token Share</caption>
+    <tr>
+      <th>Organization Node</th>
+      <th>Person Nonmember</th>  
+      <th>Person Member</th>
+      <th>Person Member, Token Share</th>  
+    </tr>
+    
+    <tr>
+      <td>Member SB</td>
+      <td><input type="range" id="range_person_nonmember_spending_to_member_SB_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_nonmember_spending_to_member_SB_pct" value="20">
+          <br><input type='checkbox' id="variable_person_nonmember_spending_to_member_SB_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_member_SB_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_member_SB_pct" value="20">
+          <br><input type='checkbox' id="variable_person_member_spending_to_member_SB_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_member_SB_TS" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_member_SB_TS" value="35">
+          <br><input type='checkbox' id="variable_person_member_spending_to_member_SB_TS" checked>
+          Variable during minimization<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Member NP</td>
+      <td><input type="range" id="range_person_nonmember_spending_to_member_NP_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_nonmember_spending_to_member_NP_pct" value="20">
+          <br><input type='checkbox' id="variable_person_nonmember_spending_to_member_NP_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_member_NP_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_member_NP_pct" value="20">
+          <br><input type='checkbox' id="variable_person_member_spending_to_member_NP_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_member_NP_TS" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_member_NP_TS" value="35">
+          <br><input type='checkbox' id="variable_person_member_spending_to_member_NP_TS" checked>
+          Variable during minimization<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Member PB</td>
+      <td><input type="range" id="range_person_nonmember_spending_to_member_PB_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_nonmember_spending_to_member_PB_pct" value="20">
+          <br><input type='checkbox' id="variable_person_nonmember_spending_to_member_PB_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_member_PB_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_member_PB_pct" value="20">
+          <br><input type='checkbox' id="variable_person_member_spending_to_member_PB_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_member_PB_TS" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_member_PB_TS" value="35">
+          <br><input type='checkbox' id="variable_person_member_spending_to_member_PB_TS" checked>
+          Variable during minimization<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Nonmember SB</td>
+      <td><input type="range" id="range_person_nonmember_spending_to_nonmember_SB_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_nonmember_spending_to_nonmember_SB_pct" value="20">
+          <br><input type='checkbox' id="variable_person_nonmember_spending_to_nonmember_SB_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_nonmember_SB_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_nonmember_SB_pct" value="20">
+          <br><input type='checkbox' id="variable_person_member_spending_to_nonmember_SB_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_nonmember_SB_TS" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_nonmember_SB_TS" value="35">
+          <br><input type='checkbox' id="variable_person_member_spending_to_nonmember_SB_TS" checked>
+          Variable during minimization<br>
+    </tr>
+
+    <tr>
+      <td>Nonmember NP</td>
+      <td><input type="range" id="range_person_nonmember_spending_to_nonmember_NP_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_nonmember_spending_to_nonmember_NP_pct" value="20">
+          <br><input type='checkbox' id="variable_person_nonmember_spending_to_nonmember_NP_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_nonmember_NP_pct" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_nonmember_NP_pct" value="20">
+          <br><input type='checkbox' id="variable_person_member_spending_to_nonmember_NP_pct" checked>
+          Variable during minimization<br>
+      </td>
+      <td><input type="range" id="range_person_member_spending_to_nonmember_NP_TS" value="50" min="0" max="100"> 
+          <input type='text' id="person_member_spending_to_nonmember_NP_TS" value="35">          
+          <br><input type='checkbox' id="variable_person_member_spending_to_nonmember_NP_TS" checked>
+          Variable during minimization<br>
+    </tr>        
+  </table>  
+
+  <p><input type="button" id="submit" value="Run"></input>
+  <input type='checkbox' id="doMinimization">Do minimization during run (warning: may be slow if checked)</p>
+
+  </div>
+
+
+  <div id="modal_container">
+    <div id="modalContentContainer">
+      <span id="closeModal">x</span>
+      <span id="modalContent"></span>
+    </div>
+  </div>
+
+
+<h2 style="clear:both;">Summary Results From Group 1 Parameters</h2> 
+<p>The results in this section follow directly from the values of Group 1 parameters. These 
+parameters define the big picture---how high member incomes will be, what percent of the 
+workforce will be employed by various sectors, and so on.  In contrast, Group 2 parameter/variables
+define how the currency flows defined by Group 1 parameters are met, and in particular, if the 
+flows are balanced at each node.</p>
+
+<div id="group_1_summary_table" ></div>
+
+<div id="income_dist"></div>
+
+
+<h2 style="clear:both;">Summary Results From Group 2 Parameters/Variables</h2>  
+
+  <h3 style="clear:both;">Summary tables</h3> 
+  <p>Total fitness is the sum of abs(inflows-outflows) over all nodes, calculated for dollars, 
+  tokens, and 
+  T&D. If T&D total fitness is not close to zero, currency inflows and outflows at 
+  each node do not balance. In this situation, results do not have meaning. Try other  
+  choices for parameter/variable values until T&D total fitness is close to 
+  zero.</p>
+  
+  <div id="group_2_total_fitness_table" ></div>
+  
+  <div id="group_2_node_table" ></div>
+
+
+
+  <h3 style="clear:both;">Summary graph</h3>  
+  <div id='summary_graph_container'></div>
+
+
+
+<h2 style="clear:both;">Detailed Results</h2>
+
+  <h3 style="clear:both;">Detailed graph</h3>
+
+  <div id="detailed_graph_container" >
+    <div id="graph_left"></div>
+    <div id="graph_right"></div>  
+  </div>
+
+
+  <h3 style="clear:both;">Detailed node tables</h3>
+  <div id="all_tables" ></div>
+
+
+
+
+{% endblock %}
+
+
+

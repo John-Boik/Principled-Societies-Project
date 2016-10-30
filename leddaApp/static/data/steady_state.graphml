@@ -1,0 +1,1104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="key" attr.type="long" for="edge" id="d7" />
+  <key attr.name="unit" attr.type="string" for="edge" id="d6" />
+  <key attr.name="kind" attr.type="string" for="edge" id="d5" />
+  <key attr.name="value" attr.type="long" for="edge" id="d4" />
+  <key attr.name="member" attr.type="boolean" for="node" id="d3" />
+  <key attr.name="employed" attr.type="boolean" for="node" id="d2" />
+  <key attr.name="group" attr.type="string" for="node" id="d1" />
+  <key attr.name="kind" attr.type="string" for="node" id="d0" />
+  <graph edgedefault="directed">
+    <node id="CBFS_SB_subsidy">
+      <data key="d0">CBFS</data>
+      <data key="d1">SB_subsidy</data>
+    </node>
+    <node id="CBFS_PB_subsidy">
+      <data key="d0">CBFS</data>
+      <data key="d1">PB_subsidy</data>
+    </node>
+    <node id="person_nonmember_unemployed">
+      <data key="d0">person</data>
+      <data key="d2">False</data>
+      <data key="d3">False</data>
+      <data key="d1">unemployed</data>
+    </node>
+    <node id="person_member_PB">
+      <data key="d0">person</data>
+      <data key="d2">True</data>
+      <data key="d3">True</data>
+      <data key="d1">PB</data>
+    </node>
+    <node id="org_member_PB">
+      <data key="d0">org</data>
+      <data key="d3">True</data>
+      <data key="d1">PB</data>
+    </node>
+    <node id="CBFS_NP_donation">
+      <data key="d0">CBFS</data>
+      <data key="d1">NP_donation</data>
+    </node>
+    <node id="person_nonmember_NP">
+      <data key="d0">person</data>
+      <data key="d2">True</data>
+      <data key="d3">False</data>
+      <data key="d1">NP</data>
+    </node>
+    <node id="org_nonmember_SB">
+      <data key="d0">org</data>
+      <data key="d3">False</data>
+      <data key="d1">SB</data>
+    </node>
+    <node id="CBFS_nuture">
+      <data key="d0">CBFS</data>
+      <data key="d1">nuture</data>
+    </node>
+    <node id="person_member_unemployed">
+      <data key="d0">person</data>
+      <data key="d2">False</data>
+      <data key="d3">True</data>
+      <data key="d1">unemployed</data>
+    </node>
+    <node id="org_nonmember_NP">
+      <data key="d0">org</data>
+      <data key="d3">False</data>
+      <data key="d1">NP</data>
+    </node>
+    <node id="person_member_SB">
+      <data key="d0">person</data>
+      <data key="d2">True</data>
+      <data key="d3">True</data>
+      <data key="d1">SB</data>
+    </node>
+    <node id="org_member_NP">
+      <data key="d0">org</data>
+      <data key="d3">True</data>
+      <data key="d1">NP</data>
+    </node>
+    <node id="person_member_NIWF">
+      <data key="d0">person</data>
+      <data key="d2">False</data>
+      <data key="d3">True</data>
+      <data key="d1">NIWF</data>
+    </node>
+    <node id="gov">
+      <data key="d0">gov</data>
+    </node>
+    <node id="person_nonmember_SB">
+      <data key="d0">person</data>
+      <data key="d2">True</data>
+      <data key="d3">False</data>
+      <data key="d1">SB</data>
+    </node>
+    <node id="person_member_NP">
+      <data key="d0">person</data>
+      <data key="d2">True</data>
+      <data key="d3">True</data>
+      <data key="d1">NP</data>
+    </node>
+    <node id="roc">
+      <data key="d0">roc</data>
+    </node>
+    <node id="person_nonmember_NIWF">
+      <data key="d0">person</data>
+      <data key="d2">False</data>
+      <data key="d3">False</data>
+      <data key="d1">NIWF</data>
+    </node>
+    <node id="org_member_SB">
+      <data key="d0">org</data>
+      <data key="d3">True</data>
+      <data key="d1">SB</data>
+    </node>
+    <edge source="CBFS_SB_subsidy" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">funding</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="CBFS_SB_subsidy" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">funding</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="CBFS_PB_subsidy" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">funding</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="CBFS_PB_subsidy" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">funding</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_unemployed" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">2</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_PB" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_PB" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_PB" target="roc">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_PB" target="person_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_PB" target="person_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="CBFS_NP_donation" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">funding</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="CBFS_NP_donation" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">funding</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_NP" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_nonmember_SB" target="roc">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_nonmember_SB" target="person_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="CBFS_nuture" target="person_member_NIWF">
+      <data key="d4">0</data>
+      <data key="d5">nurture</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="CBFS_nuture" target="person_member_NIWF">
+      <data key="d4">0</data>
+      <data key="d5">nurture</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="CBFS_nuture" target="person_member_unemployed">
+      <data key="d4">0</data>
+      <data key="d5">nurture</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="CBFS_nuture" target="person_member_unemployed">
+      <data key="d4">0</data>
+      <data key="d5">nurture</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">2</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_unemployed" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_unemployed" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_nonmember_NP" target="person_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_nonmember_NP" target="roc">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">2</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_SB" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_SB" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_NP" target="roc">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_NP" target="person_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_NP" target="person_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">2</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NIWF" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NIWF" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="person_nonmember_unemployed">
+      <data key="d4">0</data>
+      <data key="d5">support</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="person_member_NIWF">
+      <data key="d4">0</data>
+      <data key="d5">support</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">gov_grants_contracts</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">gov_subsidies_contracts</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="roc">
+      <data key="d4">0</data>
+      <data key="d5">gov_subsidies_contracts</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="person_member_unemployed">
+      <data key="d4">0</data>
+      <data key="d5">support</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">gov_subsidies_contracts</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="person_nonmember_NIWF">
+      <data key="d4">0</data>
+      <data key="d5">support</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">gov_grants_contracts</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="gov" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">gov_subsidies_contracts</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_SB" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_NP_donation">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">2</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_SB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_nuture">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="CBFS_PB_subsidy">
+      <data key="d4">0</data>
+      <data key="d5">contribution</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_member_NP" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_member_NP" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="roc" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="roc" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="roc" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="roc" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="roc" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="org_member_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="org_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="org_member_PB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="org_nonmember_SB">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">spending</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="org_nonmember_NP">
+      <data key="d4">0</data>
+      <data key="d5">donation</data>
+      <data key="d6">dollars</data>
+      <data key="d7">1</data>
+    </edge>
+    <edge source="person_nonmember_NIWF" target="gov">
+      <data key="d4">0</data>
+      <data key="d5">taxes</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_SB" target="roc">
+      <data key="d4">0</data>
+      <data key="d5">trade</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_SB" target="person_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">dollars</data>
+      <data key="d7">0</data>
+    </edge>
+    <edge source="org_member_SB" target="person_member_SB">
+      <data key="d4">0</data>
+      <data key="d5">wage</data>
+      <data key="d6">tokens</data>
+      <data key="d7">1</data>
+    </edge>
+  </graph>
+</graphml>
