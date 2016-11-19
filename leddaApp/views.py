@@ -68,11 +68,11 @@ def runModel():
   K.sort()
   paramsDic = data.copy()
   
-  #for k in K:
-  #  print(k, data[k])
+  for k in K:
+    print(k, data[k])
   
   # remove lists, make floats, convert % to fractions
-  _ = [data.__setitem__(k, float(data[k][0])/100.) for k in K if k[0:9] != 'variable_']
+  _ = [data.__setitem__(k, float(data[k][0])/100.) for k in K if k[0:9] != 'flexible_']
 
   # for checkboxes, convert on/off to integers 1/0
   for k in K:
@@ -95,9 +95,21 @@ def runModel():
   # get fitness scores
   fitnessDic, tableDic, summaryGraphDic = fitness.getFit(X, stocksDic, Print=False)
   
-  return jsonify(result = {"msg":"OK", 'fitnessDic': fitnessDic, 
-    'tableDic':tableDic, 'paramsDic':paramsDic, 'countsDic': countsDic, 'histoDic': histoDic,
-    'summaryGraphDic': summaryGraphDic})
+  #redirect('http://'+ results_name, 301) 
+  
+  resultDic = {
+    "msg":"OK", 
+    'fitnessDic': fitnessDic, 
+    'tableDic':tableDic, 
+    'paramsDic':paramsDic, 
+    'countsDic': countsDic, 
+    'histoDic': histoDic,
+    'summaryGraphDic': summaryGraphDic
+    }
+  
+  return render_template('results.html', results=resultDic) 
+  
+
   
   
 

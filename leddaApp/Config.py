@@ -10,7 +10,7 @@ If any parameters are changed, a new HDF5 file should be created.  To do this, r
 make_HDF5_pop_income.py in the additional_scripts folder.
 """
 
-population = 100000
+population = 50000
 labor_participation_rate = 65.0
 NP_reg_donation_pct_dollar_income = 2.0
 WF_pct_NP_initial = 7.0

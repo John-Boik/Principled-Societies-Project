@@ -8,7 +8,10 @@ def menu():
   if current == "":
     # use manage page as default index
     current = "index"
-
+  
+  if current == 'runModel':
+    return
+  
   elem = document["menu_" + current]
   elem.style.backgroundColor = 'DarkOrange '
   

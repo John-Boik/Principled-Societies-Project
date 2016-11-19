@@ -336,6 +336,9 @@ def getFit(X, stocksDic, Print=False):
   allot in sequential order the amount each needs to reach a balance of zero. Stop
   when RoC funds run dry.
   
+  Note that purchases from RoC is not modeled here, because purchases would offset sales.
+  Rather, the net revenue gain from RoC is modeled (for accounting purposes, purchases are zero).
+  
   """
 
   dollars, tokens, total = sumEdges(G, 'roc', ['in']) 
@@ -620,17 +623,25 @@ def summaryGraph(fitnessDic, G):
   
   edges = {}
   nodes = {}
+  
+  edges['path_Org_wages'] = 0
   edges['path_Persons_Emp_spending'] = 0
   edges['path_Persons_Unemp_spending'] = 0
-  edges['path_Persons_Emp_Donations'] = 0
-  edges['path_Persons_Unemp_Donations'] = 0
   edges['path_Persons_Emp_contributions'] = 0
-  edges['path_Persons_Unemp_contributions'] = 0  
+  edges['path_Persons_Unemp_contributions'] = 0 
+  edges['path_Nurture_support'] = 0
+  edges['path_Gov_support'] = 0
   edges['path_Persons_Emp_taxes'] = 0
   edges['path_Persons_Unemp_taxes'] = 0 
-  edges['path_Nurture_support'] = 0
+  edges['path_Gov_Orgs'] = 0
+  edges['path_Gov_ROC'] = 0
+  edges['path_Org_sales'] = 0
+  edges['path_Org_purchases'] = 0   # assumed to be zero, because net trade is modeled
+  edges['path_CBFS_Orgs'] = 0
+  edges['path_Persons_Emp_Donations'] = 0
+  edges['path_Persons_Unemp_Donations'] = 0
   
-  
+   
   edgeDic = fitnessDic['edges']
   keys = list(edgeDic.keys())
   for e in keys:
@@ -638,36 +649,51 @@ def summaryGraph(fitnessDic, G):
     src = ed['src']
     dst = ed['dst']
     kind = ed['kind']
-    #print("\n", ed)
-    #print("\n", G.node[src])    
+ 
+    if kind == 'wage':
+      edges['path_Org_wages'] += ed['value']  
+
     if kind == 'spending':
       if G.node[src]['employed']:
         edges['path_Persons_Emp_spending'] += ed['value']
       else:
         edges['path_Persons_Unemp_spending'] += ed['value']
     
-    if kind == 'regular_donation':  
-      if G.node[src]['employed']:
-        edges['path_Persons_Emp_Donations'] += ed['value']
-      else:
-        edges['path_Persons_Unemp_Donations'] += ed['value']
-  
     if kind == 'contribution':
       if G.node[src]['employed']:
         edges['path_Persons_Emp_contributions'] += ed['value']
       else:
         edges['path_Persons_Unemp_contributions'] += ed['value']      
-  
+
+    if kind == 'nurture':
+      edges['path_Nurture_support'] += ed['value']
+
+    if kind == 'support':
+      edges['path_Gov_support'] += ed['value']
+
     if kind == 'taxes':
       if G.node[src]['employed']:
         edges['path_Persons_Emp_taxes'] += ed['value']
       else:
-        edges['path_Persons_Unemp_taxes'] += ed['value']   
+        edges['path_Persons_Unemp_taxes'] += ed['value']  
 
-    if kind == 'nurture':
-      edges['path_Nurture_support'] += ed['value']
-  
-  
+    if (kind == 'gov_subsidies_contracts') or (kind == 'gov_grants_contracts'):
+      edges['path_Gov_Orgs'] += ed['value']
+    
+    if kind == 'gov_spending':
+      edges['path_Gov_ROC'] += ed['value']
+    
+    if kind == 'trade':
+      edges['path_Org_sales'] += ed['value']      
+
+    if kind == 'funding':
+      edges['path_CBFS_Orgs'] += ed['value']      
+
+    if kind == 'regular_donation':  
+      if G.node[src]['employed']:
+        edges['path_Persons_Emp_Donations'] += ed['value']
+      else:
+        edges['path_Persons_Unemp_Donations'] += ed['value']
   
   
   summaryGraphDic = {'edges':edges, 'nodes':nodes}

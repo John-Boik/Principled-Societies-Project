@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+
+
+{% block body2 %}
+
+<!-- ========================== Details ============================================== -->
+
+
+<script type="text/python">
+from browser import window
+results = {{ results|safe }}
+window.results = results
+</script>
+
+<script type="text/python"
+src="{{ url_for('static', filename='python/results.py') }}"></script>
+
+<script src="http://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+
+<script type="text/javascript" 
+src="{{ url_for('static', filename='javascript/highcharts.js')  }}"></script>
+
+<script type="text/javascript" 
+src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
+
+
+<div id="modal_container">
+  <div id="modalContentContainer">
+    <span id="closeModal">x</span>
+    <span id="modalContent"></span>
+  </div>
+</div>
+
+
+<h2>Fitness Overview</h2>
+<p>The grand fitness is <output id="output_grand_fitness">...wait...</output>.</p>
+
+<p>If the grand fitness is somewhat above zero, say, greater than the population times 1,000, the results are questionable. If the grand fitness is far above zero, then all results except fitness are meaningless. The perfect fitness is zero, and it can be achived in numerous ways.</p>
+
+
+  <div id="grand_fitness_table" ></div>
+
+<p>Some of the elements of tables and graphics on this page are color coded to visually highlight the differences in node fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, sigifying the maximum of (1,000, maximum node fitness).</p> 
+
+<p>Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</p>
+  <div id='summary_graph_container'></div>
+
+  <p>[more...accordion]</p>
+
+
+
+  <div id="node_fitness_summary_table" ></div>
+
+
+<h2 style="clear:both;">Results: Starting Conditions and Targets</h2> 
+<p>The results in this section follow directly from the values chosen for starting conditions and targets.  </p>
+
+  <p>[more...accordion]</p>
+
+<div id="income_dist"></div>
+<div id="graph_person_counts"></div>
+<div id="graph_pct_employed_workforce"></div>
+<div id="graph_pie_employed_member_workforce"></div>
+<div id="graph_mean_family_income"></div>
+<div id="group_1_summary_table" ></div>
+
+
+<h2 style="clear:both;">Results: Variables</h2>  
+<p>Given starting conditions and targets, the results in this section follow directly from the values chosen for variables.</p>
+
+  <p>[more...accordion]</p>
+
+  <h3 style="clear:both;">Summary tables</h3> 
+  
+  <div id="group_2b_node_table" ></div>
+
+
+
+<h2 style="clear:both;">Detailed Results</h2>
+
+  <h3 style="clear:both;">Detailed graph</h3>
+
+  <div id="detailed_graph_container" >
+    <div id="graph_left"></div>
+    <div id="graph_right"></div>  
+  </div>
+
+
+  <h3 style="clear:both;">Detailed node tables</h3>
+  <div id="all_tables" ></div>
+
+
+
+{% endblock %}
+
+
+

@@ -808,7 +808,7 @@
     </edge>
     <edge source="gov" target="roc">
       <data key="d4">0</data>
-      <data key="d5">gov_subsidies_contracts</data>
+      <data key="d5">gov_spending</data>
       <data key="d6">dollars</data>
       <data key="d7">0</data>
     </edge>

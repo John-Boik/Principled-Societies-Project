@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg_summary_graph"
+   viewBox="0 0 690.12145 688.81412">
+  
+  <defs
+     id="defs4">
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker29299"
+       style="overflow:visible">
+      <path
+         id="path29301"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29181"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29183" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker28915"
+       style="overflow:visible">
+      <path
+         id="path28917"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path4258"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4513"
+       style="overflow:visible">
+      <path
+         id="path4515"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path4240"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3"
+       style="overflow:visible">
+      <path
+         id="path4258-6"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-5"
+       style="overflow:visible">
+      <path
+         id="path4258-6-3"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-6"
+       style="overflow:visible">
+      <path
+         id="path4258-2"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-5-1"
+       style="overflow:visible">
+      <path
+         id="path4258-6-3-2"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-0"
+       style="overflow:visible">
+      <path
+         id="path4258-6-9"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-5"
+       style="overflow:visible">
+      <path
+         id="path4258-9"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-5-2"
+       style="overflow:visible">
+      <path
+         id="path4258-9-8"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-5-2-7"
+       style="overflow:visible">
+      <path
+         id="path4258-9-8-3"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-1"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-19"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-19-8"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-4-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-19-0"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-4-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-19-0-1"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-4-3-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-19-0-1-6"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-4-3-0-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-19-8-5"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-4-4-4" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker29299-4"
+       style="overflow:visible">
+      <path
+         id="path29301-7"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29069-19-8-5-9"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29071-4-4-4-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker29181-6"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path29183-8" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker29299-9"
+       style="overflow:visible">
+      <path
+         id="path29301-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>AA3939</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g_main"
+     transform="matrix(0.73083395,0,0,0.7304599,69.120055,-28.206058)">
+    <rect
+       y="353.39053"
+       x="34.170887"
+       height="38.780102"
+       width="185.81619"
+       id="rect_ROC"
+       style="fill:#cccccc;fill-opacity:0.01960784;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_ROC"
+       y="379.56183"
+       x="126.86384"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         id="tspan3770"
+         y="379.56183"
+         x="126.86384">Rest-of-Counties</tspan></text>
+    <rect
+       y="481.30261"
+       x="36.033474"
+       height="37.281937"
+       width="144.00565"
+       id="rect_Gov"
+       style="fill:#cccccc;fill-opacity:0.01960784;stroke:#000000;stroke-width:2.82687378;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Gov"
+       y="506.22421"
+       x="46.294876"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         y="506.22421"
+         x="46.294876"
+         id="tspan3774">Government</tspan></text>
+    <rect
+       y="40.114109"
+       x="33.395584"
+       height="212.79808"
+       width="419.41101"
+       id="rect_Org"
+       style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org"
+       y="63.697342"
+       x="167.5614"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         y="63.697342"
+         x="167.5614"
+         id="tspan5337">Organizations</tspan></text>
+    <rect
+       y="75.701019"
+       x="45.367641"
+       height="120.11406"
+       width="186.63297"
+       id="rect_Org_nonmember"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org_nonmember"
+       y="97.557198"
+       x="139.19186"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#000000"
+         id="tspan3573"
+         y="97.557198"
+         x="139.19186">Nonmember</tspan></text>
+    <rect
+       y="108.52102"
+       x="56.841892"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Org_nonmember_SB"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org_nonmember_SB"
+       y="130.14737"
+       x="68.570229"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="130.14737"
+         x="68.570229"
+         id="tspan3385">Standard Business</tspan></text>
+    <rect
+       y="151.65118"
+       x="57.299438"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Org_nonmember_NP"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org_nonmember_NP"
+       y="172.50258"
+       x="104.90517"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="172.50258"
+         x="104.90517"
+         id="tspan3385-0-6-5">Nonprofit</tspan></text>
+    <rect
+       y="75.953323"
+       x="253.78654"
+       height="164.39687"
+       width="186.26134"
+       id="rect_Org_member"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org_member"
+       y="97.393326"
+       x="315.91718"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#000000"
+         y="97.393326"
+         x="315.91718"
+         id="tspan3447">Member</tspan></text>
+    <rect
+       y="108.42896"
+       x="265.25803"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Org_member_SB"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org_member_SB"
+       y="130.23053"
+       x="277.5256"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="130.23053"
+         x="277.5256"
+         id="tspan3385-1">Standard Business</tspan></text>
+    <rect
+       y="152.17532"
+       x="265.59222"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Org_member_NP"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org_member_NP"
+       y="173.41035"
+       x="311.67691"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="173.41035"
+         x="311.67691"
+         id="tspan3385-0-6">Nonprofit</tspan></text>
+    <rect
+       y="196.59413"
+       x="265.88986"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Org_member_PB"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Org_member_PB"
+       y="219.14182"
+       x="274.97284"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="219.14182"
+         x="274.97284"
+         id="tspan3385-0">Principled Business</tspan></text>
+    <rect
+       y="637.94513"
+       x="34.527168"
+       height="342.15588"
+       width="265.61215"
+       id="rect_CBFS"
+       style="fill:#cccccc;fill-opacity:0.01960784;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS"
+       y="663.15009"
+       x="140.83687"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         y="663.15009"
+         x="140.83687"
+         id="tspan3447-7-9">CBFS</tspan></text>
+    <rect
+       y="675.08105"
+       x="46.065155"
+       height="32.984135"
+       width="240.98413"
+       id="rect_CBFS_SB_subsidies"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS_SB_subsidies"
+       y="697.4151"
+       x="58.003822"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="697.4151"
+         x="58.003822"
+         id="tspan3385-1-5-7">Standard Business Subsidies</tspan></text>
+    <rect
+       y="718.58105"
+       x="46.072861"
+       height="32.984135"
+       width="240.98413"
+       id="rect_CBFS_SB_loans"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS_SB_loans"
+       y="741.26947"
+       x="71.852165"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="741.26947"
+         x="71.852165"
+         id="tspan3385-1-5-7-1">Standard Business Loans</tspan></text>
+    <rect
+       y="761.98468"
+       x="45.967361"
+       height="32.989883"
+       width="240.98988"
+       id="rect_CBFS_NP_donations"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS_NP_donations"
+       y="783.49695"
+       x="90.520302"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="783.49695"
+         x="90.520302"
+         id="tspan3385-0-6-52-3-3">Nonprofit Donations</tspan></text>
+    <rect
+       y="806.12738"
+       x="46.318901"
+       height="32.989883"
+       width="240.98988"
+       id="rect_CBFS_NP_loans"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS_NP_loans"
+       y="827.64783"
+       x="105.88779"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="827.64783"
+         x="105.88779"
+         id="tspan3385-0-6-52-3">Nonprofit Loans</tspan></text>
+    <rect
+       y="849.82806"
+       x="46.192146"
+       height="32.987553"
+       width="240.98755"
+       id="rect_CBFS_PB_subsidies"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS_PB_subsidies"
+       y="872.24792"
+       x="55.416595"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="872.24792"
+         x="55.416595"
+         id="tspan3385-0-3-8">Principled Business Subsidies</tspan></text>
+    <rect
+       y="893.16345"
+       x="46.133858"
+       height="32.987553"
+       width="240.98755"
+       id="rect_CBFS_PB_loans"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS_PB_loans"
+       y="915.31073"
+       x="69.061714"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="915.31073"
+         x="69.061714"
+         id="tspan3385-0-3-8-5">Principled Business Loans</tspan></text>
+    <rect
+       y="332.16226"
+       x="300.41824"
+       height="212.79808"
+       width="419.41101"
+       id="rect_Persons_Emp"
+       style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_Emp"
+       y="356.98795"
+       x="415.24014"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         y="356.98795"
+         x="415.24014"
+         id="tspan5749">Persons, Employed</tspan></text>
+    <rect
+       y="367.74918"
+       x="312.39029"
+       height="120.11406"
+       width="186.63297"
+       id="rect_Persons_Emp_nonmember"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_Emp_nonmember"
+       y="389.60535"
+       x="406.21451"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#000000"
+         id="tspan3573-5"
+         y="389.60535"
+         x="406.21451">Nonmember</tspan></text>
+    <rect
+       y="400.56918"
+       x="323.86453"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Persons_Emp_nonmember_SB"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_Emp_nonmember_SB"
+       y="422.19553"
+       x="335.59286"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="422.19553"
+         x="335.59286"
+         id="tspan3385-6">Standard Business</tspan></text>
+    <rect
+       y="443.69934"
+       x="324.32205"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Persons_Emp_nonmember_NP"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="textPersons_Emp_nonmember_NP"
+       y="464.55072"
+       x="371.92783"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="464.55072"
+         x="371.92783"
+         id="tspan3385-0-6-5-3">Nonprofit</tspan></text>
+    <rect
+       y="368.00146"
+       x="520.8092"
+       height="164.39687"
+       width="186.26134"
+       id="rect_Persons_Emp_member"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_Emp_member"
+       y="389.44147"
+       x="582.93982"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#000000"
+         y="389.44147"
+         x="582.93982"
+         id="tspan3447-6">Member</tspan></text>
+    <rect
+       y="400.47711"
+       x="532.28064"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Persons_Emp_member_SB"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_Emp_member_SB"
+       y="422.27869"
+       x="544.54822"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="422.27869"
+         x="544.54822"
+         id="tspan3385-1-8">Standard Business</tspan></text>
+    <rect
+       y="444.22348"
+       x="532.61487"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Persons_Emp_member_NP"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_Emp_member_NP"
+       y="465.4585"
+       x="578.69958"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="465.4585"
+         x="578.69958"
+         id="tspan3385-0-6-0">Nonprofit</tspan></text>
+    <rect
+       y="488.64227"
+       x="532.91254"
+       height="33.013439"
+       width="163.01344"
+       id="rect_Persons_Emp_member_PB"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_Emp_member_PB"
+       y="511.18997"
+       x="541.99548"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="511.18997"
+         x="541.99548"
+         id="tspan3385-0-2">Principled Business</tspan></text>
+    <rect
+       y="640.15411"
+       x="406.66541"
+       height="169.23756"
+       width="310.75919"
+       id="rect_Persons_nonEmp"
+       style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_nonEmp"
+       y="664.2619"
+       x="448.07089"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         y="664.2619"
+         x="448.07089"
+         id="tspan5749-49">Persons, Not Employed</tspan></text>
+    <rect
+       y="674.88586"
+       x="419.91602"
+       height="121.98823"
+       width="136.78441"
+       id="rect_Persons_nonEmp_nonmember"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_nonEmp_nonmember"
+       y="696.87933"
+       x="487.07764"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#000000"
+         id="tspan3573-5-7"
+         y="696.87933"
+         x="487.07764">Nonmember</tspan></text>
+    <rect
+       y="707.77594"
+       x="430.647"
+       height="33.161278"
+       width="114.16128"
+       id="rect_Persons_nonEmp_nonmember_unemp"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_nonEmp_nonmember_unemp"
+       y="730.00269"
+       x="440.32309"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="730.00269"
+         x="440.32309"
+         id="tspan3385-6-7">Unemployed</tspan></text>
+    <rect
+       y="752.2392"
+       x="430.83713"
+       height="33.161278"
+       width="114.16128"
+       id="rect_Persons_nonEmp_nonmember_NIWF"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_nonEmp_nonmember_NIWF"
+       y="774.35791"
+       x="468.79095"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="774.35791"
+         x="468.79095"
+         id="tspan3385-0-6-5-3-5">NIWF</tspan></text>
+    <rect
+       y="675.39136"
+       x="568.09155"
+       height="121.99467"
+       width="137.01357"
+       id="rect_Persons_nonEmp_member"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_nonEmp_member"
+       y="697.09253"
+       x="602.48334"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#000000"
+         y="697.09253"
+         x="602.48334"
+         id="tspan3447-6-2">Member</tspan></text>
+    <rect
+       y="708.06097"
+       x="579.74347"
+       height="33.161278"
+       width="114.16128"
+       id="rect_Persons_nonEmp_member_unemp"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_nonEmp_member_unemp"
+       y="729.92975"
+       x="590.09174"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="729.92975"
+         x="590.09174"
+         id="tspan3385-1-8-8">Unemployed</tspan></text>
+    <rect
+       y="751.97205"
+       x="580.07684"
+       height="32.997791"
+       width="114.16297"
+       id="rect_Persons_nonEmp_member_NIWF"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_Persons_nonEmp_member_NIWF"
+       y="774.72943"
+       x="617.2688"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="774.72943"
+         x="617.2688"
+         id="tspan3385-0-6-5-3-5-9">NIWF</tspan></text>
+    <rect
+       y="936.49994"
+       x="46.056732"
+       height="32.987553"
+       width="240.98755"
+       id="rect_CBFS_Nurture"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text_CBFS_Nurture"
+       y="958.64722"
+       x="140.98459"
+       style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="958.64722"
+         x="140.98459"
+         id="tspan3385-0-3-8-5-7">Nurture</tspan></text>
+    <path
+       id="path_Org_wages"
+       d="m 453.93772,220.24619 c 87.2803,9.84066 112.57916,27.44861 131.87398,104.49871"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker29181)" />
+    <text
+       id="text_Org_wages"
+       y="298.72656"
+       x="517.27655"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="298.72656"
+         x="517.27655"
+         id="tspan17856-0">Wages</tspan></text>
+    <path
+       id="path_Persons_Emp_spending"
+       d="M 646.16214,323.04139 C 596.34948,230.11733 565.27566,196.09939 460.26526,190.62178"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker29299)" />
+    <text
+       id="text_Persons_Emp_spending"
+       y="299.28818"
+       x="641.06415"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="299.28818"
+         x="641.06415"
+         id="tspan17856-3">Spending</tspan></text>
+    <path
+       id="path_Persons_Unemp_spending"
+       d="M 717.68874,727.34267 C 941.6566,563.4116 893.76304,122.19045 464.07215,115.57375"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker29299-4)" />
+    <text
+       id="text_Persons_Unemp_spending"
+       y="109.61738"
+       x="491.84445"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="109.61738"
+         x="491.84445"
+         id="tspan17856">Spending</tspan></text>
+    <path
+       id="path_Persons_Emp_contributions"
+       d="M 520.64726,483.3804 C 447.54253,581.44452 287.73763,549.78888 281.08952,628.58026"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker29069)" />
+    <text
+       id="text_Persons_Emp_contributions"
+       y="567.97137"
+       x="409.94595"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="567.97137"
+         x="409.94595"
+         id="tspan17856-0-9-5-5-7-6-8-5">Contributions</tspan></text>
+    <path
+       id="path_Persons_Unemp_contributions"
+       d="M 615.36776,798.10922 C 553.45694,906.43443 389.92073,884.10704 303.98242,888.27235"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4513)" />
+    <text
+       id="text_Persons_Unemp_contributions"
+       y="876.69086"
+       x="353.13431"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="876.69086"
+         x="353.13431"
+         id="tspan17856-0-9-5-5-7-6-8">Contributions</tspan></text>
+    <path
+       id="path_Nurture_support"
+       d="m 287.27635,954.63486 c 154.26059,-1.9831 390.55722,11.9489 400.00381,-154.52813"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker28915)" />
+    <text
+       id="text_Nurture_support"
+       y="943.16852"
+       x="404.07068"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="943.16852"
+         x="404.07068"
+         id="tspan17856-0-9-5-5-7-6">Nurture</tspan></text>
+    <path
+       id="path_Gov_support"
+       d="m 123.69908,522.31519 c 54.73503,81.41605 230.08303,42.66419 277.53882,114.9258"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29069-1)" />
+    <text
+       id="text_Gov_support"
+       y="592.53363"
+       x="152.70367"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="592.53363"
+         x="152.70367"
+         id="tspan17856-0-9-5-5-7">Support</tspan></text>
+    <path
+       id="path_Persons_Emp_taxes"
+       d="m 300.51682,409.98107 c -88.96277,2.91587 -141.4927,0.17784 -175.19276,66.84248"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29069-19)" />
+    <text
+       id="text_Persons_Emp_taxes"
+       y="436.05545"
+       x="197.07359"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="436.05545"
+         x="197.07359"
+         id="tspan17856-0-9-5">Taxes</tspan></text>
+    <path
+       id="path_Persons_Unemp_taxes"
+       d="M 484.44977,639.65135 C 475.71004,581.0007 271.12948,585.72528 184.25834,520.86146"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29069-19-8)" />
+    <text
+       id="text_Persons_Unemp_taxes"
+       y="535.43665"
+       x="216.43988"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="535.43665"
+         x="216.43988"
+         id="tspan17856-0-9-5-5">Taxes</tspan></text>
+    <path
+       id="path_Gov_Orgs"
+       d="M 25.817849,488.52952 C 2.7275702,482.39698 -111.17771,331.40987 26.543395,233.03112"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29069-19-8-5-9)" />
+    <text
+       id="text_Gov_Orgs"
+       y="490.57608"
+       x="15.387643"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px;text-align:end;text-anchor:end"
+         id="tspan45912-4"
+         y="490.57608"
+         x="15.387643">Subsidies,</tspan><tspan
+         id="tspan49978"
+         style="font-size:13.75px;text-align:end;text-anchor:end"
+         y="507.76358"
+         x="15.387643">Grants,</tspan><tspan
+         id="tspan49980"
+         style="font-size:13.75px;text-align:end;text-anchor:end"
+         y="524.95105"
+         x="15.387643">Contracts</tspan></text>
+    <path
+       id="path_Gov_ROC"
+       d="M 65.610914,481.07094 C 63.400958,441.07681 70.571893,424.3464 77.91618,398.66127"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29069-19-0)" />
+    <text
+       id="text_Gov_ROC"
+       y="416.24326"
+       x="83.335724"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan53623-75"
+         style="font-size:13.75px"
+         y="416.24326"
+         x="83.335724">Spending</tspan></text>
+    <path
+       id="path_Org_sales"
+       d="M 71.47483,255.81766 C 50.608355,282.987 46.585378,310.09941 78.18314,347.84644"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29069-19-0-1)" />
+    <text
+       id="text_Org_sales"
+       y="294.95987"
+       x="35.180286"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px;text-align:center;text-anchor:middle"
+         y="294.95987"
+         x="35.180286"
+         id="tspan17856-0-9-7">Org</tspan><tspan
+         id="tspan53625"
+         style="font-size:13.75px;text-align:center;text-anchor:middle"
+         y="312.14737"
+         x="35.180286">Sales</tspan></text>
+    <path
+       id="path_Org_purchases"
+       d="m 133.49141,348.80331 c 20.86648,-27.16934 24.88945,-54.28175 -6.70831,-92.02878"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29069-19-0-1-6)" />
+    <text
+       id="text_Org_purchases"
+       y="298.54062"
+       x="153.32526"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px"
+         y="298.54062"
+         x="153.32526"
+         id="tspan17856-0-9-6">Org</tspan><tspan
+         id="tspan53623-4"
+         style="font-size:13.75px"
+         y="315.72812"
+         x="153.32526">Purchases</tspan></text>
+    <path
+       id="path_CBFS_Orgs"
+       d="M 31.813909,637.70855 C -69.618775,609.00277 -190.16324,317.2649 28.555949,160.46129"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker29069-19-8-5)" />
+    <text
+       id="text_CBFS_Orgs"
+       y="639.40479"
+       x="12.309448"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:13.75px;text-align:end;text-anchor:end"
+         y="639.40479"
+         x="12.309448"
+         id="tspan45908">Subsidies,</tspan><tspan
+         style="font-size:13.75px;text-align:end;text-anchor:end"
+         id="tspan45910"
+         y="656.59229"
+         x="12.309448">Donations</tspan><tspan
+         style="font-size:13.75px;text-align:end;text-anchor:end"
+         id="tspan45912"
+         y="673.77979"
+         x="12.309448">Loans</tspan></text>
+    <path
+       id="path_Persons_Emp_Donations"
+       d="M 291.77266,364.75413 C 231.66299,312.18644 182.60296,258.09116 280.24018,169.16157"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29181-6)" />
+    <text
+       id="text_Persons_Emp_Donations"
+       y="314.95706"
+       x="252.23291"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan53623"
+         style="font-size:13.75px"
+         y="314.95706"
+         x="252.23291">Donations</tspan></text>
+    <path
+       id="path_Persons_Unemp_Donations"
+       d="M 703.08252,637.04972 C 891.19877,477.10216 772.92983,143.43585 412.28648,173.9986"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker29299-9)" />
+    <text
+       id="text_Persons_Unemp_Donations"
+       y="166.50931"
+       x="485.34503"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan53623-7"
+         style="font-size:13.75px"
+         y="166.50931"
+         x="485.34503">Donations</tspan></text>
+  </g>
+</svg>

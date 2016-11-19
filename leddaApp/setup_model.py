@@ -147,7 +147,7 @@ def setup(data):
   # open synthetic population file
   dataFolder = app.config['DATA_FOLDER']
   fn = os.path.join(dataFolder, 'steady_state_population.hdf5')
-  HDF5 = tb.openFile(fn, mode='r')
+  HDF5 = tb.open_file(fn, mode='r')
   
   tableID = None
   for tableName in HDF5.root._v_children:
@@ -215,7 +215,7 @@ def setGovRates(X):
   print(dir(X.TP))
   
   # grants to nonprofits
-  W = X.TP.getWhereList("(work_status==4)")
+  W = X.TP.get_where_list("(work_status==4)")
   P_grant_NP_dollars = X.TP.cols.R_dollars[:].sum() * X.Config.gov_grant_NP_pct_total_income
   fraction = P_grant_NP_dollars / X.TP.cols.R_wages_NP_dollars[:].sum()
   P_grant_NP_dollars = P_grant_NP_dollars * X.populationRatio
@@ -227,7 +227,7 @@ def setGovRates(X):
   Gov.grant_NP_dollars_annual = P_grant_NP_dollars
 
   # contracts with NP
-  W = X.TP.getWhereList("(work_status==4)")
+  W = X.TP.get_where_list("(work_status==4)")
   P_contract_NP_dollars = X.TP.cols.R_dollars[:].sum() * \
     X.Config.gov_contract_NP_pct_total_income
   fraction = P_contract_NP_dollars / X.TP.cols.R_wages_NP_dollars[:].sum()
@@ -240,7 +240,7 @@ def setGovRates(X):
   Gov.contract_NP_dollars_annual = P_contract_NP_dollars
 
   # contracts with forprofits
-  W = X.TP.getWhereList("(work_status==5)")
+  W = X.TP.get_where_list("(work_status==5)")
   P_contract_forprofit_dollars = X.TP.cols.R_dollars[:].sum() * \
     X.Config.gov_contract_SB_pct_total_income
   fraction = P_contract_forprofit_dollars / X.TP.cols.R_wages_SB_dollars[:].sum()
@@ -255,7 +255,7 @@ def setGovRates(X):
   Gov.contract_forprofit_dollars_annual = P_contract_forprofit_dollars
 
   # subsidies to forprofits
-  W = X.TP.getWhereList("(work_status==5)")
+  W = X.TP.get_where_list("(work_status==5)")
   P_subsidy_forprofit_dollars = X.TP.cols.R_dollars[:].sum() * \
     X.Config.gov_subsidy_SB_pct_total_income
   fraction = P_subsidy_forprofit_dollars / X.TP.cols.R_wages_SB_dollars[:].sum()
@@ -269,7 +269,7 @@ def setGovRates(X):
   Gov.subsidy_forprofit_dollars_annual = P_subsidy_forprofit_dollars   
     
   # NIWF & unemployed
-  W = X.TP.getWhereList("(work_status==0)|(work_status==2)")
+  W = X.TP.get_where_list("(work_status==0)|(work_status==2)")
   P_support_dollars = X.TP.cols.R_dollars[:][W].sum() 
   fraction = P_support_dollars / X.TP.cols.R_dollars[:].sum()
   P_support_dollars = P_support_dollars * X.populationRatio
@@ -322,7 +322,7 @@ def countyInfo(X):
   print("family income, mean = ${0:,.9g}".format(
     np.round(X.TF.cols.R_dollars[:].mean(),0).item()))
   
-  We1 = X.TP.getWhereList("(work_status >=4)")
+  We1 = X.TP.get_where_list("(work_status >=4)")
   ave_working_income = incomeP[We1].mean()
   
   print("\nmean working income = ${0:,.9g}".format(np.round(ave_working_income,0).item()))
@@ -351,8 +351,8 @@ def countyInfo(X):
   print("\n")
   
   famRecTot = X.TF.cols.R_dollars[:]
-  totalNIWF = float(X.TP.getWhereList("((work_status==0) | (work_status==1))").size) 
-  totalUnemp = float(X.TP.getWhereList("((work_status==2) | (work_status==3))").size)
+  totalNIWF = float(X.TP.get_where_list("((work_status==0) | (work_status==1))").size) 
+  totalUnemp = float(X.TP.get_where_list("((work_status==2) | (work_status==3))").size)
   
   if 1==2:
     # for testing, otherwise takes too long
@@ -363,7 +363,7 @@ def countyInfo(X):
       countUnemp = 0
       for wc in Wc:
         fid = X.TF.cols.fid[wc]
-        wfid = X.TP.getWhereList("fid=={0:d}".format(fid))
+        wfid = X.TP.get_where_list("fid=={0:d}".format(fid))
         assert len(wfid) == 2
         for pid in wfid:
           if X.TP.cols.work_status[pid] in [0,1]:
@@ -396,7 +396,7 @@ def countyInfo(X):
   print(("threshold for membership, family = ${0:,.9g}, percentile of county " +
     "family income= {1:,.4g}").format(np.round(threshold_family, 0).item(), X.percentile_threshold_family))
   
-  ws0 = X.TP.getWhereList("work_status==0")
+  ws0 = X.TP.get_where_list("work_status==0")
   NIWF_below = np.intersect1d(persons_below_threshold, ws0, assume_unique=True)
   
   print("\nfraction of total NIWF below family threshold = {0:,.4g}".format(
@@ -420,21 +420,21 @@ def countyInfo(X):
   
   #income_below_threshold = X.TP.cols.R_dollars[:][persons_below_threshold].sum()
   
-  W4 = X.TP.getWhereList("(work_status >=4)")
+  W4 = X.TP.get_where_list("(work_status >=4)")
   persons_below_threshold_working = np.intersect1d(W4,persons_below_threshold)
   ave_income_working_county_threshold = X.TP.cols.R_dollars[:][persons_below_threshold_working].mean()
   
   print("\naverage income, working, county, below threshold = ${0:,.9g}".format(
     np.round(ave_income_working_county_threshold,0).item()))
     
-  Wnp = X.TP.getWhereList("(work_status ==4) | (work_status ==6)")  
+  Wnp = X.TP.get_where_list("(work_status ==4) | (work_status ==6)")  
   
   print(("average income nonprofit = ${0:,.9g}, fraction of county income = " + 
     "{1:,.4g}").format(
     np.round(X.TP.cols.R_dollars[:][Wnp].mean(), 0).item(), 
     X.TP.cols.R_dollars[:][Wnp].sum() / X.TP.cols.R_dollars[:].sum()))
 
-  W3 = X.TP.getWhereList("(work_status <=3)")  
+  W3 = X.TP.get_where_list("(work_status <=3)")  
   
   print(("average income NIWF and unemployed = ${0:,.9g}, fraction of county " + 
     "income = {1:,.4g}\n").format(
@@ -879,13 +879,13 @@ def checkFamilyIncome(X, Year, threshold_family, Membership=None, Idd=None):
   
   """
   
-  Wc = X.TF.getWhereList("(R_dollars < " +str(threshold_family)+ ")")
+  Wc = X.TF.get_where_list("(R_dollars < " +str(threshold_family)+ ")")
   person1 = X.TF.cols.person1[:][Wc]
   person2 = X.TF.cols.person2[:][Wc]
   persons = np.hstack((person1, person2))
     
   
-  W0 = X.TP.getWhereList("pid> -1")  
+  W0 = X.TP.get_where_list("pid> -1")  
   inarray = np.in1d(persons, W0)
   persons = persons[inarray==True]
   np.random.shuffle(persons)
