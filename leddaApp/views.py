@@ -12,7 +12,7 @@ from leddaApp import app
 
 from leddaApp import setup_model
 from leddaApp import fitness
-
+from leddaApp import optimizer
 
 app.config.from_envvar('leddaApp_SETTINGS', silent=True)
 
@@ -64,24 +64,28 @@ def runModel():
   """
   
   data = dict(request.form)
+  
   K = list(data.keys())
   K.sort()
   paramsDic = data.copy()
   
+  print("initial data:")
   for k in K:
     print(k, data[k])
   
+  
   # remove lists, make floats, convert % to fractions
-  _ = [data.__setitem__(k, float(data[k][0])/100.) for k in K if k[0:9] != 'flexible_']
-
+  _ = [data.__setitem__(k, float(data[k][0])/100.) \
+    for k in K if k[0:9] not in ['flexible_', 'doOptimiz']]
+  
   # for checkboxes, convert on/off to integers 1/0
   for k in K:
-    if k[0:9] == 'variable_':
-      if data[k][0] == 'True':
+    if k[0:9] in ['variable_', 'doOptimiz']:
+      if data[k][0] == 'true':
         data[k] = 1
       else:
         data[k] = 0
-      
+
   # fix nonfractions
   data['family_income_target_final'] = data['family_income_target_final'] * 100
   data['population'] = data['population'] * 100
@@ -92,11 +96,17 @@ def runModel():
   
   X, stocksDic, countsDic, histoDic = setup_model.setup(data)
   
-  # get fitness scores
-  fitnessDic, tableDic, summaryGraphDic = fitness.getFit(X, stocksDic, Print=False)
+  # delete items no long necessary
+  del X.TP
+  del X.TF
   
-  #redirect('http://'+ results_name, 301) 
-  
+  if X.doOptimization == 0:
+    # just run the fitness function once and return
+    fitnessDic, tableDic, summaryGraphDic = fitness.getFit(X, stocksDic, Print=False, Optimize=False)
+  else:
+    # call optimizer (genetic algorithm)
+    fitnessDic, tableDic, summaryGraphDic = optimizer.genetic(X, stocksDic)    
+    
   resultDic = {
     "msg":"OK", 
     'fitnessDic': fitnessDic, 

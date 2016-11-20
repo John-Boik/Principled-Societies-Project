@@ -73,13 +73,14 @@ def submit_model(evt):
     'flexible_person_nonmember_spending_to_member_NP_pct',
     'flexible_person_nonmember_spending_to_member_PB_pct',
     'flexible_person_nonmember_spending_to_nonmember_SB_pct',
-    'flexible_person_nonmember_spending_to_nonmember_NP_pct'
+    'flexible_person_nonmember_spending_to_nonmember_NP_pct',
+    'doOptimization'
     ]
 
 
   data = {}
   for w in widgets:
-    if w[0:9] == 'flexible_':
+    if (w[0:9] == 'flexible_') or (w == 'doOptimization'):
       data[w] = document[w].checked
     else:
       data[w] = document[w].value
@@ -117,7 +118,29 @@ def submit_model(evt):
 document['submit'].bind('click', submit_model)
 
 
-
+document['earmark_NP_donation'].value = "{:.4f}".format(0.0640304374712 *100)
+document['earmark_NP_donation_TS'].value = "{:.4f}".format(0.513357363129 *100)
+document['earmark_PB_subsidy'].value = "{:.4f}".format(0.0582408160466 *100)
+document['earmark_PB_subsidy_TS'].value = "{:.4f}".format(0.480125590258 *100)
+document['earmark_SB_subsidy'].value = "{:.4f}".format(0.0674546791704 *100)
+document['earmark_SB_subsidy_TS'].value = "{:.4f}".format(0.564426856028 *100)
+document['earmark_nurture'].value = "{:.4f}".format(0.362423961499 *100)
+document['earmark_nurture_TS'].value = "{:.4f}".format(0.365616096143 *100)
+document['person_member_spending_to_member_NP_TS'].value = "{:.4f}".format(0.420169330948 *100)
+document['person_member_spending_to_member_NP_pct'].value = "{:.4f}".format(0.297577781158 *100)
+document['person_member_spending_to_member_PB_TS'].value = "{:.4f}".format(0.413949588892 *100)
+document['person_member_spending_to_member_PB_pct'].value = "{:.4f}".format(0.321834057452 *100)
+document['person_member_spending_to_member_SB_TS'].value = "{:.4f}".format(0.463610294288 *100)
+document['person_member_spending_to_member_SB_pct'].value = "{:.4f}".format(0.221268757038 *100)
+document['person_member_spending_to_nonmember_NP_TS'].value = "{:.4f}".format(0.493623535594 *100)
+document['person_member_spending_to_nonmember_NP_pct'].value = "{:.4f}".format(0.00569626363779 *100)
+document['person_member_spending_to_nonmember_SB_TS'].value = "{:.4f}".format(0.768061454649 *100)
+document['person_member_spending_to_nonmember_SB_pct'].value = "{:.4f}".format(0.153623140714 *100)
+document['person_nonmember_spending_to_member_NP_pct'].value = "{:.4f}".format(0.0175785057973 *100)
+document['person_nonmember_spending_to_member_PB_pct'].value = "{:.4f}".format(0.448028409727 *100)
+document['person_nonmember_spending_to_member_SB_pct'].value = "{:.4f}".format(0.0309914441048 *100)
+document['person_nonmember_spending_to_nonmember_NP_pct'].value = "{:.4f}".format(0.230608462683 *100)
+document['person_nonmember_spending_to_nonmember_SB_pct'].value = "{:.4f}".format(0.272793177688 *100)
 
 
 

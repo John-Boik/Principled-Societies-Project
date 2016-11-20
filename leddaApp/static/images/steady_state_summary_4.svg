@@ -5,45 +5,41 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   height="628.8877"
-   width="700.12128"
-   viewBox="0 0 700.12127 628.88767"
+   version="1.1"
    id="svg_summary_graph"
-   version="1.1">
+   viewBox="0 0 700.12127 628.88767"
+   width="700.12128"
+   height="628.8877">
   <defs
      id="defs4">
     <marker
-       style="overflow:visible;"
-       id="Arrow1Lend_blue"
-       refX="-1.6"
-       refY="0.0"
-       orient="auto"
-       markerUnits="strokeWidth"
-       stroke="context-stroke"
        fill="blue"
-       >
-      <path
-         transform="scale(0.5) rotate(180) translate(12.5,0)"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path4499" />
-    </marker>
-
-   <marker
-       style="overflow:visible;"
-       id="Arrow1Lend_green"
-       refX="-1.6"
-       refY="0.0"
-       orient="auto"
-       markerUnits="strokeWidth"
        stroke="context-stroke"
-       fill="green"
-       >
+       markerUnits="strokeWidth"
+       orient="auto"
+       refY="0.0"
+       refX="-1.6"
+       id="Arrow1Lend_blue"
+       style="overflow:visible;">
       <path
-         transform="scale(0.5) rotate(180) translate(12.5,0)"
+         id="path4499"
          d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path4499" />
+         transform="scale(0.5) rotate(180) translate(12.5,0)" />
     </marker>
-
+    <marker
+       fill="green"
+       stroke="context-stroke"
+       markerUnits="strokeWidth"
+       orient="auto"
+       refY="0.0"
+       refX="-1.6"
+       id="Arrow1Lend_green"
+       style="overflow:visible;">
+      <path
+         id="path7"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="scale(0.5) rotate(180) translate(12.5,0)" />
+    </marker>
   </defs>
   <metadata
      id="metadata7">
@@ -57,16 +53,13 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-
-  <g id="g_main">
-
   <rect
      y="234.93182"
      x="99.093201"
      height="28.327309"
      width="135.80078"
      id="roc"
-     style="fill:#cccccc;fill-opacity:0.01960784;stroke:red;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:#cccccc;fill-opacity:0.01960784;stroke:#ff0000;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_ROC"
@@ -84,7 +77,7 @@
      height="27.23296"
      width="105.24422"
      id="gov"
-     style="fill:#cccccc;fill-opacity:0.01960784;stroke:red;stroke-width:2.06544662;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:#cccccc;fill-opacity:0.01960784;stroke:#ff0000;stroke-width:2.06544662;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Gov"
@@ -102,7 +95,7 @@
      height="155.44046"
      width="306.51981"
      id="rect_Org"
-     style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:red;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:#ff0000;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Org"
@@ -120,7 +113,7 @@
      height="87.738503"
      width="136.39771"
      id="rect_Org_nonmember"
-     style="fill:none;fill-opacity:1;stroke:orange;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:none;fill-opacity:1;stroke:#ff5555;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Org_nonmember"
@@ -172,7 +165,7 @@
      height="120.08532"
      width="136.12611"
      id="rect_Org_member"
-     style="fill:none;fill-opacity:1;stroke:orange;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:none;fill-opacity:1;stroke:#ff5555;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Org_member"
@@ -241,7 +234,7 @@
      height="169.25912"
      width="194.5047"
      id="rect_CBFS"
-     style="fill:#cccccc;fill-opacity:0.01960784;stroke:red;stroke-width:1.80562007;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:#cccccc;fill-opacity:0.01960784;stroke:#ff0000;stroke-width:1.80562007;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_CBFS"
@@ -310,7 +303,7 @@
      height="155.44046"
      width="306.51981"
      id="rect_Persons_Emp"
-     style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:red;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:#ff0000;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp"
@@ -328,7 +321,7 @@
      height="87.738503"
      width="136.39771"
      id="rect_Persons_Emp_nonmember"
-     style="fill:none;fill-opacity:1;stroke:orange;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:none;fill-opacity:1;stroke:#ff5555;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_nonmember"
@@ -380,7 +373,7 @@
      height="120.08532"
      width="136.12611"
      id="rect_Persons_Emp_member"
-     style="fill:none;fill-opacity:1;stroke:orange;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:none;fill-opacity:1;stroke:#ff5555;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_member"
@@ -449,7 +442,7 @@
      height="123.62125"
      width="227.11336"
      id="rect_Persons_nonEmp"
-     style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:red;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="opacity:1;fill:#cccccc;fill-opacity:0.01960784;stroke:#ff0000;stroke-width:2.19194078;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_nonEmp"
@@ -467,7 +460,7 @@
      height="89.107506"
      width="99.96669"
      id="rect_Persons_nonEmp_nonmember"
-     style="fill:none;fill-opacity:1;stroke:orange;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:none;fill-opacity:1;stroke:#ff5555;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_nonEmp_nonmember"
@@ -519,7 +512,7 @@
      height="89.112213"
      width="100.13416"
      id="rect_Persons_nonEmp_member"
-     style="fill:none;fill-opacity:1;stroke:orange;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:none;fill-opacity:1;stroke:#ff5555;stroke-width:1.46129382;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_nonEmp_member"
@@ -585,22 +578,22 @@
   <path
      id="path_Org_wages"
      d="m 405.87305,137.67523 c 63.78741,7.18821 82.27667,20.05011 96.37798,76.33212"
-     style="fill:none;fill-rule:evenodd;stroke:blue;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
+     style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Org_wages"
-     y="195.05191"
-     x="452.04749"
+     y="183.0488"
+     x="444.04956"
      style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        style="font-size:10.0463953px"
-       y="195.05191"
-       x="452.04749"
+       y="173.0488"
+       x="424.04956"
        id="tspan17856-0">Wages</tspan></text>
   <path
      id="path_Persons_Emp_spending"
      d="M 546.35718,212.763 C 509.9524,144.8857 487.2426,120.03696 410.49743,116.03579"
-     style="fill:none;fill-rule:evenodd;stroke:blue;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
+     style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_spending"
@@ -615,37 +608,37 @@
   <path
      id="path_Persons_Unemp_spending"
      d="M 598.63125,508.08888 C 762.31457,388.3438 727.31233,66.049446 413.27964,61.216212"
-     style="fill:none;stroke-width:1.222;stroke:blue;marker-end:url(#Arrow1Lend_blue)" />
+     style="fill:none;stroke:#0000ff;stroke-width:1.222;marker-end:url(#Arrow1Lend_blue)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Unemp_spending"
-     y="56.879875"
-     x="433.46561"
+     y="60.880898"
+     x="451.46094"
      style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        style="font-size:10.0463953px"
-       y="56.879875"
-       x="468.46561"
+       y="60.880898"
+       x="486.46094"
        id="tspan17856">Spending</tspan></text>
   <path
      id="path_Persons_Emp_contributions"
-     d="M 454.62665,329.88422 C 401.19923,401.51613 284.40838,378.39295 279.54972,435.9469"
-     style="fill:none;fill-rule:evenodd;stroke:blue;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
+     d="M 457.99304,365.56792 C 444.96226,444.60588 303.93343,373.68 250.5988,439.31328"
+     style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_contributions"
-     y="391.77481"
-     x="373.62674"
+     y="405.77844"
+     x="445.60806"
      style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        style="font-size:10.0463953px"
-       y="391.77481"
-       x="373.62674"
+       y="405.77844"
+       x="445.60806"
        id="tspan17856-0-9-5-5-7-6-8-5">Contributions</tspan></text>
   <path
      id="path_Persons_Unemp_contributions"
      d="m 523.85161,559.781 c -45.24653,79.12723 -162.31251,3.74054 -225.11914,6.78313"
-     style="fill:none;fill-rule:evenodd;stroke:blue;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
+     style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Unemp_contributions"
@@ -660,7 +653,7 @@
   <path
      id="path_Nurture_support"
      d="m 286.1676,590.96202 c 112.73888,-1.44858 261.674,91.1841 290.24003,-29.72192"
-     style="fill:none;fill-rule:evenodd;stroke:blue;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
+     style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Nurture_support"
@@ -675,7 +668,7 @@
   <path
      id="path_Gov_support"
      d="m 164.52344,358.32452 c 40.00222,59.47116 168.15249,31.16448 202.83479,83.94869"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Gov_support"
@@ -690,7 +683,7 @@
   <path
      id="path_Persons_Emp_taxes"
      d="m 293.74785,276.26895 c -65.01701,2.12993 -103.40767,0.12991 -128.03682,48.82575"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_taxes"
@@ -705,7 +698,7 @@
   <path
      id="path_Persons_Unemp_taxes"
      d="M 428.17229,444.03388 C 421.785,401.19194 272.27058,404.64305 208.78221,357.26263"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Unemp_taxes"
@@ -720,133 +713,107 @@
   <path
      id="path_Gov_Orgs"
      d="M 92.988518,333.64545 C 76.113358,329.16587 -7.1324876,218.87584 93.518771,147.01411"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
-  <text
-     transform="scale(1.000256,0.99974406)"
-     id="text_Gov_Orgs"
-     y="335.22617"
-     x="85.343918"
-     style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-size:10.0463953px;text-align:end;text-anchor:end"
-       id="tspan45912-4"
-       y="335.22617"
-       x="85.343918">Gov Subsidies,</tspan><tspan
-       id="tspan49978"
-       style="font-size:10.0463953px;text-align:end;text-anchor:end"
-       y="347.78415"
-       x="85.343918">Grants,</tspan><tspan
-       id="tspan49980"
-       style="font-size:10.0463953px;text-align:end;text-anchor:end"
-       y="360.34213"
-       x="85.343918">Contracts</tspan></text>
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <path
      id="path_Gov_ROC"
-     d="m 122.07064,328.19725 c -1.61511,-29.21411 3.62565,-41.435 8.9931,-60.19696"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
-  <text
-     transform="scale(1.000256,0.99974406)"
-     id="text_Gov_ROC"
-     y="280.91513"
-     x="134.98997"
-     style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       id="tspan53623-75"
-       style="font-size:10.0463953px"
-       y="290.91513"
-       x="72.98997">Gov Spending</tspan></text>
+     d="m 138.07064,328.19725 c -1.61511,-29.21411 3.62565,-41.435 8.9931,-60.19696"
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <path
      id="path_Org_sales"
-     d="m 126.35619,163.65876 c -15.24993,19.84612 -18.19006,39.65065 4.90266,67.22334"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
-  <text
-     transform="scale(1.000256,0.99974406)"
-     id="text_Org_sales"
-     y="192.29979"
-     x="99.805351"
-     style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-size:10.0463953px;text-align:center;text-anchor:middle"
-       y="192.29979"
-       x="99.805351"
-       id="tspan17856-0-9-7">Org</tspan><tspan
-       id="tspan53625"
-       style="font-size:10.0463953px;text-align:center;text-anchor:middle"
-       y="204.85779"
-       x="99.805351">Sales</tspan></text>
-  <path
-     id="path_Org_purchases"
-     d="m 171.68001,231.58105 c 15.24993,-19.84611 18.19005,-39.65064 -4.90266,-67.22333"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
-  <text
-     transform="scale(1.000256,0.99974406)"
-     id="text_Org_purchases"
-     y="194.91606"
-     x="186.12761"
-     style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-size:10.0463953px"
-       y="194.91606"
-       x="186.12761"
-       id="tspan17856-0-9-6">Org</tspan><tspan
-       id="tspan53623-4"
-       style="font-size:10.0463953px"
-       y="207.47404"
-       x="186.12761">Purchases</tspan></text>
+     d="m 171.96664,232.00875 c 5.15077,-29.94528 9.43746,-33.59115 7.21633,-65.87679"
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <path
      id="path_CBFS_Orgs"
      d="M 97.370642,442.61475 C 23.240193,421.64632 -64.857795,208.54351 94.989614,94.00476"
-     style="fill:none;fill-rule:evenodd;stroke:blue;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
-  <text
-     transform="scale(1.000256,0.99974406)"
-     id="text_CBFS_Orgs"
-     y="443.96741"
-     x="83.094841"
-     style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-size:10.0463953px;text-align:end;text-anchor:end"
-       y="443.96741"
-       x="83.094841"
-       id="tspan45908">Subsidies,</tspan><tspan
-       style="font-size:10.0463953px;text-align:end;text-anchor:end"
-       id="tspan45910"
-       y="456.52539"
-       x="83.094841">Donations</tspan><tspan
-       style="font-size:10.0463953px;text-align:end;text-anchor:end"
-       id="tspan45912"
-       y="469.0834"
-       x="83.094841">Loans</tspan></text>
+     style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
   <path
      id="path_Persons_Emp_Donations"
      d="M 287.35732,243.23249 C 243.42713,204.8339 207.5724,165.31946 278.92899,100.35997"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_Donations"
-     y="206.91068"
-     x="258.39417"
+     y="198.9086"
+     x="256.39468"
      style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        id="tspan53623"
        style="font-size:10.0463953px"
-       y="206.91068"
-       x="258.39417">Donations</tspan></text>
+       y="198.9086"
+       x="256.39468">Donations</tspan></text>
   <path
      id="path_Persons_Unemp_Donations"
      d="M 587.95653,442.1335 C 725.43827,325.29822 639.00332,81.568359 375.43291,103.89322"
-     style="fill:none;fill-rule:evenodd;stroke:green;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
+     style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Unemp_Donations"
-     y="98.447792"
-     x="428.71683"
+     y="96.447281"
+     x="430.71631"
      style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        id="tspan53623-7"
        style="font-size:10.0463953px"
-       y="98.447792"
-       x="428.71683">Donations</tspan></text>
-
-</g>
-
+       y="96.447281"
+       x="430.71631">Donations</tspan></text>
+  <text
+     id="text3787"
+     y="288.10553"
+     x="128.9099"
+     style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="288.10553"
+       x="128.9099"
+       id="tspan3789">Gov</tspan><tspan
+       id="tspan3791"
+       y="300.66333"
+       x="128.9099">Funding</tspan><tspan
+       id="tspan3797"
+       y="313.22116"
+       x="128.9099">Distant</tspan></text>
+  <text
+     id="text3787-3"
+     y="327.57086"
+     x="72.077461"
+     style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="327.57086"
+       x="72.077461"
+       id="tspan3789-6">Gov</tspan><tspan
+       id="tspan3791-7"
+       y="340.12866"
+       x="72.077461">Funding</tspan><tspan
+       id="tspan3797-5"
+       y="352.68649"
+       x="72.077461">Local</tspan></text>
+  <text
+     id="text3787-3-3"
+     y="438.41446"
+     x="68.298347"
+     style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="438.41446"
+       x="68.298347"
+       id="tspan3789-6-5">CBFS</tspan><tspan
+       id="tspan3791-7-6"
+       y="450.97226"
+       x="68.298347">Funding</tspan><tspan
+       id="tspan3797-5-2"
+       y="463.53009"
+       x="68.298347">Local</tspan></text>
+  <text
+     id="text3787-3-9"
+     y="193.0695"
+     x="167.79128"
+     style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       id="tspan3797-5-7"
+       y="193.0695"
+       x="167.79128">Org</tspan><tspan
+       id="tspan4365"
+       y="205.62732"
+       x="167.79128">Net</tspan><tspan
+       id="tspan4359"
+       y="218.18513"
+       x="167.79128">Trade</tspan></text>
 </svg>

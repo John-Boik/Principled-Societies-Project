@@ -36,19 +36,28 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
 <h2>Fitness Overview</h2>
 <p>The grand fitness is <output id="output_grand_fitness">...wait...</output>.</p>
 
-<p>If the grand fitness is somewhat above zero, say, greater than the population times 1,000, the results are questionable. If the grand fitness is far above zero, then all results except fitness are meaningless. The perfect fitness is zero, and it can be achived in numerous ways.</p>
+<p>If the grand fitness is above zero but less than, say, 
+  <output id="threshold">...wait...</output> T&D (the population times 500 T&D), the results are 
+  questionable. If the grand fitness is much further above this threshold, then all results except 
+  fitness are meaningless. A perfect fitness of zero can be achived in numerous ways.</p>
 
 
   <div id="grand_fitness_table" ></div>
 
 <p>Some of the elements of tables and graphics on this page are color coded to visually highlight the differences in node fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, sigifying the maximum of (1,000, maximum node fitness).</p> 
 
-<p>Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</p>
+<p>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</p>
   <div id='summary_graph_container'></div>
 
   <p>[more...accordion]</p>
 
 
+
+  <div id="org_funding_table" ></div>
+  <br>
+    
+  <div id="compartment_flow_summary_table" ></div>
+  <br>
 
   <div id="node_fitness_summary_table" ></div>
 

@@ -20,6 +20,8 @@ class Object(object):
   """
   
   def __init__(self, *dic, **kwargs):
+    self.flexibleList = []
+    self.Variance = .001
     # if *dict is passed
     for d in dic:
       for k in d.keys():
@@ -35,6 +37,17 @@ class Object(object):
 
   def __getitem__(self, key):
     return self.__dict__[key]
+
+  def set_flexible(self):
+    # if doOptimization, then select flexible variables
+    keys = list(self.__dict__.keys())
+    keys.sort()
+    flexibleList = []
+    for k in keys:
+      if k[0:9] == 'flexible_':
+        flexibleList.append(k[9:])
+    self.__dict__['flexibleList'] = flexibleList
+    
 
 
 
@@ -89,6 +102,10 @@ def setup(data):
   # initialize the Data object X that holds general info and serves as container for other objects
   X = Object(data) 
   X.Config = Object() 
+  
+  if X.doOptimization:
+    # create list of flexible variables for minimization
+    X.set_flexible()
   
   # add parameters in Config.py to object X.Config
   keys = dir(Config)
@@ -168,7 +185,7 @@ def setup(data):
   # initialize some Ledda and county arrays
   incomeP = X.TP.cols.R_wages_NP_dollars[:] + X.TP.cols.R_wages_SB_dollars[:] + \
     X.TP.cols.R_gov_support_dollars[:]
-  X.R_dollars = incomeP.sum() * X.populationRatio
+  #X.R_dollars = incomeP.sum() * X.populationRatio
   
   # collect county information
   countyInfo(X)
@@ -209,10 +226,6 @@ def setGovRates(X):
   """)
   
   Gov = Object()
-  
-  print(X.TP)
-  print(type(X.TP))
-  print(dir(X.TP))
   
   # grants to nonprofits
   W = X.TP.get_where_list("(work_status==4)")

@@ -26,7 +26,7 @@ src="{{ url_for('static', filename='python/steady_01.py') }}"></script>
 
   <br><br>
 
-  <img src="/static/images/steady_state_summary_3.svg" alt="Steady-state model" width="500px">
+  <img src="/static/images/steady_state_summary_4.svg" alt="Steady-state model" width="500px">
   <figcaption>Figure 3. Compartments and flows in 20-node steady-state model.<br>Dollar-only flows are in dotted green.<br>Dollar and/or tokens flows are in solid blue.</figcaption>
 
 </div>
@@ -209,13 +209,13 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     
     <tr>
       <td>Subsidy, SB</td>
-      <td><input type="range" id="range_earmark_SB_subsidy" value="6" min="0" max="100"> 
-          <input type='text' id="earmark_SB_subsidy" value="6">
+      <td><input type="range" id="range_earmark_SB_subsidy" value="50" min="0" max="100"> 
+          <input type='text' id="earmark_SB_subsidy" value="6.76">
           <br><input type='checkbox' id="flexible_earmark_SB_subsidy" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_earmark_SB_subsidy_TS" value="50" min="0" max="100"> 
-          <input type='text' id="earmark_SB_subsidy_TS" value="35">
+          <input type='text' id="earmark_SB_subsidy_TS" value="56.36">
           <br><input type='checkbox' id="flexible_earmark_SB_subsidy_TS" checked>
           Flexible<br>
       </td>
@@ -224,12 +224,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Donation, NP</td>
       <td><input type="range" id="range_earmark_NP_donation" value="50" min="0" max="100"> 
-          <input type='text' id="earmark_NP_donation" value="8">
+          <input type='text' id="earmark_NP_donation" value="6.42">
           <br><input type='checkbox' id="flexible_earmark_NP_donation" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_earmark_NP_donation_TS" value="50" min="0" max="100"> 
-          <input type='text' id="earmark_NP_donation_TS"value="35">
+          <input type='text' id="earmark_NP_donation_TS"value="51.26">
           <br><input type='checkbox' id="flexible_earmark_NP_donation_TS" checked>
           Flexible<br>
       </td>
@@ -238,12 +238,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Subsidy, PB</td>
       <td><input type="range" id="range_earmark_PB_subsidy" value="10" min="0" max="100"> 
-          <input type='text' id="earmark_PB_subsidy" value="10">
+          <input type='text' id="earmark_PB_subsidy" value="5.87">
           <br><input type='checkbox' id="flexible_earmark_PB_subsidy" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_earmark_PB_subsidy_TS" value="50" min="0" max="100"> 
-          <input type='text' id="earmark_PB_subsidy_TS"value="35">
+          <input type='text' id="earmark_PB_subsidy_TS"value="48.13">
           <br><input type='checkbox' id="flexible_earmark_PB_subsidy_TS" checked>
           Flexible<br>
       </td>
@@ -252,12 +252,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Nurture</td>
       <td><input type="range" id="range_earmark_nurture" value="50" min="0" max="100"> 
-          <input type='text' id="earmark_nurture" value="37">
+          <input type='text' id="earmark_nurture" value="36.27">
           <br><input type='checkbox' id="flexible_earmark_nurture" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_earmark_nurture_TS" value="50" min="0" max="100"> 
-          <input type='text' id="earmark_nurture_TS"value="35">
+          <input type='text' id="earmark_nurture_TS"value="36.60">
           <br><input type='checkbox' id="flexible_earmark_nurture_TS" checked>
           Flexible<br>
       </td>
@@ -268,9 +268,8 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       <td></td>
       
     </tr>
-
-
   </table>  
+
 
 <p>In the following table, the first two columns will sum to 100 percent. It might be reasonable to expect that members will tend to support member organizations more than nonmember organizations, and that nonmembers will do the opposite. The token shares of spending in the third column should all be roughly similar. That is, each type of organization should receive roughly similar ratios of tokens and dollars.</p> 
 
@@ -286,17 +285,17 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Member SB</td>
       <td><input type="range" id="range_person_nonmember_spending_to_member_SB_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_nonmember_spending_to_member_SB_pct" value="20">
+          <input type='text' id="person_nonmember_spending_to_member_SB_pct" value="15.08">
           <br><input type='checkbox' id="flexible_person_nonmember_spending_to_member_SB_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_member_SB_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_member_SB_pct" value="20">
+          <input type='text' id="person_member_spending_to_member_SB_pct" value="22.09">
           <br><input type='checkbox' id="flexible_person_member_spending_to_member_SB_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_member_SB_TS" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_member_SB_TS" value="35">
+          <input type='text' id="person_member_spending_to_member_SB_TS" value="46.41">
           <br><input type='checkbox' id="flexible_person_member_spending_to_member_SB_TS" checked>
           Flexible<br>
       </td>
@@ -305,17 +304,17 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Member NP</td>
       <td><input type="range" id="range_person_nonmember_spending_to_member_NP_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_nonmember_spending_to_member_NP_pct" value="20">
+          <input type='text' id="person_nonmember_spending_to_member_NP_pct" value="4.79">
           <br><input type='checkbox' id="flexible_person_nonmember_spending_to_member_NP_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_member_NP_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_member_NP_pct" value="20">
+          <input type='text' id="person_member_spending_to_member_NP_pct" value="29.72">
           <br><input type='checkbox' id="flexible_person_member_spending_to_member_NP_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_member_NP_TS" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_member_NP_TS" value="35">
+          <input type='text' id="person_member_spending_to_member_NP_TS" value="41.93">
           <br><input type='checkbox' id="flexible_person_member_spending_to_member_NP_TS" checked>
           Flexible<br>
       </td>
@@ -324,17 +323,17 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Member PB</td>
       <td><input type="range" id="range_person_nonmember_spending_to_member_PB_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_nonmember_spending_to_member_PB_pct" value="20">
+          <input type='text' id="person_nonmember_spending_to_member_PB_pct" value="53.69">
           <br><input type='checkbox' id="flexible_person_nonmember_spending_to_member_PB_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_member_PB_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_member_PB_pct" value="20">
+          <input type='text' id="person_member_spending_to_member_PB_pct" value="32.04">
           <br><input type='checkbox' id="flexible_person_member_spending_to_member_PB_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_member_PB_TS" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_member_PB_TS" value="35">
+          <input type='text' id="person_member_spending_to_member_PB_TS" value="41.40">
           <br><input type='checkbox' id="flexible_person_member_spending_to_member_PB_TS" checked>
           Flexible<br>
       </td>
@@ -343,17 +342,17 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Nonmember SB</td>
       <td><input type="range" id="range_person_nonmember_spending_to_nonmember_SB_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_nonmember_spending_to_nonmember_SB_pct" value="20">
+          <input type='text' id="person_nonmember_spending_to_nonmember_SB_pct" value="17.03">
           <br><input type='checkbox' id="flexible_person_nonmember_spending_to_nonmember_SB_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_nonmember_SB_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_nonmember_SB_pct" value="20">
+          <input type='text' id="person_member_spending_to_nonmember_SB_pct" value="15.46">
           <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_SB_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_nonmember_SB_TS" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_nonmember_SB_TS" value="35">
+          <input type='text' id="person_member_spending_to_nonmember_SB_TS" value="76.64">
           <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_SB_TS" checked>
           Flexible<br>
       </td>
@@ -362,17 +361,17 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <tr>
       <td>Nonmember NP</td>
       <td><input type="range" id="range_person_nonmember_spending_to_nonmember_NP_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_nonmember_spending_to_nonmember_NP_pct" value="20">
+          <input type='text' id="person_nonmember_spending_to_nonmember_NP_pct" value="9.39">
           <br><input type='checkbox' id="flexible_person_nonmember_spending_to_nonmember_NP_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_nonmember_NP_pct" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_nonmember_NP_pct" value="20">
+          <input type='text' id="person_member_spending_to_nonmember_NP_pct" value="00.67">
           <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_NP_pct" checked>
           Flexible<br>
       </td>
       <td><input type="range" id="range_person_member_spending_to_nonmember_NP_TS" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_nonmember_NP_TS" value="35">          
+          <input type='text' id="person_member_spending_to_nonmember_NP_TS" value="46.09">          
           <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_NP_TS" checked>
           Flexible<br>
       </td>
@@ -391,7 +390,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div id="hidden_form" ></div>
   <p><input type="button" id="submit" value="Run"></input>
-  <input type='checkbox' id="doMinimization">Do minimization during run (warning: may be slow if checked)
+  <input type='checkbox' id="doOptimization">Do optimization on flexible variables during run (warning: may be slow if checked)
   </p>
 
   </div>

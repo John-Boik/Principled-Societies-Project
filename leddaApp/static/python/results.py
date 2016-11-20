@@ -9,7 +9,7 @@ import math
 # Load summary graph
 ##########################################################################################
 
-def load_svg_summary(url="/static/images/steady_state_summary_3.svg"):
+def load_svg_summary(url="/static/images/steady_state_summary_4.svg"):
   req = ajax.ajax()
   req.bind('complete', load_svg_summary_complete)
   req.open('GET', url, False)
@@ -185,7 +185,7 @@ def resize_pan_graph(evt):
   pan_detailed.fit()
   pan_detailed.center()  
 
-
+  print ("leaving resize")
 
 
 ##########################################################################################
@@ -288,7 +288,7 @@ def annotate_detailed_graph_edges():
     elt = document[str(i)]
     elt.bind('click', showModal)
 
-    table = html.TABLE(cellspacing=0, Class="infoTable")
+    table = html.TABLE(Class="infoTable")
     table <= html.CAPTION("Summary for Edge ID: {}".format(i))
     
     tb = html.TBODY()
@@ -335,7 +335,7 @@ def annotate_detailed_graph_nodes():
     elt.bind('click', showModal)
     
     # table 1: summary info ------------------------------------------------------
-    table1 = html.TABLE(cellspacing=0, Class="infoTable")
+    table1 = html.TABLE(Class="infoTable")
     table1 <= html.CAPTION("Summary for Node ID: {}, Name: {}".format(i, nodes[i]['name']))
     
     tb = html.TBODY()
@@ -395,7 +395,7 @@ def annotate_detailed_graph_nodes():
     
     tb <= rows
     table1 <= tb
-
+    
     
     # tables 2 and 3: total flows and per person flows ------------------------
     inValues = tableDic[i]['in']['Values']
@@ -404,8 +404,8 @@ def annotate_detailed_graph_nodes():
     outSums = tableDic[i]['out']['Sums']    
     grandSums = tableDic[i]['grandSums']
 
-    table2 = html.TABLE(cellspacing=0, Class="infoTable") # total flows
-    table3 = html.TABLE(cellspacing=0, Class="infoTable") # per person flows
+    table2 = html.TABLE(Class="infoTable") # total flows
+    table3 = html.TABLE(Class="infoTable") # per person flows
     
     for itable, table_ in enumerate([table2, table3]):
       if (itable == 1) and (nodes[i]['kind'] != 'person'):
@@ -432,18 +432,18 @@ def annotate_detailed_graph_nodes():
       for v in inValues:
         row = html.TR()
         row <= html.TD(v[0]) + html.TD(v[1]) + \
-          html.TD("{:,}".format(int(v[2]/count))) + \
-          html.TD("{:,}".format(int(v[3]/count))) + \
-          html.TD("{:,}".format(int(v[4]/count)))
+          html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")
         rows.append(row)      
       
       # subtotals
       v = inSums
       row = html.TR()
       row <= html.TH(v[0]) + html.TD(v[1]) + \
-        html.TD("{:,}".format(int(v[2]/count))) + \
-        html.TD("{:,}".format(int(v[3]/count))) + \
-        html.TD("{:,}".format(int(v[4]/count)))
+        html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")
       rows.append(row)          
 
       # spacing row
@@ -460,18 +460,18 @@ def annotate_detailed_graph_nodes():
       for v in outValues:
         row = html.TR()
         row <= html.TD(v[0]) + html.TD(v[1]) + \
-          html.TD("{:,}".format(int(v[2]/count))) + \
-          html.TD("{:,}".format(int(v[3]/count))) + \
-          html.TD("{:,}".format(int(v[4]/count)))          
+          html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")          
         rows.append(row)      
       
       # subtotals
       v = outSums
       row = html.TR()
       row <= html.TH(v[0]) + html.TD(v[1]) + \
-        html.TD("{:,}".format(int(v[2]/count))) + \
-        html.TD("{:,}".format(int(v[3]/count))) + \
-        html.TD("{:,}".format(int(v[4]/count)))        
+        html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")        
       rows.append(row)          
 
       # spacing row
@@ -483,9 +483,10 @@ def annotate_detailed_graph_nodes():
       v = grandSums
       row = html.TR()
       row <= html.TH(v[0]) + html.TH(v[1]) + \
-        html.TH("{:,}".format(int(v[2]/count))) + \
-        html.TH("{:,}".format(int(v[3]/count))) + \
-        html.TH("{:,}".format(int(v[4]/count)))      
+        html.TH("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+        html.TH("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+        html.TH("{:,}".format(int(v[4]/count)), Class="tableValue")
+   
       rows.append(row)  
           
       tb <= rows
@@ -503,16 +504,11 @@ def annotate_summary_graph():
   """
   Annotate node color and modal info for detailed graph
   
-  This function is unfinished.
-  
-{'path_Persons_Unemp_spending': 134975873, 'path_Persons_Unemp_Donations': 6374891, 'path_Nurture_support': 471437952, 'path_Persons_Emp_spending': 283247794, 'path_Persons_Unemp_contributions': 298681026, 'path_Persons_Unemp_taxes': 50087126, 'path_Persons_Emp_Donations': 12022594, 'path_Persons_Emp_taxes': 96896010, 'path_Persons_Emp_contributions': 490260127}  
-  
   """
   
   print("\nannotate summary graph:")
 
   edges = summaryGraphDic['edges']
-  print(edges)
   keys = list(edges.keys())
   keys.sort()
   minValue = 0
@@ -541,15 +537,7 @@ def annotate_summary_graph():
     f2 = ((1-0)*(f-0)) / (maxFitness-0) + 0 
     #c3.style.backgroundColor = two_color(f2)
     elt = document[nodes[i]['name']]
-    print("elt= ", elt)
-    print(elt.id)
     elt.set_style({'fill': two_color(f2)}) 
-
-
-
-
-
-
 
 
 
@@ -620,13 +608,113 @@ def closeModal(evt):
 # Summary tables and Highcharts figures
 ##########################################################################################
 
+def params_table():
+  """
+  Make a table to show the parameters used (different from choices if
+  minimization was used).
+  
+  """
+  keys = list(pramsDic.keys())
+  keys.sort()
+
+  table = html.TABLE(Class="summaryTable") 
+  table <= html.CAPTION("Parameters and Variables")
+
+  # write table body and rows
+  tb = html.TBODY()
+  rows = []
+
+  row = html.TR()
+  row <= html.TH("Item") + html.TH("Flexible") + html.TH("Value") 
+  if paramsDic['doOptimization'] == True:
+    row <= html.TH("Value After Optimization") 
+  rows.append(row)
+
+  
+  for k in keys:
+    pass
+  
+  for k in paramsDic:
+    print(k, paramsDic[k])
+
+
+
+# =========================================================== 
+def org_funding_table():
+  """
+  Make a table to show the percentage of Org revenue from different sources
+  
+  """
+  
+  edges = summaryGraphDic['edges']
+
+  spending = edges['path_Persons_Emp_spending'] + edges['path_Persons_Unemp_spending']
+  CBFS_funding = edges['path_CBFS_Orgs']
+  Gov_funding = edges['path_Gov_Orgs']
+  Org_trade = edges['path_Org_sales']
+  NP_donations = edges['path_Persons_Emp_Donations'] + edges['path_Persons_Unemp_Donations']
+  Org_revenue = spending + CBFS_funding + Gov_funding + Org_trade + NP_donations
+  
+  persons_spending_pct = (round(spending / Org_revenue * 100))
+  CBFS_funding_pct = (round(CBFS_funding / Org_revenue * 100))
+  CBFS_spending_ratio = CBFS_funding_pct / persons_spending_pct
+  
+  Gov_funding_pct = (round(Gov_funding / Org_revenue * 100))
+  Org_trade_pct = (round(Org_trade / Org_revenue * 100))
+  NP_donations_pct = (round(NP_donations / Org_revenue * 100))
+  
+  # make Org source table -------------------------------------------------
+  table = html.TABLE(Class="summaryTable") 
+  table <= html.CAPTION("Organizations Revenue Sources, By Percent")
+
+  # write table body and rows
+  tb = html.TBODY()
+  rows = []
+
+  row = html.TR()
+  row <= html.TH("Source") + html.TH("Percent")
+  rows.append(row)
+  
+  row = html.TR()
+  row <= html.TD("Persons Spending") + \
+    html.TD("{:,}".format(int(persons_spending_pct)), Class="tableValue") 
+  rows.append(row) 
+  
+  row = html.TR()
+  row <= html.TD("CBFS Funding") + \
+    html.TD("{:,}".format(int(CBFS_funding_pct)), Class="tableValue")
+  rows.append(row) 
+  
+  row = html.TR()
+  row <= html.TD("Gov Funding") + \
+    html.TD("{:,}".format(int(Gov_funding_pct)), Class="tableValue")
+  rows.append(row) 
+  
+  row = html.TR()
+  row <= html.TD("Org Net Trade") + \
+    html.TD("{:,}".format(int(Org_trade_pct)), Class="tableValue")  
+  rows.append(row) 
+  
+  row = html.TR()
+  row <= html.TD("NP Donations") + \
+    html.TD("{:,}".format(int(NP_donations_pct )), Class="tableValue")
+  rows.append(row)  
+  
+  tb <= rows
+  table <= tb 
+    
+  document['org_funding_table'].html = ' '
+  document['org_funding_table'] <= table
+
+
+# =========================================================== 
 def fitness_overview_tables():
   """
   Write summary tables for the fitness overview (grand fitness and node fitness)
   """
   
   # grand fitness table -------------------------------------------------
-  table = html.TABLE(cellspacing=0, Class="summaryTable") 
+  table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Grand Fitness")
   population = float(paramsDic['population'][0])
 
@@ -640,25 +728,25 @@ def fitness_overview_tables():
   
   row = html.TR()
   row <= html.TD("Grand Fitness") 
-  r1 = html.TD("{:,}".format(fitnessDic['fitness']['dollars'])) 
-  r2 = html.TD("{:,}".format(fitnessDic['fitness']['tokens'] )) 
-  r3 = html.TD("{:,}".format(fitnessDic['fitness']['total'])) 
+  r1 = html.TD("{:,}".format(fitnessDic['fitness']['dollars']), Class="tableValue") 
+  r2 = html.TD("{:,}".format(fitnessDic['fitness']['tokens'] ), Class="tableValue") 
+  r3 = html.TD("{:,}".format(fitnessDic['fitness']['total']), Class="tableValue") 
   row <= r1 + r2 + r3
   rows.append(row)
   
   row = html.TR()
   row <= html.TD("Log (Grand Fitness+1)")
-  r1 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['dollars']+1),2)))
-  r2 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['tokens'] +1),2)))
-  r3 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['total']  +1),2))) 
+  r1 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['dollars']+1),2)), Class="tableValue")
+  r2 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['tokens'] +1),2)), Class="tableValue")
+  r3 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['total']  +1),2)), Class="tableValue") 
   row <= r1 + r2 + r3
   rows.append(row)
   
   row = html.TR()
   row <= html.TD("Per Person Basis") + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['dollars']/population)))) + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['tokens'] /population)))) + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['total']  /population)))) 
+    html.TD("{:,}".format(int(round(fitnessDic['fitness']['dollars']/population))), Class="tableValue") + \
+    html.TD("{:,}".format(int(round(fitnessDic['fitness']['tokens'] /population))), Class="tableValue") + \
+    html.TD("{:,}".format(int(round(fitnessDic['fitness']['total']  /population))), Class="tableValue") 
   rows.append(row)
   
   tb <= rows
@@ -668,8 +756,65 @@ def fitness_overview_tables():
   document['grand_fitness_table'] <= table
   
 
+  # compartment flow summary table ------------------------------------
+  table = html.TABLE(Class="summaryTable") 
+  table <= html.CAPTION("Compartment Flow Summary")
+
+  edges = summaryGraphDic['edges']
+  tb = html.TBODY()
+  rows = []
+
+  row = html.TR()
+  row <= html.TH("Flow Name") + html.TH("Source")+ html.TH("Destination") + html.TH("T&D")
+  rows.append(row)
+  
+  flows = [
+    ['Wages', 'Organizations', 'Persons, Employed', 
+      "{:,}".format(edges['path_Org_wages'])],
+    ['Spending', 'Persons, Employed', 'Organizations', 
+      "{:,}".format(edges['path_Persons_Emp_spending'])],
+    ['Spending', 'Persons, Not Employed', 'Organizations', 
+      "{:,}".format(edges['path_Persons_Unemp_spending'])],
+    ['Contributions', 'Persons, Employed, Member', 'CBFS', 
+      "{:,}".format(edges['path_Persons_Emp_contributions'])],
+    ['Contributions', 'Persons, Not Employed, Member', 'CBFS', 
+      "{:,}".format(edges['path_Persons_Unemp_contributions'])],
+    ['Nurture', 'CBFS', 'Persons, Not Employed, Member', 
+      "{:,}".format(edges['path_Nurture_support'])],
+    ['Support', 'Gov', 'Persons, Not Employed', 
+      "{:,}".format(edges['path_Gov_support'])],
+    ['Taxes', 'Persons, Employed', 'Gov', 
+      "{:,}".format(edges['path_Persons_Emp_taxes'])],
+    ['Taxes', 'Persons, Not Employed', 'Gov', 
+      "{:,}".format(edges['path_Persons_Unemp_taxes'])],
+    ['Gov Funding Local', 'Gov', 'Organizations', 
+      "{:,}".format(edges['path_Gov_Orgs'])],
+    ['Gov Funding Distant', 'Gov', 'RoC', 
+      "{:,}".format(edges['path_Gov_ROC'])],
+    ['Org Net Trade', 'RoC', 'Organizations', 
+      "{:,}".format(edges['path_Org_sales'])],
+    ['CBFS Local Funding', 'CBFS', 'Organizations', 
+      "{:,}".format(edges['path_CBFS_Orgs'])],
+    ['Donations', 'Persons, Employed', 'Organizations', 
+      "{:,}".format(edges['path_Persons_Emp_Donations'])],
+    ['Donations', 'Persons, Not Employed', 'Organizations', 
+      "{:,}".format(edges['path_Persons_Unemp_Donations'])]
+    ]
+    
+  for f in flows:
+    row = html.TR()  
+    row <= html.TD(f[0]) + html.TD(f[1]) +html.TD(f[2]) +html.TD(f[3], Class="tableValue")
+    rows.append(row)
+  
+  tb <= rows
+  table <= tb 
+    
+  document['compartment_flow_summary_table'].html = ' '
+  document['compartment_flow_summary_table'] <= table
+  
+
   # node fitness summary table ------------------------------------
-  table = html.TABLE(cellspacing=0, Class="summaryTable") 
+  table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Node Fitness, Summary")
 
   tb = html.TBODY()
@@ -693,9 +838,9 @@ def fitness_overview_tables():
     v = grandSums
     row = html.TR()
     row <= html.TD(name, rowspan="2") + html.TD("Sum Flows") + \
-      html.TD("{:,}".format(v[2])) + \
-      html.TD("{:,}".format(v[3])) + \
-      html.TD("{:,}".format(v[4]))
+      html.TD("{:,}".format(v[2]), Class="tableValue") + \
+      html.TD("{:,}".format(v[3]), Class="tableValue") + \
+      html.TD("{:,}".format(v[4]), Class="tableValue")
     rows.append(row)      
 
     row = html.TR()
@@ -704,17 +849,17 @@ def fitness_overview_tables():
     
     f = nodes[i]['fitness_dollars']
     f2 = ((1-0)*(f-0)) / (maxFitness-0) + 0 
-    c1 = html.TD("{:,}".format(f))
+    c1 = html.TD("{:,}".format(f), Class="tableValue")
     c1.style.backgroundColor = two_color(f2)
 
     f = nodes[i]['fitness_tokens']
     f2 = ((1-0)*(f-0)) / (maxFitness-0) + 0 
-    c2 = html.TD("{:,}".format(f))
+    c2 = html.TD("{:,}".format(f), Class="tableValue")
     c2.style.backgroundColor = two_color(f2)
 
     f = nodes[i]['fitness_total']
     f2 = ((1-0)*(f-0)) / (maxFitness-0) + 0 
-    c3 = html.TD("{:,}".format(f))
+    c3 = html.TD("{:,}".format(f), Class="tableValue")
     c3.style.backgroundColor = two_color(f2)
     
     row <= c1 + c2 + c3  
@@ -1088,7 +1233,7 @@ def group_1_summary_table():
   """
   
   # Before/After
-  table = html.TABLE(cellspacing=0, Class="summaryTable") 
+  table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Initial Vs. Final")
   population = float(paramsDic['population'][0])
 
@@ -1106,14 +1251,14 @@ def group_1_summary_table():
   
   row = html.TR()
   row <= html.TD("Percent of population in membership") + \
-    html.TD(0) +\
-    html.TD("{:,}".format(round(members/total * 100, 1)))
+    html.TD(0, Class="tableValue") +\
+    html.TD("{:,}".format(round(members/total * 100, 1)), Class="tableValue")
   rows.append(row)    
 
   row = html.TR()
   row <= html.TD("Unemployment rate") + \
-    html.TD(countsDic['unemploymemt_rate_initial']) +\
-    html.TD(countsDic['unemploymemt_rate_final'])
+    html.TD(countsDic['unemploymemt_rate_initial'], Class="tableValue") +\
+    html.TD(countsDic['unemploymemt_rate_final'], Class="tableValue")
   rows.append(row)  
 
   tb <= rows
@@ -1133,7 +1278,7 @@ def inflow_outflow_summary_tables():
   """
 
   # group 2b node table -------------------------------------------
-  table = html.TABLE(cellspacing=0, Class="summaryTable") 
+  table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Node Flows and Fitness, Detailed")
 
   tb = html.TBODY()
@@ -1156,25 +1301,25 @@ def inflow_outflow_summary_tables():
     row = html.TR()
     v = inSums
     row <= html.TD(name, rowspan="4") + html.TD("Inflows") + \
-      html.TD("{:,}".format(v[2])) + \
-      html.TD("{:,}".format(v[3])) + \
-      html.TD("{:,}".format(v[4]))
+      html.TD("{:,}".format(v[2]), Class="tableValue") + \
+      html.TD("{:,}".format(v[3]), Class="tableValue") + \
+      html.TD("{:,}".format(v[4]), Class="tableValue")
     rows.append(row)  
 
     row = html.TR()
     v = outSums
     row <= html.TD("Outflows") + \
-      html.TD("{:,}".format(v[2])) + \
-      html.TD("{:,}".format(v[3])) + \
-      html.TD("{:,}".format(v[4]))
+      html.TD("{:,}".format(v[2]), Class="tableValue") + \
+      html.TD("{:,}".format(v[3]), Class="tableValue") + \
+      html.TD("{:,}".format(v[4]), Class="tableValue")
     rows.append(row)  
 
     row = html.TR()
     v = grandSums
     row <= html.TD("Sum Flows") + \
-      html.TD("{:,}".format(v[2])) + \
-      html.TD("{:,}".format(v[3])) + \
-      html.TD("{:,}".format(v[4]))
+      html.TD("{:,}".format(v[2]), Class="tableValue") + \
+      html.TD("{:,}".format(v[3]), Class="tableValue") + \
+      html.TD("{:,}".format(v[4]), Class="tableValue")
     rows.append(row)      
 
     row = html.TR()
@@ -1183,17 +1328,17 @@ def inflow_outflow_summary_tables():
     
     f = nodes[i]['fitness_dollars']
     f2 = ((1-0)*(f-0)) / (maxFitness-0) + 0 
-    c1 = html.TD("{:,}".format(f))
+    c1 = html.TD("{:,}".format(f), Class="tableValue")
     c1.style.backgroundColor = two_color(f2)
 
     f = nodes[i]['fitness_tokens']
     f2 = ((1-0)*(f-0)) / (maxFitness-0) + 0 
-    c2 = html.TD("{:,}".format(f))
+    c2 = html.TD("{:,}".format(f), Class="tableValue")
     c2.style.backgroundColor = two_color(f2)
 
     f = nodes[i]['fitness_total']
     f2 = ((1-0)*(f-0)) / (maxFitness-0) + 0 
-    c3 = html.TD("{:,}".format(f))
+    c3 = html.TD("{:,}".format(f), Class="tableValue")
     c3.style.backgroundColor = two_color(f2)
     
     row <= c1 + c2 + c3  
@@ -1254,6 +1399,7 @@ document['output_grand_fitness'].text ='...wait...'
 
 window.bind('click', closeModal)
 
+
 load_svg_summary()
 load_svg_detailed()
 load_svg_pan_controls()
@@ -1291,15 +1437,19 @@ for i in keys:
     maxFitness = fitness
 
 
-
 document['output_grand_fitness'].text = "{:,}".format(fitnessDic['fitness']['total'])
+population = int(paramsDic['population'][0])
+document['threshold'].text = "{:,}".format(500*population)
 
 # annotate graphs with returned data  
 annotate_detailed_graph_edges()
 annotate_detailed_graph_nodes()
-annotate_summary_graph()    
+annotate_summary_graph() 
+   
   
 # write out summary tables and figures
+params_table()
+org_funding_table()
 fitness_overview_tables()
 
 graph_pop_dist()
