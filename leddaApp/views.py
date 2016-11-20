@@ -57,6 +57,25 @@ def steady_01():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/glossary')
+def glossary():
+  """
+  This is the glossary page. 
+  """
+  return render_template('glossary.html')  
+
+  
+# -------------------------------------------------------------------------------------
+@app.route('/income_generation')
+def income_generation():
+  """
+  This is the income generation page. 
+  """
+  return render_template('income_generation.html') 
+
+
+
+# -------------------------------------------------------------------------------------
 @app.route('/runModel', methods=['POST'])
 def runModel():
   """
