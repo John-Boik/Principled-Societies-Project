@@ -614,7 +614,7 @@ def params_table():
   minimization was used).
   
   """
-  keys = list(pramsDic.keys())
+  keys = list(paramsDic.keys())
   keys.sort()
 
   table = html.TABLE(Class="summaryTable") 
@@ -625,17 +625,25 @@ def params_table():
   rows = []
 
   row = html.TR()
-  row <= html.TH("Item") + html.TH("Flexible") + html.TH("Value") 
-  if paramsDic['doOptimization'] == True:
-    row <= html.TH("Value After Optimization") 
+  row <= html.TH("Item") + html.TH("Value") 
   rows.append(row)
 
   
   for k in keys:
-    pass
+    row = html.TR()
+    if k[0:9] in ['flexible_', 'doOptimiz']:
+      continue
+    row <= html.TD(k) + html.TD(str(paramsDic[k][0]), Class="tableValue") 
+    rows.append(row)
+    
   
-  for k in paramsDic:
-    print(k, paramsDic[k])
+  #for k in paramsDic:
+  #  print(k, paramsDic[k])
+  tb <= rows
+  table <= tb 
+    
+  document['params_table'].html = ' '
+  document['params_table'] <= table
 
 
 
