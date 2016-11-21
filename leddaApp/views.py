@@ -1,11 +1,12 @@
 
 
-import os
+import os, re
 import numpy as np
 
 from flask import g, make_response, Markup
 from flask import render_template, request, jsonify, send_from_directory
 from flask import flash, redirect, url_for
+from flask_mail import Message
 
 
 from leddaApp import app
@@ -19,41 +20,41 @@ app.config.from_envvar('leddaApp_SETTINGS', silent=True)
 
 # Load default config and override config from an environment variable
 app.config.update(dict(
-    DEBUG=True,
-    SECRET_KEY = 'development key',
+  DEBUG=True,
+  SECRET_KEY = 'development key',
 
-    PROJECT_FOLDER = os.path.join(os.path.dirname(app.root_path), 'Projects'),
-    DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'data')
+  PROJECT_FOLDER = os.path.join(os.path.dirname(app.root_path), 'Projects'),
+  DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'data'),
+  MAIL_SERVER = 'smtp.gmail.com',
+  MAIL_PORT = 465,
+  MAIL_USE_SSL = True,
+  MAIL_USERNAME = 'info@PrincipledSocietiesProject.org',
+  MAIL_PASSWORD = 'yourMailPassword'
 
-    ))
-
-app.secret_key = app.config['SECRET_KEY']
+  ))
 
 
 
-#####################################################################
-#               Index Page
-#####################################################################
+#######################################################################################
+#               Serve basic pages
+#######################################################################################
 
 @app.route('/')
 @app.route('/index')
 def index():
   """
-  This is the home page, where user lands first. 
+  This is the home page, where visitor lands first. 
   """
   return render_template('index.html')  
 
 
-
-#####################################################################
-#               Steady State
-#####################################################################
-@app.route('/steady_01')
-def steady_01():
+# -------------------------------------------------------------------------------------
+@app.route('/model_steady_state_01')
+def model_steady_state_01():
   """
   This is the steady_01 page. 
   """
-  return render_template('steady_01.html')  
+  return render_template('model_steady_state_01.html')  
 
 
 # -------------------------------------------------------------------------------------
@@ -69,13 +70,133 @@ def glossary():
 @app.route('/income_generation')
 def income_generation():
   """
-  This is the income generation page. 
+  This page is about income distributions are generated for the models. 
   """
   return render_template('income_generation.html') 
 
 
+# -------------------------------------------------------------------------------------
+@app.route('/about_psp')
+def about_psp():
+  """
+  This page is about PSP. 
+  """
+  return render_template('about_psp.html') 
+
 
 # -------------------------------------------------------------------------------------
+@app.route('/contact')
+def contact():
+  """
+  This is the contact page. 
+  """
+  return render_template('contact.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/donate')
+def donate():
+  """
+  This is the donate page. 
+  """
+  return render_template('donate.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/articles_media')
+def articles_media():
+  """
+  This is the income generation page. 
+  """
+  return render_template('articles_media.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/book_edd_about')
+def book_edd_about():
+  """
+  This page is about the book Economic Direct Democracy. 
+  """
+  return render_template('book_edd_about.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/book_edd_download')
+def book_edd_download():
+  """
+  This is the download page for Economic Direct Democracy. 
+  """
+  return render_template('book_edd_download.html') 
+  
+  
+# -------------------------------------------------------------------------------------
+@app.route('/book_edd_license')
+def book_edd_license():
+  """
+  This page is about the creative commons license for Economic Direct Democracy. 
+  """
+  return render_template('book_edd_license.html')   
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/book_edd_praise')
+def book_edd_praise():
+  """
+  This page is about the creative commons license for Economic Direct Democracy. 
+  """
+  return render_template('book_edd_praise.html')   
+  
+
+# -------------------------------------------------------------------------------------
+@app.route('/book_edd_toc')
+def book_edd_toc():
+  """
+  This is the income generation page. 
+  """
+  return render_template('book_edd_toc.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/contact_form', methods=['POST'])
+def contact_form():
+  """
+  This mails the contact form. 
+  """
+  
+  form = dict(request.form)
+  
+  if not re.match(r"[^@]+@[^@]+\.[^@]+", form['email'][0]):
+    return jsonify(msg="Email validation fails")
+  
+  match = re.match(
+    "facebook|twitter|instagram|youtube|you tube|design|website|follower|fan|visitor|roi",
+    form['message'][0].lower())
+
+  print("message: ", match)
+  if match:
+    return jsonify(msg="Message validation fails")
+        
+  msg = Message("PSP Message", sender= 'info@PrincipledSocietiesProject.org', 
+    recipients=['info@PrincipledSocietiesProject.org'])
+  msg.body = ("""
+    From: {:} <{:}>,
+    {:}
+    """).format(form['name'][0], form['email'][0], form['message'][0])
+
+  if (form['magic'][0] in ['4', 'four']) and (not match) and (form['other']==""):  
+    #mail.send(msg)
+    pass
+    
+  print(str(msg))
+  
+  return jsonify(msg="OK")
+
+
+  
+#######################################################################################
+# Run the steady state model
+#######################################################################################
+
 @app.route('/runModel', methods=['POST'])
 def runModel():
   """
