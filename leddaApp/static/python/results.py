@@ -4,10 +4,75 @@ import json
 import math
 
 
+##########################################################################################
+# Color functions
+##########################################################################################
+
+
+def two_color(value):
+  """
+  For value in [0,1], returns linear gradient in rgb between two colors
+  """
+  start =  (244,244,244)
+  finish = (255,0,0)
+  rgb = [int(start[j] + (float(value)) * (finish[j]-start[j])) for j in range(3)]
+  rgb = tuple(rgb + [.5])
+  
+  return "rgba" + str(rgb)
+
+
 
 ##########################################################################################
-# Load summary graph
+# Group 0 Info
 ##########################################################################################
+
+def fitness_overview_tables():
+  """
+  Write summary tables for the fitness overview (grand fitness and node fitness)
+  """
+  
+  # grand fitness table -------------------------------------------------
+  table = html.TABLE(Class="summaryTable") 
+  table <= html.CAPTION("Grand Fitness")
+  population = float(paramsDic['population'][0])
+
+  # write table body and rows
+  tb = html.TBODY()
+  rows = []
+
+  row = html.TR()
+  row <= html.TH("Unit") + html.TH("Dollars") + html.TH("Tokens") + html.TH("T&D")
+  rows.append(row)
+  
+  row = html.TR()
+  row <= html.TD("Grand Fitness") 
+  r1 = html.TD("{:,}".format(fitnessDic['fitness']['dollars']), Class="tableValue") 
+  r2 = html.TD("{:,}".format(fitnessDic['fitness']['tokens'] ), Class="tableValue") 
+  r3 = html.TD("{:,}".format(fitnessDic['fitness']['total']), Class="tableValue") 
+  row <= r1 + r2 + r3
+  rows.append(row)
+  
+  row = html.TR()
+  row <= html.TD("Log (Grand Fitness+1)")
+  r1 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['dollars']+1),2)), Class="tableValue")
+  r2 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['tokens'] +1),2)), Class="tableValue")
+  r3 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['total']  +1),2)), Class="tableValue") 
+  row <= r1 + r2 + r3
+  rows.append(row)
+  
+  row = html.TR()
+  row <= html.TD("Per Person Basis") + \
+    html.TD("{:,}".format(int(round(fitnessDic['fitness']['dollars']/population))), Class="tableValue") + \
+    html.TD("{:,}".format(int(round(fitnessDic['fitness']['tokens'] /population))), Class="tableValue") + \
+    html.TD("{:,}".format(int(round(fitnessDic['fitness']['total']  /population))), Class="tableValue") 
+  rows.append(row)
+  
+  tb <= rows
+  table <= tb 
+    
+  document['grand_fitness_table'].html = ' '
+  document['grand_fitness_table'] <= table
+  
 
 def load_svg_summary(url="/static/images/steady_state_summary_4.svg"):
   req = ajax.ajax()
@@ -23,481 +88,6 @@ def load_svg_summary_complete(req):
   else:
     raise Exception()
     
-
-
-##########################################################################################
-# Load detailed graph
-##########################################################################################
-
-def load_svg_detailed(url="/static/images/steady_state_detailed.svg"):
-  req = ajax.ajax()
-  req.bind('complete', load_svg_detailed_complete)
-  req.open('GET', url, False)
-  req.send()
-
-
-# ===========================================================
-def load_svg_detailed_complete(req):
-  if req.status == 200 or req.status == 0:
-    document['graph_right'].html = req.text
-  else:
-    raise Exception()
-    
-
-
-##########################################################################################
-# Pan Zoom 
-##########################################################################################
-
-def load_svg_pan_controls(url="/static/images/pan_controls_2.svg"):
-  req = ajax.ajax()
-  req.bind('complete', load_pan_controls_complete)
-  req.open('GET', url, False)
-  req.send()
-
-
-# ===========================================================
-def load_pan_controls_complete(req):
-  if req.status == 200 or req.status == 0:
-    document['graph_left'].html = req.text
-  else:
-    raise Exception()
-    
-
-# ===========================================================            
-def set_pan_controls():
-  """
-  Set the pan/zoom controls and bindings
-  """
-  
-  pan_detailed.setMinZoom(0.1)
-  pan_detailed.setMaxZoom(10.0)
-  pan_detailed.disableZoom()
-  pan_detailed.disableControlIcons()
-  pan_detailed.disableDblClickZoom()
-  pan_detailed.disableMouseWheelZoom()
-  pan_detailed.disablePan()
-  pan_detailed.disableZoom()
-  pan_detailed.fit();
-
-  elt = document['svg_detailed_graph']
-  elt.style.cursor = "default"
-  elt.bind('click', doZoom)  
-    
-  for ID in ['pointer', 'zoom_in', 'zoom_out', 'pan', 'info', 'reset']:
-    elt = document[ID]
-    elt.bind('click', pan_zoom)
-  
-  window.bind('resize', resize_pan_graph)
-
-
-# ===========================================================
-def pan_zoom(evt):
-  """
-  Turn on/off pan, zoom, reset depending on which control icon is clicked. Set
-  cursor accordingly.
-  """
-
-  #print("evt= ", evt.target.id, evt.currentTarget.id)
-  
-  elt = document['svg_detailed_graph']
-  
-  if evt.currentTarget.id == "pointer":
-    elt.style.cursor = "default" 
-    pan_detailed.disableMouseWheelZoom()
-    pan_detailed.disableZoom()
-    pan_detailed.disablePan()
-
-  if evt.currentTarget.id == "zoom_in":
-    elt.style.cursor = "zoom-in" 
-    pan_detailed.enableMouseWheelZoom()
-    pan_detailed.enableZoom()
-    pan_detailed.disablePan()
-
-  if evt.currentTarget.id == "zoom_out":
-    elt.style.cursor = "zoom-out" 
-    pan_detailed.enableMouseWheelZoom()
-    pan_detailed.enableZoom()
-    pan_detailed.disablePan()
-  
-  elif evt.currentTarget.id == "pan":
-    elt.style.cursor = "move" 
-    pan_detailed.disableMouseWheelZoom()
-    pan_detailed.disableZoom()
-    pan_detailed.enablePan()
-
-  elif evt.currentTarget.id == "info":
-    elt.style.cursor = "help" 
-    pan_detailed.disableMouseWheelZoom()
-    pan_detailed.disableZoom()
-    pan_detailed.disablePan()
-
-  elif evt.currentTarget.id == "reset":
-    pan_detailed.reset()  
-  
-  
-# ===========================================================
-def doZoom(evt):
-  """
-  Zoom in or out, or none, depending on cursor state, if detailed graph is clicked.
-  Code adapted from https://github.com/ariutta/svg-pan-zoom/issues/136
-  """
-  
-  elt = document['svg_detailed_graph']
-  if (elt.style.cursor != "zoom-in") and (elt.style.cursor != "zoom-out"):
-    # do not do zoom
-    return
-  
-  print("\ndoZoom:")
-    
-  # get transformed x,y point to zoom at
-  pan = pan_detailed.getPan()
-  sizes = pan_detailed.getSizes()
-  zoom = sizes.realZoom
-    
-  pt = elt.createSVGPoint()
-  pt.x = evt.clientX
-  pt.y = evt.clientY
-  pt = pt.matrixTransform(elt.getScreenCTM().inverse())
-  x = pt.x
-  y = pt.y
-
-  #x = (x - pan.x) / zoom;
-  #y = (y - pan.y)/zoom;
-    
-  #print("x= {}, y= {}".format(x,y))
-  #print("evt: x= {}, y={}".format(evt.offsetX, evt.offsetY))
-
-  if elt.style.cursor == "zoom-in":
-    pan_detailed.zoomAtPointBy(1.2, {'x': x, 'y': y})
-  if elt.style.cursor == "zoom-out":
-    pan_detailed.zoomAtPointBy(.8333, {'x': x, 'y': y}) 
-  
-    
-# ===========================================================
-def resize_pan_graph(evt):
-  """
-  Resize the graph that has pan controls if window is resized
-  """  
-  print("\nresize pan graph:")
-
-  pan_detailed.resize()
-  pan_detailed.fit()
-  pan_detailed.center()  
-
-  print ("leaving resize")
-
-
-##########################################################################################
-# Color functions
-##########################################################################################
-
-
-def floatRgb(mag):
-  """
-  Return a tuple of floats between 0 and 1 for the red, green and
-  blue amplitudes.
-  floatRgb(mag, cmin, cmax)
-  http://code.activestate.com/recipes/52273-colormap-returns-an-rgb-tuple-on-a-0-to-255-scale-/
-  """
-  #try:
-  #  # normalize to [0,1]
-  #  x = float(mag-cmin)/float(cmax-cmin)
-  #except:
-  #  # cmax = cmin
-  #  x = 0.5
-  
-  #blue  = min((max((4*(0.75-x), 0.)), 1.))
-  #red   = min((max((4*(x-0.25), 0.)), 1.))
-  #green = min((max((4*math.fabs(x-0.5)-1., 0.)), 1.))
-  
-  green  = min((max((4*(0.75-mag), 0.)), 1.))
-  red    = min((max((4*(mag-0.25), 0.)), 1.))
-  blue   = min((max((4*math.fabs(mag-0.5)-1., 0.)), 1.))
-
-  return (red, green, blue)
-
-# ===========================================================
-def strRgb(mag, cmin, cmax):
-  """
-  Return a tuple of strings to be used in Tk plots.
-  """
-  red, green, blue = floatRgb(mag, cmin, cmax)       
-  return "#%02x%02x%02x" % (red*255, green*255, blue*255)
-
-
-def rgb(mag):
-  """
-  Return a tuple of integers to be used in AWT/Java plots.
-  rgb(mag, cmin, cmax)
-  """
-  red, green, blue = floatRgb(mag)
-  return "rgba" + str((int(red*255), int(green*255), int(blue*255), .5))
-
-
-def htmlRgb(mag, cmin, cmax):
-  """
-  Return a tuple of strings to be used in HTML documents.
-  """
-  return "#%02x%02x%02x"%rgb(mag, cmin, cmax)   
-
-
-def two_color(value):
-  """
-  For value in [0,1], returns linear gradient in rgb between two colors
-  """
-  start =  (244,244,244)
-  finish = (255,0,0)
-  rgb = [int(start[j] + (float(value)) * (finish[j]-start[j])) for j in range(3)]
-  rgb = tuple(rgb + [.5])
-  
-  return "rgba" + str(rgb)
-
-
-##########################################################################################
-# Annotate Detailed Graph
-##########################################################################################
-
-def annotate_detailed_graph_edges():
-  """
-  Annotate edge weight and modal info for detailed graph
-  """
-  
-  # edges
-  # example: {20: {'unit': 'dollars', 'dst': 'org_member_SB', 'kind': 'spending', 
-  #  'value': 10790695, 'id': 20, 'src': 'person_nonmember_SB'}
-  
-  print("\nannotate detailed graph edges:")
-  
-  global edgeDic
-  edgeDic = {}
-  
-  edges = fitnessDic['edges']
-  keys = list(edges.keys())
-  keys.sort()
-  minValue = 0
-  maxValue = 0
-  for i in keys:
-    value = int(edges[i]['value'])  
-    if value < minValue:
-      minValue = value
-    if value > maxValue:
-      maxValue = value
-
-  for i in keys:
-    elt = document[str(i)]
-    elt.bind('click', showModal)
-
-    table = html.TABLE(Class="infoTable")
-    table <= html.CAPTION("Summary for Edge ID: {}".format(i))
-    
-    tb = html.TBODY()
-    rows = []
-    
-    row = html.TR()
-    row <= html.TD("Edge") + html.TD(edges[i]['src']+' &rarr; '+edges[i]['dst'])
-    rows.append(row)
-
-    row = html.TR()
-    row <= html.TD("Kind") + html.TD(edges[i]['kind'])
-    rows.append(row)
-
-    value = int(edges[i]['value'])
-    value2 = ((50-1)*(value-minValue)) / (maxValue-minValue) + 1 
-    elt.set_style({'stroke-width': str(value2)+'px'})
-    
-    row = html.TR()
-    row <= html.TD("Value") + html.TD("{:,} {:}".format(value, edges[i]['unit']))
-    rows.append(row)
-    
-    tb <= rows
-    table <= tb
-    edgeDic[i] = table    
-
-
-# ===========================================================  
-def annotate_detailed_graph_nodes():
-  """
-  Annotate node color and modal info for detailed graph
-  """
-  
-  print("\nannotate detailed graph nodes:")
-  
-  global nodeDic
-  nodeDic = {}
-  
-  nodes = fitnessDic['nodes']
-  keys = list(nodes.keys())
-  keys.sort()
-  
-  for i in keys:
-    elt = document[str(i)]
-    elt.bind('click', showModal)
-    
-    # table 1: summary info ------------------------------------------------------
-    table1 = html.TABLE(Class="infoTable")
-    table1 <= html.CAPTION("Summary for Node ID: {}, Name: {}".format(i, nodes[i]['name']))
-    
-    tb = html.TBODY()
-    rows = []
-    
-    row = html.TR()
-    row <= html.TD("Kind") + html.TD(nodes[i]['kind'])
-    rows.append(row)
-    
-    if 'member' in nodes[i].keys():
-      row = html.TR()
-      row <= html.TD("Member") + html.TD(nodes[i]['member'])
-      rows.append(row)      
-
-    if 'employed' in nodes[i].keys():
-      row = html.TR()
-      row <= html.TD("Employed") + html.TD(nodes[i]['employed'])
-      rows.append(row) 
-    
-    if 'count' in nodes[i].keys():
-      row = html.TR()
-      row <= html.TD("Count") + html.TD(nodes[i]['count'])
-      rows.append(row) 
-
-    if 'actual_postCBFS_income_dollars_mean' in nodes[i].keys():
-      row = html.TR()
-      row <= html.TD("Mean post-CBFS Income") + html.TD(
-        "{:,} dollars, {:,} tokens, {:,} T&D".format(
-        nodes[i]['actual_postCBFS_income_dollars_mean'],
-        nodes[i]['actual_postCBFS_income_tokens_mean'],
-        nodes[i]['actual_postCBFS_income_total_mean']))
-      rows.append(row)  
-
-    if 'actual_preCBFS_income_dollars_mean' in nodes[i].keys():
-      row = html.TR()
-      row <= html.TD("Mean pre-CBFS Income") + html.TD(
-        "{:,} dollars, {:,} tokens, {:,} T&D".format(
-        nodes[i]['actual_preCBFS_income_dollars_mean'],
-        nodes[i]['actual_preCBFS_income_tokens_mean'],
-        nodes[i]['actual_preCBFS_income_total_mean']))
-      rows.append(row)  
-
-    row = html.TR()
-    row <= html.TD("Fitness") + html.TD(
-      "{:,} dollars, {:,} tokens, {:,} T&D".format(
-      nodes[i]['fitness_dollars'],
-      nodes[i]['fitness_tokens'],
-      nodes[i]['fitness_total']))
-    rows.append(row)  
-        
-    value = int(nodes[i]['fitness_total'])  
-    value2 = ((1-0)*(value-0)) / (maxFitness-0) + 0 
-    
-    # find ellipse element of parent
-    ellipse = [c for c in elt.children if c.elt.nodeName == 'ellipse'][0]
-    ellipse.set_style({'fill': two_color(value2) })
-    
-    tb <= rows
-    table1 <= tb
-    
-    
-    # tables 2 and 3: total flows and per person flows ------------------------
-    inValues = tableDic[i]['in']['Values']
-    inSums = tableDic[i]['in']['Sums']
-    outValues = tableDic[i]['out']['Values']
-    outSums = tableDic[i]['out']['Sums']    
-    grandSums = tableDic[i]['grandSums']
-
-    table2 = html.TABLE(Class="infoTable") # total flows
-    table3 = html.TABLE(Class="infoTable") # per person flows
-    
-    for itable, table_ in enumerate([table2, table3]):
-      if (itable == 1) and (nodes[i]['kind'] != 'person'):
-        # only write table3 if node is a person
-        continue
-      
-      if itable == 0:
-        table_ <= html.CAPTION("Total Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name']))
-        count = 1 
-      else:
-        table_ <= html.CAPTION("Per Person Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name'])) 
-        count = nodes[i]['count']
-      
-      # write table body and rows
-      tb = html.TBODY()
-      rows = []
-      
-      # inflows heading row
-      row = html.TR()
-      row <= html.TH("In Flow Kind") + html.TH("Source") + \
-        html.TH("Dollars") + html.TH("Tokens") + html.TH("T&D")
-      rows.append(row)
-          
-      for v in inValues:
-        row = html.TR()
-        row <= html.TD(v[0]) + html.TD(v[1]) + \
-          html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
-          html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
-          html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")
-        rows.append(row)      
-      
-      # subtotals
-      v = inSums
-      row = html.TR()
-      row <= html.TH(v[0]) + html.TD(v[1]) + \
-        html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
-        html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
-        html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")
-      rows.append(row)          
-
-      # spacing row
-      row = html.TR()
-      row <= html.TD("") + html.TD("") + html.TD("") + html.TD("") + html.TD("")
-      rows.append(row)
-      
-      # outflows heading row
-      row = html.TR()
-      row <= html.TH("Out Flow Kind") + html.TH("Destination") + \
-        html.TH("Dollars") + html.TH("Tokens") + html.TH("T&D")
-      rows.append(row)
-          
-      for v in outValues:
-        row = html.TR()
-        row <= html.TD(v[0]) + html.TD(v[1]) + \
-          html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
-          html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
-          html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")          
-        rows.append(row)      
-      
-      # subtotals
-      v = outSums
-      row = html.TR()
-      row <= html.TH(v[0]) + html.TD(v[1]) + \
-        html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
-        html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
-        html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")        
-      rows.append(row)          
-
-      # spacing row
-      row = html.TR()
-      row <= html.TD("") + html.TD("") + html.TD("") + html.TD("") + html.TD("")
-      rows.append(row)
-
-      # grand totals
-      v = grandSums
-      row = html.TR()
-      row <= html.TH(v[0]) + html.TH(v[1]) + \
-        html.TH("{:,}".format(int(v[2]/count)), Class="tableValue") + \
-        html.TH("{:,}".format(int(v[3]/count)), Class="tableValue") + \
-        html.TH("{:,}".format(int(v[4]/count)), Class="tableValue")
-   
-      rows.append(row)  
-          
-      tb <= rows
-      table_ <= tb
-    
-    if nodes[i]['kind'] == 'person': 
-      nodeDic[i] = table1 + table2 + table3 
-    else:
-      nodeDic[i] = table1 + table2
-
-
 
 # ===========================================================  
 def annotate_summary_graph():
@@ -542,112 +132,9 @@ def annotate_summary_graph():
 
 
 ##########################################################################################
-# Modal dialog box for graph annotation
+# Group 1 Info
 ##########################################################################################
 
-def showModal(evt):
-  """
-  Show the model dialog for info/help clicks on detailed graph
-  """
-  
-  print("\nshow Edge Table")
-  
-  elt = document['svg_detailed_graph']
-  if elt.style.cursor != "help":
-    # only show modal if cursor is 'help'
-    return
-  
-  ID = evt.currentTarget.id  
-  elt = document[ID]
-  print("ID= ", ID, type(ID))
-  ID = int(ID)
-  if ID in edgeDic.keys():
-    dic = edgeDic
-    document['modalContentContainer'].style.width = "300px"
-  elif ID in nodeDic.keys():
-    dic = nodeDic
-    document['modalContentContainer'].style.width = "700px"
-  else:
-    raise Exception()
-  
-  table = dic[ID]
-  
-  
-  modalContent = document['modalContent']
-  modalContent <= table
-  
-  modal = document['modal_container']
-  modal.style.display = 'block'
-  
-
-# ===========================================================  
-def closeModal(evt):
-  """
-  Close the modal box if the x is clicked or somewhere outside the modal box
-  is clicked
-  """
-  
-  print("\ncloseModal:")
-  
-  modal = document['modal_container']
-  close = document['closeModal']
-  modalContent = document['modalContent']
-
-  
-  #print("evt.target == close: ", evt.target == close)
-  #print("evt.target == modal: ", evt.target == modal)
-  if (evt.target == close) or (evt.target == modal):
-    #print("closing modal")
-    modal.style.display = "none"
-    modalContent.html = ' '
-
-
-
-
-##########################################################################################
-# Summary tables and Highcharts figures
-##########################################################################################
-
-def params_table():
-  """
-  Make a table to show the parameters used (different from choices if
-  minimization was used).
-  
-  """
-  keys = list(paramsDic.keys())
-  keys.sort()
-
-  table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Parameters and Variables")
-
-  # write table body and rows
-  tb = html.TBODY()
-  rows = []
-
-  row = html.TR()
-  row <= html.TH("Item") + html.TH("Value") 
-  rows.append(row)
-
-  
-  for k in keys:
-    row = html.TR()
-    if k[0:9] in ['flexible_', 'doOptimiz']:
-      continue
-    row <= html.TD(k) + html.TD(str(paramsDic[k][0]), Class="tableValue") 
-    rows.append(row)
-    
-  
-  #for k in paramsDic:
-  #  print(k, paramsDic[k])
-  tb <= rows
-  table <= tb 
-    
-  document['params_table'].html = ' '
-  document['params_table'] <= table
-
-
-
-# =========================================================== 
 def org_funding_table():
   """
   Make a table to show the percentage of Org revenue from different sources
@@ -716,52 +203,10 @@ def org_funding_table():
 
 
 # =========================================================== 
-def fitness_overview_tables():
+def compartment_flow_summary_table():
   """
-  Write summary tables for the fitness overview (grand fitness and node fitness)
+  Make table for summary of compartment flows
   """
-  
-  # grand fitness table -------------------------------------------------
-  table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Grand Fitness")
-  population = float(paramsDic['population'][0])
-
-  # write table body and rows
-  tb = html.TBODY()
-  rows = []
-
-  row = html.TR()
-  row <= html.TH("Unit") + html.TH("Dollars") + html.TH("Tokens") + html.TH("T&D")
-  rows.append(row)
-  
-  row = html.TR()
-  row <= html.TD("Grand Fitness") 
-  r1 = html.TD("{:,}".format(fitnessDic['fitness']['dollars']), Class="tableValue") 
-  r2 = html.TD("{:,}".format(fitnessDic['fitness']['tokens'] ), Class="tableValue") 
-  r3 = html.TD("{:,}".format(fitnessDic['fitness']['total']), Class="tableValue") 
-  row <= r1 + r2 + r3
-  rows.append(row)
-  
-  row = html.TR()
-  row <= html.TD("Log (Grand Fitness+1)")
-  r1 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['dollars']+1),2)), Class="tableValue")
-  r2 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['tokens'] +1),2)), Class="tableValue")
-  r3 =   html.TD("{:,}".format(round(math.log(fitnessDic['fitness']['total']  +1),2)), Class="tableValue") 
-  row <= r1 + r2 + r3
-  rows.append(row)
-  
-  row = html.TR()
-  row <= html.TD("Per Person Basis") + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['dollars']/population))), Class="tableValue") + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['tokens'] /population))), Class="tableValue") + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['total']  /population))), Class="tableValue") 
-  rows.append(row)
-  
-  tb <= rows
-  table <= tb 
-    
-  document['grand_fitness_table'].html = ' '
-  document['grand_fitness_table'] <= table
   
 
   # compartment flow summary table ------------------------------------
@@ -820,6 +265,12 @@ def fitness_overview_tables():
   document['compartment_flow_summary_table'].html = ' '
   document['compartment_flow_summary_table'] <= table
   
+
+# =========================================================== 
+def node_fitness_summary_table():
+  """
+  Make table for node fitness summary
+  """
 
   # node fitness summary table ------------------------------------
   table = html.TABLE(Class="summaryTable") 
@@ -885,9 +336,52 @@ def fitness_overview_tables():
   document['node_fitness_summary_table'] <= table
 
 
-
 # =========================================================== 
-def graph_pop_dist():
+def params_table():
+  """
+  Make a table to show the parameters used (different from choices if
+  minimization was used).
+  
+  """
+  keys = list(paramsDic.keys())
+  keys.sort()
+
+  table = html.TABLE(Class="summaryTable") 
+  table <= html.CAPTION("Parameters and Variables")
+
+  # write table body and rows
+  tb = html.TBODY()
+  rows = []
+
+  row = html.TR()
+  row <= html.TH("Item") + html.TH("Value") 
+  rows.append(row)
+
+  
+  for k in keys:
+    row = html.TR()
+    if k[0:9] in ['flexible_', 'doOptimiz']:
+      continue
+    row <= html.TD(k) + html.TD(str(paramsDic[k][0]), Class="tableValue") 
+    rows.append(row)
+    
+  
+  #for k in paramsDic:
+  #  print(k, paramsDic[k])
+  tb <= rows
+  table <= tb 
+    
+  document['params_table'].html = ' '
+  document['params_table'] <= table
+
+
+
+
+##########################################################################################
+# Group 2 Info (Highcharts graphs)
+##########################################################################################
+
+def graph_income_dist():
   """
   Make highcharts graph of initial and ending income distributions
   """
@@ -1235,7 +729,7 @@ def graph_family_income():
 
 
 # =========================================================== 
-def group_1_summary_table():
+def group_2_summary_table():
   """
   Make table for a few items not already graphed
   """
@@ -1272,20 +766,22 @@ def group_1_summary_table():
   tb <= rows
   table <= tb  
   
-  document['group_1_summary_table'].html = ' '
-  document['group_1_summary_table'] <= table
+  document['group_2_summary_table'].html = ' '
+  document['group_2_summary_table'] <= table
 
 
 
 
+##########################################################################################
+# Group 3 Info (detailed graph)
+##########################################################################################
 
-# =========================================================== 
 def inflow_outflow_summary_tables():
   """
   Make inflow-outflow summary tables 
   """
 
-  # group 2b node table -------------------------------------------
+  # group 3b node table -------------------------------------------
   table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Node Flows and Fitness, Detailed")
 
@@ -1360,12 +856,474 @@ def inflow_outflow_summary_tables():
   tb <= rows
   table <= tb  
   
-  document['group_2b_node_table'].html = ' '
-  document['group_2b_node_table'] <= table
+  document['group_3b_node_table'].html = ' '
+  document['group_3b_node_table'] <= table
 
 
 
-# =========================================================== 
+# ===========================================================
+def load_svg_detailed(url="/static/images/steady_state_detailed.svg"):
+  req = ajax.ajax()
+  req.bind('complete', load_svg_detailed_complete)
+  req.open('GET', url, False)
+  req.send()
+
+
+# ===========================================================
+def load_svg_detailed_complete(req):
+  if req.status == 200 or req.status == 0:
+    document['graph_right'].html = req.text
+  else:
+    raise Exception()
+    
+
+# ===========================================================
+def load_svg_pan_controls(url="/static/images/pan_controls_2.svg"):
+  req = ajax.ajax()
+  req.bind('complete', load_pan_controls_complete)
+  req.open('GET', url, False)
+  req.send()
+
+
+# ===========================================================
+def load_pan_controls_complete(req):
+  if req.status == 200 or req.status == 0:
+    document['graph_left'].html = req.text
+  else:
+    raise Exception()
+    
+
+# ===========================================================            
+def set_pan_controls():
+  """
+  Set the pan/zoom controls and bindings
+  """
+  
+  global pan_detailed
+  
+  pan_detailed.setMinZoom(0.1)
+  pan_detailed.setMaxZoom(10.0)
+  pan_detailed.disableZoom()
+  pan_detailed.disableControlIcons()
+  pan_detailed.disableDblClickZoom()
+  pan_detailed.disableMouseWheelZoom()
+  pan_detailed.disablePan()
+  pan_detailed.disableZoom()
+  pan_detailed.fit();
+
+  elt = document['svg_detailed_graph']
+  elt.style.cursor = "default"
+  elt.bind('click', doZoom)  
+    
+  for ID in ['pointer', 'zoom_in', 'zoom_out', 'pan', 'info', 'reset']:
+    elt = document[ID]
+    elt.bind('click', pan_zoom)
+  
+  window.bind('resize', resize_pan_graph)
+
+
+# ===========================================================
+def pan_zoom(evt):
+  """
+  Turn on/off pan, zoom, reset depending on which control icon is clicked. Set
+  cursor accordingly.
+  """
+
+  global pan_detailed
+  
+  elt = document['svg_detailed_graph']
+  
+  if evt.currentTarget.id == "pointer":
+    elt.style.cursor = "default" 
+    pan_detailed.disableMouseWheelZoom()
+    pan_detailed.disableZoom()
+    pan_detailed.disablePan()
+
+  if evt.currentTarget.id == "zoom_in":
+    elt.style.cursor = "zoom-in" 
+    pan_detailed.enableMouseWheelZoom()
+    pan_detailed.enableZoom()
+    pan_detailed.disablePan()
+
+  if evt.currentTarget.id == "zoom_out":
+    elt.style.cursor = "zoom-out" 
+    pan_detailed.enableMouseWheelZoom()
+    pan_detailed.enableZoom()
+    pan_detailed.disablePan()
+  
+  elif evt.currentTarget.id == "pan":
+    elt.style.cursor = "move" 
+    pan_detailed.disableMouseWheelZoom()
+    pan_detailed.disableZoom()
+    pan_detailed.enablePan()
+
+  elif evt.currentTarget.id == "info":
+    elt.style.cursor = "help" 
+    pan_detailed.disableMouseWheelZoom()
+    pan_detailed.disableZoom()
+    pan_detailed.disablePan()
+
+  elif evt.currentTarget.id == "reset":
+    pan_detailed.reset()  
+  
+  
+# ===========================================================
+def doZoom(evt):
+  """
+  Zoom in or out, or none, depending on cursor state, if detailed graph is clicked.
+  Code adapted from https://github.com/ariutta/svg-pan-zoom/issues/136
+  """
+  global pan_detailed
+  
+  elt = document['svg_detailed_graph']
+  if (elt.style.cursor != "zoom-in") and (elt.style.cursor != "zoom-out"):
+    # do not do zoom
+    return
+  
+  print("\ndoZoom:")
+    
+  # get transformed x,y point to zoom at
+  pan = pan_detailed.getPan()
+  sizes = pan_detailed.getSizes()
+  zoom = sizes.realZoom
+    
+  pt = elt.createSVGPoint()
+  pt.x = evt.clientX
+  pt.y = evt.clientY
+  pt = pt.matrixTransform(elt.getScreenCTM().inverse())
+  x = pt.x
+  y = pt.y
+
+  #x = (x - pan.x) / zoom;
+  #y = (y - pan.y)/zoom;
+    
+  #print("x= {}, y= {}".format(x,y))
+  #print("evt: x= {}, y={}".format(evt.offsetX, evt.offsetY))
+
+  if elt.style.cursor == "zoom-in":
+    pan_detailed.zoomAtPointBy(1.2, {'x': x, 'y': y})
+  if elt.style.cursor == "zoom-out":
+    pan_detailed.zoomAtPointBy(.8333, {'x': x, 'y': y}) 
+  
+    
+# ===========================================================
+def resize_pan_graph(evt):
+  """
+  Resize the graph that has pan controls if window is resized
+  """  
+  global pan_detailed
+
+  pan_detailed.resize()
+  pan_detailed.fit()
+  pan_detailed.center()  
+
+
+
+# ===========================================================
+def showModal(evt):
+  """
+  Show the model dialog for info/help clicks on detailed graph
+  """
+  
+  print("\nshow Edge Table")
+  
+  elt = document['svg_detailed_graph']
+  if elt.style.cursor != "help":
+    # only show modal if cursor is 'help'
+    return
+  
+  ID = evt.currentTarget.id  
+  elt = document[ID]
+  print("ID= ", ID, type(ID))
+  ID = int(ID)
+  if ID in edgeDic.keys():
+    dic = edgeDic
+    document['modalContentContainer'].style.width = "300px"
+  elif ID in nodeDic.keys():
+    dic = nodeDic
+    document['modalContentContainer'].style.width = "700px"
+  else:
+    raise Exception()
+  
+  table = dic[ID]
+  
+  
+  modalContent = document['modalContent']
+  modalContent <= table
+  
+  modal = document['modal_container']
+  modal.style.display = 'block'
+  
+
+# ===========================================================  
+def closeModal(evt):
+  """
+  Close the modal box if the x is clicked or somewhere outside the modal box
+  is clicked
+  """
+  
+  print("\ncloseModal:")
+  
+  modal = document['modal_container']
+  close = document['closeModal']
+  modalContent = document['modalContent']
+
+  
+  #print("evt.target == close: ", evt.target == close)
+  #print("evt.target == modal: ", evt.target == modal)
+  if (evt.target == close) or (evt.target == modal):
+    #print("closing modal")
+    modal.style.display = "none"
+    modalContent.html = ' '
+
+
+# ===========================================================
+def annotate_detailed_graph_edges():
+  """
+  Annotate edge weight and modal info for detailed graph
+  """
+  
+  # edges
+  # example: {20: {'unit': 'dollars', 'dst': 'org_member_SB', 'kind': 'spending', 
+  #  'value': 10790695, 'id': 20, 'src': 'person_nonmember_SB'}
+  
+  print("\nannotate detailed graph edges:")
+  
+  global edgeDic
+  edgeDic = {}
+  
+  edges = fitnessDic['edges']
+  keys = list(edges.keys())
+  keys.sort()
+  minValue = 0
+  maxValue = 0
+  for i in keys:
+    value = int(edges[i]['value'])  
+    if value < minValue:
+      minValue = value
+    if value > maxValue:
+      maxValue = value
+
+  for i in keys:
+    elt = document[str(i)]
+    elt.bind('click', showModal)
+
+    table = html.TABLE(Class="infoTable")
+    table <= html.CAPTION("Summary for Edge ID: {}".format(i))
+    
+    tb = html.TBODY()
+    rows = []
+    
+    row = html.TR()
+    row <= html.TD("Edge") + html.TD(edges[i]['src']+' &rarr; '+edges[i]['dst'])
+    rows.append(row)
+
+    row = html.TR()
+    row <= html.TD("Kind") + html.TD(edges[i]['kind'])
+    rows.append(row)
+
+    value = int(edges[i]['value'])
+    value2 = ((50-1)*(value-minValue)) / (maxValue-minValue) + 1 
+    elt.set_style({'stroke-width': str(value2)+'px'})
+    
+    row = html.TR()
+    row <= html.TD("Value") + html.TD("{:,} {:}".format(value, edges[i]['unit']))
+    rows.append(row)
+    
+    tb <= rows
+    table <= tb
+    edgeDic[i] = table    
+
+
+# ===========================================================  
+def annotate_detailed_graph_nodes():
+  """
+  Annotate node color and modal info for detailed graph
+  """
+  
+  print("\nannotate detailed graph nodes:")
+  
+  global nodeDic
+  nodeDic = {}
+  
+  nodes = fitnessDic['nodes']
+  keys = list(nodes.keys())
+  keys.sort()
+  
+  for i in keys:
+    elt = document[str(i)]
+    elt.bind('click', showModal)
+    
+    # table 1: summary info ------------------------------------------------------
+    table1 = html.TABLE(Class="infoTable")
+    table1 <= html.CAPTION("Summary for Node ID: {}, Name: {}".format(i, nodes[i]['name']))
+    
+    tb = html.TBODY()
+    rows = []
+    
+    row = html.TR()
+    row <= html.TD("Kind") + html.TD(nodes[i]['kind'])
+    rows.append(row)
+    
+    if 'member' in nodes[i].keys():
+      row = html.TR()
+      row <= html.TD("Member") + html.TD(nodes[i]['member'])
+      rows.append(row)      
+
+    if 'employed' in nodes[i].keys():
+      row = html.TR()
+      row <= html.TD("Employed") + html.TD(nodes[i]['employed'])
+      rows.append(row) 
+    
+    if 'count' in nodes[i].keys():
+      row = html.TR()
+      row <= html.TD("Count") + html.TD(nodes[i]['count'])
+      rows.append(row) 
+
+    if 'actual_postCBFS_income_dollars_mean' in nodes[i].keys():
+      row = html.TR()
+      row <= html.TD("Mean post-CBFS Income") + html.TD(
+        "{:,} dollars, {:,} tokens, {:,} T&D".format(
+        nodes[i]['actual_postCBFS_income_dollars_mean'],
+        nodes[i]['actual_postCBFS_income_tokens_mean'],
+        nodes[i]['actual_postCBFS_income_total_mean']))
+      rows.append(row)  
+
+    if 'actual_preCBFS_income_dollars_mean' in nodes[i].keys():
+      row = html.TR()
+      row <= html.TD("Mean pre-CBFS Income") + html.TD(
+        "{:,} dollars, {:,} tokens, {:,} T&D".format(
+        nodes[i]['actual_preCBFS_income_dollars_mean'],
+        nodes[i]['actual_preCBFS_income_tokens_mean'],
+        nodes[i]['actual_preCBFS_income_total_mean']))
+      rows.append(row)  
+
+    row = html.TR()
+    row <= html.TD("Fitness") + html.TD(
+      "{:,} dollars, {:,} tokens, {:,} T&D".format(
+      nodes[i]['fitness_dollars'],
+      nodes[i]['fitness_tokens'],
+      nodes[i]['fitness_total']))
+    rows.append(row)  
+        
+    value = int(nodes[i]['fitness_total'])  
+    value2 = ((1-0)*(value-0)) / (maxFitness-0) + 0 
+    
+    # find ellipse element of parent
+    ellipse = [c for c in elt.children if c.elt.nodeName == 'ellipse'][0]
+    ellipse.set_style({'fill': two_color(value2) })
+    
+    tb <= rows
+    table1 <= tb
+    
+    
+    # tables 2 and 3: total flows and per person flows ------------------------
+    inValues = tableDic[i]['in']['Values']
+    inSums = tableDic[i]['in']['Sums']
+    outValues = tableDic[i]['out']['Values']
+    outSums = tableDic[i]['out']['Sums']    
+    grandSums = tableDic[i]['grandSums']
+
+    table2 = html.TABLE(Class="infoTable") # total flows
+    table3 = html.TABLE(Class="infoTable") # per person flows
+    
+    for itable, table_ in enumerate([table2, table3]):
+      if (itable == 1) and (nodes[i]['kind'] != 'person'):
+        # only write table3 if node is a person
+        continue
+      
+      if itable == 0:
+        table_ <= html.CAPTION("Total Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name']))
+        count = 1 
+      else:
+        table_ <= html.CAPTION("Per Person Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name'])) 
+        count = nodes[i]['count']
+      
+      # write table body and rows
+      tb = html.TBODY()
+      rows = []
+      
+      # inflows heading row
+      row = html.TR()
+      row <= html.TH("In Flow Kind") + html.TH("Source") + \
+        html.TH("Dollars") + html.TH("Tokens") + html.TH("T&D")
+      rows.append(row)
+          
+      for v in inValues:
+        row = html.TR()
+        row <= html.TD(v[0]) + html.TD(v[1]) + \
+          html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")
+        rows.append(row)      
+      
+      # subtotals
+      v = inSums
+      row = html.TR()
+      row <= html.TH(v[0]) + html.TD(v[1]) + \
+        html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")
+      rows.append(row)          
+
+      # spacing row
+      row = html.TR()
+      row <= html.TD("") + html.TD("") + html.TD("") + html.TD("") + html.TD("")
+      rows.append(row)
+      
+      # outflows heading row
+      row = html.TR()
+      row <= html.TH("Out Flow Kind") + html.TH("Destination") + \
+        html.TH("Dollars") + html.TH("Tokens") + html.TH("T&D")
+      rows.append(row)
+          
+      for v in outValues:
+        row = html.TR()
+        row <= html.TD(v[0]) + html.TD(v[1]) + \
+          html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+          html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")          
+        rows.append(row)      
+      
+      # subtotals
+      v = outSums
+      row = html.TR()
+      row <= html.TH(v[0]) + html.TD(v[1]) + \
+        html.TD("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+        html.TD("{:,}".format(int(v[4]/count)), Class="tableValue")        
+      rows.append(row)          
+
+      # spacing row
+      row = html.TR()
+      row <= html.TD("") + html.TD("") + html.TD("") + html.TD("") + html.TD("")
+      rows.append(row)
+
+      # grand totals
+      v = grandSums
+      row = html.TR()
+      row <= html.TH(v[0]) + html.TH(v[1]) + \
+        html.TH("{:,}".format(int(v[2]/count)), Class="tableValue") + \
+        html.TH("{:,}".format(int(v[3]/count)), Class="tableValue") + \
+        html.TH("{:,}".format(int(v[4]/count)), Class="tableValue")
+   
+      rows.append(row)  
+          
+      tb <= rows
+      table_ <= tb
+    
+    if nodes[i]['kind'] == 'person': 
+      nodeDic[i] = table1 + table2 + table3 
+    else:
+      nodeDic[i] = table1 + table2
+
+
+
+
+##########################################################################################
+# Group 4 Info (very detailed tables)
+##########################################################################################
+
 def write_all_tables():
   """
   Write all node tables out 
@@ -1397,30 +1355,79 @@ def write_all_tables():
 
 
 
+##########################################################################################
+# Call Groups 
+##########################################################################################
+
+def more_1_group(evt):
+  """
+  Call more 1 groups
+  """
+  org_funding_table()
+  params_table()
+  compartment_flow_summary_table()
+  node_fitness_summary_table()
+
+
+
+# ========================================
+def more_2_group(evt):
+  """
+  Call more 2 groups (Highcharts graphs)
+  """
+  graph_income_dist()
+  graph_person_counts()
+  graph_employed_workforce()
+  graph_employed_membership_workforce()
+  graph_family_income()
+  group_2_summary_table()
+  
+
+# ========================================
+def more_3_group(evt):
+  """
+  Call more 3 groups (Detailed graph)
+  """
+  global pan_detailed
+  
+  inflow_outflow_summary_tables()
+  
+  load_svg_detailed()
+  load_svg_pan_controls()
+
+  pan_detailed = window.svgPanZoom("#svg_detailed_graph")
+  set_pan_controls()
+
+  window.bind('click', closeModal)
+  close = document['closeModal']
+
+  close.bind('click', closeModal)
+
+  # annotate graphs with returned data  
+  annotate_detailed_graph_edges()
+  annotate_detailed_graph_nodes()
+
+
+# ========================================
+def more_4_group(evt):
+  """
+  Call more 4 groups (very detailed tables)
+  """
+  
+  # write out complete set of node tables
+  write_all_tables()
+      
 
 
 ##########################################################################################
 # Bindings, etc on load
 ##########################################################################################
 
-document['output_grand_fitness'].text ='...wait...'
-
-window.bind('click', closeModal)
-
-
-load_svg_summary()
-load_svg_detailed()
-load_svg_pan_controls()
-
-pan_detailed = window.svgPanZoom("#svg_detailed_graph")
-set_pan_controls()
-
 edgeDic = None
 nodeDic = None
+pan_detailed = None
 
-close = document['closeModal']
-close.bind('click', closeModal)
-
+# read data -------------------------------------------------------
 results = window.results
 
 msg = results['msg']
@@ -1445,43 +1452,24 @@ for i in keys:
     maxFitness = fitness
 
 
+# call Group 0 summary info ------------------------------------------------
+document['output_grand_fitness'].text ='...wait...'
 document['output_grand_fitness'].text = "{:,}".format(fitnessDic['fitness']['total'])
 population = int(paramsDic['population'][0])
 document['threshold'].text = "{:,}".format(500*population)
 
-# annotate graphs with returned data  
-annotate_detailed_graph_edges()
-annotate_detailed_graph_nodes()
-annotate_summary_graph() 
-   
-  
-# write out summary tables and figures
-params_table()
-org_funding_table()
 fitness_overview_tables()
 
-graph_pop_dist()
-graph_person_counts()
-graph_employed_workforce()
-graph_employed_membership_workforce()
-graph_family_income()
-group_1_summary_table()
-
-inflow_outflow_summary_tables()
+load_svg_summary()
+annotate_summary_graph() 
 
 
-# write out complete set of node tables
-write_all_tables()
-  
-  
+# call more groups --------------------------------------------------------
+document['more_1'].bind('click', more_1_group)
+document['more_2'].bind('click', more_2_group)
+document['more_3'].bind('click', more_3_group)
+document['more_4'].bind('click', more_4_group)
 
-
-
-
-
-"""
-['countsDic', 'fitnessDic', 'histoDic', 'msg', 'paramsDic', 'summaryGraphDic', 'tableDic']
-"""
 
 
 

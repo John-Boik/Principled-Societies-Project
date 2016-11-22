@@ -4,7 +4,7 @@
 
 {% block body2 %}
 
-<!-- ========================== Details ============================================== -->
+<!-- ========================== Initialize ============================================== -->
 
 
 <script type="text/python">
@@ -25,6 +25,9 @@ src="{{ url_for('static', filename='javascript/highcharts.js')  }}"></script>
 src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
 
 
+<!-- ========================== Modal ============================================== -->
+
+
 <div id="modal_container">
   <div id="modalContentContainer">
     <span id="closeModal">x</span>
@@ -32,24 +35,30 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
   </div>
 </div>
 
+<!-- ========================== Group 0 ============================================== -->
+
+
 
 <h2>Fitness Overview</h2>
 <p>The grand fitness is <output id="output_grand_fitness">...wait...</output>.</p>
 
-<p>If the grand fitness is well above zero but less than, say, 
+<p>The grand fitness is the count of tokens plus the count of dollars in error (the summed size of excess and deficient flows over all nodes). If the grand fitness is well above zero but less than, say, 
   <output id="threshold">...wait...</output> T&D (the population times 500 T&D), the results are 
-  questionable. If the grand fitness is much further above this threshold, then all results except 
-  fitness are meaningless. A perfect fitness of zero can be achived in numerous ways.</p>
+  questionable. If the grand fitness is far above this threshold, then all results except 
+  fitness are meaningless. A perfect fitness of zero and low scores near zero can be achived in many ways.</p>
 
 
   <div id="grand_fitness_table" ></div>
 
 <p>Some of the elements of tables and graphics on this page are color coded to visually highlight the differences in node fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, sigifying the maximum of (1,000, maximum node fitness).</p> 
 
+
 <p>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</p>
   <div id='summary_graph_container'></div>
 
-  <p>[more...accordion]</p>
+
+<!-- ========================== Group 1 ============================================== -->
+  <p>[more...accordion] <input type="button" id="more_1" value="More Fitness Overview (Group 1)"></p>
 
 
 
@@ -65,32 +74,34 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
   <div id="node_fitness_summary_table" ></div>
   
   
+<!-- ========================== Group 2 ============================================== -->
 
 <h2 style="clear:both;">Results: Starting Conditions and Targets</h2> 
 <p>The results in this section follow directly from the values chosen for starting conditions and targets.  </p>
-
-  <p>[more...accordion]</p>
+<p>[more...accordion]  <input type="button" id="more_2" value="More Starting (Group 2)"></p>
 
 <div id="income_dist"></div>
 <div id="graph_person_counts"></div>
 <div id="graph_pct_employed_workforce"></div>
 <div id="graph_pie_employed_member_workforce"></div>
 <div id="graph_mean_family_income"></div>
-<div id="group_1_summary_table" ></div>
+<div id="group_2_summary_table" ></div>
 
 
+
+<!-- ========================== Group 3 ============================================== -->
 <h2 style="clear:both;">Results: Variables</h2>  
 <p>Given starting conditions and targets, the results in this section follow directly from the values chosen for variables.</p>
 
-  <p>[more...accordion]</p>
+  <p>[more...accordion]<input type="button" id="more_3" value="More Variables (Group 3)"></p>
 
   <h3 style="clear:both;">Summary tables</h3> 
   
-  <div id="group_2b_node_table" ></div>
+  <div id="group_3b_node_table" ></div>
 
 
 
-<h2 style="clear:both;">Detailed Results</h2>
+<h2 style="clear:both;">Results: Detailed Tables</h2>
 
   <h3 style="clear:both;">Detailed graph</h3>
 
@@ -100,8 +111,15 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
   </div>
 
 
+<!-- ========================== Group 4 ============================================== -->
+
+
+
   <h3 style="clear:both;">Detailed node tables</h3>
-  <div id="all_tables" ></div>
+ <p>[more...accordion (must do Group 3 first)]<input type="button" id="more_4" value="More Detailed (Group 4)"></p> 
+  
+  
+  <div id="all_tables" style="clear:both;"></div>
 
 
 
