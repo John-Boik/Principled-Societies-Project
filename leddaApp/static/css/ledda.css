@@ -1,6 +1,7 @@
 body {
     padding-top: 60px;
 }
+/*nav*/
 .navbar-fixed-top {
     background: linear-gradient(10deg, #6384a9, #093b74);
     color: #fff;
@@ -47,6 +48,47 @@ body {
     background-color: #0f1672;
     padding: 2px 5px 2px 5px;
 }
+/*end nav*/
+
+/*name/globe*/
+.name-container {
+    /*background: linear-gradient(240deg, #093b74, #093b74 40%, #c2cddb);*/
+    background: linear-gradient(240deg, #01316b, #01316b 15%, #c2cddb);
+    color: #fff;
+    padding-top: 2em;
+    margin-top: -2em;
+    width: 100%;
+}
+.globe-col {
+    text-align: right;
+}
+.globe-col #header-img {
+    width: 100%;
+    min-width: 100%;
+    text-align: right;
+}
+#header-img img {
+    width: 100%;
+}
+#header-img img {
+    max-width: 220px;
+}
+.title-col {
+    text-align: left;
+}
+#top-title {
+    padding-top: 5%;
+    padding-right: 15%;
+    margin-left: 1%;
+}
+#top-title div {
+    text-indent: -2em;
+}
+#top-title div h1 {
+    letter-spacing: 1px;
+}
+/*end name/globe*/
+
 @media screen and (max-width: 576px) {
     #mailsubscribe {
         float: left;
@@ -54,10 +96,18 @@ body {
     .navbar-brand {
         margin-bottom: 8px;
     }
+    #top-title {
+        padding-top: 0%;
+        padding-right: 1%;
+        margin-left: 1%;
+    }
 }
 @media screen and (max-width: 1152px) and (min-width: 766px) {
     body {
         padding-top: 105px;
+    }
+    #top-title {
+        padding-top: 0%;
     }
 }
 @media screen and (max-width: 766px) and (min-width: 563px) {
@@ -65,9 +115,36 @@ body {
         padding-top: 60px;
     }
 }
+@media screen and (max-width: 768px) {
+    #top-title {
+        text-align: center;
+        padding-top: 0%;
+        padding-right: 0%;
+    }
+    #top-title div {
+        text-align: center;
+        margin-left: 1%;
+    }
+    #top-title div h1 {
+    }
+    .globe-col {
+    }
+    #header-img {
+        /*position: absolute;*/
+        /*left: 2px;*/
+        /*bottom: 0px;*/
+    }
+    #header-img img {
+        padding-top: 2em;
+        max-width: 70px;
+    }
+}
 @media screen and (max-width: 562px) {
     body {
         padding-top: 110px;
+    }
+    #top-title {
+        padding-top: 0%;
     }
 }
 

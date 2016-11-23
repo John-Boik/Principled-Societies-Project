@@ -16,7 +16,7 @@
 
   <script src="{{ url_for('static', filename='javascript/jquery-1.11.2.min.js') }}"></script>
   <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
+  <!--<script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>-->
 
   <script type="text/python"
   src="{{ url_for('static', filename='python/layout.py') }}"></script>
@@ -85,11 +85,27 @@
       </ul>
     </div>
   </nav>
-  <p>
-  ABCDEFG
-  </p>
 
-  <body onload="brython(1)">
+  <div class="container-fluid name-container">
+    <div class="row">
+
+      <div class="col-xl-2 col-lg-3 col-med-4 col-sm-4 cols-xs-4 globe-col">
+       <div id="header-img">
+        <img src={{ url_for('static', filename="images/globe.png") }}></img> 
+       </div>
+      </div>
+
+      <div class="col-xl-10 col-lg-9 col-med-8 col-sm-8 cols-xs-8 title-col">
+        <div id="top-title">
+          <div>
+            <h1>LEDDA: Innovation for Thriving, Resilient Communities</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
   {% block body %}
   
