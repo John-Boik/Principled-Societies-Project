@@ -216,16 +216,21 @@ def runModel():
   
   # remove lists, make floats, convert % to fractions
   _ = [data.__setitem__(k, float(data[k][0])/100.) \
-    for k in K if k[0:9] not in ['flexible_', 'doOptimiz']]
+    for k in K if ((k[0:9] not in ['flexible_']) and (k not in ['doGenetic', 'doBFGS','doRandomStart']))]
   
   # for checkboxes, convert on/off to integers 1/0
   for k in K:
-    if k[0:9] in ['variable_', 'doOptimiz']:
+    if (k[0:9] in ['flexible_']) or (k in ['doGenetic', 'doBFGS','doRandomStart']):
       if data[k][0] == 'true':
         data[k] = 1
       else:
         data[k] = 0
 
+  if (data['doGenetic'] or data['doBFGS']):
+    data['doOptimization'] = 1
+  else:
+    data['doOptimization'] = 0
+  
   # fix nonfractions
   data['family_income_target_final'] = data['family_income_target_final'] * 100
   data['population'] = data['population'] * 100

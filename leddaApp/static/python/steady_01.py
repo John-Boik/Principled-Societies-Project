@@ -42,9 +42,7 @@ def submit_model(evt):
     'person_member_spending_to_member_PB_pct',
     'person_member_spending_to_member_PB_TS',
     'person_member_spending_to_nonmember_SB_pct',
-    'person_member_spending_to_nonmember_SB_TS',
     'person_member_spending_to_nonmember_NP_pct',
-    'person_member_spending_to_nonmember_NP_TS',
     'person_nonmember_spending_to_member_SB_pct',
     'person_nonmember_spending_to_member_NP_pct',
     'person_nonmember_spending_to_member_PB_pct',
@@ -66,21 +64,25 @@ def submit_model(evt):
     'flexible_person_member_spending_to_member_PB_pct',
     'flexible_person_member_spending_to_member_PB_TS',
     'flexible_person_member_spending_to_nonmember_SB_pct',
-    'flexible_person_member_spending_to_nonmember_SB_TS',
     'flexible_person_member_spending_to_nonmember_NP_pct',
-    'flexible_person_member_spending_to_nonmember_NP_TS',
     'flexible_person_nonmember_spending_to_member_SB_pct',
     'flexible_person_nonmember_spending_to_member_NP_pct',
     'flexible_person_nonmember_spending_to_member_PB_pct',
     'flexible_person_nonmember_spending_to_nonmember_SB_pct',
     'flexible_person_nonmember_spending_to_nonmember_NP_pct',
-    'doOptimization'
+    'earmarks_TS_lb',
+    'earmarks_TS_ub',
+    'spending_TS_lb',
+    'spending_TS_ub',
+    'doBFGS',
+    'doGenetic',
+    'doRandomStart'
     ]
 
 
   data = {}
   for w in widgets:
-    if (w[0:9] == 'flexible_') or (w == 'doOptimization'):
+    if (w[0:9] in ['flexible_']) or (w in ['doGenetic', 'doBFGS','doRandomStart']):
       data[w] = document[w].checked
     else:
       data[w] = document[w].value
@@ -132,9 +134,7 @@ document['person_member_spending_to_member_PB_TS'].value = "{:.4f}".format(0.413
 document['person_member_spending_to_member_PB_pct'].value = "{:.4f}".format(0.321834057452 *100)
 document['person_member_spending_to_member_SB_TS'].value = "{:.4f}".format(0.463610294288 *100)
 document['person_member_spending_to_member_SB_pct'].value = "{:.4f}".format(0.221268757038 *100)
-document['person_member_spending_to_nonmember_NP_TS'].value = "{:.4f}".format(0.493623535594 *100)
 document['person_member_spending_to_nonmember_NP_pct'].value = "{:.4f}".format(0.00569626363779 *100)
-document['person_member_spending_to_nonmember_SB_TS'].value = "{:.4f}".format(0.768061454649 *100)
 document['person_member_spending_to_nonmember_SB_pct'].value = "{:.4f}".format(0.153623140714 *100)
 document['person_nonmember_spending_to_member_NP_pct'].value = "{:.4f}".format(0.0175785057973 *100)
 document['person_nonmember_spending_to_member_PB_pct'].value = "{:.4f}".format(0.448028409727 *100)
