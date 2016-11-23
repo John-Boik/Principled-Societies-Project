@@ -1,119 +1,114 @@
 <!DOCTYPE html>
 
-<html  lang="en-US">
+<head>
 
-<meta charset="UTF-8"> 
+  <html  lang="en-US">
+  <meta charset="UTF-8">
 
-<title>Principled Societies Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  {% block title %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
+  {% endblock %}
 
-<script src="{{ url_for('static', filename='javascript/jquery-1.11.2.min.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ledda.css') }}" >
 
-<script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascript/jquery-1.11.2.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
 
+  <script type="text/python"
+  src="{{ url_for('static', filename='python/layout.py') }}"></script>
 
-<script type="text/python"
-src="{{ url_for('static', filename='python/layout.py') }}"></script>
+</head>
 
-<header >
-  <span id="headLeft">
-    <img src="{{ url_for('static', filename='images/2173148722_b6ac91c813_z.jpg') }}" 
-      alt="Logo" style="height:300px;"> 
-  </span>
-  
-  <span id="headRight">
-    <span id="banner">Principled Societies Project</span> 
-    <span id="banner_sub">Developing the LEDDA Economic Direct Democracy Framework</span>
-  </span>
-</header>
-
-
-
-<nav class="dropNav">
-  <ul>
-    
-    <li><a id="menu_index" href="/index">Home</a>
-      <ul>
-        <li><a  id="menu_about" href="/about_psp">About PSP</a></li>
-        <li><a  id="menu_contact" href="/contact">Contact</a></li>
-      </ul>
-    </li>
-
-    <li><a id="menu_book" href="javascript:void(0)">Book</a>
-      <ul>
-        <li><a  id="menu_praise" href="/book_edd_praise">Praise for <i>Economic Direct Democracy</i></a></li>
-        <li><a  id="menu_toc" href="/book_edd_about">About the Book</a></li>
-        <li><a  id="menu_toc" href="/book_edd_toc">Table of Contents</a></li>
-        <li><a  id="menu_download" href="/book_edd_download">Free Download</a></li>
-        <li><a  id="menu_download" href="/book_edd_license">Book License</a></li>
-
-      </ul>
-    </li>
-
-    <li><a id="menu_interactive" href="javascript:void(0)">Interactive Apps</a>
-      <ul>
-        <li><a  id="model_steady_state_01" href="/model_steady_state_01">Steady-State Model</a></li>
-      </ul>
-    </li>    
-    
-    <li><a id="glossary" href="/glossary">Glossary</a></li>
-    <li><a id="glossary" href="/articles_media">Articles and Media</a></li>
-
-    <li><a id="menu_involved" href="javascript:void(0)">Get Involved</a>
-      <ul>
-        <li><a  id="menu_engage" href="/collaborate_assist">Collaborate and Engage</a></li>
-        <li><a  id="menu_contribute" href="/donate">Donate</a></li>
-      </ul>
-    </li>    
-  </ul>
-</nav>  
-
-
-<body onload="brython(1)">
-
-<!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-<form action="//PrincipledSocietiesProject.us14.list-manage.com/subscribe/post?u=02038e5ba45444814eda4b58b&amp;id=5309666b36" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-	<label for="mce-EMAIL">Subscribe to our mailing list</label>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_02038e5ba45444814eda4b58b_5309666b36" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-    </div>
-</form>
-</div>
-
-<!--End mc_embed_signup-->
-
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <div class="flash"><h1>Messages:</h1>
-        <ul>
-        {% for message in get_flashed_messages() %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="container-fluid navbar-brand" id="maillist">
+          <span>Subscribe to our mailing list</span>
+          <input id="mailaddress">
+          <span id="mailsubscribe">Subscribe</span>
+        </div>
+        <button class="navbar-toggle collapsed" aria-expand="false" data-toggle="collapse" data-target="#navbar" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-    <br /> 
-    {% endif %} 
-  {% endwith %} 
-  
-  {% block body2 %}
+    <!--</div>-->
+    <div id="navbar" class="navbar-collapse collapse" style="height: 1px;">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
+          Home
+          <span class="caret"></span>
+          <ul class="dropdown-menu">
+            <li><a id="menu_about" href="/about_psp">About PSP</a></li>
+            <li><a id="menu_contact" href="/contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
+          Book
+          <span class="caret"></span>
+          <ul class="dropdown-menu">
+            <li><a  id="menu_praise" href="/book_edd_praise">Praise for <i>Economic Direct Democracy</i></a></li>
+            <li><a  id="menu_toc" href="/book_edd_about">About the Book</a></li>
+            <li><a  id="menu_toc" href="/book_edd_toc">Table of Contents</a></li>
+            <li><a  id="menu_download" href="/book_edd_download">Free Download</a></li>
+            <li><a  id="menu_download" href="/book_edd_license">Book License</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-toggle" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
+          Interactive Apps
+          <span class="caret"></span>
+          <ul class="dropdown-menu">
+            <li><a  id="model_steady_state_01" href="/model_steady_state_01">Steady-State Model</a></li>
+          </ul>
+        </li>
+        <li><a id="glossary" href="/glossary">Glossary</a></li>
+        <li><a id="glossary" href="/articles_media">Articles and Media</a></li>
+        <li>
+          <a class="dropdown-toggle" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
+          Get Involved
+          <span class="caret"></span>
+          <ul class="dropdown-menu">
+            <li><a href="/collaborate_assist">Collaborate and Engage</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <p>
+  ABCDEFG
+  </p>
+
+  <body onload="brython(1)">
+
+  {% block body %}
   
   {% endblock %}
   
-  <div id="footer"></div>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 

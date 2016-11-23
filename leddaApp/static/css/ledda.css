@@ -1,0 +1,73 @@
+body {
+    padding-top: 60px;
+}
+.navbar-fixed-top {
+    background: linear-gradient(10deg, #6384a9, #093b74);
+    color: #fff;
+}
+.navbar-header button .icon-bar {
+    background-color: #fff !important;
+}
+.navbar-brand {
+}
+.navbar-brand span {
+    color: #fff !important;
+    font-size: 10pt !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.navbar-brand input {
+    border: none;
+    border-radius: 3px;
+}
+.navbar-right {
+    font-size: 10pt !important;
+    margin-right: 5px;
+    vertical-align: top;
+}
+.navbar-right a {
+    color: #fff !important;
+    font-size: 10pt !important;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover{
+    background-color: #6384a9 !important;
+    color: #fff;
+}
+.dropdown-menu,
+.dropdown-menu li,
+.dropdown-menu ul,
+.dropdown-menu a {
+    background-color: #6384a9 !important;
+    color: #fff;
+}
+#mailsubscribe {
+    border-radius: 3px;
+    background-color: #0f1672;
+    padding: 2px 5px 2px 5px;
+}
+@media screen and (max-width: 576px) {
+    #mailsubscribe {
+        float: left;
+    }
+    .navbar-brand {
+        margin-bottom: 8px;
+    }
+}
+@media screen and (max-width: 1152px) and (min-width: 766px) {
+    body {
+        padding-top: 105px;
+    }
+}
+@media screen and (max-width: 766px) and (min-width: 563px) {
+    body {
+        padding-top: 60px;
+    }
+}
+@media screen and (max-width: 562px) {
+    body {
+        padding-top: 110px;
+    }
+}
+
