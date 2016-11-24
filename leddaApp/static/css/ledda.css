@@ -89,6 +89,38 @@ body {
 }
 /*end name/globe*/
 
+/*about psp*/
+.sect {
+}
+.sect-header h2 {
+    font-size: 2.6em;
+    text-align: center;
+    padding-right: 16.5%;
+    padding-left: 16.5%;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+.sect p {
+    font-size: 1.1em;
+    line-height: 2;
+}
+.sect > p, .sect .numbered-p {
+    margin-left: 12.5%;
+    margin-right: 16.5%;
+}
+.sect .spaced {
+    margin-left: 12.5%;
+    margin-right: 16.5%;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+.sect .numbered-p {
+}
+.blue-sect {
+    color: #0f1672; 
+}
+/*end about psp*/
+
 @media screen and (max-width: 576px) {
     #mailsubscribe {
         float: left;
