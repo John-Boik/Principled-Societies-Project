@@ -322,11 +322,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
           <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_SB_pct" checked>
           Flexible<br>
       </td>
-      <td><input type="range" id="range_person_member_spending_to_nonmember_SB_TS" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_nonmember_SB_TS" value="76.64">
-          <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_SB_TS" checked>
-          Flexible<br>
-      </td>
+
     </tr>
 
     <tr>
@@ -341,11 +337,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
           <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_NP_pct" checked>
           Flexible<br>
       </td>
-      <td><input type="range" id="range_person_member_spending_to_nonmember_NP_TS" value="50" min="0" max="100"> 
-          <input type='text' id="person_member_spending_to_nonmember_NP_TS" value="46.09">          
-          <br><input type='checkbox' id="flexible_person_member_spending_to_nonmember_NP_TS" checked>
-          Flexible<br>
-      </td>
+
     </tr>        
 
     <tr>
@@ -354,14 +346,40 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       <td></td>
       
     </tr>  
-
-
-
   </table>  
+
+
+
+  <table id="bounds">
+     <caption>Upper and Lower Optimization Bounds for Tokens Shares</caption>
+    <tr>
+      <th>Item</th>
+      <th>Lower Bound</th>  
+      <th>Upper Bound</th>
+    </tr>
+    
+    <tr>
+      <td>Token Shares, All Earmarks </td>
+      <td><input type='text' id="earmarks_TS_lb" value="0"></td>
+      <td><input type='text' id="earmarks_TS_ub" value="100"></td>
+    </tr>
+
+    <tr>
+      <td>Token Shares, All Person Spending</td>
+      <td><input type='text' id="spending_TS_lb" value="0"></td>
+      <td><input type='text' id="spending_TS_ub" value="100"></td>
+    </tr>
+  </table>  
+
+  <br>Warning: Choosing to use either or both optimization methods may be slow
+  <br><input type='checkbox' id="doBFGS" unchecked>Optmization using L-BFGS-B algorithm
+  <br><input type='checkbox' id="doGenetic" unchecked>Optimization using genetic algorithm
+  <br><input type='checkbox' id="doRandomStart" unchecked>Use random initialization (not supplied values)
+  
+
 
   <div id="hidden_form" ></div>
   <p><input type="button" id="submit" value="Run"></input>
-  <input type='checkbox' id="doOptimization">Do optimization on flexible variables during run (warning: may be slow if checked)
   </p>
 
   </div>
