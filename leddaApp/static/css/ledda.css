@@ -5,6 +5,9 @@ p {
     line-height: 1.9em;
     font-size: 1.1em;
 }
+.bld {
+    font-weight: bold;
+}
 .c-full {
     margin: 0 auto;
     padding-left: 0px;
@@ -18,6 +21,9 @@ p {
 .white-font-lg {
     color: #fff;
     font-size: 1.2em;
+}
+.left-pad-2 {
+    padding-left: 2em;
 }
 /*nav*/
 .navbar-fixed-top {
@@ -126,6 +132,13 @@ p {
 }
 .p-sect p {
     margin-bottom: 1em;
+}
+.p-sect-narrow {
+    padding-left: 17%;
+    padding-right: 16%;
+}
+.p-sect-narrow h5 {
+    margin-top: 1.5em;
 }
 .v-spaced-5 {
     padding-top: 1em;
@@ -282,6 +295,10 @@ p {
     .p-sect {
         padding-left: 5%;
         padding-right: 5%;
+    }
+    .p-sect-narrow {
+        padding-left: 6%;
+        padding-right: 6%;
     }
     .invert-triangle svg {
         margin-top: -10px;
