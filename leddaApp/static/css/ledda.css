@@ -12,6 +12,13 @@ p {
     width: 100%;
     min-width: 100%;
 }
+.center {
+    text-align: center;
+}
+.white-font-lg {
+    color: #fff;
+    font-size: 1.2em;
+}
 /*nav*/
 .navbar-fixed-top {
     background: linear-gradient(10deg, #6384a9, #093b74);
@@ -117,6 +124,9 @@ p {
     padding-left: 14.5%;
     padding-right: 18%;
 }
+.p-sect p {
+    margin-bottom: 1em;
+}
 .v-spaced-5 {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -203,11 +213,27 @@ p {
     text-align: center;
 }
 .prov-glyph img {
-    height: 10em;
+    height: 9em;
+}
+.glyph-button {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    width: 9em;
+}
+.glyph-button:hover {
+    cursor: pointer;
+    opacity: .9;
+}
+.glyph-button:active {
+    opacity: .9;
 }
 /*end about psp*/
 
-@media screen and (max-width: 576px) {
+}@media screen and (max-width: 576px) {
     #mailsubscribe {
         float: left;
     }
