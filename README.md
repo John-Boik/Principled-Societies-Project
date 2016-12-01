@@ -10,12 +10,14 @@ circulates alongside the national currency (the dollar, in the example model). V
 
 ## Motivation
 
-Communities worldwide face an increasingly dangerous mix of existing and emerging problems including climate change, high unemployment, pollution, budget shortfalls, forced migrations, homelessness, political polarization and extremism, and income inequality. The seeming inability of societies and civilization to effectively and simultaneously solve these and others like them suggests that underlying social choice systems might be sub-optimal. Social choice systems includes economic, governance, and legal systems. They are also known as decision-making systems. The work here seeks to address two overarching questions:
+Communities worldwide face an increasingly dangerous mix of existing and emerging problems including climate change, high unemployment, pollution, budget shortfalls, forced migrations, homelessness, political polarization and extremism, and income inequality. The seeming inability of societies and civilization to effectively address these and others like them suggests that underlying social choice systems might be sub-optimal. Social choice systems includes economic, governance, and legal systems. They are also known as decision-making systems. The work here seeks to address two overarching questions:
 
-1. What characteristics would optimal social choice systems exhibit?
+1. What characteristics would relatively optimal social choice systems exhibit, and how is relative optimality measured?
 2. How could research and development of more optimal systems best proceed?
 
-The approach suggests a new multidisciplinary academic field or subfield of Wellbeing Systems Science and Engineering (WSSE), closely aligned with public health. The Local Economic Direct Democracy Association (LEDDA) framework is one example from the field. It is a novel local (e.g., city, county) economic system that implements a form of direct democracy. It is intended to function in parallel with existing systems. 
+The approach suggests a new multidisciplinary technology and academic program that we term *wellbeing centrality*: the design, testing, promotion, and use of social choice systems that place wellbeing measurement, evaluation, forecasting, and deliberation at the center of decision-making activities. 
+
+The Local Economic Direct Democracy Association (LEDDA) framework is one example of a wellbeing-centrality design for a local  (e.g., city, county) economic system. It is intended to function in parallel with existing systems. 
 
 A LEDDA is a membership‐based, community development association open to all resident individuals, business, nonprofits, and other organizations. Members voluntarily join a LEDDA and manage their local system via a novel form of online direct democracy. The stated purpose of the framework is to maximize collective wellbeing, broadly defined. 
 
