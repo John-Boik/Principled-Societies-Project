@@ -25,6 +25,20 @@ p {
 .left-pad-2 {
     padding-left: 2em;
 }
+.center_2_3 {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+.center_2_3 p {
+    text-align: center;
+}
+.full-width-img img {
+    width: 100%;
+}
+.smaller-text {
+    font-size: .8em;
+}
 /*nav*/
 .navbar-fixed-top {
     background: linear-gradient(10deg, #6384a9, #093b74);
@@ -127,8 +141,8 @@ p {
     margin-bottom: 1em;
 }
 .p-sect {
-    padding-left: 14.5%;
-    padding-right: 18%;
+    padding-left: 14%;
+    padding-right: 14%;
 }
 .p-sect p {
     margin-bottom: 1em;
@@ -150,6 +164,13 @@ p {
     padding: 0px;
     margin-top: -.3em;
 }
+.med-num-col {
+    font-size: 2.1em;
+    text-align: right;
+    padding: 0px;
+    padding-right: .5em;
+    margin-top: -.2em;
+}
 .num-p-col {
     /*padding-top: .3em;*/
     padding-left: 0px;
@@ -160,26 +181,58 @@ p {
 .triangle-collapse {
     width: 100%;
     min-width: 100%;
+    padding-bottom: 3.5%;
 }
 .box-line {
     width: 100%;
     height: 10px;
-    margin-top: 2em;
+    /*margin-top: 2em;*/
     min-height: 10px;
+    position: absolute;
+    top: 0;
 }
 .invert-triangle {
     width: 33%;
-    margin-left: 33%;
-    margin-right: 33%;
+    position: absolute;
+    top: 0;
+    left: 33%;
+    padding-bottom: 2em;
 }
 .invert-triangle svg {
-    margin-top: -10px;
+    height: 100%;
+    /*background-color: red;*/
+    /*margin-top: -10px;*/
     /*shape fills area beyond triangle pushing next line to far down*/
-    margin-bottom: -8em;
+    /*margin-bottom: -8em;*/
+}
+.more-triangle {
+    position: relative;
+    width: 33%;
+    min-width: 150px;
+    max-width: 350px;
+}
+.more-triangle svg {
+    z-index: 80;
+}
+.more-triangle:hover {
+    cursor: pointer;
+}
+.triangle-text {
+    color: #fff;
+    font-size: 1.9vw;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 100;
 }
 .red-fill polygon {
     fill: #b83e26; 
     stroke: #b83e26;
+}
+.blue-fill polygon {
+    fill: #0f1672; 
+    stroke: #0f1672;
 }
 .green-fill polygon {
     fill: #0a733b; 
@@ -244,7 +297,17 @@ p {
 .glyph-button:active {
     opacity: .9;
 }
-/*end about psp*/
+.input-row {
+    width: 100%;
+}
+.input-row .col {
+    text-align: left;
+    padding-left: 0px;
+}
+.input-row .knob-label {
+    margin-bottom: 5px;
+}
+
 
 }@media screen and (max-width: 576px) {
     #mailsubscribe {
@@ -270,6 +333,16 @@ p {
 @media screen and (max-width: 766px) and (min-width: 563px) {
     body {
         padding-top: 60px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .triangle-collapse {
+        padding-bottom: 4.5%;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .triangle-collapse {
+        padding-bottom: 5.5%;
     }
 }
 @media screen and (max-width: 768px) {
@@ -300,9 +373,8 @@ p {
         padding-left: 6%;
         padding-right: 6%;
     }
-    .invert-triangle svg {
-        margin-top: -10px;
-        margin-bottom: -4em;
+    .input-col {
+        text-align: center !important;
     }
 }
 @media screen and (max-width: 1152px) {
@@ -315,15 +387,11 @@ p {
         padding-top: 7%;
     }
     .sh-lower {
-        margin-top: -15em;
+        /*margin-top: -15em;*/
     }
     .num-p-col {
         margin-left: auto;
         padding-left: .5em;
-    }
-    .invert-triangle svg {
-        margin-top: -10px;
-        margin-bottom: 0;
     }
 }
 

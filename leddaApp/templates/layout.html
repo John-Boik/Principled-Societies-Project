@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {% block title %}
-
   {% endblock %}
 
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
@@ -17,9 +16,11 @@
   <script src="{{ url_for('static', filename='javascript/jquery-1.11.2.min.js') }}"></script>
   <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
   <!--<script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>-->
+  <!--<script type="text/python"-->
+  <!--src="{{ url_for('static', filename='python/layout.py') }}"></script>-->
 
-  <script type="text/python"
-  src="{{ url_for('static', filename='python/layout.py') }}"></script>
+  {% block page_head %}
+  {% endblock %}
 
 </head>
 
