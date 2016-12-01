@@ -235,13 +235,13 @@ def runModel():
   data['family_income_target_final'] = data['family_income_target_final'] * 100
   data['population'] = data['population'] * 100
   
-  print("\ndata:")
-  _ = [print("{}= {}".format(k, data[k])) for k in K]
+  #print("\ndata:")
+  #_ = [print("{}= {}".format(k, data[k])) for k in K]
   
   
   X, stocksDic, countsDic, histoDic = setup_model.setup(data)
   
-  # delete items no long necessary
+  # delete attributes of X that are no long necessary
   del X.TP
   del X.TF
   
