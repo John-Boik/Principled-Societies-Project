@@ -307,7 +307,12 @@ p {
 .input-row .knob-label {
     margin-bottom: 5px;
 }
-
+.dial-sum {
+    text-decoration: underline;
+    /*margin-bottom: .8em;*/
+    font-size: 1.1em;
+    margin-top: .3em;
+}
 
 }@media screen and (max-width: 576px) {
     #mailsubscribe {
