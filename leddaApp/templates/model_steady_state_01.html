@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 
-
 {% block page_head %}
+
 <script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
 <script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>
 <script src="{{ url_for('static', filename='javascript/jquery.knob.min.js') }}"></script>
+
 {% endblock %}
 
 

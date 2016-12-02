@@ -42,6 +42,25 @@ p {
 .run-button {
     font-size: 1.5em;
 }
+.result-col output {
+    font-size: 1.2em;
+    display: inline-block;
+}
+.result-col caption {
+    color: #0a733b;
+    font-size: 1.2em;
+}
+.result-col table {
+    margin-bottom: 2em;
+}
+.result-col table td {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.result-col table th {
+    padding-left: 1em;
+    padding-right: 1em;
+}
 /*nav*/
 .navbar-fixed-top {
     background: linear-gradient(10deg, #6384a9, #093b74);
