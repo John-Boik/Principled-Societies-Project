@@ -39,6 +39,9 @@ p {
 .smaller-text {
     font-size: .8em;
 }
+.run-button {
+    font-size: 1.5em;
+}
 /*nav*/
 .navbar-fixed-top {
     background: linear-gradient(10deg, #6384a9, #093b74);
