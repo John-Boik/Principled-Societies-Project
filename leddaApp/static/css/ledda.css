@@ -61,6 +61,18 @@ p {
     padding-left: 1em;
     padding-right: 1em;
 }
+.about-sect .image_200 {
+    float: left;
+    margin-right: 2.2em;
+    margin-bottom: 2.2em;
+    width: 200px;
+}
+.image_200 img {
+    width: 100%;
+}
+.about-sect .wrap-p {
+    text-align: justify;
+}
 /*nav*/
 .navbar-fixed-top {
     background: linear-gradient(10deg, #6384a9, #093b74);
@@ -222,10 +234,6 @@ p {
 }
 .invert-triangle svg {
     height: 100%;
-    /*background-color: red;*/
-    /*margin-top: -10px;*/
-    /*shape fills area beyond triangle pushing next line to far down*/
-    /*margin-bottom: -8em;*/
 }
 .more-triangle {
     position: relative;
