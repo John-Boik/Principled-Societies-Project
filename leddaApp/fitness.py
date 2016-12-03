@@ -45,12 +45,13 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   personNodes.sort()   
   
   #print("\nStarting counts and incomes:")
+  # note that for nonmember, postCBFS income == income
   wage_target = stocksDic[1]['meanLedda']   
   for p in personNodes:
     if G.node[p]['member'] == 0:
       G.node[p]['count'] = stocksDic[personStatusDic[p]]['cntNonLedda'] 
       G.node[p]['postCBFS_income_mean'] = stocksDic[personStatusDic[p]]['meanNonLedda']
-      G.node[p]['income_total'] = stocksDic[personStatusDic[p]]['sumNonLedda']
+      G.node[p]['postCBFS_income_total'] = stocksDic[personStatusDic[p]]['sumNonLedda']
     else:
       G.node[p]['count'] = stocksDic[personStatusDic[p]]['cntLedda']
       G.node[p]['postCBFS_income_mean'] = stocksDic[personStatusDic[p]]['meanLedda']
@@ -77,7 +78,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   
   # ---------- NIWF, nonmember [0]
   # all support paid by gov
-  dollars= G.node['person_nonmember_NIWF']['income_total']
+  dollars= G.node['person_nonmember_NIWF']['postCBFS_income_total']
   G.edge['gov']['person_nonmember_NIWF'][0]['value'] = np.maximum(0, dollars)
   
   
@@ -96,7 +97,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   
 
   # ---------- Unemployed, nonmember [2]
-  dollars = G.node['person_nonmember_unemployed']['income_total']
+  dollars = G.node['person_nonmember_unemployed']['postCBFS_income_total']
   G.edge['gov']['person_nonmember_unemployed'][0]['value'] = np.maximum(0, dollars)
   
   
@@ -114,12 +115,12 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   
 
   # ----------nonmember NP, nonmember person [4]
-  dollars = G.node['person_nonmember_NP']['income_total']
+  dollars = G.node['person_nonmember_NP']['postCBFS_income_total']
   G.edge['org_nonmember_NP']['person_nonmember_NP'][0]['value'] = np.maximum(0, dollars)
   
   
   # ---------- nonmember SB, nonmember person [5]
-  dollars = G.node['person_nonmember_SB']['income_total']
+  dollars = G.node['person_nonmember_SB']['postCBFS_income_total']
   G.edge['org_nonmember_SB']['person_nonmember_SB'][0]['value'] = np.maximum(0, dollars)
 
 
@@ -168,7 +169,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   """
   
   wage_fractions_NP = np.array([
-    G.node['person_nonmember_NP']['income_total'],
+    G.node['person_nonmember_NP']['postCBFS_income_total'],
     G.node['person_member_NP']['postCBFS_income_total']
     ])
   wage_fractions_NP = wage_fractions_NP/wage_fractions_NP.sum()
@@ -276,7 +277,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   """
 
   wage_fractions_FP = np.array([
-    G.node['person_nonmember_SB']['income_total'],
+    G.node['person_nonmember_SB']['postCBFS_income_total'],
     G.node['person_member_SB']['postCBFS_income_total'],
     G.node['person_member_PB']['postCBFS_income_total']
     ])
@@ -355,7 +356,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
       assert dollar_pool >= 0
   
   # calculate fitness and collect node and edge values in dict
-  fitnessDic = calc_fitness(G, nodes, Optimize)
+  fitnessDic = calc_fitness(G, nodes, Optimize, Print)
   
   if Optimize:
     summaryGraphDic = None
@@ -481,7 +482,7 @@ def getTax(G, node, total, taxRate, deduction):
 
 
 # ===================================================================== 
-def calc_fitness(G, nodes, Optimize):
+def calc_fitness(G, nodes, Optimize, Print):
   """
   Calculates fitness and collects node and edge values in dict
   """
@@ -523,8 +524,8 @@ def calc_fitness(G, nodes, Optimize):
     nodeDic[ID].update({'fitness_dollars':dollars, 'fitness_tokens':tokens, 
       'fitness_total':total, 'name':node})
     
-    # only do if Optimize
-    if Optimize and (G.node[node]['kind'] == 'person'):
+    # only do if not Optimize
+    if not Optimize and (G.node[node]['kind'] == 'person'):
       income_dollars, income_tokens, income_total = sumEdges(G, node, ['in']) 
       
       # calculate pre- and post-CBFS income
@@ -545,13 +546,13 @@ def calc_fitness(G, nodes, Optimize):
           
       cnt = G.node[node]['count']
       nodeDic[ID].update({
-        #'actual_preCBFS_income_dollars': income_dollars, 
-        #'actual_preCBFS_income_tokens': income_tokens,
-        #'actual_preCBFS_income_total': income_dollars + income_tokens,
+        'actual_preCBFS_income_dollars': income_dollars, 
+        'actual_preCBFS_income_tokens': income_tokens,
+        'actual_preCBFS_income_total': income_dollars + income_tokens,
         
-        #'actual_postCBFS_income_dollars': income_dollars - CBFS_dollars, 
-        #'actual_postCBFS_income_tokens': income_tokens - CBFS_tokens,
-        #'actual_postCBFS_income_total': income_dollars + income_tokens - CBFS_dollars - CBFS_tokens,
+        'actual_postCBFS_income_dollars': income_dollars - CBFS_dollars, 
+        'actual_postCBFS_income_tokens': income_tokens - CBFS_tokens,
+        'actual_postCBFS_income_total': income_dollars + income_tokens - CBFS_dollars - CBFS_tokens,
         
         'actual_preCBFS_income_dollars_mean': int(round((income_dollars)/cnt)), 
         'actual_preCBFS_income_tokens_mean': int(round((income_tokens)/cnt)),
@@ -563,15 +564,30 @@ def calc_fitness(G, nodes, Optimize):
           (income_dollars + income_tokens - CBFS_dollars - CBFS_tokens)/cnt))
         })
       
+
+      actual_postCBFS = int(round(nodeDic[ID]['actual_postCBFS_income_total']))
+      expected_postCBFS = int(round(G.node[node]['postCBFS_income_total']))
       actual_postCBFS_mean = int(round(nodeDic[ID]['actual_postCBFS_income_total_mean']))
       expected_postCBFS_mean = int(round(G.node[node]['postCBFS_income_mean']))
       
-      # todo: see why these send up error messages
-      if (1==2) and (np.allclose(expected_postCBFS_mean, actual_postCBFS_mean) == False):
-        print(("\nfitness:  **** Post-CBFS mean income unmatched for node '{:s}': actual= {:,.0f}, " +\
-          "expected= {:,.0f}, delta= {:,.0f}").format(node, actual_postCBFS_mean, 
-            expected_postCBFS_mean, actual_postCBFS_mean - expected_postCBFS_mean))      
+      if (np.allclose(expected_postCBFS, actual_postCBFS) == False):
+        print(("""
+          **** Post-CBFS income unmatched for node '{:s}': 
+            actual= {:,.0f},
+            expected= {:,.0f}, 
+            delta= {:,.0f}""").format(node, actual_postCBFS, 
+            expected_postCBFS, actual_postCBFS - expected_postCBFS))
+        raise Exception() 
 
+
+      if (Print) and (np.allclose(expected_postCBFS_mean, actual_postCBFS_mean) == False):
+        print(("""
+          **** Post-CBFS mean income unmatched for node '{:s}': 
+            actual= {:,.0f},
+            expected= {:,.0f}, 
+            delta= {:,.0f}""").format(node, actual_postCBFS_mean, 
+            expected_postCBFS_mean, actual_postCBFS_mean - expected_postCBFS_mean))      
+        raise Exception() 
   
   fitnessDic['fitness'] = {'dollars': int(round(fitness_dollars)), 
     'tokens': int(round(fitness_tokens)), 
@@ -720,7 +736,7 @@ def save_node_tables(G, fitnessDic, nodes):
   Save a table showing inflows and outflows to each node
   """  
   
-  PrintTables = True
+  PrintTables = False
   
   Tables = io.StringIO()
   divs = 1  # units, millions, billions, etc.  
@@ -835,9 +851,9 @@ def save_node_tables(G, fitnessDic, nodes):
     Tables.write("\n========== Grand Total Fitness ==========\n")
     Tables.write("Dollars: {:,d}  Tokens: {:,d}  Total: {:,d}\n".format(int(DOLLARS*divs),
       int(TOKENS*divs), int(TOTAL*divs)))
-      
-
     T = Tables.getvalue()
     print(T)  
   
   return tableDic
+
+

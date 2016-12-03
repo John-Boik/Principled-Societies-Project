@@ -2,7 +2,7 @@
 import numpy as np
 import tables as tb
 from scipy import stats
-import os
+import os, pdb
 
 from leddaApp import app
 from leddaApp import Config
@@ -480,6 +480,8 @@ def make_stocks(X):
   PR = X.TP.cols.R_dollars[:]   # persons received income
   WS = X.TP.cols.work_status[:]
   
+  print("\nunique WS: ", np.unique(WS))
+  
   # the income target for families (those over the target will not become members)
   familyPercentileCut = np.round(
     stats.scoreatpercentile(FR, X.percentile_threshold_family),0).item()
@@ -496,21 +498,28 @@ def make_stocks(X):
   stocksDic.update({'initial':{}, 'final':{}})
   
   # there are 9 types of persons, depending on income source
+  # recall that number of families = popultion / 2
+  LeddaF = np.where(FR <= familyPercentileCut)[0]
+  NonLeddaF = np.where(FR > familyPercentileCut)[0]
+
+  # convert familiy IDs to person IDs, considering work status
+  LeddaPersons = np.hstack((X.TF.cols.person1[:][LeddaF], X.TF.cols.person2[:][LeddaF]))
+  NonLeddaPersons = np.hstack((X.TF.cols.person1[:][NonLeddaF], X.TF.cols.person2[:][NonLeddaF]))
+  
+  print("\nLedda.size= ", LeddaPersons.size, " NonLedda.size= ", NonLeddaPersons.size)
+  assert np.allclose( (LeddaPersons.size + NonLeddaPersons.size) * X.populationRatio, X.population)
+  
   for ws in range(0,9):
+    #print("\n--------- ws= ", ws)
+    
     stocksDic['initial'][ws] = {}
     stocksDic['final'][ws] = {}
-    LeddaF = np.where(FR <= familyPercentileCut)[0]
-    NonLeddaF = np.where(FR > familyPercentileCut)[0]
     
-    # convert familiy IDs to person IDs, considering work status
-    Ledda = np.hstack((X.TF.cols.person1[:][LeddaF], X.TF.cols.person2[:][LeddaF]))
-    NonLedda = np.hstack((X.TF.cols.person1[:][NonLeddaF], X.TF.cols.person2[:][NonLeddaF]))
+    wLedda = np.where(WS[LeddaPersons] == ws)[0]
+    Ledda = LeddaPersons[wLedda]
+    wNonLedda = np.where(WS[NonLeddaPersons] == ws)[0]
+    NonLedda = NonLeddaPersons[wNonLedda]      
     
-    wLedda = np.where(WS[Ledda] == ws)[0]
-    Ledda = Ledda[wLedda]
-    wNonLedda = np.where(WS[NonLedda] == ws)[0]
-    NonLedda = NonLedda[wNonLedda]      
-          
     if Ledda.size + NonLedda.size == 0:
       pctLedda = 0 
       pctNonLedda = 0
@@ -523,24 +532,28 @@ def make_stocks(X):
       sumLedda = 0
     else:
       meanLedda = PR[Ledda].mean() 
-      sumLedda = PR[Ledda].sum() * X.populationRatio
+      sumLedda =  PR[Ledda].sum() * X.populationRatio
 
     if NonLedda.size == 0:
       meanNonLedda = 0 
       sumNonLedda = 0
     else:
       meanNonLedda = PR[NonLedda].mean() 
-      sumNonLedda = PR[NonLedda].sum() * X.populationRatio 
+      sumNonLedda =  PR[NonLedda].sum() * X.populationRatio 
+      assert np.allclose(meanNonLedda, sumNonLedda / (NonLedda.size * X.populationRatio))
 
     # per-person, post CBFS T&D values 
     temp = {
-      'cntLedda': int(round(Ledda.size * X.populationRatio, 0)), 
-      'cntNonLedda': int(round(NonLedda.size * X.populationRatio, 0)), 
-      'pctLedda':pctLedda, 
-      'pctNonLedda':pctNonLedda, 'meanLedda':meanLedda, 
-      'meanNonLedda':meanNonLedda, 'sumLedda':sumLedda, 'sumNonLedda':sumNonLedda}
+      'cntLedda':     Ledda.size *    X.populationRatio, 
+      'cntNonLedda':  NonLedda.size * X.populationRatio, 
+      'pctLedda':pctLedda, 'pctNonLedda':pctNonLedda, 
+      'meanLedda':meanLedda, 'meanNonLedda':meanNonLedda, 
+      'sumLedda':sumLedda, 'sumNonLedda':sumNonLedda}
     
     stocksDic['initial'][ws].update(temp)
+    assert np.allclose(
+      stocksDic['initial'][ws]['sumNonLedda'], 
+      stocksDic['initial'][ws]['meanNonLedda'] * stocksDic['initial'][ws]['cntNonLedda'])
     
     # placeholders for final counts/incomes
     temp = {'cntLedda':0, 'cntNonLedda':0, 'pctLedda':0, 'pctNonLedda':0, 'meanLedda':0, 
@@ -555,6 +568,9 @@ def make_stocks(X):
   stocksDic['final'][0].update({'pctNonLedda': 1.})
   stocksDic['final'][0].update({'meanNonLedda': stocksDic['initial'][0]['meanNonLedda']})
   stocksDic['final'][0].update({'sumNonLedda': stocksDic['initial'][0]['sumNonLedda']})
+  
+  assert np.allclose(stocksDic['final'][0]['sumNonLedda'], 
+    stocksDic['final'][0]['meanNonLedda'] * stocksDic['final'][0]['cntNonLedda'])
   
   stocksDic['final'][1].update({'cntLedda': stocksDic['initial'][0]['cntLedda']})
   stocksDic['final'][1].update({'pctLedda': 1.})
