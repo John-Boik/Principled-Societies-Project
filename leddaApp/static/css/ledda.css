@@ -74,6 +74,11 @@ p {
 .about-sect .wrap-p {
     text-align: justify;
 }
+.tbl-col {
+    /*padding-top: 8px;*/
+    border-top: 1px solid #c2c2c2;
+    white-space: pre-wrap;
+}
 /*nav*/
 .navbar-fixed-top {
     background: linear-gradient(10deg, #6384a9, #093b74);
@@ -114,7 +119,7 @@ p {
 .dropdown-menu ul,
 .dropdown-menu a {
     background-color: #6384a9 !important;
-    color: #fff;
+    color: #fff !important;
 }
 #mailsubscribe {
     border-radius: 3px;
@@ -381,10 +386,16 @@ p {
     .triangle-text {
         font-size: 1.4vw;
     }
+
 }
 @media screen and (min-width: 1200px) {
     .triangle-collapse {
         padding-bottom: 5.5%;
+    }
+}
+@media screen and (max-width: 992px) {
+    .full-sect {
+        width: 100% !important;
     }
 }
 @media screen and (max-width: 768px) {
@@ -420,6 +431,9 @@ p {
     }
 }
 @media screen and (max-width: 1152px) {
+    .space-col {
+        padding-top: 4em;
+    }
 }
 @media screen and (max-width: 562px) {
     body {

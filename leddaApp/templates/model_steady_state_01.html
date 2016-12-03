@@ -2,8 +2,8 @@
 
 {% block page_head %}
 
-<script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
-<script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>
+<!--<script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>-->
+<!--<script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>-->
 <script src="{{ url_for('static', filename='javascript/custom_jquery.knob.js') }}"></script>
 
 {% endblock %}
@@ -187,28 +187,29 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   <div class="row">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12 p-sect">
       <h2 class="green-sect">Choices</h2>
-      <div class="smaller-text">(use dials, keyboard arrows up/down, or type values in center of dial)</div>
+      <div class="smaller-text">(use dials or type values in center of dial)</div>
     </div>
   </div>
 
   <br>
 
-  <!--<div class="row">-->
-    <!--<div class="col col-lg-12 col-xl-12 p-sect">-->
-      <!--<h4 class="bld green-sect">Starting Conditions</h4>-->
-    <!--</div>-->
-  <!--</div>-->
+  <hr>
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <h3 class="bld green-sect">Starting Conditions</h3>
+    </div>
+  </div>
 
   <div class="row input-row p-sect">
 
-    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-6 col-xs-12 input-col">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col">
       <div class="knob-label">Adult Population (all in 2-person families)</div>
-      <input id="population" type="text" value="10000" data-min="1000" data-max="1000000" data-width="160" data-fgColor="#8052a1" class="dial">
+      <input id="population" type="text" value="10000" data-min="1000" data-max="1000000" data-width="160" data-fgColor="#286090" class="dial">
     </div>
 
-    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-6 col-xs-12 input-col">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col">
       <div class="knob-label">Initial Unemployment Rate, percent</div>
-      <select id="unemployment_rate" class="custom-select">
+      <select id="unemployment_rate" class="selectpicker" data-style="btn-primary">
         <option value="3">3</option>
         <option value="5">5</option>
         <option value="7">7</option>
@@ -220,9 +221,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       </select>
     </div>
 
-  </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col space-col">
+      <div class="knob-label">Family income target, T&D, post-CBFS</div>
+      <input id="family_income_target_final" type="text" value="50000" data-min="21600" data-max="300000" data-step="100" data-width="160" data-fgColor="#286090" class="dial">
+    </div>
 
-  <hr>
+  </div>
 
   <!--<div class="row">-->
     <!--<div class="col col-lg-12 col-xl-12 p-sect">-->
@@ -230,12 +234,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <!--</div>-->
   <!--</div>-->
 
-  <div class="row input-row p-sect">
-    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Family income target, T&D, post-CBFS</div>
-      <input id="family_income_target_final" type="text" value="50000" data-min="21600" data-max="300000" data-step="100" data-width="160" data-fgColor="#a56911" class="dial">
-    </div>
-  </div>
+  <!--<div class="row input-row p-sect">-->
+    <!--<div class="col col-xl-6 col-lg-6 col-med-6 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Family income target, T&D, post-CBFS</div>-->
+      <!--<input id="family_income_target_final" type="text" value="50000" data-min="21600" data-max="300000" data-step="100" data-width="160" data-fgColor="#a56911" class="dial">-->
+    <!--</div>-->
+  <!--</div>-->
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
@@ -245,12 +249,11 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     </div>
   </div>
 
-  <hr>
 
   <div class="row input-row p-sect">
     <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-6 col-xs-12 input-col">
       <div class="knob-label">Token share of income (TSI), percent:</div>
-      <input id="TSI" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="dial">
+      <input id="TSI" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#286090" class="dial">
     </div>
   </div>
   
@@ -259,8 +262,6 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       <p>The higher the TSI, the higher the token/T&D ratio. If it is too low, the LEDDA does not benefit much from having the token. If it is too high, too much of local commerce must occur using tokens. One consequence is that it might be difficult to pay taxes, which must be paid in dollars. A good TSI might be roughly 35%.</p>
     </div>
   </div>
-
-  <hr>
 
   <div class="row input-row p-sect">
     <div class="col col-xl-12 col-lg-12 col-med-12 col-sm-12 col-xs-12">
@@ -271,15 +272,15 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   <div class="row input-row p-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
       <div class="knob-label">Standard Business</div>
-      <input id="workforce_partition_SB" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#b83e26" class="wf-pcnt-dial">
+      <input id="workforce_partition_SB" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#286090" class="wf-pcnt-dial">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
       <div class="knob-label">Nonprofit</div>
-      <input id="workforce_partition_NP" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#b83e26" class="wf-pcnt-dial">
+      <input id="workforce_partition_NP" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#286090" class="wf-pcnt-dial">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
       <div class="knob-label">Principled Business</div>
-      <input id="workforce_partition_PB" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#b83e26" class="wf-pcnt-dial">
+      <input id="workforce_partition_PB" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#286090" class="wf-pcnt-dial">
     </div>
   </div>
 
@@ -295,7 +296,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <h4 class="green-sect">CBFS Earmarks (percent of pre-CVFS income) and Token Share</h4>
+      <h3 class="green-sect bld">CBFS Earmarks (percent of pre-CVFS income) and Token Share</h3>
     </div>
   </div>
 
@@ -305,87 +306,168 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     </div>
   </div>
 
-  <div class="row input-row p-sect">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <h5 class="bld">Earmarks</h5>
+  <!--<div class="row input-row p-sect">-->
+    <!--<div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">-->
+      <!--<h5 class="bld">Earmarks</h5>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
+      <h4>Earmark</h4>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
+      <h4>Token Share</h4>
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Subsidy, SB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_SB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_SB_subsidy">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_SB_subsidy_TS" type="text" value="56.36" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_SB_subsidy_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Donation, NP</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_NP_donation" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_NP_donation">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_NP_donation_TS" type="text" value="51.26" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_NP_donation_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Subsidy, PB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_PB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_PB_subsidy">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_PB_subsidy_TS" type="text" value="48.13" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_PB_subsidy_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Nurture</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_nurture" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_nurture">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_nurture_TS" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" checked="" id="flexible_earmark_nurture_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Sum</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <div class="green-sect bld" id="total_earmark"></div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>
   </div>
 
-  <div class="row input-row p-sect">
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Earmark-Subsidy, SB</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_SB_subsidy">
-      <input id="earmark_SB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">
-    </div>
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Earmark-Donation, NP</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_NP_donation">
-      <input id="earmark_NP_donation" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">
-    </div>
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Earmark-Subsidy, PB</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_PB_subsidy">
-      <input id="earmark_PB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">
-    </div>
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Earmark-Nurture</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_nurture">
-      <input id="earmark_nurture" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">
-    </div>
-  </div>
-  <div class="row input-row p-sect">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12 center">
-      <div class="dial-sum">Sum Earmark: <span class="green-sect bld" id="total_earmark"><span></div>
-    </div>
-  </div>
+  <!--<div class="row input-row p-sect">-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Earmark-Subsidy, SB</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_SB_subsidy">-->
+      <!--<input id="earmark_SB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">-->
+    <!--</div>-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Earmark-Donation, NP</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_NP_donation">-->
+      <!--<input id="earmark_NP_donation" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">-->
+    <!--</div>-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Earmark-Subsidy, PB</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_PB_subsidy">-->
+      <!--<input id="earmark_PB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">-->
+    <!--</div>-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Earmark-Nurture</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_nurture">-->
+      <!--<input id="earmark_nurture" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="160" data-fgColor="#0a733b" class="earmark-pcnt-dial">-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row input-row p-sect">-->
+    <!--<div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12 center">-->
+      <!--<div class="dial-sum">Sum Earmark: <span class="green-sect bld" id="total_earmark"><span></div>-->
+    <!--</div>-->
+  <!--</div>-->
  
   <br>
 
-  <div class="row input-row p-sect">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <p>The token shares of contributions should all be roughly similar. That is, each arm of the CBFS should receive roughly similar ratios of tokens and dollars.
-      </p>
-    </div>
-  </div>
+  <!--<div class="row input-row p-sect">-->
+    <!--<div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">-->
+      <!--<p>The token shares of contributions should all be roughly similar. That is, each arm of the CBFS should receive roughly similar ratios of tokens and dollars.-->
+      <!--</p>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <div class="row input-row p-sect">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <h5 class="bld">Token Share</h5>
-    </div>
-  </div>
+  <!--<div class="row input-row p-sect">-->
+    <!--<div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">-->
+      <!--<h5 class="bld">Token Share</h5>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <div class="row input-row p-sect">
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Token Share-Subsidy, SB</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_SB_subsidy_TS">
-      <input id="earmark_SB_subsidy_TS" type="text" value="56.36" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">
-    </div>
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Token Share-Donation, NP</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_NP_donation_TS">
-      <input id="earmark_NP_donation_TS" type="text" value="51.26" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">
-    </div>
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Token Share-Subsidy, PB</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_PB_subsidy_TS">
-      <input id="earmark_PB_subsidy_TS" type="text" value="48.13" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">
-    </div>
-    <div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Token Share-Nurture</div>
-      <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_nurture_TS">
-      <input id="earmark_nurture_TS" type="text" value="25" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">
-    </div>
-  </div>
+  <!--<div class="row input-row p-sect">-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Token Share-Subsidy, SB</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_SB_subsidy_TS">-->
+      <!--<input id="earmark_SB_subsidy_TS" type="text" value="56.36" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">-->
+    <!--</div>-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Token Share-Donation, NP</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_NP_donation_TS">-->
+      <!--<input id="earmark_NP_donation_TS" type="text" value="51.26" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">-->
+    <!--</div>-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Token Share-Subsidy, PB</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_PB_subsidy_TS">-->
+      <!--<input id="earmark_PB_subsidy_TS" type="text" value="48.13" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">-->
+    <!--</div>-->
+    <!--<div class="col col-xl-3 col-lg-3 col-med-4 col-sm-6 col-xs-12 input-col">-->
+      <!--<div class="knob-label">Token Share-Nurture</div>-->
+      <!--<span class="smaller-text">Flexible</span>-->
+      <!--<input type="checkbox" checked="" id="flexible_earmark_nurture_TS">-->
+      <!--<input id="earmark_nurture_TS" type="text" value="25" data-min="0" data-max="100" data-step=".01" data-width="160" data-fgColor="#0a733b" class="dial">-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <hr>
+  <!--<hr>-->
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
@@ -629,6 +711,27 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
 
   $(function() {
+
+    $(".earmark-ts-dial").knob({
+      'step': .0001,
+      height: 120,
+      'draw': function(v) {
+        $(this.i).css('font-size', '10pt');
+      
+      },
+      'format': function(v) {
+        v = v.toFixed(4);
+        return v;
+      },
+      'release': function(v) {
+        if (isNaN(v)) {
+          v = 0;
+          $(this).val(0).trigger('change');
+          return v;
+        }
+      }
+    });
+
     
     $(".dial").knob({
       'release': function(v) {
@@ -843,14 +946,13 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
     $('.earmark-pcnt-dial').knob({
       'step': .0001,
+      height: 120,
       'draw': function(v) {
         $(this.i).css('font-size', '10pt');
       
       },
       'format': function(v) {
         v = v.toFixed(4);
-        console.log('xxx');
-        console.log(v);
         return v;
       },
       'release': function(v) {
@@ -936,7 +1038,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   });
 
   function display_earmark_total() {
-    var sum = sum_earmark().toFixed(2);
+    var sum = sum_earmark().toFixed(4);
     $('#total_earmark').text(sum);
   }
 
@@ -983,12 +1085,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   $(document).ready(function() {
     display_earmark_total();
-    brython(1);
+    //brython(1);
   });
 
 </script>
 
-<script type="text/python" src="{{ url_for('static', filename='python/steady_01.py') }}"></script>
+<!--<script type="text/python" src="{{ url_for('static', filename='python/steady_01.py') }}"></script>-->
 
 {% endblock %}
 
