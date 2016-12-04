@@ -391,6 +391,9 @@ ul, li, ol {
     font-size: 1.1em;
     margin-top: .3em;
 }
+.we-the-world {
+    line-height: 1em;
+}
 
 }@media screen and (max-width: 576px) {
     #mailsubscribe {
