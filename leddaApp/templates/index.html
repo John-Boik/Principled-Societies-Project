@@ -384,15 +384,15 @@
           <img src={{ url_for('static', filename="resources/Icon_SurveyPurple.png") }}></img> 
         </a>  
       </div>
-      <div class="purple-back white-font-lg glyph-button">
-        <a href="https://www.surveymonkey.com/r/RZ9KDM6" target="blank">
+      <div class="purple-back white-font-lg glyph-button" onClick="window.open('https://www.surveymonkey.com/r/RZ9KDM6', '_blank');">
           Please Take Our Survey
-        </a>
       </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 cols-sm-12 col-xs-12 center">
       <div>
-        <img src={{ url_for('static', filename="resources/Icon_Puzzle.png") }}></img> 
+        <a href="/who_should_be_interested">
+          <img src={{ url_for('static', filename="resources/Icon_Puzzle_purple.png") }}></img>
+        </a>
       </div>
       <div class="purple-back white-font-lg glyph-button" onClick="window.location.href='who_should_be_interested';">
         Who Should Be Interested

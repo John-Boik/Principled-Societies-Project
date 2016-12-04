@@ -12,6 +12,10 @@ p {
     line-height: 1.7em;
     font-size: 12pt;
 }
+ul, li, ol {
+    line-height: 1.7em;
+    font-size: 12pt;
+}
 .bld {
     font-weight: bold;
 }
