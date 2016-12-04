@@ -1,3 +1,8 @@
+
+.subtitle {
+  color: #EEEEEE;
+  }
+
 body {
     padding-top: 65px;
 }
@@ -190,6 +195,7 @@ p {
     letter-spacing: 1px;
     margin-top: 1.2em;
     margin-bottom: 1em;
+    margin-top: 2em;
 }
 .p-sect {
     padding-left: 14%;
@@ -241,6 +247,7 @@ p {
     min-height: 10px;
     position: absolute;
     top: 0;
+    margin-top: 2em;
 }
 .invert-triangle {
     width: 33%;
@@ -248,6 +255,7 @@ p {
     top: 0;
     left: 33%;
     padding-bottom: 2em;
+    margin-top: 2em;
 }
 .invert-triangle svg {
     height: 100%;
