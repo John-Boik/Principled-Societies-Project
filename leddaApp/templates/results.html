@@ -57,17 +57,14 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
     <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
 
       <h2 class="green-sect">Fitness Overview</h2>
-      <p>The grand fitness is <output id="output_grand_fitness">...wait...</output></p>
+      <p>The grand fitness is <output id="output_grand_fitness">...wait...</output> T&D.</p>
 
-      <p>The grand fitness is the count of tokens plus the count of dollars in error (the summed size of excess and deficient flows over all nodes). If the grand fitness is well above zero but less than, say, 
-        <output id="threshold">...wait...</output> T&D (the population times 500 T&D), the results are 
-        questionable. If the grand fitness is far above this threshold, then all results except 
-        fitness are meaningless. A perfect fitness of zero and low scores near zero can be achived in many ways.</p>
+      <p>The fitness at a single node is the value of abs(total inflow - total outflow), calculated for tokens and dollars separately, then added together. The grand fitness is the sum of fitness values over all nodes. If the grand fitness is less than about 10 T&D on a per-person basis (<output id="threshold_lo">...wait...</output> T&D in this case), then the run can be considered a clear success. If it is above this lower threshold but less than about 100 T&D on a per-person basis (<output id="threshold_hi">...wait...</output> T&D in this case), then the run is OK, but the results are somewhat questionable. If the grand fitness is well above this higher threshold, then all results except fitness might be meaningless. A perfect fitness of zero can be achieved in many ways, but would require that the variables be specified to many significant digits.</p>
 
 
         <div id="grand_fitness_table" ></div>
 
-      <p>Some of the elements of tables and graphics on this page are color coded to visually highlight the differences in node fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, sigifying the maximum of (1,000, maximum node fitness).</p> 
+      <p>The cells and nodes of some tables and graphs on this page are color coded to visually highlight their fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, signifying either a fitness of 1,000 T&D or the maximum node fitness, whichever is larger.</p> 
 
 
       <p>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</p>
@@ -141,7 +138,7 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
   <!--end column-->
     </div>
   </div>
-
+</div>
 <script>
   $(document).ready(function() {
     brython(1);
