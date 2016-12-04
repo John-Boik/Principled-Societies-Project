@@ -97,9 +97,10 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
         </div>
       </div>
 
+      <div id="agent-based-more" class="collapse">
+
       <br>
 
-      <div id="agent-based-more" class="collapse">
         <div class="center">
           <br>
           <div class="full-width-img">
@@ -143,20 +144,20 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 </div>
 
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col col-lg-12 col-xl-12 sect-title">
       <div class="sect-header green-sect sh-lower">
-        <h2 class="green-sect center">How to run the simulation</h2>
+        <h1 class="green-sect center">How to Run the Simulation</h1>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container-fluid">
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>To run the simulation choose starting conditions (county population, for example), then targets (family income, for example), then variables (CBFS earmarks, for example). Finally, choose to run the model using fixed selections (fast), or using the selections as starting points in seeking values of variables that minimize the fitness score (slow). If the latter, choose which of the variables are fixed and which are flexible.</p> 
+      <p>To run the simulation choose starting conditions, then values for fixed variables. Finally, run the model. In the future, it will be possible to also run the model using the selections as starting points (flexible variables) in one or both of two optimization algorithms (BFGS and a genetic algorithm). These algorithms take much more time to compute than running the model with only fixed variables.</p> 
+      
+      <p>A spreadsheet listing all variables and default settings is available for downloaded [link]. See the <a href="glossary">glossary</a> for descriptions of terms and abbreviations.</p>       
 
       <div class="more-triangle" data-toggle="collapse" data-target="#how-info-more">
         <div class="triangle-text">
@@ -183,9 +184,6 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       <p>In summary, flows are solved step by step; once one flow is solved, it is used to solve the flows at other nodes. A fitness score is produced for each node and for the sum over all nodes. A perfect score is zero. The fitness at each node is indicated by shades of red in the graphics, with light pink being perfect. Edge widths reflect the magnitude of flows. </p>
       </div>
 
-      <h2 class="green-sect">Terms and Abbreviations</h2>
-      <p>A spreadsheet listing all variables and default settings is available for downloaded [link]. See the <a href="glossary">glossary</a> for descriptions of terms and abbreviations.</p> 
-
     </div>
   </div>
 
@@ -207,22 +205,24 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
 <div class="container-fluid blue-cont">
   <div class="row">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12 p-sect">
-      <h2 class="blue-sect">Choices</h2>
-      <div class="smaller-text">(use dials or type values in center of dial)</div>
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header blue-sect sh-lower">
+        <h1 class="blue-sect center">Choices for Starting Conditions</h1>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <h3 class="blue-sect">Starting Conditions</h3>
+      <p>Choose values for starting conditions. Use the dials or type in values in center of a dial.</p>
+      <br>
     </div>
   </div>
 
   <div class="row input-row p-sect">
 
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col">
-      <div class="knob-label">Adult Population (all in 2-person families)</div>
+      <div class="knob-label">Adult Population</div>
       <input id="population" type="text" value="10000" data-min="1000" data-max="1000000" data-width="160" data-fgColor="#0f1672" class="dial">
     </div>
 
@@ -240,12 +240,24 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       </select>
     </div>
 
-    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col space-col">
+  </div>
+
+
+  <div class="row input-row p-sect">
+
+    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-12 col-xs-12 input-col space-col">
       <div class="knob-label">Family income target, T&D, post-CBFS</div>
       <input id="family_income_target_final" type="text" value="50000" data-min="21600" data-max="300000" data-step="100" data-width="160" data-fgColor="#0f1672" class="dial">
     </div>
 
+    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-12 col-xs-12 input-col">
+      <div class="knob-label">Token share of income (TSI), percent:</div>
+      <input id="TSI" type="text" value="50" data-min="1" data-max="99" data-step="1" data-width="160" data-fgColor="#0f1672" class="dial">
+    </div>
   </div>
+
+
+
 
   <!--<div class="row">-->
     <!--<div class="col col-lg-12 col-xl-12 p-sect">-->
@@ -269,12 +281,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   </div>
 
 
-  <div class="row input-row p-sect">
-    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Token share of income (TSI), percent:</div>
-      <input id="TSI" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="dial">
-    </div>
-  </div>
+
   
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
@@ -284,7 +291,8 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row input-row p-sect">
     <div class="col col-xl-12 col-lg-12 col-med-12 col-sm-12 col-xs-12">
-      <h4 class="blue-sect">Workforce Partition <span class="smaller-text">(sums to 100%)</span></h4>
+      
+      <h3 class="blue-sect">Workforce Partition (percent, sums to 100%)</h3>
     </div>
   </div>
 
@@ -321,18 +329,27 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
 <br>
 
-<div class="container-fluid">
 
+<div class="container-fluid">
   <div class="row">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12 p-sect">
-      <h2 class="purple-sect">Choices for flexible variables</h2>
-      <div class="smaller-text">(use dials or type values in center of dial)</div>
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header purple-sect sh-lower">
+        <h1 class="purple-sect center">Choices for Flexible Variables</h1>
+      </div>
     </div>
   </div>
-  <br>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>Choose values for flexible variables. Use the dials or type in values in center of a dial. Currently, all variables in this section are fixed, meaning that no optimization occurs during a run. The choice to make some variables flexible and subject to optimization will be available soon.</p>
+      <br>
+    </div>
+  </div>
+
+
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <h4 class="purple-sect">CBFS Earmarks (percent of pre-CVFS income) and Token Share</h4>
+      <h3 class="purple-sect">CBFS Earmarks (percent of pre-CVFS income) and Token Share</h3>
     </div>
   </div>
 
@@ -344,12 +361,13 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
+      <h4>Earmark Type</h4>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
-      <h4>Earmark</h4>
+      <h4>Earmark Value (%)</h4>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
-      <h4>Token Share</h4>
+      <h4>Token Share (%)</h4>
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -359,12 +377,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_SB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_SB_subsidy">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_SB_subsidy">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_SB_subsidy_TS" type="text" value="56.36" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_SB_subsidy_TS">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_SB_subsidy_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -374,12 +392,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_NP_donation" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_NP_donation">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_NP_donation">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_NP_donation_TS" type="text" value="51.26" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_NP_donation_TS">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_NP_donation_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -389,12 +407,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_PB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_PB_subsidy">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_PB_subsidy">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_PB_subsidy_TS" type="text" value="48.13" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_PB_subsidy_TS">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_PB_subsidy_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -404,12 +422,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_nurture" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_nurture">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_nurture">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_nurture_TS" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_earmark_nurture_TS">
+      <input type="checkbox" disabled checked="" id="flexible_earmark_nurture_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -426,12 +444,13 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <h4 class="purple-sect">Percent of Person Total Spending To Organization Nodes and Token Share</h4>
+      <h3 class="purple-sect">Percent of Person Total Spending To Organization Nodes and Token Share</h3>
     </div>
   </div>
 
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
+      <h4>Organization Type</h4>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
       <h4>Person Nonmember</h4>
@@ -447,12 +466,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_member_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_nonmember_spending_to_member_SB_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_member_SB_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_SB_pct" type="text" value="20" data-min="0" data-max="100.00" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_member_SB_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_SB_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -462,12 +481,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_member_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_nonmember_spending_to_member_NP_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_member_NP_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_member_NP_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_NP_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -477,12 +496,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_member_PB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_nonmember_spending_to_member_PB_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_member_PB_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_PB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_member_PB_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_PB_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -492,12 +511,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_nonmember_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_nonmember_spending_to_nonmember_SB_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_nonmember_SB_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_nonmember_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_nonmember_SB_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_nonmember_SB_pct">
     </div>
     </div>
   </div>
@@ -508,12 +527,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_nonmember_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_nonmember_spending_to_nonmember_NP_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_nonmember_NP_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_nonmember_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_nonmember_NB_pct">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_nonmember_NP_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -549,7 +568,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_SB_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_member_SB_TS">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_SB_TS">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>
@@ -561,7 +580,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_NP_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_member_NP_TS">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_NP_TS">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>
@@ -573,7 +592,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_PB_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" checked="" id="flexible_person_member_spending_to_member_PB_TS">
+      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_PB_TS">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>
@@ -597,18 +616,28 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
 <br>
 
-<div class="container-fluid">
 
+
+<div class="container-fluid">
   <div class="row">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12 p-sect">
-      <h2 class="brown-sect">Run Parameters</h2>
-      <!--<div class="smaller-text">(use dials or type values in center of dial)</div>-->
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header brown-sect sh-lower">
+        <h1 class="brown-sect center">Run Model</h1>
+      </div>
     </div>
   </div>
 
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>Choose values for run options. Use the dials or type in values in center of a dial. </p>
+      <br>
+    </div>
+  </div>
+
+
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
-     <h4>Item</h4> 
+     <h4>Variable Group</h4> 
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
       <h4>Lower Bound</h4>
@@ -645,11 +674,11 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       <p>Warning: Choosing to user either or both optimization methods may be slow.</p>
     </div>
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <input type="checkbox" unchecked="" id="doBFGS">
+      <input type="checkbox" disabled checked="" id="doBFGS">
       <span class="">Optimization using L-BFGS-B algorithm</span>
     </div>
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <input type="checkbox" unchecked="" id="doGenetic">
+      <input type="checkbox" disabled checked="" id="doGenetic">
       <span class="">Optimization using genetic algorithm</span>
     </div>
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
@@ -675,7 +704,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <h5 class="blue-sect bld">References</h5>
+      <h2 class="blue-sect bld">References</h2>
     </div>
   </div>
 
