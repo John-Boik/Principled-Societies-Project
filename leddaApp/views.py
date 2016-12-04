@@ -47,6 +47,13 @@ def index():
   """
   return render_template('index.html')  
 
+# -------------------------------------------------------------------------------------
+@app.route('/survey')
+def survey():
+  """
+  This is survey page 
+  """
+  return render_template('survey.html')  
 
 # -------------------------------------------------------------------------------------
 @app.route('/who_should_be_interested')
