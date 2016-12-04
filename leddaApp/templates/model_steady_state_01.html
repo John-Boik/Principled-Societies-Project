@@ -3,15 +3,13 @@
 {% block page_head %}
 
 <script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
-<script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>
+<!--<script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>-->
 <script src="{{ url_for('static', filename='javascript/custom_jquery.knob.js') }}"></script>
 
 {% endblock %}
 
 
 {% block body %}
-
-<script type="text/python" src="{{ url_for('static', filename='python/steady_01.py') }}"></script>
 
 <br>
 
@@ -734,6 +732,9 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
     $(".run-dial").knob({
       height: 120,
+      'draw': function(v) {
+        $(this.i).css('font-size', '10pt');
+      },
       'release': function(v) {
         if (isNaN(v)) {
           $(this).val(0).trigger('change');
@@ -747,7 +748,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
         //return v.toLocaleString();
       },
       'draw': function(v) {
-        $(this.i).css('font-size', '14pt'); 
+        $(this.i).css('font-size', '12pt'); 
       }
 
     });
@@ -766,7 +767,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
         //return v.toLocaleString();
       },
       'draw': function(v) {
-        $(this.i).css('font-size', '14pt'); 
+        $(this.i).css('font-size', '12pt'); 
       }
 
     });
@@ -775,12 +776,13 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     $('.memb-dial').knob({
       'step': .0001,
       height: 120,
-      'draw': function(v) {
-        $(this.i).css('font-size', '10pt');
-      },
       'format': function(v) {
         v = v.toFixed(4);
         return v;
+      },
+      'draw': function(v) {
+        $(this.i).val(this.val().toFixed(4));
+        $(this.i).css('font-size', '10pt');
       },
       'release': function(v) {
         if (isNaN(v)) {
@@ -871,6 +873,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
         return v;
       },
       'draw': function(v) {
+        $(this.i).val(this.val().toFixed(4));
         $(this.i).css('font-size', '10pt');
       },
       'release': function(v) {
@@ -957,7 +960,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     //bind wf participation dials to sum up to 100%.
     $('.wf-pcnt-dial').knob({
       'draw': function(v) {
-        $(this.i).css('font-size', '14pt'); 
+        $(this.i).css('font-size', '12pt'); 
       },
       'release': function(v) {
         if (no_update) {
