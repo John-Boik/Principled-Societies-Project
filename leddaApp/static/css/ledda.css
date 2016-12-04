@@ -44,6 +44,8 @@ p {
     font-size: 1.2em;
 }
 .run-button {
+    border-color: #fff;
+    background-color: #A56911;
     font-size: 1.5em;
 }
 .result-col output {
