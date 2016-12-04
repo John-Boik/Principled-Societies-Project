@@ -7,8 +7,10 @@ body {
     padding-top: 65px;
 }
 p {
-    line-height: 1.9em;
-    font-size: 1.1em;
+    /*line-height: 1.9em;*/
+    /*font-size: 1.1em;*/
+    line-height: 1.7em;
+    font-size: 12pt;
 }
 .bld {
     font-weight: bold;

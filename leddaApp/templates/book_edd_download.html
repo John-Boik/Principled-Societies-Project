@@ -1,23 +1,49 @@
 
 {% extends "layout.html" %}
-{% block body2 %}
 
 
-<h1>Download <i>Economic Direct Democracy</i></h1>
+{% block title %}
+<title>Free Download</title>
+{% endblock %}
 
-</p><em>Economic Direct Democracy</em> can be ordered in paperback and e-book format at Amazon and other booksellers. In addition, a free PDF version is being made available here to spread the ideas in the book as widely as possible. We hope that the book contributes to an international dialogue about optimal social choice systems. The PDF version is free, but to help spread the ideas and support our efforts we ask four things:
-<ol>
-	<li>Mention the book to others. Consider writing a review for Amazon.com, or mentioning the book in a post, tweet, or blog article. If you write an article, we know of blogs that might like to publish it. Please drop us a note if we can help.</li>
-	<li>Consider <a title="Economic Direct Democracy at Amazon" href="http://www.amazon.com/Economic-Direct-Democracy-Framework-Well-Being-ebook/dp/B00KNOQ872" target="_blank">purchasing</a> a paperback or e-book version from Amazon or other booksellers.  Maybe send one to a friend or colleague.</li>
-	<li>Consider making a <a href="donation">donation</a> to the Principled Societies Project. Your support is very important.</li>
-	<li>Sign up for our low-volume newsletter (subscribe form on top of each page)</li>
-</ol>
-</p>
+{% block page_head %}
+  <style>
+    .p-sect ol, .p-sect li {
+      font-size: 14pt;
+      line-height: 1.7em;
+    }
+  </style>
+{% endblock %}
 
-<p><a href="/static/data/Economic_Direct_Democracy_Donation_Version_05-30-2014.pdf">download here</a> (right click to 'save link as')</p> 
+{% block body %}
 
-<p>The file is large (~4 MB) and might take a few moments to download. If you have any problem, please <a title="Contact the Principled Societies Project" href="contact">tell us</a> so that we can fix it.</p>
+<div class="container-fluid">
 
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header blue-sect">
+        <h1>Download <i>Economic Direct Democracy</i></h1>
+      </div>
+    </div>
+
+    <div class="col col-lg-12 col-xl-12 p-sect">
+
+      <p><em>Economic Direct Democracy</em> can be ordered in paperback and e-book format at Amazon and other booksellers. In addition, a free PDF version is being made available here to spread the ideas in the book as widely as possible. We hope that the book contributes to an international dialogue about optimal social choice systems. The PDF version is free, but to help spread the ideas and support our efforts we ask four things:
+      </p>
+      <ol>
+          <li>Mention the book to others. Consider writing a review for Amazon.com, or mentioning the book in a post, tweet, or blog article. If you write an article, we know of blogs that might like to publish it. Please drop us a note if we can help.</li>
+          <li>Consider <a title="Economic Direct Democracy at Amazon" href="http://www.amazon.com/Economic-Direct-Democracy-Framework-Well-Being-ebook/dp/B00KNOQ872" target="_blank">purchasing</a> a paperback or e-book version from Amazon or other booksellers.  Maybe send one to a friend or colleague.</li>
+          <li>Consider making a <a href="donation">donation</a> to the Principled Societies Project. Your support is very important.</li>
+          <li>Sign up for our low-volume newsletter (subscribe form on top of each page)</li>
+      </ol>
+
+      <p><a href="/static/data/Economic_Direct_Democracy_Donation_Version_05-30-2014.pdf">download here</a> (right click to 'save link as')</p> 
+      <p>The file is large (~4 MB) and might take a few moments to download. If you have any problem, please <a title="Contact the Principled Societies Project" href="contact">tell us</a> so that we can fix it.</p>
+
+    </div>
+  </div>
+
+</div>
 
 {% endblock %}
 
