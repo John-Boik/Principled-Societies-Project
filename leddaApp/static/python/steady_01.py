@@ -122,6 +122,14 @@ document['submit'].bind('click', submit_model)
 
 # from successful fun, fit=60
 tmp = [
+  ['workforce_partition_SB', 33],
+  ['workforce_partition_NP', 34],
+  ['workforce_partition_PB', 33],
+  ['TSI', 35],
+  ['family_income_target_final', 110000],
+  ['family_income_target_final', 110000],
+  ['population', 10000],
+  
   ['earmark_NP_donation', 6.402547170210858],
   ['earmark_NP_donation_TS', 51.344221799135305],
   ['earmark_PB_subsidy', 5.825170718608573],
@@ -147,7 +155,7 @@ tmp = [
   ]
 
 for name, val in tmp:
-  document[name].value = "{:.6f}".format(val)
+  document[name].value = "{:.4f}".format(val)
 
 
 
