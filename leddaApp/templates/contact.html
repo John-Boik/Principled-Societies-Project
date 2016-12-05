@@ -9,6 +9,11 @@
 
 {% block body %}
 
+<script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
+<script type="text/python"
+src="{{ url_for('static', filename='python/contact.py') }}"></script>
+
+
 
 <div class="container-fluid">
   <div class="row">
@@ -42,6 +47,14 @@
   </div>
 
 </div>
+
+
+<script>
+  $(document).ready(function() {
+    brython(1);
+  });
+</script>
+
 
 {% endblock %}
 
