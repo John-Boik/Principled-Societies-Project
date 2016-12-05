@@ -8,8 +8,10 @@ from flask import render_template, request, jsonify, send_from_directory
 from flask import flash, redirect, url_for
 from flask_mail import Message
 
-
 from leddaApp import app
+
+from flask_mail import Mail
+
 
 from leddaApp import setup_model
 from leddaApp import fitness
@@ -25,15 +27,15 @@ app.config.update(dict(
 
   PROJECT_FOLDER = os.path.join(os.path.dirname(app.root_path), 'Projects'),
   DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'data'),
-  MAIL_SERVER = 'smtp.gmail.com',
+  MAIL_SERVER = 'box1027.bluehost.com',
   MAIL_PORT = 465,
   MAIL_USE_SSL = True,
   MAIL_USERNAME = 'info@PrincipledSocietiesProject.org',
-  MAIL_PASSWORD = 'yourMailPassword'
+  MAIL_PASSWORD = 'Q.j42tGgL3'
 
   ))
 
-
+mail = Mail(app)
 
 #######################################################################################
 #               Serve basic pages
@@ -188,7 +190,7 @@ def contact_form():
     "facebook|twitter|instagram|youtube|you tube|design|website|follower|fan|visitor|roi",
     form['message'][0].lower())
 
-  print("message: ", match)
+  print("match: ", match)
   if match:
     return jsonify(msg="Message validation fails")
         
@@ -199,11 +201,16 @@ def contact_form():
     {:}
     """).format(form['name'][0], form['email'][0], form['message'][0])
 
-  if (form['magic'][0] in ['4', 'four']) and (not match) and (form['other']==""):  
-    #mail.send(msg)
-    pass
+  print("test: ", (form['magic'][0] in ['4', 'four']))
+  print((not match))
+  print((form['other']==""))
+  print(form['other'][0], form['other'] is None)
+  if (form['magic'][0] in ['4', 'four']) and (not match) and (form['other'][0]==""):  
+    mail.send(msg)
+    #pass
+    print("sent")
     
-  print(str(msg))
+  print("msg= ", str(msg))
   
   return jsonify(msg="OK")
 
