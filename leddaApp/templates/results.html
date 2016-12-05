@@ -6,6 +6,8 @@
 <script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>
 <script src="{{ url_for('static', filename='javascript/jquery.knob.min.js') }}"></script>
 
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/ledda_results.css') }}" >
+
 {% endblock %}
 
 
@@ -68,9 +70,11 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
 
 
       <p>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</p>
+        
+        
         <div id='summary_graph_container'></div>
-
-
+      
+      
       <!-- ========================== Group 1 ============================================== -->
         <input type="button" id="more_1" value="More Fitness Overview (Group 1)">
 

@@ -964,7 +964,8 @@ def pan_zoom(evt):
     pan_detailed.disablePan()
 
   elif evt.currentTarget.id == "reset":
-    pan_detailed.reset()  
+    pan_detailed.reset() 
+    elt.style.cursor = "default"  
   
   
 # ===========================================================
