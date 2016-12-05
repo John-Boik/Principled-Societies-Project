@@ -44,6 +44,11 @@ ul, li, ol {
 .center_2_3 p {
     text-align: center;
 }
+.full-width {
+    padding: 0px;
+    width: 100%;
+    min-width: 100%;
+}
 .full-width-img img {
     width: 100%;
     max-width: 600px;
@@ -394,8 +399,13 @@ ul, li, ol {
 .we-the-world {
     line-height: 1em;
 }
+/*results*/
+#summary_graph_container {
+    width: 100%;
+    min-width: 100%;
+}
 
-}@media screen and (max-width: 576px) {
+@media screen and (max-width: 576px) {
     #mailsubscribe {
         float: left;
     }

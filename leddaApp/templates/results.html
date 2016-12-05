@@ -111,38 +111,52 @@ src="{{ url_for('static', filename='javascript/exporting.js')  }}"></script>
       <h2 style="clear:both;">Results: Variables</h2>  
       <p>Given starting conditions and targets, the results in this section follow directly from the values chosen for variables.</p>
 
-        <input type="button" id="more_3" value="More Variables (Group 3)">
+        <input type="button" id="more_3" value="More Variables (Group 3)" onClick="$('#detailed_graph_container').show();">
 
         <h3 style="clear:both;">Summary tables</h3> 
         
         <div id="group_3b_node_table" ></div>
 
-
-
-      <h2 style="clear:both;">Results: Detailed Tables</h2>
-
         <h3 style="clear:both;">Detailed graph</h3>
+    </div>
+  </div>
+</div>
 
-        <div id="detailed_graph_container" >
-          <div id="graph_left"></div>
-          <div id="graph_right"></div>  
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
+
+        <div id="detailed_graph_container">
+          <div class="col col-xl-1 col-lg-1 col-med-2 col-sm-12" id="graph_left"></div>
+          <div class="col col-xl-11 col-lg-11 col-med-11 col-xs-12" id="graph_right"></div>  
         </div>
 
-
+        <br clear="all">
       <!-- ========================== Group 4 ============================================== -->
 
+    </div>
+  </div>
+</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
 
-        <h3 style="clear:both;">Detailed node tables</h3>
+       <h3 style="clear:both;">Detailed node tables</h3>
        <input type="button" id="more_4" value="More Detailed (Group 4)"> 
         
         
         <div id="all_tables" style="clear:both;"></div>
 
-  <!--end column-->
     </div>
   </div>
 </div>
+
+<br>
+<br>
+<br>
+
+
 <script>
   $(document).ready(function() {
     brython(1);
