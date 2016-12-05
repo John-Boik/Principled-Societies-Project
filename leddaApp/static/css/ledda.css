@@ -151,7 +151,10 @@ ul, li, ol {
 #mailsubscribe {
     border-radius: 3px;
     background-color: #0f1672;
-    padding: 2px 5px 2px 5px;
+    /*padding: 2px 5px 2px 5px;*/
+}
+#mailsubscribe input {
+    background-color: #0f1672;
 }
 /*end nav*/
 
@@ -172,6 +175,9 @@ ul, li, ol {
     min-width: 100%;
     text-align: right;
     margin-left: -10px;
+}
+#header-img:hover {
+    cursor: pointer;
 }
 #header-img img {
     width: 100%;
