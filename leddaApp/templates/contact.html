@@ -1,25 +1,47 @@
 
 {% extends "layout.html" %}
-{% block body2 %}
-
-<script type="text/python"
-  src="{{ url_for('static', filename='python/contact.py') }}">
-</script>
 
 
-<h1>Contact Principled Societies Project</h1>
-
-<p>If you have a question, comment, or suggestion, or want to reach us regarding funding ideas, please send a message. You can also send a message here to John Boik. We read all messages.</p>
-
-<p>Spam is annoying. Please, do not send solicitations. If your message body contains any version of the following words, it will be automatically rejected and unread: Facebook, Twitter, Instagram, Youtube, design, website, follower, fan, visitor, ROI.</p>
+{% block title %}
+<title>Contact</title>
+{% endblock %}
 
 
-<button type="button" id="show_contact">Click to Show Contact Form</button>
+{% block body %}
 
-<div id="contact_container"></div>
-<br>
-<div id="msg_container"></div>
-<br>
-<br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect about-sect">
+
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header blue-sect">
+        <h1>Contact Principled Societies Project</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect about-sect">
+      <p>If you have a question, comment, or suggestion, or want to reach us regarding funding ideas, please send a message. You can also send a message here to John Boik. We read all messages.</p>
+
+      <p>Spam is annoying. Please, do not send solicitations. If your message body contains any version of the following words, it will be automatically rejected and unread: Facebook, Twitter, Instagram, Youtube, design, website, follower, fan, visitor, ROI.</p>
+
+
+      <button type="button" id="show_contact">Click to Show Contact Form</button>
+
+      <div id="contact_container"></div>
+      <br>
+      <div id="msg_container"></div>
+      <br>
+      <br>
+    </div>
+  </div>
+
+</div>
+
 {% endblock %}
 
