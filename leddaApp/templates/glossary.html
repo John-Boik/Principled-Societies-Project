@@ -1,116 +1,210 @@
 {% extends "layout.html" %}
-{% block body2 %}
 
 
-
-<h1>Glossary and Abbreviations</h1>
-
-For more information on terms, abbreviations, concepts, and vision, see [1,2,3]
-
-<dl>
-<dt>CBFS</dt>
-<dd>Crowd-Based Financial System. The CBFS provides several kinds of support to member persons and member organizations. The five arms are: SB subsidies, PB subsidies, NP donations, interest-free loans, and Nurture support (support for unemployed and NIWF members). The loan arm is not considered in the steady-state model because at steady-state, flows of loan disbursements equal flows of loan repayments. All member persons make contributions to the CBFS, in dollars and tokens, according to CBFS earmarks.</dd>
-
-<dt>Earmarks</dt>
-<dd>The percentages of gross income that member persons contribute to the CBFS. There is one earmark for each CBFS arm.</dd>
-
-<dt>Growth period</dt>
-<dd>The period of time, starting at inception of a LEDDA (Year 0), during which the target income is rising. Depending on conditions and choices, this might be about 10-20 years.</dd>  
-
-<dt>Income target</dt> 
-<dd>The pre-tax, post-CBFS (post-contribution) target income in T&D that a member can choose to accept. The income target is actually a series of annual non-decreasing income targets, starting near initial (Year 0) wage conditions. Thus, the wage option choice is an annual one. During the growth period of a LEDDA, the income target is rising. The income target referred to in the steady-state model is the last in this series.</dd>
-
-<dt>LEDDA</dt>
-<dd>Local Economic Direct Democracy Association. A system of economic democracy intended for local (e.g., community, city, or county) impementation. It functions as a local layer of organization on top of an existing national economic system.</dd>
-
-<dt>LEDDA components</dt>
-<dd>The eight components of the LEDDA framework are:
-  <ol>
-  <li>TMS. Token monetary system, by which a LEDDA creates and destroys tokens as required to regulate its volume and value.</li>
-  <li>CBFS. Crowd-Based Financial System.</li>
-  <li>A market system in which organizations (SB, PB, and NP) compete and cooperate to provide goods and services to consumers and clients. The integrated TMS, CBFS and market system is called the Token Exchange System (TES).</li>
-  <li>A property rights system that assigns ownership and use rights for physical, intellectual, and other types of
-property. Property rights follow national norms but differ in that: (a) Principled Businesses participate in an intellectual property (IP) pool, or commons; (b) restrictions apply on the sale of Principled Businesses and transfer of their assets, not unlike restrictions that apply to nonprofits; and (c) the LEDDA framework is highly transparent.</li>
-  <li>An incentive system that encourages cooperative or otherwise desirable behavior. It includes: (a) a reputation system that recognizes reputation as a form of social currency; (b) beneficial social norms; and (c) wellbeing indexes that measure the effectiveness of a LEDDA in improving social, physical, economic, and environmental wellbeing.</li>
-  <li>A governance system that regulates the preceding five components. The proposed system of governance, called the Collaborative Governance System (CGS), incorporates an online form of direct collaborative democracy.</li>
-  <li>Conceptual models. Computer simulations and other models help members assess conditions and make projections. Models can include currency, energy, resource, and waste flows; human capital and educational needs; and wellbeing. Models, along with advancements in science, social norms, education, and other factors, influence how members view and understand their LEDDA.</li>
-  <li>Purpose. The purpose of a LEDDA is to maximize collective wellbeing, broadly defined.</li>
-  </ol>
-  </dd>
+{% block title %}
+<title>Glossary</title>
+{% endblock %}
 
 
-<dt>NIWF</dt>
-<dd>Not in workforce. A person might be NIWF because he chooses to stay home to care for children or elderly parents, is elderly, is disabled, is a student, or is not in the workforce for some other reason. In the US and Europe, roughly 65% of the population is NIWF.</dd>
-
-<dt>NP</dt>
-<dd>Nonprofit organizations</dd>
-
-<dt>Optimality</dt>
-  <dd>As applied to social choice systems, the comparative functional capacity of a system to elevate collective wellbeing.</dd>   
-
-<dt>Organizations</dt>
-<dd>The three types of modeled organizations are standard businesses (SB), Principled Businesses (PB), and nonprofits (NP). A member organization can be any of the three. All member organizations pay wages partly in tokens. A nonmember organization cannot be a Principled Business and cannot accept tokens as revenue.</dd>
-
-<dt>Organization reveune partition</dt>
-<dd>The percentages of total revenue that organizations receive from different sources</dd>
-
-<dt>PB</dt>
-<dd>Principled Businesses. A Principled Business is a type of socially responsible business unique to the LEDDA framework. Among other behaviors, it is highly transparent and pays wages that are in keeping with income targets (not lower than the current-year target and not higher than the final target. Thus, one reason that members would want to support principled businesses is that by doing so they achieve the desired income targets and eventually, income equality.</dd>
-
-<dt>Post-growth period</dt>
-<dd>The period of time after the growth period when the target income is steady and the membership grows or shrinks based primarily on changes in the local population size. In an idealized TES, equilibrium (steady-state) conditions occur about 10-20 years into the post-growth period. In the first years of the post-growth period, the membership might still be expanding, even without population growth.</dd>
-
-<dt>SB</dt>
-<dd>Standard Businesses. A standard business is a for-profit organization that is not a Principled Business.</dd>
-
-<dt>Social choice system</dt>
-  <dd>A formal or semiformal system of rules, regulations, and conduct by which a society makes collective choices. Social choice systems include economic/financial, governance/political, and legal/justice systems. Also known as <i>decision-making systems</i>.</dd>
-
-<dt>T&D</dt> 
-<dd>Tokens and dollars. The sum of tokens plus dollars, where either or both can be zero. Thus, it also means tokens and/or dollars.</dd>
-
-<dt>TES</dt>
-<dd>Token Exchange System. The bi-currency circulation system that is a component of LEDDA economic democracy. In the idealized models considered so far, the currencies are the token and national currency (e.g., the dollar). In actuallity, a local area might have additional currencies in circulation, that might or might not be incorporated into a TES.</dd>
-
-<dt>Token</dt>
-<dd>The local, transparent, electronic currency unique to a LEDDA. It circulates along side the national currency.</dd>
-
-<dt>TSI</dt> 
-<dd>Token share of income. This is the percent of wages that member employers pay member employees in tokens.  The remainder is paid in dollars.</dd>
-
-<dt>Wage option choice</dt>
-<dd>In any given year, a member that is employed by a member organization can choose to accept a wage at the income target (option 1) or at a higher wage, if a higher wage is offered (option 2). If the higer wage is accepted, the member receives a modest incentive bonus paid in tokens (for example, 3,000 tokens annually). The bonus plays a role in the agent-based model [2], which illustrates the growth trajectory of an idealized TES, but not in the steady-state model, which illustrates equlibrium conditions. The purpose of the bonus is to ensure that every member family, no matter what their income, obtains an income gain over starting conditions by joining a LEDDA. Certain restrictions apply to the wage option choice.</dd>
-
-<dt>Wellbeing, or Collective wellbeing</dt>
-  <dd>The current and anticipated degree to which individuals, natural environments, and ecosystems collectively flourish. A high degree of wellbeing implies vibrancy, resilience, sustainability, diversity, creativity, and health. Wellbeing levels can be monitored, indexed, and modeled.</dd> 
-
-<dt>Wellbeing centrality</dt>
-<dd>An umbrella term proposed as a keyword for indexing diverse scientific, civil society, political, 
-business, and artistic efforts related to social choice system optimality. In network science, centrality indexes the 
-importance or influence of a node within a graph. The term wellbeing centrality alludes to the focal role that wellbeing 
-would play in optimal systems. Such systems would place wellbeing measurement, evaluation, forecasting, and deliberation at the 
-center of societal decision-making activities.</dd>
+{% block body %}
+<br>
+<br>
 
 
-<dt>Wellbeing Systems Science and Engineering (WSSE)</dt>
-  <dd>The nascent multidisciplinary field of academic study that focuses on the design, development, testing, implementation, management, monitoring, and assessment of ever more optimal social choice systems. The theme is <i>wellbeing centrality</i>, reflecting the central attention that wellbeing receives in optimal social choice systems.</dd>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 center">
+      <h1 class="blue-sect">Glossary and Abbreviations</h1>
+    </div>
+  </div>
 
-<dt>Workforce partition</dt> 
-<dd>The percentages of the workforce that are employed by SB, PB, and NP organizations.</dd>
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>For more information on terms, abbreviations, concepts, and vision, see
+        [<a href="#r1">1</a>,<a href="#r2">2</a>,<a href="#r3">3</a>]
+      </p>
+    </div>
+  </div>
 
-</dl>
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect-narrow">
 
+      <h5 class="blue-sect bld">Contributions</h5>
+      <p>The total amount, in dollars and tokens, that member persons annually transfer to the CBFS. All member persons make contributions to the CBFS according to CBFS earmarks.</p>
 
-<h2>References</h2>
+      <h5 class="blue-sect bld">Crowd-Based Financial System</h5>
+      <p>The Crowd-Based Financial System (CBFS) provides support to member persons and member organizations. Its five arms are: standard business subsidies, Principled Business subsidies, nonprofit donations, interest-free loans, and nurture support (support for unemployed and NIWF members). The loan arm is not considered in the steady-state model. </p>
 
-<p id="r1">1. Boik JC. <i>Economic Direct Democracy: A Framework to End Poverty and Maximize Well-Being</i>. Site for Change; 2014.
-<a href="/book">link</a> </p>
+      <h5 class="blue-sect bld">Earmarks</h5>
+      <p>The percentages of gross income that member persons contribute to the CBFS. There is one earmark for each CBFS arm.</p>
 
-<p id="r2">2. Boik JC. First Micro-Simulation Model of a LEDDA Community Currency-Dollar Economy. <i>International Journal of Community Currency Research</i>;  2015.
-<a href="http://ijccr.net/2014/10/14/first-micro-simulation-model-of-a-ledda-community-currency-dollar-economy/">link</a> </p>
+      <h5 class="blue-sect bld">Growth period</h5>
+      <p>The period of time, starting at inception of a LEDDA (Year 0), during which the target income is rising. Depending on conditions and choices, this might be about 10-20 years.</p>  
 
-<p id="r3">3. Boik JC. Optimality of Social Choice Systems: Implications for Governance, Economics, and Public Health <i>preprint server</i>;  2015.
-<a href="">link</a> </p>
+      <h5 class="blue-sect bld">Income target</h5> 
+      <p>The pre-tax, post-CBFS (post-contribution) target income in T&D that a member can choose to accept. The income target is a series of annual non-decreasing family income values, starting near initial (Year 0) wage conditions. During the growth period the income target is rising. The income target referred to in the steady-state model is the last in this series.</p>
+
+      <h5 class="blue-sect bld">LEDDA</h5>
+      <p>Local Economic Direct Democracy Association. A system of economic democracy intended for local (e.g., community, city, or county) implementation. It functions as a local layer of organization on top of an existing national economic system.</p>
+
+      <h5 class="blue-sect bld">LEDDA components</h5>
+      <p>The eight components of the LEDDA framework are:
+      <div class="container-fluid left-pad-2">
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9312</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>Token monetary system (TMS), by which a LEDDA creates and destroys tokens as required to regulate token volume and value.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9313</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>Crowd-Based Financial System (CBFS), by which a LEDDA funds local organizations.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9314</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>A local market system in which organizations compete and cooperate to provide goods and services to consumers and clients. The market system includes the Principled Business (PB) model. The integrated TMS, CBFS and market system is called the Token Exchange System (TES).</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9315</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>A property rights system that assigns ownership and use rights for physical, intellectual, and other types of
+            property. Property rights follow national norms but differ in that: (a) Principled Businesses participate in an intellectual property (IP) pool, or commons; (b) restrictions apply on the sale of Principled Businesses and transfer of their assets, not unlike restrictions that apply to nonprofits; and (c) the LEDDA framework is highly transparent.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9316</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>An incentive system that encourages cooperative or otherwise desirable behavior. It includes: (a) a reputation system that recognizes reputation as a form of social currency; (b) beneficial social norms; and (c) wellbeing indexes that measure the effectiveness of a LEDDA in improving collective wellbeing.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9317</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>A governance system that regulates the preceding five components. The proposed system of governance, called the Collaborative Governance System (CGS), incorporates an online form of direct collaborative democracy.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9318</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>Conceptual models. Computer simulations and other models help members assess and anticipate conditions and decision outcomes. Currency, energy, resource, and waste flows can be modeled, as well as wellbeing and human capital and educational needs.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
+            <span class="number-lg blue-sect">&#9319</span>
+          </div>
+          <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
+            <p>Purpose. The purpose of a LEDDA is to help a community solve problems and organize activities such that collective wellbeing is elevated.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h5 class="blue-sect bld">Not in workforce</h5>
+      <p>An adult is Not in workforce (NIWF) if he or she is not employed and not looking for work. NIWF persons can include students and those who choose to stay home to care for children or elderly parents, or are themselves elderly or disabled. In the US and Europe, roughly 35% of the population is NIWF.</p>
+
+      <h5 class="blue-sect bld">Nonprofit organization</h5>
+      <p>Nonprofit organizations (NP) can include schools, government agencies, charities, civil society groups, hospitals, research organizations and other types of not-for-profit organizations. In the United States, these are tax-exempt organizations.</p>
+
+      <h5 class="blue-sect bld">Optimality</h5>
+      <p>As applied to social choice systems, a measure of relative capacity to help groups solve problems and organize activities such that collective wellbeing is elevated.
+      </p>   
+
+      <h5 class="blue-sect bld">Organizations</h5>
+      <p>The three primary types of member and nonmember organizations are standard businesses (SB), Principled Businesses (PB), and nonprofits (NP). All member organizations pay wages partly in tokens. A nonmember organization cannot be a Principled Business and cannot accept tokens as revenue.</p>
+
+      <h5 class="blue-sect bld">Organization revenue partition</h5>
+      <p>The percentages of total revenue that organizations receive from different sources</p>
+
+      <h5 class="blue-sect bld">Principled Business</h5>
+      <p>A Principled Business (PB) is a type of socially responsible business unique to the LEDDA framework. Among other behaviors, it is highly transparent and pays wages that are in keeping with income targets (not lower than the current-year target and not higher than the final target. Thus, one reason that members would want to support principled businesses is that by doing so they achieve the desired income targets and eventually, income equality.</p>
+
+      <h5 class="blue-sect bld">Post-growth period</h5>
+      <p>The period of time after the growth period when the target income is steady and the membership grows or shrinks based primarily on changes in the local population size. In an idealized TES, equilibrium (steady-state) conditions occur about 10-20 years into the post-growth period. In the first years of the post-growth period, the membership might still be expanding, even without population growth.</p>
+
+      <h5 class="blue-sect bld">Standard Business</h5>
+      <p>A standard business (SB) is a for-profit organization that is not a Principled Business.</p>
+
+      <h5 class="blue-sect bld">Social choice system</h5>
+        <p>A formal or semiformal system of rules, regulations, and conduct by which a society makes collective choices. Social choice systems include economic/financial, governance/political, and legal/justice systems. Also known as <i>decision-making systems</i>.</p>
+
+      <h5 class="blue-sect bld">T&D</h5> 
+      <p>Tokens and dollars. The sum of tokens plus dollars, where either or both can be zero. Thus, it also means tokens and/or dollars.</p>
+
+      <h5 class="blue-sect bld">TES</h5>
+      <p>Token Exchange System. The bi-currency circulation system that is a component of LEDDA economic democracy. It consists of the integrated TMS, CBFS and market system (see LEDDA components).</p>
+
+      <h5 class="blue-sect bld">Token</h5>
+      <p>The local, transparent, electronic currency unique to a LEDDA. It circulates along side the national currency.</p>
+
+      <h5 class="blue-sect bld">TSI</h5> 
+      <p>Token share of income. This is the percent of wages that member employers pay member employees in tokens.  The remainder is paid in dollars.</p>
+
+      <h5 class="blue-sect bld">Wage option choice</h5>
+      <p>In any given year, a member that is employed by a member organization can choose to accept a wage at the income target (option 1) or at a higher wage, if a higher wage is offered (option 2). If the higher wage is accepted, the member receives a modest incentive bonus paid in tokens (for example, 3,000 tokens annually). The bonus plays a role in the agent-based model [2], which illustrates the growth trajectory of an idealized TES, but not in the steady-state model, which illustrates equilibrium conditions. The purpose of the bonus is to ensure that every member family, no matter what their income, obtains an income gain over starting conditions by joining a LEDDA. Certain restrictions apply to the wage option choice.</p>
+
+      <h5 class="blue-sect bld">Wellbeing, or Collective wellbeing</h5>
+      <p>The current and anticipated degree to which individuals, natural environments, and ecosystems collectively flourish. A high degree of wellbeing implies vibrancy, resilience, sustainability, diversity, creativity, and health. Wellbeing levels can be monitored, indexed, and modeled.</p> 
+
+      <h5 class="blue-sect bld">Wellbeing centrality</h5>
+      <p>A nascent multidisciplinary program that spans the design, testing, promotion, and operation of social choice systems that place wellbeing measurement, evaluation, forecasting, and deliberation at the center of decision-making activities. The term is also intended to serve as a keyword for indexing diverse scientific, civil society, political, business, and artistic efforts related to social choice system optimality. In network science, <i>centrality</i> metrics identify the most important nodes within a graph. The term <i>wellbeing centrality</i> alludes to the focal role that wellbeing would play in more optimal social choice systems.</p>
+
+      <h5 class="blue-sect bld">Workforce partition</h5> 
+      <p>The percentages of the workforce that are employed by SB, PB, and NP organizations.</p>
+
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <h5 class="blue-sect bld">References</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect-narrow">
+
+      <p id="r1">1. Boik JC. <i>Economic Direct Democracy: A Framework to End Poverty and Maximize Well-Being</i>. SiteForChange.com; 2014.
+      <a href="/book_edd_about">link</a> </p>
+
+      <p id="r2">2. Boik JC. First Micro-Simulation Model of a LEDDA Community Currency-Dollar Economy. <i>International Journal of Community Currency Research</i>;  2014.
+      <a href="http://ijccr.net/2014/10/14/first-micro-simulation-model-of-a-ledda-community-currency-dollar-economy/" target="blank">link</a> </p>
+
+      <p id="r3">3. Boik JC. Optimality of Social Choice Systems: Complexity, Wisdom, and Wellbeing Centrality <i>RePEc Working Paper</i>;  2016.
+      <a href="https://ideas.repec.org/p/psp/wpaper/0003.html" target="blank">link</a> </p>
+
+    </div>
+  </div>
+
+<script type="text/python" src="{{ url_for('static', filename='python/steady_01.py') }}"></script>
 
 {% endblock %}
 

@@ -1,0 +1,172 @@
+
+
+.flash {
+  background: #dd7878;
+  padding: 10px;
+  width: 400px;
+  margin-left: 30px;
+  }
+
+
+
+.pan_button{
+  fill:  #B0E0E6;
+  stroke:  #0C2C84;
+  stroke-miterlimit:	6;
+  stroke-linecap:  round;
+}
+.pan_button:hover{
+  stroke-width:  2;
+}
+
+
+#summary_graph_container {
+  width: 100%; 
+  height: auto;  
+  }
+
+#detailed_graph_container {
+  width: 100%; 
+  /*height: auto;*/
+  position: relative;
+  height: 1000px;
+  display: none;
+  /*min-height: 1000px;*/
+  }
+
+#graph_left {
+  /*display: inline-block;*/
+  width: 105px;
+  position: absolute;
+  /*top: 130px;*/
+  left: 0;
+  z-index: 100;
+  /*float: left;  */
+  }
+
+#svg_pan_buttons {
+  width: 100%;
+  /*width:75px;*/
+  /*margin-top:200px;*/
+  }
+
+#pan_outer_box{
+  fill:  #DCDCDC;
+  stroke:  #000;
+  stroke-width:  1.5;
+  opacity: 0.3;
+  }
+
+#graph_right {
+  position: absolute;
+  /*top: 130px;*/
+  left: 0;
+  z-index: 80;
+  /*display: inline-block;*/
+  /*float: right;*/
+  }
+
+#graph_right svg {
+  width: 100%;
+}
+
+#svg_detailed_graph {
+  /*overflow:hidden;  */
+  height: 1000px;
+  /*width: 80%;*/
+  width: 100%;
+  /*border: 1px solid gray;*/
+  /*float: left;*/
+  }
+
+#svg_summary_graph {
+  overflow:hidden;  
+  height: 800px; 
+  /*width:60%;*/
+  /*border: 1px solid gray;*/
+  }
+
+
+.node {
+  stroke-width: 6px;
+  }
+
+.node:hover {
+  stroke-width: 8px;
+  }
+
+
+.edge {
+  stroke-width: 1px;
+  }
+
+.edge:hover {
+  stroke-width: 2px;
+  
+  }
+
+
+.cluster {
+  stroke-width: 6px;
+  }
+
+.cluster:hover {
+  stroke-width: 8px;
+  }
+
+
+#modal_container td, #modal_container th {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+.modal-backdrop {
+    background-color: rgba(41, 85, 135, .3);
+}
+.modal-dialog {
+    overflow-y: initial !important;
+}
+#modalContentContainer {
+    height: 90%;
+    overflow-y: scroll;
+}
+.modal {
+    background-color: rgba(41, 85, 135, .3) !important;
+}
+
+
+/* Modal Content/Box */
+#modalContentContainer {
+  background-color: #fefefe;
+  margin-left: 100px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #888;
+  }
+
+/* The Close Button */
+#closeModal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  }
+
+#closeModal:hover,
+#closeModal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  }
+
+
+.infoTable {
+  font-size: small;
+  }
+
+.tableValue {
+  text-align: right;
+  }
+
+
+  
+

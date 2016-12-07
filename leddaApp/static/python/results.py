@@ -964,7 +964,8 @@ def pan_zoom(evt):
     pan_detailed.disablePan()
 
   elif evt.currentTarget.id == "reset":
-    pan_detailed.reset()  
+    pan_detailed.reset() 
+    elt.style.cursor = "default"  
   
   
 # ===========================================================
@@ -1441,6 +1442,15 @@ countsDic = results['countsDic']
 histoDic = results['histoDic']
 summaryGraphDic = results['summaryGraphDic']
 
+
+keys = list(paramsDic.keys())
+keys.sort()
+print("\nparamsDic:")
+for k in keys:
+  print(k, paramsDic[k])
+print("\n")
+
+
 # maxFitness used in color-coding table cells and nodes
 nodes = fitnessDic['nodes']
 keys = [int(k) for k in nodes.keys()]
@@ -1455,8 +1465,9 @@ for i in keys:
 # call Group 0 summary info ------------------------------------------------
 document['output_grand_fitness'].text ='...wait...'
 document['output_grand_fitness'].text = "{:,}".format(fitnessDic['fitness']['total'])
-population = int(paramsDic['population'][0])
-document['threshold'].text = "{:,}".format(500*population)
+population = float(paramsDic['population'][0])
+document['threshold_lo'].text = "{:,}".format(int(round(10*population)))
+document['threshold_hi'].text = "{:,}".format(int(round(100*population)))
 
 fitness_overview_tables()
 
