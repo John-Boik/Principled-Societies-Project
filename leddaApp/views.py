@@ -47,7 +47,7 @@ def index():
   """
   This is the home page, where visitor lands first. 
   """
-  return render_template('index.html')  
+  return render_template('index.html')
 
 # -------------------------------------------------------------------------------------
 @app.route('/survey')
@@ -56,6 +56,14 @@ def survey():
   This is survey page 
   """
   return render_template('survey.html')  
+
+# -------------------------------------------------------------------------------------
+@app.route('/collaborate_assist')
+def collaborate_assist():
+  """
+  This is collaborate_assist page 
+  """
+  return render_template('collaborate_assist.html')  
 
 # -------------------------------------------------------------------------------------
 @app.route('/who_should_be_interested')

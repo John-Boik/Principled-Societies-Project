@@ -21,6 +21,8 @@
   <!--<script type="text/python"-->
   <!--src="{{ url_for('static', filename='python/layout.py') }}"></script>-->
 
+  <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+
   {% block page_head %}
   {% endblock %}
 
@@ -31,10 +33,19 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <div class="container-fluid navbar-brand" id="maillist">
-          <span>Subscribe to our mailing list</span>
-          <input id="mailaddress">
-          <span id="mailsubscribe">Subscribe</span>
+
+          <form action="//PrincipledSocietiesProject.us14.list-manage.com/subscribe/post?u=02038e5ba45444814eda4b58b&amp;id=5309666b36" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll">
+              <span>Subscribe to our mailing list</span>
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+              <!--[> real people should not fill this in and expect good things - do not remove this or risk form bot signups<]-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_02038e5ba45444814eda4b58b_5309666b36" tabindex="-1" value=""></div>
+              <span id="mailsubscribe"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"></span>
+              </div>
+          </form>
+
         </div>
+
         <button class="navbar-toggle collapsed" aria-expand="false" data-toggle="collapse" data-target="#navbar" type="button">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -50,7 +61,7 @@
           Home
           <span class="caret"></span>
           <ul class="dropdown-menu">
-            <li><a id="menu_home" href="/">Intro</a></li>
+            <li><a id="menu_home" href="/">Home</a></li>
             <li><a id="menu_about" href="/about_psp">About PSP</a></li>
             <li><a id="menu_contact" href="/contact">Contact</a></li>
           </ul>
@@ -94,7 +105,7 @@
     <div class="row">
 
       <div class="col-xl-1 col-lg-2 col-med-3 col-sm-3 cols-xs-4 globe-col">
-       <div id="header-img">
+       <div id="header-img" onClick="window.location.href='/'">
         <img src={{ url_for('static', filename="images/globe.png") }}></img> 
        </div>
       </div>

@@ -115,29 +115,19 @@
   }
 
 
-/*#modal_container {*/
-  /*display: none; [> Hidden by default <]*/
-  /*[>position: fixed; [> Stay in place <]<]*/
-  /*position: absolute; [> Stay in place <]*/
-  
-  /*z-index: 120; [> Sit on top <]*/
-  /*width: 100%; [> Full width <]*/
-  /*height: 100%; [> Full height <]*/
-  /*overflow: auto; [> Enable scroll if needed <]*/
-  /*background-color: rgb(0,0,0); [> Fallback color <]*/
-  /*background-color: rgba(0,0,0,0.4); [> Black w/ opacity <]*/
-  /*[>top:0;<]*/
-  /*[>100px is widest navebar<]*/
-  /*top:110px;*/
-  /*left:0;*/
-  /*}*/
-
 #modal_container td, #modal_container th {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
 .modal-backdrop {
     background-color: rgba(41, 85, 135, .3);
+}
+.modal-dialog {
+    overflow-y: initial !important;
+}
+#modalContentContainer {
+    height: 90%;
+    overflow-y: scroll;
 }
 .modal {
     background-color: rgba(41, 85, 135, .3) !important;
