@@ -17,6 +17,8 @@ from leddaApp import setup_model
 from leddaApp import fitness
 from leddaApp import optimizer
 
+from leddaApp.secrets import MAIL_SERVER, MAIL_PASSWORD, MAIL_USERNAME, MAIL_PORT, MAIL_USE_SSL
+
 app.config.from_envvar('leddaApp_SETTINGS', silent=True)
 
 
@@ -27,11 +29,11 @@ app.config.update(dict(
 
   PROJECT_FOLDER = os.path.join(os.path.dirname(app.root_path), 'Projects'),
   DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'data'),
-  MAIL_SERVER = 'box1027.bluehost.com',
-  MAIL_PORT = 465,
-  MAIL_USE_SSL = True,
-  MAIL_USERNAME = 'info@PrincipledSocietiesProject.org',
-  MAIL_PASSWORD = 'Q.j42tGgL3'
+  MAIL_SERVER = MAIL_SERVER,
+  MAIL_PORT = MAIL_PORT, 
+  MAIL_USE_SSL = MAIL_USE_SSL, 
+  MAIL_USERNAME = MAIL_USERNAME, 
+  MAIL_PASSWORD = MAIL_PASSWORD 
 
   ))
 
