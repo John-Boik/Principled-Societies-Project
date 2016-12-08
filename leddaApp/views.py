@@ -8,12 +8,16 @@ from flask import render_template, request, jsonify, send_from_directory
 from flask import flash, redirect, url_for
 from flask_mail import Message
 
-
 from leddaApp import app
+
+from flask_mail import Mail
+
 
 from leddaApp import setup_model
 from leddaApp import fitness
 from leddaApp import optimizer
+
+from leddaApp.secrets import MAIL_SERVER, MAIL_PASSWORD, MAIL_USERNAME, MAIL_PORT, MAIL_USE_SSL
 
 app.config.from_envvar('leddaApp_SETTINGS', silent=True)
 
@@ -25,15 +29,15 @@ app.config.update(dict(
 
   PROJECT_FOLDER = os.path.join(os.path.dirname(app.root_path), 'Projects'),
   DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'data'),
-  MAIL_SERVER = 'smtp.gmail.com',
-  MAIL_PORT = 465,
-  MAIL_USE_SSL = True,
-  MAIL_USERNAME = 'info@PrincipledSocietiesProject.org',
-  MAIL_PASSWORD = 'yourMailPassword'
+  MAIL_SERVER = MAIL_SERVER,
+  MAIL_PORT = MAIL_PORT, 
+  MAIL_USE_SSL = MAIL_USE_SSL, 
+  MAIL_USERNAME = MAIL_USERNAME, 
+  MAIL_PASSWORD = MAIL_PASSWORD 
 
   ))
 
-
+mail = Mail(app)
 
 #######################################################################################
 #               Serve basic pages
@@ -45,7 +49,31 @@ def index():
   """
   This is the home page, where visitor lands first. 
   """
-  return render_template('index.html')  
+  return render_template('index.html')
+
+# -------------------------------------------------------------------------------------
+@app.route('/survey')
+def survey():
+  """
+  This is survey page 
+  """
+  return render_template('survey.html')  
+
+# -------------------------------------------------------------------------------------
+@app.route('/collaborate_assist')
+def collaborate_assist():
+  """
+  This is collaborate_assist page 
+  """
+  return render_template('collaborate_assist.html')  
+
+# -------------------------------------------------------------------------------------
+@app.route('/who_should_be_interested')
+def who_should_be_interested():
+  """
+  This is who should be interested page
+  """
+  return render_template('who_should_be_interested.html')  
 
 
 # -------------------------------------------------------------------------------------
@@ -172,7 +200,7 @@ def contact_form():
     "facebook|twitter|instagram|youtube|you tube|design|website|follower|fan|visitor|roi",
     form['message'][0].lower())
 
-  print("message: ", match)
+  print("match: ", match)
   if match:
     return jsonify(msg="Message validation fails")
         
@@ -183,11 +211,16 @@ def contact_form():
     {:}
     """).format(form['name'][0], form['email'][0], form['message'][0])
 
-  if (form['magic'][0] in ['4', 'four']) and (not match) and (form['other']==""):  
-    #mail.send(msg)
-    pass
+  print("test: ", (form['magic'][0] in ['4', 'four']))
+  print((not match))
+  print((form['other']==""))
+  print(form['other'][0], form['other'] is None)
+  if (form['magic'][0] in ['4', 'four']) and (not match) and (form['other'][0]==""):  
+    mail.send(msg)
+    #pass
+    print("sent")
     
-  print(str(msg))
+  print("msg= ", str(msg))
   
   return jsonify(msg="OK")
 
