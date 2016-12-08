@@ -10,63 +10,68 @@ def show_contact(evt):
   """
   Show the contact form
   """
+  if len(document['contact_container'].text) > 0:
+    document['contact_container'].html = ""
+    return 
   
   form = html.FORM(id="contact_form", method='post', action='/contact_form')
   
   div = html.DIV()
+  div <= html.BR() + html.BR()
+  
   label = html.LABEL()
   span = html.SPAN()
-  span.text = "Name: (required)"
+  span.text = "Name (required): "
   widget = html.INPUT(id="name",
-    placeholder="Please enter your name", type="text", tabindex="1", required=True, autofocus=True)
-  label <= span + widget
+    placeholder="Name", type="text", tabindex="1", required=True, autofocus=True)
+  label <= span + html.BR() + widget
   div <= label
   form <= div
 
   div = html.DIV()
   label = html.LABEL()
   span = html.SPAN()
-  span.text = "Email: (required)"
+  span.text = "Email (required): "
   widget = html.INPUT(id="email",
-    placeholder="Please enter your email address", type="email", tabindex="2", required=True)
-  label <= span + widget
+    placeholder="Email address", type="email", tabindex="2", size="30", required=True)
+  label <= span + html.BR() + widget
   div <= label
   form <= div
 
   div = html.DIV()
   label = html.LABEL()
   span = html.SPAN()
-  span.text = "Other: (if you type anything in this box your message will be trashed)"
+  span.text = "Other (if you type anything in this box your message will be trashed): "
   widget = html.INPUT(id="other",
     placeholder="Don't do it.", type="text", tabindex="3", required=True)
-  label <= span + widget
+  label <= span + html.BR() + widget
   div <= label
   form <= div
 
   div = html.DIV()
   label = html.LABEL()
   span = html.SPAN()
-  span.text = "Are you a human? If so, how many legs does a dog have?"
+  span.text = "Are you a human? If so, how many legs does a dog have? "
   widget = html.INPUT(id="magic",
-    placeholder="How many?", type="text", tabindex="4", required=True)
-  label <= span + widget
+    placeholder="How many?", type="text", tabindex="4", size="9", required=True)
+  label <= span + html.BR() + widget
   div <= label
   form <= div
 
   div = html.DIV()
   label = html.LABEL()
   span = html.SPAN()
-  span.text = "Message"
+  span.text = "Message: "
   widget = html.TEXTAREA(id="message",
-    placeholder="Please type your message", tabindex="5", required=True)
-  label <= span + widget
+    placeholder="Type your message", tabindex="5", cols="60", required=True)
+  label <= span + html.BR() + widget
   div <= label
   form <= div
 
   div = html.DIV()
   button = html.BUTTON(type="button", id="contact_submit")
   button.text="Submit Message"
-  div <= button
+  div <= button 
   form <= div
   
   document['contact_container'] <= form

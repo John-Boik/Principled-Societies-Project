@@ -185,6 +185,15 @@ def book_edd_toc():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/donation_thanks')
+def donation_thanks():
+  """
+  This is the thanks for donation page. 
+  """
+  return render_template('donation_thanks.html') 
+  
+
+# -------------------------------------------------------------------------------------
 @app.route('/contact_form', methods=['POST'])
 def contact_form():
   """

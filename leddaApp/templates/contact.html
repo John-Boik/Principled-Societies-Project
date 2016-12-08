@@ -3,7 +3,20 @@
 
 
 {% block title %}
-<title>Contact PSP</title>
+  <title>Contact PSP</title>
+{% endblock %}
+
+
+{% block page_head %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35447340-1', 'auto');
+  ga('send', 'pageview');
+</script>
 {% endblock %}
 
 
@@ -23,7 +36,7 @@ src="{{ url_for('static', filename='python/contact.py') }}"></script>
   <div class="row">
     <div class="col col-lg-12 col-xl-12 sect-title">
       <div class="sect-header blue-sect">
-        <h1>Contact Principled Societies Project</h1>
+        <h1>Contact PSP</h1>
       </div>
     </div>
   </div>
@@ -31,7 +44,7 @@ src="{{ url_for('static', filename='python/contact.py') }}"></script>
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect about-sect">
-      <p>If you have a question, comment, or suggestion, or want to reach us regarding funding ideas, please send a message. You can also send a message here to John Boik. We read all messages.</p>
+      <p>If you have a question, comment, or suggestion, or want to reach us regarding collaboration or funding ideas, please send a message. You can also send a message to John Boik on this page. We read all messages.</p>
 
       <p>Spam is annoying. Please, do not send solicitations. If your message body contains any version of the following words, it will be automatically rejected and unread: Facebook, Twitter, Instagram, Youtube, design, website, follower, fan, visitor, ROI.</p>
 
