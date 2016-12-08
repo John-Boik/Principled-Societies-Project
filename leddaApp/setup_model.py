@@ -62,7 +62,10 @@ def setup(data):
   HDF5 file. It also sets up model parameters and calls a fitness function. It returns fitness data.
   """
   
-  print("\nin setup")
+  Print = False
+  
+  if Print:
+    print("\nin setup")
 
     
 
@@ -109,14 +112,17 @@ def setup(data):
   
   # add parameters in Config.py to object X.Config
   keys = dir(Config)
-  print("\nConfig:")  
+  
+  if Print:
+    print("\nConfig:")  
   for key in keys:
     if key[0] == "_":
       continue
     value = Config.__dict__[key]
     if ('_pct' in key) or ('_rate' in key):
       value = value/100.
-    print(key, "= ", value)
+    if Print:
+      print(key, "= ", value)
     X.Config.__setitem__(key, value)
   
   """
@@ -216,14 +222,14 @@ def setGovRates(X):
 
   """
   
-  
-  print("""
+  if Print:
+    print("""
 
-  # =====================================================================
-  # Initialize government spending amounts and tax rate
-  # ===================================================================== 
+    # =====================================================================
+    # Initialize government spending amounts and tax rate
+    # ===================================================================== 
 
-  """)
+    """)
   
   Gov = Object()
   
@@ -233,9 +239,10 @@ def setGovRates(X):
   fraction = P_grant_NP_dollars / X.TP.cols.R_wages_NP_dollars[:].sum()
   P_grant_NP_dollars = P_grant_NP_dollars * X.populationRatio
   
-  print("\nGov spending, NP grants, fraction NP wages = {0:,.4g}".format(fraction))
-  print("Gov spending, NP grants = ${0:,.9g}".format(
-    np.round(P_grant_NP_dollars, 0).item()))
+  if Print:
+    print("\nGov spending, NP grants, fraction NP wages = {0:,.4g}".format(fraction))
+    print("Gov spending, NP grants = ${0:,.9g}".format(
+      np.round(P_grant_NP_dollars, 0).item()))
   
   Gov.grant_NP_dollars_annual = P_grant_NP_dollars
 
@@ -246,9 +253,10 @@ def setGovRates(X):
   fraction = P_contract_NP_dollars / X.TP.cols.R_wages_NP_dollars[:].sum()
   P_contract_NP_dollars = P_contract_NP_dollars * X.populationRatio
   
-  print("\nGov spending, NP contracts, fraction NP wages = {0:,.4g}".format(fraction))
-  print("Gov spending, NP contracts = ${0:,.9g}".format(
-    np.round(P_contract_NP_dollars,0).item()))
+  if Print:
+    print("\nGov spending, NP contracts, fraction NP wages = {0:,.4g}".format(fraction))
+    print("Gov spending, NP contracts = ${0:,.9g}".format(
+      np.round(P_contract_NP_dollars,0).item()))
   
   Gov.contract_NP_dollars_annual = P_contract_NP_dollars
 
@@ -259,11 +267,12 @@ def setGovRates(X):
   fraction = P_contract_forprofit_dollars / X.TP.cols.R_wages_SB_dollars[:].sum()
   P_contract_forprofit_dollars = P_contract_forprofit_dollars * X.populationRatio
   
-  print(
-    "\nGov spending, forprofit contracts, fraction forprofit wages = {0:,.4g}".format(fraction))
-  print(
-    "Gov spending, forprofit contracts = ${0:,.9g}".format(
-      np.round(P_contract_forprofit_dollars,0).item()))
+  if Print:
+    print(
+      "\nGov spending, forprofit contracts, fraction forprofit wages = {0:,.4g}".format(fraction))
+    print(
+      "Gov spending, forprofit contracts = ${0:,.9g}".format(
+        np.round(P_contract_forprofit_dollars,0).item()))
   
   Gov.contract_forprofit_dollars_annual = P_contract_forprofit_dollars
 
@@ -274,10 +283,11 @@ def setGovRates(X):
   fraction = P_subsidy_forprofit_dollars / X.TP.cols.R_wages_SB_dollars[:].sum()
   P_subsidy_forprofit_dollars = P_subsidy_forprofit_dollars * X.populationRatio
   
-  print(
-    "\nGov spending, forprofit subsidy, fraction forprofit wages = {0:,.4g}".format(fraction))
-  print(
-    "Gov spending, forprofit subsidy = ${0:,.9g}".format(np.round(P_subsidy_forprofit_dollars,0).item()))
+  if Print:
+    print(
+      "\nGov spending, forprofit subsidy, fraction forprofit wages = {0:,.4g}".format(fraction))
+    print(
+      "Gov spending, forprofit subsidy = ${0:,.9g}".format(np.round(P_subsidy_forprofit_dollars,0).item()))
   
   Gov.subsidy_forprofit_dollars_annual = P_subsidy_forprofit_dollars   
     
@@ -287,10 +297,11 @@ def setGovRates(X):
   fraction = P_support_dollars / X.TP.cols.R_dollars[:].sum()
   P_support_dollars = P_support_dollars * X.populationRatio
   
-  print(
-    "\nGov spending, NIWF & unemployed support, fraction total income = {0:,.4g}".format(fraction))
-  print(
-    "Gov spending, NIWF & unemployed support = ${0:,.9g}".format(np.round(P_support_dollars,0).item()))
+  if Print:
+    print(
+      "\nGov spending, NIWF & unemployed support, fraction total income = {0:,.4g}".format(fraction))
+    print(
+      "Gov spending, NIWF & unemployed support = ${0:,.9g}".format(np.round(P_support_dollars,0).item()))
     
   # mean support for NIWF & unemployed
   Gov.support_dollars_mean = P_support_dollars / (float(W.size) * X.populationRatio) 
@@ -305,7 +316,8 @@ def setGovRates(X):
   
   Gov.tax_rate = spending_total / (AGI.sum() * X.populationRatio)
   
-  print("\nGovernment tax rate = {0:,.4g}\n".format(Gov.tax_rate))
+  if Print:
+    print("\nGovernment tax rate = {0:,.4g}\n".format(Gov.tax_rate))
 
   X.Gov = Gov
   
@@ -318,50 +330,55 @@ def countyInfo(X):
   Summaries of initial county income data.
   """
 
-  print("""
-  
-  # =====================================================================
-  # Initial County Data
-  # ===================================================================== 
-  
-  """)
+  if Print:
+    print("""
+    
+    # =====================================================================
+    # Initial County Data
+    # ===================================================================== 
+    
+    """)
   
   incomeP = X.TP.cols.R_wages_NP_dollars[:] + X.TP.cols.R_wages_SB_dollars[:] + \
     X.TP.cols.R_gov_support_dollars[:]
   
-  print("\nfamily income, median = ${0:,.9g}".format(
-    np.round(np.median(X.TF.cols.R_dollars[:]),0).item()))
+  if Print:
+    print("\nfamily income, median = ${0:,.9g}".format(
+      np.round(np.median(X.TF.cols.R_dollars[:]),0).item()))
   
-  print("family income, mean = ${0:,.9g}".format(
-    np.round(X.TF.cols.R_dollars[:].mean(),0).item()))
+    print("family income, mean = ${0:,.9g}".format(
+      np.round(X.TF.cols.R_dollars[:].mean(),0).item()))
   
   We1 = X.TP.get_where_list("(work_status >=4)")
   ave_working_income = incomeP[We1].mean()
   
-  print("\nmean working income = ${0:,.9g}".format(np.round(ave_working_income,0).item()))
+  if Print:
+    print("\nmean working income = ${0:,.9g}".format(np.round(ave_working_income,0).item()))
   
   ave_income = incomeP.mean()
   
-  print(("\nmean person income = ${0:,.9g}, percentile of person income at " + 
-    "mean = {1:,.9g}").format(
-    np.round(ave_income,0).item(), stats.percentileofscore(incomeP, ave_income)))
+  if Print:
+    print(("\nmean person income = ${0:,.9g}, percentile of person income at " + 
+      "mean = {1:,.9g}").format(
+      np.round(ave_income,0).item(), stats.percentileofscore(incomeP, ave_income)))
   
   W0 = np.where(incomeP < ave_income)[0]
   W1 = np.where(incomeP >= ave_income)[0]
   
-  print("total person income <  mean person income: ${0:,.9g}, size= {1:,d}".format(
-    np.round(incomeP[W0].sum() * X.populationRatio,0).item(),  int(W0.size * X.populationRatio)))
-  
-  print("total person income >= mean person income: ${0:,.9g}, size= {1:,d}".format(
-    np.round(incomeP[W1].sum() * X.populationRatio,0).item(), int(W1.size * X.populationRatio)))
-  
-  print("total county income = ${0:,.9g}\n".format(
-    np.round(incomeP.sum() * X.populationRatio,0).item()))
-  
-  for i in np.linspace(0,100,21):
-    print("  percentile = {0:>5.4g}, person income = ${1:>12,.9g}".format(
-      i, np.round(stats.scoreatpercentile(incomeP, i),0).item()))
-  print("\n")
+  if Print:
+    print("total person income <  mean person income: ${0:,.9g}, size= {1:,d}".format(
+      np.round(incomeP[W0].sum() * X.populationRatio,0).item(),  int(W0.size * X.populationRatio)))
+    
+    print("total person income >= mean person income: ${0:,.9g}, size= {1:,d}".format(
+      np.round(incomeP[W1].sum() * X.populationRatio,0).item(), int(W1.size * X.populationRatio)))
+    
+    print("total county income = ${0:,.9g}\n".format(
+      np.round(incomeP.sum() * X.populationRatio,0).item()))
+    
+    for i in np.linspace(0,100,21):
+      print("  percentile = {0:>5.4g}, person income = ${1:>12,.9g}".format(
+        i, np.round(stats.scoreatpercentile(incomeP, i),0).item()))
+    print("\n")
   
   famRecTot = X.TF.cols.R_dollars[:]
   totalNIWF = float(X.TP.get_where_list("((work_status==0) | (work_status==1))").size) 
@@ -400,36 +417,40 @@ def countyInfo(X):
   
   percentile_threshold_person = stats.percentileofscore(X.TP.cols.R_dollars[:], threshold_person)
   
-  print(("\nthreshold for membership, person = ${0:,.9g}, percentile of county "  + 
-    "person income = {1:,.4g}").format(
-    np.round(threshold_person, 0).item(), percentile_threshold_person))
+  if Print:  
+    print(("\nthreshold for membership, person = ${0:,.9g}, percentile of county "  + 
+      "person income = {1:,.4g}").format(
+      np.round(threshold_person, 0).item(), percentile_threshold_person))
   
   X.percentile_threshold_family = stats.percentileofscore(X.TF.cols.R_dollars[:], threshold_family)
   
-  print(("threshold for membership, family = ${0:,.9g}, percentile of county " +
-    "family income= {1:,.4g}").format(np.round(threshold_family, 0).item(), X.percentile_threshold_family))
+  if Print:
+    print(("threshold for membership, family = ${0:,.9g}, percentile of county " +
+      "family income= {1:,.4g}").format(np.round(threshold_family, 0).item(), X.percentile_threshold_family))
   
   ws0 = X.TP.get_where_list("work_status==0")
   NIWF_below = np.intersect1d(persons_below_threshold, ws0, assume_unique=True)
   
-  print("\nfraction of total NIWF below family threshold = {0:,.4g}".format(
-    NIWF_below.size / float(ws0.size)))
-  
-  print("fraction below family threshold that are NIWF = {0:,.4g}".format(
-    NIWF_below.size / float(persons_below_threshold.size)))
-  
-  print(("fraction below family threshold that are NIWF or unemployed (1% member " + 
-    "unemployment) = {0:,.4g}").format((NIWF_below.size / float(persons_below_threshold.size)) + \
-    (X.population * X.Config.labor_participation_rate * .01) / \
-    float(persons_below_threshold.size)))
+  if Print:
+    print("\nfraction of total NIWF below family threshold = {0:,.4g}".format(
+      NIWF_below.size / float(ws0.size)))
+    
+    print("fraction below family threshold that are NIWF = {0:,.4g}".format(
+      NIWF_below.size / float(persons_below_threshold.size)))
+    
+    print(("fraction below family threshold that are NIWF or unemployed (1% member " + 
+      "unemployment) = {0:,.4g}").format((NIWF_below.size / float(persons_below_threshold.size)) + \
+      (X.population * X.Config.labor_participation_rate * .01) / \
+      float(persons_below_threshold.size)))
 
   ave_income_threshold = X.TP.cols.R_dollars[:][persons_below_threshold].mean()
-  
-  print("\ntotal family income <= threshold_family = ${0:,.9g}".format(
-    np.round(X.TP.cols.R_dollars[:][persons_below_threshold].sum() * X.populationRatio, 0).item()))
-  
-  print("mean of total family income <= threshold_family = ${0:,.9g}".format(
-    np.round(ave_income_threshold,0).item()))
+
+  if Print:  
+    print("\ntotal family income <= threshold_family = ${0:,.9g}".format(
+      np.round(X.TP.cols.R_dollars[:][persons_below_threshold].sum() * X.populationRatio, 0).item()))
+    
+    print("mean of total family income <= threshold_family = ${0:,.9g}".format(
+      np.round(ave_income_threshold,0).item()))
   
   #income_below_threshold = X.TP.cols.R_dollars[:][persons_below_threshold].sum()
   
@@ -437,22 +458,25 @@ def countyInfo(X):
   persons_below_threshold_working = np.intersect1d(W4,persons_below_threshold)
   ave_income_working_county_threshold = X.TP.cols.R_dollars[:][persons_below_threshold_working].mean()
   
-  print("\naverage income, working, county, below threshold = ${0:,.9g}".format(
-    np.round(ave_income_working_county_threshold,0).item()))
+  if Print:
+    print("\naverage income, working, county, below threshold = ${0:,.9g}".format(
+      np.round(ave_income_working_county_threshold,0).item()))
     
   Wnp = X.TP.get_where_list("(work_status ==4) | (work_status ==6)")  
   
-  print(("average income nonprofit = ${0:,.9g}, fraction of county income = " + 
-    "{1:,.4g}").format(
-    np.round(X.TP.cols.R_dollars[:][Wnp].mean(), 0).item(), 
-    X.TP.cols.R_dollars[:][Wnp].sum() / X.TP.cols.R_dollars[:].sum()))
+  if Print:
+    print(("average income nonprofit = ${0:,.9g}, fraction of county income = " + 
+      "{1:,.4g}").format(
+      np.round(X.TP.cols.R_dollars[:][Wnp].mean(), 0).item(), 
+      X.TP.cols.R_dollars[:][Wnp].sum() / X.TP.cols.R_dollars[:].sum()))
 
   W3 = X.TP.get_where_list("(work_status <=3)")  
   
-  print(("average income NIWF and unemployed = ${0:,.9g}, fraction of county " + 
-    "income = {1:,.4g}\n").format(
-    np.round(X.TP.cols.R_dollars[:][W3].mean(), 0).item(), 
-    X.TP.cols.R_dollars[:][W3].sum() / X.TP.cols.R_dollars[:].sum()))       
+  if Print:
+    print(("average income NIWF and unemployed = ${0:,.9g}, fraction of county " + 
+      "income = {1:,.4g}\n").format(
+      np.round(X.TP.cols.R_dollars[:][W3].mean(), 0).item(), 
+      X.TP.cols.R_dollars[:][W3].sum() / X.TP.cols.R_dollars[:].sum()))       
 
 
 
@@ -474,13 +498,17 @@ def make_stocks(X):
 
   """
   
+  Print = False
+  
+  
   stocksDic = {}
   
   FR = X.TF.cols.R_dollars[:]   # family received income
   PR = X.TP.cols.R_dollars[:]   # persons received income
   WS = X.TP.cols.work_status[:]
   
-  print("\nunique WS: ", np.unique(WS))
+  if Print:
+    print("\nunique WS: ", np.unique(WS))
   
   # the income target for families (those over the target will not become members)
   familyPercentileCut = np.round(
@@ -506,7 +534,8 @@ def make_stocks(X):
   LeddaPersons = np.hstack((X.TF.cols.person1[:][LeddaF], X.TF.cols.person2[:][LeddaF]))
   NonLeddaPersons = np.hstack((X.TF.cols.person1[:][NonLeddaF], X.TF.cols.person2[:][NonLeddaF]))
   
-  print("\nLedda.size= ", LeddaPersons.size, " NonLedda.size= ", NonLeddaPersons.size)
+  if Print:
+    print("\nLedda.size= ", LeddaPersons.size, " NonLedda.size= ", NonLeddaPersons.size)
   assert np.allclose( (LeddaPersons.size + NonLeddaPersons.size) * X.populationRatio, X.population)
   
   for ws in range(0,9):
@@ -650,15 +679,16 @@ def make_stocks(X):
     initialPop += stocksDic['initial'][ws]['cntLedda'] + stocksDic['initial'][ws]['cntNonLedda']
     finalPop += stocksDic['final'][ws]['cntLedda'] + stocksDic['final'][ws]['cntNonLedda']
   
-  print('X.population: ', X.population)
-  print('initialPop: ', initialPop)
-  print('finalPop: ', finalPop)
+  if Print:
+    print('X.population: ', X.population)
+    print('initialPop: ', initialPop)
+    print('finalPop: ', finalPop)
   
   assert np.allclose(round(initialPop), X.population, atol=1)
   assert np.allclose(round(finalPop), X.population, atol=1)
   
-  
-  print("""
+  if Print:  
+    print("""
   
      ------------------------------------------------------------------------------------
 Percentile = {:3.0f},   Family income cut for Ledda/NonLedda = {:,.0f} T&D  
@@ -696,89 +726,89 @@ Status                               Count                 Percent              
                 NonLedda:  {:9.4g} {:9.4g}    {:9.4g} {:9.4g}    {:9.4g} {:9.4g}    {:9.4g} {:9.4g}      
 
 """.format(X.percentile_threshold_family, stocksDic['familyPercentileCut'], stocksDic['personPostCBFSIncomeTarget'],
-  stocksDic['personPostCBFSIncomeTarget'] * 2,
-  
-  stocksDic['initial'][0]['cntLedda'], stocksDic['final'][0]['cntLedda'], 
-  stocksDic['initial'][0]['pctLedda'], stocksDic['final'][0]['pctLedda'], 
-  stocksDic['initial'][0]['meanLedda'], stocksDic['final'][0]['meanLedda'],
-  stocksDic['initial'][0]['sumLedda'], stocksDic['final'][0]['sumLedda'],
-  stocksDic['initial'][0]['cntNonLedda'], stocksDic['final'][0]['cntNonLedda'], 
-  stocksDic['initial'][0]['pctNonLedda'], stocksDic['final'][0]['pctNonLedda'], 
-  stocksDic['initial'][0]['meanNonLedda'], stocksDic['final'][0]['meanNonLedda'],
-  stocksDic['initial'][0]['sumNonLedda'], stocksDic['final'][0]['sumNonLedda'],  
+    stocksDic['personPostCBFSIncomeTarget'] * 2,
+    
+    stocksDic['initial'][0]['cntLedda'], stocksDic['final'][0]['cntLedda'], 
+    stocksDic['initial'][0]['pctLedda'], stocksDic['final'][0]['pctLedda'], 
+    stocksDic['initial'][0]['meanLedda'], stocksDic['final'][0]['meanLedda'],
+    stocksDic['initial'][0]['sumLedda'], stocksDic['final'][0]['sumLedda'],
+    stocksDic['initial'][0]['cntNonLedda'], stocksDic['final'][0]['cntNonLedda'], 
+    stocksDic['initial'][0]['pctNonLedda'], stocksDic['final'][0]['pctNonLedda'], 
+    stocksDic['initial'][0]['meanNonLedda'], stocksDic['final'][0]['meanNonLedda'],
+    stocksDic['initial'][0]['sumNonLedda'], stocksDic['final'][0]['sumNonLedda'],  
 
-  stocksDic['initial'][1]['cntLedda'], stocksDic['final'][1]['cntLedda'], 
-  stocksDic['initial'][1]['pctLedda'], stocksDic['final'][1]['pctLedda'], 
-  stocksDic['initial'][1]['meanLedda'], stocksDic['final'][1]['meanLedda'],
-  stocksDic['initial'][1]['sumLedda'], stocksDic['final'][1]['sumLedda'],
-  stocksDic['initial'][1]['cntNonLedda'], stocksDic['final'][1]['cntNonLedda'], 
-  stocksDic['initial'][1]['pctNonLedda'], stocksDic['final'][1]['pctNonLedda'], 
-  stocksDic['initial'][1]['meanNonLedda'], stocksDic['final'][1]['meanNonLedda'],
-  stocksDic['initial'][1]['sumNonLedda'], stocksDic['final'][1]['sumNonLedda'],  
-    
-  stocksDic['initial'][2]['cntLedda'], stocksDic['final'][2]['cntLedda'], 
-  stocksDic['initial'][2]['pctLedda'], stocksDic['final'][2]['pctLedda'], 
-  stocksDic['initial'][2]['meanLedda'], stocksDic['final'][2]['meanLedda'],
-  stocksDic['initial'][2]['sumLedda'], stocksDic['final'][2]['sumLedda'],
-  stocksDic['initial'][2]['cntNonLedda'], stocksDic['final'][2]['cntNonLedda'], 
-  stocksDic['initial'][2]['pctNonLedda'], stocksDic['final'][2]['pctNonLedda'], 
-  stocksDic['initial'][2]['meanNonLedda'], stocksDic['final'][2]['meanNonLedda'],
-  stocksDic['initial'][2]['sumNonLedda'], stocksDic['final'][2]['sumNonLedda'],  
-    
-  stocksDic['initial'][3]['cntLedda'], stocksDic['final'][3]['cntLedda'], 
-  stocksDic['initial'][3]['pctLedda'], stocksDic['final'][3]['pctLedda'], 
-  stocksDic['initial'][3]['meanLedda'], stocksDic['final'][3]['meanLedda'],
-  stocksDic['initial'][3]['sumLedda'], stocksDic['final'][3]['sumLedda'],
-  stocksDic['initial'][3]['cntNonLedda'], stocksDic['final'][3]['cntNonLedda'], 
-  stocksDic['initial'][3]['pctNonLedda'], stocksDic['final'][3]['pctNonLedda'], 
-  stocksDic['initial'][3]['meanNonLedda'], stocksDic['final'][3]['meanNonLedda'],
-  stocksDic['initial'][3]['sumNonLedda'], stocksDic['final'][3]['sumNonLedda'],  
-    
-  stocksDic['initial'][4]['cntLedda'], stocksDic['final'][4]['cntLedda'], 
-  stocksDic['initial'][4]['pctLedda'], stocksDic['final'][4]['pctLedda'], 
-  stocksDic['initial'][4]['meanLedda'], stocksDic['final'][4]['meanLedda'],
-  stocksDic['initial'][4]['sumLedda'], stocksDic['final'][4]['sumLedda'],
-  stocksDic['initial'][4]['cntNonLedda'], stocksDic['final'][4]['cntNonLedda'], 
-  stocksDic['initial'][4]['pctNonLedda'], stocksDic['final'][4]['pctNonLedda'], 
-  stocksDic['initial'][4]['meanNonLedda'], stocksDic['final'][4]['meanNonLedda'],
-  stocksDic['initial'][4]['sumNonLedda'], stocksDic['final'][4]['sumNonLedda'],  
-    
-  stocksDic['initial'][5]['cntLedda'], stocksDic['final'][5]['cntLedda'], 
-  stocksDic['initial'][5]['pctLedda'], stocksDic['final'][5]['pctLedda'], 
-  stocksDic['initial'][5]['meanLedda'], stocksDic['final'][5]['meanLedda'],
-  stocksDic['initial'][5]['sumLedda'], stocksDic['final'][5]['sumLedda'],
-  stocksDic['initial'][5]['cntNonLedda'], stocksDic['final'][5]['cntNonLedda'], 
-  stocksDic['initial'][5]['pctNonLedda'], stocksDic['final'][5]['pctNonLedda'], 
-  stocksDic['initial'][5]['meanNonLedda'], stocksDic['final'][5]['meanNonLedda'],
-  stocksDic['initial'][5]['sumNonLedda'], stocksDic['final'][5]['sumNonLedda'],  
-    
-  stocksDic['initial'][6]['cntLedda'], stocksDic['final'][6]['cntLedda'], 
-  stocksDic['initial'][6]['pctLedda'], stocksDic['final'][6]['pctLedda'], 
-  stocksDic['initial'][6]['meanLedda'], stocksDic['final'][6]['meanLedda'],
-  stocksDic['initial'][6]['sumLedda'], stocksDic['final'][6]['sumLedda'],
-  stocksDic['initial'][6]['cntNonLedda'], stocksDic['final'][6]['cntNonLedda'], 
-  stocksDic['initial'][6]['pctNonLedda'], stocksDic['final'][6]['pctNonLedda'], 
-  stocksDic['initial'][6]['meanNonLedda'], stocksDic['final'][6]['meanNonLedda'],
-  stocksDic['initial'][6]['sumNonLedda'], stocksDic['final'][6]['sumNonLedda'],  
-    
-  stocksDic['initial'][7]['cntLedda'], stocksDic['final'][7]['cntLedda'], 
-  stocksDic['initial'][7]['pctLedda'], stocksDic['final'][7]['pctLedda'], 
-  stocksDic['initial'][7]['meanLedda'], stocksDic['final'][7]['meanLedda'],
-  stocksDic['initial'][7]['sumLedda'], stocksDic['final'][7]['sumLedda'],
-  stocksDic['initial'][7]['cntNonLedda'], stocksDic['final'][7]['cntNonLedda'], 
-  stocksDic['initial'][7]['pctNonLedda'], stocksDic['final'][7]['pctNonLedda'], 
-  stocksDic['initial'][7]['meanNonLedda'], stocksDic['final'][7]['meanNonLedda'],
-  stocksDic['initial'][7]['sumNonLedda'], stocksDic['final'][7]['sumNonLedda'],  
-    
-  stocksDic['initial'][8]['cntLedda'], stocksDic['final'][8]['cntLedda'], 
-  stocksDic['initial'][8]['pctLedda'], stocksDic['final'][8]['pctLedda'], 
-  stocksDic['initial'][8]['meanLedda'], stocksDic['final'][8]['meanLedda'],
-  stocksDic['initial'][8]['sumLedda'], stocksDic['final'][8]['sumLedda'],
-  stocksDic['initial'][8]['cntNonLedda'], stocksDic['final'][8]['cntNonLedda'], 
-  stocksDic['initial'][8]['pctNonLedda'], stocksDic['final'][8]['pctNonLedda'], 
-  stocksDic['initial'][8]['meanNonLedda'], stocksDic['final'][8]['meanNonLedda'],
-  stocksDic['initial'][8]['sumNonLedda'], stocksDic['final'][8]['sumNonLedda']  
-  ))
+    stocksDic['initial'][1]['cntLedda'], stocksDic['final'][1]['cntLedda'], 
+    stocksDic['initial'][1]['pctLedda'], stocksDic['final'][1]['pctLedda'], 
+    stocksDic['initial'][1]['meanLedda'], stocksDic['final'][1]['meanLedda'],
+    stocksDic['initial'][1]['sumLedda'], stocksDic['final'][1]['sumLedda'],
+    stocksDic['initial'][1]['cntNonLedda'], stocksDic['final'][1]['cntNonLedda'], 
+    stocksDic['initial'][1]['pctNonLedda'], stocksDic['final'][1]['pctNonLedda'], 
+    stocksDic['initial'][1]['meanNonLedda'], stocksDic['final'][1]['meanNonLedda'],
+    stocksDic['initial'][1]['sumNonLedda'], stocksDic['final'][1]['sumNonLedda'],  
+      
+    stocksDic['initial'][2]['cntLedda'], stocksDic['final'][2]['cntLedda'], 
+    stocksDic['initial'][2]['pctLedda'], stocksDic['final'][2]['pctLedda'], 
+    stocksDic['initial'][2]['meanLedda'], stocksDic['final'][2]['meanLedda'],
+    stocksDic['initial'][2]['sumLedda'], stocksDic['final'][2]['sumLedda'],
+    stocksDic['initial'][2]['cntNonLedda'], stocksDic['final'][2]['cntNonLedda'], 
+    stocksDic['initial'][2]['pctNonLedda'], stocksDic['final'][2]['pctNonLedda'], 
+    stocksDic['initial'][2]['meanNonLedda'], stocksDic['final'][2]['meanNonLedda'],
+    stocksDic['initial'][2]['sumNonLedda'], stocksDic['final'][2]['sumNonLedda'],  
+      
+    stocksDic['initial'][3]['cntLedda'], stocksDic['final'][3]['cntLedda'], 
+    stocksDic['initial'][3]['pctLedda'], stocksDic['final'][3]['pctLedda'], 
+    stocksDic['initial'][3]['meanLedda'], stocksDic['final'][3]['meanLedda'],
+    stocksDic['initial'][3]['sumLedda'], stocksDic['final'][3]['sumLedda'],
+    stocksDic['initial'][3]['cntNonLedda'], stocksDic['final'][3]['cntNonLedda'], 
+    stocksDic['initial'][3]['pctNonLedda'], stocksDic['final'][3]['pctNonLedda'], 
+    stocksDic['initial'][3]['meanNonLedda'], stocksDic['final'][3]['meanNonLedda'],
+    stocksDic['initial'][3]['sumNonLedda'], stocksDic['final'][3]['sumNonLedda'],  
+      
+    stocksDic['initial'][4]['cntLedda'], stocksDic['final'][4]['cntLedda'], 
+    stocksDic['initial'][4]['pctLedda'], stocksDic['final'][4]['pctLedda'], 
+    stocksDic['initial'][4]['meanLedda'], stocksDic['final'][4]['meanLedda'],
+    stocksDic['initial'][4]['sumLedda'], stocksDic['final'][4]['sumLedda'],
+    stocksDic['initial'][4]['cntNonLedda'], stocksDic['final'][4]['cntNonLedda'], 
+    stocksDic['initial'][4]['pctNonLedda'], stocksDic['final'][4]['pctNonLedda'], 
+    stocksDic['initial'][4]['meanNonLedda'], stocksDic['final'][4]['meanNonLedda'],
+    stocksDic['initial'][4]['sumNonLedda'], stocksDic['final'][4]['sumNonLedda'],  
+      
+    stocksDic['initial'][5]['cntLedda'], stocksDic['final'][5]['cntLedda'], 
+    stocksDic['initial'][5]['pctLedda'], stocksDic['final'][5]['pctLedda'], 
+    stocksDic['initial'][5]['meanLedda'], stocksDic['final'][5]['meanLedda'],
+    stocksDic['initial'][5]['sumLedda'], stocksDic['final'][5]['sumLedda'],
+    stocksDic['initial'][5]['cntNonLedda'], stocksDic['final'][5]['cntNonLedda'], 
+    stocksDic['initial'][5]['pctNonLedda'], stocksDic['final'][5]['pctNonLedda'], 
+    stocksDic['initial'][5]['meanNonLedda'], stocksDic['final'][5]['meanNonLedda'],
+    stocksDic['initial'][5]['sumNonLedda'], stocksDic['final'][5]['sumNonLedda'],  
+      
+    stocksDic['initial'][6]['cntLedda'], stocksDic['final'][6]['cntLedda'], 
+    stocksDic['initial'][6]['pctLedda'], stocksDic['final'][6]['pctLedda'], 
+    stocksDic['initial'][6]['meanLedda'], stocksDic['final'][6]['meanLedda'],
+    stocksDic['initial'][6]['sumLedda'], stocksDic['final'][6]['sumLedda'],
+    stocksDic['initial'][6]['cntNonLedda'], stocksDic['final'][6]['cntNonLedda'], 
+    stocksDic['initial'][6]['pctNonLedda'], stocksDic['final'][6]['pctNonLedda'], 
+    stocksDic['initial'][6]['meanNonLedda'], stocksDic['final'][6]['meanNonLedda'],
+    stocksDic['initial'][6]['sumNonLedda'], stocksDic['final'][6]['sumNonLedda'],  
+      
+    stocksDic['initial'][7]['cntLedda'], stocksDic['final'][7]['cntLedda'], 
+    stocksDic['initial'][7]['pctLedda'], stocksDic['final'][7]['pctLedda'], 
+    stocksDic['initial'][7]['meanLedda'], stocksDic['final'][7]['meanLedda'],
+    stocksDic['initial'][7]['sumLedda'], stocksDic['final'][7]['sumLedda'],
+    stocksDic['initial'][7]['cntNonLedda'], stocksDic['final'][7]['cntNonLedda'], 
+    stocksDic['initial'][7]['pctNonLedda'], stocksDic['final'][7]['pctNonLedda'], 
+    stocksDic['initial'][7]['meanNonLedda'], stocksDic['final'][7]['meanNonLedda'],
+    stocksDic['initial'][7]['sumNonLedda'], stocksDic['final'][7]['sumNonLedda'],  
+      
+    stocksDic['initial'][8]['cntLedda'], stocksDic['final'][8]['cntLedda'], 
+    stocksDic['initial'][8]['pctLedda'], stocksDic['final'][8]['pctLedda'], 
+    stocksDic['initial'][8]['meanLedda'], stocksDic['final'][8]['meanLedda'],
+    stocksDic['initial'][8]['sumLedda'], stocksDic['final'][8]['sumLedda'],
+    stocksDic['initial'][8]['cntNonLedda'], stocksDic['final'][8]['cntNonLedda'], 
+    stocksDic['initial'][8]['pctNonLedda'], stocksDic['final'][8]['pctNonLedda'], 
+    stocksDic['initial'][8]['meanNonLedda'], stocksDic['final'][8]['meanNonLedda'],
+    stocksDic['initial'][8]['sumNonLedda'], stocksDic['final'][8]['sumNonLedda']  
+    ))
   
   
   #file1 = open("stocksDic.pickle", "wb") 

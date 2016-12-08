@@ -242,9 +242,11 @@ def runModel():
   K.sort()
   paramsDic = data.copy()
   
-  print("initial data:")
-  for k in K:
-    print(k, data[k])
+  if 1==2:
+    # for testing
+    print("initial data:")
+    for k in K:
+      print(k, data[k])
   
   
   # remove lists, make floats, convert % to fractions
