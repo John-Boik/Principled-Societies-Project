@@ -332,6 +332,8 @@ def countyInfo(X):
   Summaries of initial county income data.
   """
 
+  Print = False
+
   if Print:
     print("""
     
