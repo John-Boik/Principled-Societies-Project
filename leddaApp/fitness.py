@@ -152,6 +152,9 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   for node in nodes:
     if (G.node[node]['kind'] == 'person') and (G.node[node]['member']):
       dollars_, tokens_, total_ = sumEdges(G, node, ['in'])  
+      if np.isnan(tokens_):
+        print("nan in verify TSI: node={:}, G[node]={:}, TSI={:}\n  d,t,total= {:}, {:}, {:}".format(
+          node, G.node[node], X.TSI, dollars_, tokens_, total_))
       if np.allclose( np.round(tokens_/total_, 3), X.TSI) == False:
         raise Exception (
           "actual TSI is not X.TSI: {}, ${}, T{}, T&D{}, actual TSI={}, X.TSI={}".format(
