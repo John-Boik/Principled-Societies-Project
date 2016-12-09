@@ -92,6 +92,16 @@ ul, li, ol {
 .image_200 img {
     width: 100%;
 }
+
+.image_poster {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+.image_poster img {
+    width: 100%;
+}
+
 .about-sect .wrap-p {
     text-align: justify;
 }

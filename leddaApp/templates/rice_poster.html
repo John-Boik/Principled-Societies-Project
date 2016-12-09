@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+
+{% block title %}
+  <title>Poster</title>
+{% endblock %}
+
+
+{% block page_head %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35447340-1', 'auto');
+  ga('send', 'pageview');
+</script>
+{% endblock %}  
+
+
+{% block body %}
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header blue-sect">
+        <h2>De Lange Conference X Poster</h2>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect about-sect">
+      <p>John Boik presented a poster at the 2016 <a href="http://delange.rice.edu/conference_X/posters.html" target="blank">De Lange Conference X: Humans, Machines, and the Future of Work</a>, at Rice University. The poster summarized results of a simulation that used an earlier <a href="http://ijccr.net/2014/10/14/first-micro-simulation-model-of-a-ledda-community-currency-dollar-economy/" target="blank">agent-based simulation model</a> of currency flows in an idealized LEDDA.</p>
+      
+      <p>For this simulation, the initial unemployment rate was set at 30%, depression-level conditions. Further, by design choice, the target for workforce partition was 50% in the nonprofit sector. Like the earlier simulation, results are illustrative, not predictive. Family incomes rose to the 90th percentile of starting incomes. Other results can be seen in the poster. Click on the poster to enlarge. A high-resolution version is available on request.</p>
+      
+      <br>
+      <div class="image_poster">
+        <a href="/static/images/rice_poster.png">
+        <img src="/static/images/rice_poster.png" alt="LEDDA Poster">
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+
+{% endblock %}
+

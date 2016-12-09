@@ -68,21 +68,29 @@ def collaborate_assist():
   return render_template('collaborate_assist.html')  
 
 # -------------------------------------------------------------------------------------
-@app.route('/who_should_be_interested')
+@app.route('/who_interested')
 def who_should_be_interested():
   """
   This is who should be interested page
   """
-  return render_template('who_should_be_interested.html')  
+  return render_template('who_interested.html')  
+
+# -------------------------------------------------------------------------------------
+@app.route('/rice_poster')
+def rice_poster():
+  """
+  This is the Rice poster page
+  """
+  return render_template('rice_poster.html')  
 
 
 # -------------------------------------------------------------------------------------
-@app.route('/model_steady_state_01')
+@app.route('/model_steady_01')
 def model_steady_state_01():
   """
   This is the steady_01 page. 
   """
-  return render_template('model_steady_state_01.html')  
+  return render_template('model_steady_01.html')  
 
 
 # -------------------------------------------------------------------------------------
