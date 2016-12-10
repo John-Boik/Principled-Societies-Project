@@ -77,24 +77,34 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
 
-      <p>The grand fitness is <output id="output_grand_fitness">...wait...</output> T&D.</p>
+      <p>The grand fitness is <span id="output_grand_fitness" class="output_calc" >...wait...</span> T&D.</p>
 
-      <p>The fitness at a single node is the value of abs(total inflow - total outflow), calculated for tokens and dollars separately, then added together. The grand fitness is the sum of fitness values over all nodes. If the grand fitness is less than about 10 T&D on a per-person basis (<output id="threshold_lo">...wait...</output> T&D in this case), then the run can be considered a clear success. If it is above this lower threshold but less than about 100 T&D on a per-person basis (<output id="threshold_hi">...wait...</output> T&D in this case), then the run is OK, but the results are somewhat questionable. If the grand fitness is well above this higher threshold, then all results except fitness might be meaningless. A perfect fitness of zero can be achieved in many ways, but would require that the variables be specified to many significant digits.</p>
+      <div id="grand_fitness_table" ></div>
 
+      <p>The fitness at a single node is calculated as abs(total inflow - total outflow), for tokens and dollars separately, then added together. The grand fitness is the sum of fitness values over all nodes. It can be evaluated as:
+      <ul>
+      <li>0&ndash;10 T&D per person (0&ndash;<span id="threshold_lo_1" class="output_calc">...wait...</span> T&D): Excellent</li>
+      <li>10&ndash;100 T&D per person (<span id="threshold_lo_2" class="output_calc">...wait...</span>&ndash;
+        <span id="threshold_hi_1" class="output_calc">...wait...</span> T&D): OK</li>
+      <li>&GT;100 T&D per person (&GT;<span class="output_calc" id="threshold_hi_2">...wait...</span> T&D): Poor</li>
+      </ul>
+      </p>
+      
+      <p>If the grand fitness falls well into the last category, then all results except fitness might be meaningless. Aside from rounding and related issues, a fitness score near zero can be achieved in many ways.</p>
 
-        <div id="grand_fitness_table" ></div>
+      <p>Results are presented in five groups: this overview and increasingly more detailed Groups 1 to 4. The cells and nodes of some tables and graphs on this page are color coded to visually highlight their fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, signifying either a fitness of 1,000 T&D or the maximum node fitness, whichever is larger.</p> 
 
-      <p>The cells and nodes of some tables and graphs on this page are color coded to visually highlight their fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, signifying either a fitness of 1,000 T&D or the maximum node fitness, whichever is larger.</p> 
-
-
-      <p>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</p>
-        
-        
+      <div>
         <div id='summary_graph_container'></div>
-      
-      
-      <!-- ========================== Group 1 ============================================== -->
-        <input type="button" id="more_1" value="More Fitness Overview (Group 1)">
+        <br >
+        <caption>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</caption>
+      </div>
+        
+        
+      <div>        
+        <!-- ========================== Group 1 ============================================== -->
+        <br>
+        <input type="button" id="more_1" value="More Details (Group 1)">
 
 
 
@@ -108,13 +118,13 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
         <br>
 
         <div id="node_fitness_summary_table" ></div>
-        
+      </div>       
         
       <!-- ========================== Group 2 ============================================== -->
 
       <h2 style="clear:both;">Results: Starting Conditions and Targets</h2> 
       <p>The results in this section follow directly from the values chosen for starting conditions and targets.  </p>
-      <input type="button" id="more_2" value="More Starting (Group 2)">
+      <input type="button" id="more_2" value="More Details (Group 2)">
 
       <div id="income_dist"></div>
       <div id="graph_person_counts"></div>
@@ -129,7 +139,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
       <h2 style="clear:both;">Results: Variables</h2>  
       <p>Given starting conditions and targets, the results in this section follow directly from the values chosen for variables.</p>
 
-        <input type="button" id="more_3" value="More Variables (Group 3)" onClick="$('#detailed_graph_container').show();">
+        <input type="button" id="more_3" value="More Details (Group 3)" onClick="$('#detailed_graph_container').show();">
 
         <h3 style="clear:both;">Summary tables</h3> 
         
@@ -161,7 +171,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
     <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
 
        <h3 style="clear:both;">Detailed node tables</h3>
-       <input type="button" id="more_4" value="More Detailed (Group 4)"> 
+       <input type="button" id="more_4" value="More Details (Group 4)"> 
         
         
         <div id="all_tables" style="clear:both;"></div>

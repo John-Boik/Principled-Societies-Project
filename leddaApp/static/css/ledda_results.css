@@ -7,7 +7,10 @@
   margin-left: 30px;
   }
 
-
+.output_calc {
+  line-height: 1.7em;
+  font-size: 12pt;
+  }
 
 .pan_button{
   fill:  #B0E0E6;
@@ -21,9 +24,16 @@
 
 
 #summary_graph_container {
-  width: 100%; 
-  height: auto;  
+  height: 750px;  
   }
+
+#svg_summary_graph {
+  overflow:hidden;  
+  height: 800px; 
+  /*width:60%;*/
+  /*border: 1px solid gray;*/
+  }
+
 
 #detailed_graph_container {
   width: 100%; 
@@ -79,12 +89,6 @@
   /*float: left;*/
   }
 
-#svg_summary_graph {
-  overflow:hidden;  
-  height: 800px; 
-  /*width:60%;*/
-  /*border: 1px solid gray;*/
-  }
 
 
 .node {

@@ -1466,8 +1466,10 @@ for i in keys:
 document['output_grand_fitness'].text ='...wait...'
 document['output_grand_fitness'].text = "{:,}".format(fitnessDic['fitness']['total'])
 population = float(paramsDic['population'][0])
-document['threshold_lo'].text = "{:,}".format(int(round(10*population)))
-document['threshold_hi'].text = "{:,}".format(int(round(100*population)))
+document['threshold_lo_1'].text = "{:,}".format(int(round(10*population)))
+document['threshold_lo_2'].text = "{:,}".format(int(round(10*population)))
+document['threshold_hi_1'].text = "{:,}".format(int(round(100*population)))
+document['threshold_hi_2'].text = "{:,}".format(int(round(100*population)))
 
 fitness_overview_tables()
 
