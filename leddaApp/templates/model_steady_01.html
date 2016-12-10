@@ -111,7 +111,6 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       </div>
 
       <div id="agent-based-more" class="collapse">
-
       <br>
 
         <div class="center">
@@ -132,10 +131,9 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
             <p><span class="blue-sect">Figure 3: </span>Compartments and flows in 20-node steady-state model.
             Dollar-only flows are in dotted green. Token and dollar flows are in solid blue.</p>
         </div>
-          <p>Whereas agent-based models can illustrate paths of change from initial conditions, the simpler steady-state model illustrates conditions in the long-term, once targets are achieved and the system is in (dynamic) equilibrium (perhaps 15-30 years after initiation). The steady-state model is not intended to be predictive or to capture all or even most salient characteristics of a real economy. Rather, it provides an abstracted, compartmental view of local currency circulation, and serves as a steppingstone toward future, more sophisticated models.</p>
-          <p>A take-home message is that members choose the long-term makeup of their LEDDA economy. They steer it, not the other way around. They choose income targets, how the workforce is partitioned, and how organizations are funded. As an example, one run of the agent-based model illustrated how a community could use the LEDDA to employ ~50% of the local workforce in the nonprofit sector [<a href="#r3">3</a>].</p>
+        <p>Whereas agent-based models can illustrate paths of change from initial conditions, the simpler steady-state model illustrates conditions in the long-term, once targets are achieved and the system is in (dynamic) equilibrium (perhaps 15-30 years after initiation). The steady-state model is not intended to be predictive or to capture all or even most salient characteristics of a real economy. Rather, it provides an abstracted, compartmental view of local currency circulation, and serves as a steppingstone toward future, more sophisticated models.</p>
+        <p>A take-home message is that members choose the long-term makeup of their LEDDA economy. They steer it, not the other way around. They choose income targets, how the workforce is partitioned, and how organizations are funded. As an example, one run of the agent-based model illustrated how a community could use the LEDDA to employ ~50% of the local workforce in the nonprofit sector [<a href="#r3">3</a>].</p>
       </div>
-
     </div>
   </div>
 </div>
@@ -192,22 +190,22 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       </div>
 
       <div id="how-info-more" class="collapse">
-        <p>
-          In the simple world of this model, the population is comprised of two-adult families and demographics and the economy are held at a static snapshot except for the direct impacts of the LEDDA (based on your choices). Thus, for example, the population does not grow or age. Also, the incomes of families that do not become members do not change. They remain equal to starting incomes, which are generated based on US Census data [<a href="#r2">2</a>]. The starting workforce partition is generated using US labor data. Further, there is no inflation, and the purchasing power of a token is equal to that of the dollar.
-        </p>
 
-        <p>Once the run button is pressed, a sequence of steps solves for the flows at each node. Briefly, you have specified starting conditions and a final target income, token share of income (TSI), and workforce partition. From these alone, many things are known. The starting income distribution is known. The final size of the membership is also known. Suppose that you choose a family income target at the 90th percentile of starting incomes, say, $100,000. Then 90% of families will join the LEDDA because doing so increases their income. If you choose a target income at the starting 80th percentile of starting incomes, then 80% of the population would join the LEDDA, and so on. In this simple model, people join if it increases their income. Because final incomes are known, and the TSI and workforce partition is known, the wages paid by each type of organization, in tokens and dollars, are also known.</p>
+        <h2 class="green-sect">How it Works</h2>
+          
+        <p>In the simple world of this model, the population is comprised of two-adult families and demographics and the economy are held at a static snapshot except for the direct impacts of the LEDDA (based on your choices). Thus, for example, the population does not grow or age. Also, the incomes of families that do not become members do not change. They remain equal to starting incomes, which are generated based on US Census data [<a href="#r2">2</a>]. The starting workforce partition is generated using US labor data. Further, there is no inflation, and the purchasing power of a token is equal to that of the dollar.</p>
 
-      <p>You have also specified CBFS earmarks, so the amount of CBFS contributions that members make, in tokens and dollars, is known. Persons receive income (from wages, government support, and CBFS nurture support), make CBFS contributions, pay taxes, and then any remaining currency is spent at organizations. Thus, all (dollar) flows for nonmember person nodes will balance automatically and their fitness will be zero. Fitness of a node is calculated as the absolute value of inflows-outflows, summed over dollars and tokens. The fitness for member person nodes might not be zero. Total (T&D) flows will balance for person nodes, but because the selected TSI might be other than optimal, fitness for tokens separately and/or dollars separately might not be zero.</p> 
+        <p>Once the run button is pressed, a sequence of steps solves for the flows at each node. Briefly, you have specified starting conditions and family income target, token share of income (TSI), and workforce partition. From these alone, many things are known. The starting income distribution is known. The final size of the membership is also known. Suppose that you choose a income target equal to the 90th percentile of starting incomes, say, $100,000. Then 90% of local families will join the LEDDA because doing so increases their income. If you choose an income target equal to the 80th percentile of starting incomes, then 80% of families will join the LEDDA, and so on. In this simple model, families join if doing so increases their income. Because final incomes are known, and the TSI and workforce partition is known, the wages paid by each type of organization, in tokens and dollars, are also known.</p>
 
-      <p>Flows will automatically balance for the donation, subsidy, and grant arms of the CBFS, and so their fitness scores will be zero. These CBFS arms spend all their revenue on organizations.  The Government node receives taxes (in dollars), spends some fixed amount of money to support local organizations, provides some support to unemployed and NIWF persons, at a fixed rate, and then spends all the rest of its revenue on the Rest-of-Counties node (that is, outside of the county). Thus, the fitness of the Government node will be zero. Finally, the Rest-of-Counties node spends its excess at organizations, which are taken in sequence, each one taking only what it needs to fill a deficit.</p>
+      <p>You have also specified CBFS earmarks, so the amount of CBFS contributions that members make, in tokens and dollars, is known. The tax rate, amount of government support for the unemployed and NIWF, and donation rate to nonprofits is set by default. From these, the volume of person spending to organizations can be calculated. Persons receive income (from wages, government support, and CBFS nurture support), make CBFS contributions, pay taxes, make donations to nonprofits, and then any remaining currency is spent at organizations. Thus, all (dollar) flows for nonmember person nodes will balance automatically and the fitness for these nodes will be zero. Fitness of a node is calculated as the absolute value of inflows-outflows, summed over dollars and tokens. The fitness for member person nodes might not be zero. Total (T&D) flows will balance for all person nodes, but because the selected TSI might be other than optimal, fitness for tokens separately and/or dollars separately might not be zero.</p> 
+
+      <p>Flows will automatically balance for the donation, subsidy, and grant arms of the CBFS, and so their fitness scores will be zero. These CBFS arms spend all their revenue on organizations.  The Government node receives taxes (in dollars), spends some fixed amount of money to support local organizations, provides some support to unemployed and NIWF persons, at a default rate, and then spends all the rest of its revenue on the Rest-of-Counties node (that is, outside of the LEDDA county). Thus, the fitness of the Government node will be zero. Finally, the Rest-of-Counties node spends its excess at organizations, which are taken in sequence, each one taking only what it needs to fill a deficit.</p>
 
       <p>In summary, flows are solved sequentially; once one flow is solved, it is used to solve the flows at other nodes. A fitness score is produced for each node and a grand fitness is calculated as the sum of fitness over all nodes. A perfect score is zero.</p>
       </div>
 
     </div>
   </div>
-
 </div>
 
 <div class="container-fluid c-full">
@@ -235,7 +233,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>Choose values for starting conditions. Use the dials or type in values in center of a dial.</p>
+      <p>In this section, choose values for starting conditions. Use the dials or type in values in center of a dial. Refresh the page to obtain default values.</p>
       <br>
     </div>
   </div>
@@ -248,7 +246,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     </div>
 
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col">
-      <div class="knob-label">Initial Unemployment Rate, percent</div>
+      <div class="knob-label">Initial Unemployment Rate (%)</div>
       <select id="unemployment_rate" class="selectpicker" data-style="btn-primary">
         <option value="3">3</option>
         <option value="5">5</option>
@@ -267,67 +265,45 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   <div class="row input-row p-sect">
 
     <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-12 col-xs-12 input-col space-col">
-      <div class="knob-label">Family income target, T&D, post-CBFS</div>
+      <div class="knob-label">Family income target, post-CBFS T&D</div>
       <input id="family_income_target_final" type="text" value="50000" data-min="21600" data-max="300000" data-step="100" data-width="160" data-fgColor="#0f1672" class="dial">
     </div>
 
     <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-12 col-xs-12 input-col">
-      <div class="knob-label">Token share of income (TSI), %:</div>
+      <div class="knob-label">Token share of income, TSI (%):</div>
       <input id="TSI" type="text" value="50" data-min="1" data-max="99" data-step="1" data-width="160" data-fgColor="#0f1672" class="dial">
     </div>
   </div>
 
-
-
-
-  <!--<div class="row">-->
-    <!--<div class="col col-lg-12 col-xl-12 p-sect">-->
-      <!--<h4 class="bld green-sect">Targets</h4>-->
-    <!--</div>-->
-  <!--</div>-->
-
-  <!--<div class="row input-row p-sect">-->
-    <!--<div class="col col-xl-6 col-lg-6 col-med-6 col-sm-6 col-xs-12 input-col">-->
-      <!--<div class="knob-label">Family income target, T&D, post-CBFS</div>-->
-      <!--<input id="family_income_target_final" type="text" value="50000" data-min="21600" data-max="300000" data-step="100" data-width="160" data-fgColor="#a56911" class="dial">-->
-    <!--</div>-->
-  <!--</div>-->
-
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <p>The higher the family income target, the larger the required volume of dollars and tokens in local circulation. A LEDDA draws dollars into its circulation by adjusting its trade balance with the Rest-of-Counties node. This can be thought of as a sophisticated buy-local program. If it draws too many dollars, the Rest-of-Counties node will run a deficit. A good family income target and token share of income might be such that the average dollar income of members is no more than the average dollar income for the nation as a whole (<a href="http://www.census.gov/data/tables/time-series/demo/income-poverty/historical-income-households.html" target="blank" >about $80,000</a>).</p> 
-
-      <p>If the dollar portion of the family income target is chosen to be equal to the national average dollar income, then the LEDDA would be acting to redistribute income, such that its members receive an equal share of the national income pie. A lower family income target can be chosen. Whatever value is chosen will determine the percent of the population that joins the LEDDA.</p> 
-    </div>
-  </div>
-
-
-
-  
-  <div class="row input-row p-sect">
-    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <p>The higher the TSI, the higher the token/T&D ratio. If it is too low, the LEDDA does not benefit much from having the token. If it is too high, too much of local commerce must occur using tokens. One consequence is that it might be difficult to pay taxes, which must be paid in dollars. A good TSI might be roughly 35%.</p>
+      <p>The higher the family income target, the larger the volume of dollars and tokens required in local circulation. A LEDDA adjusts the volume of currency in local circulation in two ways: (1) by creating or destroying tokens, by fiat; and (2) by adjusting its trade balance (in dollars) with the Rest-of-Counties node. The latter can be thought of as a sophisticated make-local, buy-local program. In this steady-state model, a LEDDA can only draw in as many dollars as the Rest-of-Counties node has in excess.</p>
+      
+      <p>A good family income target and token share of income might be such that the dollar income of member families is equal to the national average, and the token share of income is high enough to expand the membership to a desired percentage of the local population. An example is a dollar income of about $80,000 per family (the <a href="http://www.census.gov/data/tables/time-series/demo/income-poverty/historical-income-households.html" target="blank" >national average</a>) and a TSI of about 35%.  With these values the post-CBFS family income of members is 80,000/(1-0.35)= 123,000 T&D.  An income target of about 110,000 T&D was used in the agent-based model, which was equivalent to the 90th percentile of starting incomes for the population studied [<a href="#r2">2</a>]. Thus, in that simulation, 90% of the local population eventually joined the LEDDA.</p> 
+      <p>If the dollar portion of the family income target is chosen to be equal to the national average dollar income, then the LEDDA would be acting to evenly redistribute income; its members would receive an equal share of the national income pie. A lower family income target can be chosen. Whatever value is chosen will determine, along with the TSI, the percent of the population that joins the LEDDA.</p>.
+      <p> Note that because taxes must be paid in dollars, too high of a TSI can cause problems. Also, in practice, the volume of tokens cannot be any larger than can be beneficially used. Too high of a TSI and token volume could lead to inflation of the token, which by design is intended to be inflation-free.</p> 
+   
     </div>
   </div>
 
   <div class="row input-row p-sect">
     <div class="col col-xl-12 col-lg-12 col-med-12 col-sm-12 col-xs-12">
-      
-      <h3 class="blue-sect">Workforce Partition (sums to 100%)</h3>
+      <h3 class="blue-sect">Workforce Partition</h3>
+      <p>The sum of workforce partition values is 100%. This partition refers to the LEDDA workforce, not the total local workforce. If the LEDDA membership rate is high (90% of the local population, for example), then the LEDDA workforce partition will be similar to the total workforce partition.</p>
     </div>
   </div>
 
   <div class="row input-row p-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Standard Business, %</div>
+      <div class="knob-label">Standard Business (%)</div>
       <input id="workforce_partition_SB" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="wf-pcnt-dial">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Nonprofit, %</div>
+      <div class="knob-label">Nonprofit (%)</div>
       <input id="workforce_partition_NP" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="wf-pcnt-dial">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
-      <div class="knob-label">Principled Business, %</div>
+      <div class="knob-label">Principled Business (%)</div>
       <input id="workforce_partition_PB" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="wf-pcnt-dial">
     </div>
   </div>
@@ -362,7 +338,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>Choose values for flexible variables. Use the dials or type in values in center of a dial. Currently, all variables in this section are fixed, meaning that no optimization occurs during a run. The choice to make some variables flexible and subject to optimization will be available soon.</p>
+      <p>In this section, choose values for fixed/flexible variables. Use the dials or type in values in center of a dial. Refresh the page to obtain default values. Currently, all variables in this section are fixed, meaning that they are not subject to optimization during a run. As already noted, the ability to optimize flexible variables will be coming soon.</p>
       <br>
     </div>
   </div>
@@ -370,13 +346,15 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <h3 class="purple-sect">CBFS Earmarks (percent of pre-CBFS income) and Token Share</h3>
+      <h3 class="purple-sect">CBFS Earmarks</h3>
     </div>
   </div>
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <p>In the following table, the first column will sum to something less than 100 percent. Suppose the value was 65%. Then gross family income would be 1/(1-.65) = 2.86 times higher than the (post-CBFS) family income target. The token shares of contributions in the second column should all be roughly similar.  That is, each arm of the CBFS should receive roughly similar ratios of tokens and dollars.</p>  
+      <p>Earmarks refer to the percent of gross (pre-CBFS, pre-tax) income that will be contributed to the CBFS. The family income target is equal to the gross income target minus CBFS contributions. The total of all four earmarks (one for each arm of the CBFS) will sum to something less than 100%. If the sum is 65%, for example, then gross family income would be 1/(1-0.65) = 2.86 times higher than the (post-CBFS) family income target.</p>
+      
+      <p>Values in the Token Share column should be roughly similar.  That is, each arm of the CBFS should receive roughly similar token/T&D ratios. Further, token share values should be roughly similar in magnitude to the TSI. When optimization is added as run option, lower and upper bounds for these token shares can be set.</p>  
     </div>
   </div>
 
@@ -453,10 +431,10 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   </div>
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
-      <div class="t-vert-label">Sum</div>
+      <div class="bld larger-text p-left-1">Sum</div>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
-      <div class="purple-sect bld larger-text p-left-1" id="total_earmark"></div>
+      <div class="bld larger-text p-left-1" id="total_earmark"></div>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>
@@ -465,7 +443,10 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <h3 class="purple-sect">Percent of Person Total Spending To Organization Nodes and Token Share</h3>
+      <h3 class="purple-sect">Person Spending, Percent</h3>
+      <p>In this section you can set where persons spend their discretionary income. Columns in the table exist for nonmembers and members. Each group can spend their income in any one of the five types of local organizations. The percentages in each column will sum to 100% of discretionary income, which is defined as gross income minus taxes minus CBFS contributions minus regular dollar donations to nonprofits.</p>
+      
+      <p>It might be that member and nonmember persons support different organizations to a different degree. For example, perhaps members would tend to support member organizations. Further, perhaps most of the spending goes to for-profit organizations (Principled Businesses and standard businsesses), whereas nonprofits might receive more of their revenue from CBFS donations. Keep in mind that many nonprofits do receive some revenue from the sale of products and services.</p> 
     </div>
   </div>
 
@@ -474,10 +455,10 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
       <h4>Organization Type</h4>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
-      <h4>Person Nonmember</h4>
+      <h4>Person Nonmember (%)</h4>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
-      <h4>Person Member</h4>
+      <h4>Person Member (%)</h4>
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -558,26 +539,26 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   </div>
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
-      <div class="t-vert-label">Sum</div>
+      <div class="bld larger-text p-left-1">Sum</div>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
-      <div class="purple-sect bld larger-text p-left-1" id="sum_nonmember"></div>
+      <div class="bld larger-text p-left-1" id="sum_nonmember"></div>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
-      <div class="purple-sect bld larger-text p-left-1" id="sum_member"></div>
+      <div class="bld larger-text p-left-1" id="sum_member"></div>
     </div>
   </div>
 
-</div>
-
-
-<div class="container-fluid">
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <h3 class="purple-sect">Person Spending, Token Share</h3>
+      <p>In this section you can set the token share of spending by member persons to different member organizations. Nonmember persons and nonmember organizations do not receive tokens. Token Share values for all member organizations should be roughly similar.  That is, each should receive roughly similar token/T&D ratios. Further, token share values should be roughly similar in magnitude to the TSI. When optimization is added as run option, lower and upper bounds for these token shares can be set.</p> 
 
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
-      <h4>Person Member, Token Share</h4>
+      <h4>Person Member</h4>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
     </div>
@@ -650,49 +631,49 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>Choose values for run options. Use the dials or type in values in center of a dial. </p>
+      <p>In this section you can choose run options and run the model. The upper and lower bounds for token shares pertain to optimization runs and are currently disabled. They will be enabled when optimization is added as a run option.</p>
       <br>
     </div>
   </div>
 
 
-  <div class="row input-row p-sect full-sect">
+  <div class="row input-row p-sect full-sect" >
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
-     <h4>Variable Group</h4> 
+     <h4>Token Share Group</h4> 
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
-      <h4>Lower Bound</h4>
+      <h4>Lower Bound (%)</h4>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
-      <h4>Upper Bound</h4>
+      <h4>Upper Bound (%)</h4>
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
-      <div class="t-vert-label">Token Shares, All Earmarks</div>
+      <div class="t-vert-label">All Earmarks</div>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
-      <input id="earmarks_TS_lb" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial">
+      <input id="earmarks_TS_lb" type="text" value="0" data-min="0" data-max="0" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
-      <input id="earmarks_TS_ub" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial">
+      <input id="earmarks_TS_ub" type="text" value="100" data-min="100" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
-      <div class="t-vert-label">Token Shares, All Person Spending</div>
+      <div class="t-vert-label">All Member Person Spending</div>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
-      <input id="spending_TS_lb" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial">
+      <input id="spending_TS_lb" type="text" value="0" data-min="0" data-max="0" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
-      <input id="spending_TS_ub" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial">
+      <input id="spending_TS_ub" type="text" value="100" data-min="100" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
     </div>
   </div>
 
   <div class="row input-row p-sect">
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
-      <p>Warning: Choosing to user either or both optimization methods may be slow.</p>
+      <p>Optimization currently disabled.</p>
     </div>
     <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
       <input type="checkbox" disabled unchecked id="doBFGS">

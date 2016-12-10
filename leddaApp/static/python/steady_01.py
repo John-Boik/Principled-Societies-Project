@@ -127,7 +127,6 @@ tmp = [
   ['workforce_partition_PB', 33],
   ['TSI', 35],
   ['family_income_target_final', 110000],
-  ['family_income_target_final', 110000],
   ['population', 10000],
   
   ['earmark_NP_donation', 6.402547170210858],
@@ -155,7 +154,11 @@ tmp = [
   ]
 
 for name, val in tmp:
-  document[name].value = "{:.4f}".format(val)
+  if name in   ['workforce_partition_SB', 'workforce_partition_NP', 'workforce_partition_PB', 
+    'TSI', 'family_income_target_final', 'population']:
+    document[name].value = "{:d}".format(val)
+  else:
+    document[name].value = "{:.4f}".format(val)
 
 
 

@@ -320,6 +320,7 @@ def runModel():
     'summaryGraphDic': summaryGraphDic
     }
   
+  
   return render_template('results.html', results=resultDic) 
   
 
