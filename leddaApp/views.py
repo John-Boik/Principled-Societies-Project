@@ -60,12 +60,12 @@ def survey():
   return render_template('survey.html')  
 
 # -------------------------------------------------------------------------------------
-@app.route('/collaborate_assist')
-def collaborate_assist():
+@app.route('/collaborate_engage')
+def collaborate_engage():
   """
-  This is collaborate_assist page 
+  This is collaborate_engage page 
   """
-  return render_template('collaborate_assist.html')  
+  return render_template('collaborate_engage.html')  
 
 # -------------------------------------------------------------------------------------
 @app.route('/who_interested')
@@ -199,7 +199,13 @@ def donation_thanks():
   This is the thanks for donation page. 
   """
   return render_template('donation_thanks.html') 
-  
+
+
+# -------------------------------------------------------------------------------------
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+      
 
 # -------------------------------------------------------------------------------------
 @app.route('/contact_form', methods=['POST'])

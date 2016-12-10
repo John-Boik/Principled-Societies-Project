@@ -43,14 +43,14 @@
 
       <p>You are an incipient LEDDA that is exploring its long-term economic goals. Your task is to set parameters of this idealized Token Exchange System (TES) steady-state model so that currency flows are in balance and desired targets are achieved. The token is a transparent local electronic currency that circulates among members alongside a national currency (the dollar, in this model). Thus, a TES is a bi-currency system.</p>
 
-      <p>More specifically, because a TES is a democratic social choice system that uses money as a voting tool, your task is to create a currency circulation that:</p>
+      <p>More specifically, because a TES is part of a democratic social choice system that uses money as a voting tool, your task is to create a currency circulation that:</p>
 
       <div class="row">
         <div class="col-lg-1 col-xl-1 col-med-1 col-sm-1 col-xs-1 med-num-col">
           <span class="number-lg blue-sect">&#9312</span>
         </div>
         <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
-          <p><span class="blue-sect">Balances at each node</span>. The sum of inflows at each node must equal the sum of outflows, or else there is a problem. A fitness score is produced, with a perfect score being zero. If the score is far above zero, all other results are meaningless.</p>
+          <p><span class="blue-sect">Balances at each node</span>. The sum of inflows at each node must (approximately) equal the sum of outflows, or else there is a problem. A fitness score is produced based on discrepancies, with a perfect score being zero. If the score is far above zero, all other results are meaningless.</p>
         </div>
       </div>
 
@@ -77,7 +77,7 @@
           <span class="number-lg blue-sect">&#9315</span>
         </div>
         <div class="col-lg-11 col-xl-11 col-med-11 col-sm-11 col-xs-11 num-p-col">
-          <p><span class="blue-sect">Attains a desired partition of organization revenue</span>. Member persons support organizations in two ways: they purchase goods and services in the local marketplace, and they provide donations, grants, and subsidies through the Crowd-Based Financial System (CBFS). Each member decides how her mandatory CBFS contributions will be used (that is, which applicants for support she will fund).</p>
+          <p><span class="blue-sect">Attains a desired partition of organization revenue</span>. Member persons directly support organizations in two ways: (1) they purchase goods and services in the local marketplace; and (2) they provide donations and subsidies through the Crowd-Based Financial System (CBFS). In the second, each member decides how her mandatory CBFS contributions will be used (that is, which applicants for support she will fund). These two paths are the main source of local funding for organizations. Other, smaller revenue sources include government grants and contracts.</p>
         </div>
       </div>
 
@@ -97,7 +97,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
         <p><span class="blue-sect">Figure 1:</span> Compartments and flows in national accounts [<a href="#r1">1</a>]</p>
       </div>
 
-      <p>An agent-based simulation model has been published [<a href="#r2">2</a>] that illustrates how conditions can change year to year in an idealized TES.  The five primary compartments of that model are shown in Figure 2. The same general layout is used here, only they are subdivided further into 20 nodes, as shown in Figure 3.</p> 
+      <p>An agent-based simulation model [<a href="#r2">2</a>] illustrates how conditions can change year to year in an idealized TES.  The five primary compartments of that model are shown in Figure 2. The same general layout is used here, only they are subdivided further into 20 nodes, as shown in Figure 3.</p> 
 
       <div class="more-triangle" data-toggle="collapse" data-target="#agent-based-more">
         <div class="triangle-text">
@@ -132,8 +132,8 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
             <p><span class="blue-sect">Figure 3: </span>Compartments and flows in 20-node steady-state model.
             Dollar-only flows are in dotted green. Token and dollar flows are in solid blue.</p>
         </div>
-          <p>Whereas agent-based models can illustrate the path of change, the simpler steady-state model illustrates conditions in the long-term, once targets are achieved and the system is in (dynamic) equilibrium (perhaps 15-30 years after initiation). The model is not intended to be predictive or to capture all or even most salient characteristics of a real economy. Rather, it provides an abstracted, compartmental view of local currency circulation, and serves as a steppingstone toward future, more sophisticated models.</p>
-          <p>A take-home message is that members choose the long-term makeup of their LEDDA economy. They steer it, not the other way around. They choose income targets, how the workforce is partitioned, and how organizations are funded. As an example, one simulation of the agent-based model illustrated how about 50% of the local workforce could be employed by the nonprofit sector [<a href="#r3">3</a>].</p>
+          <p>Whereas agent-based models can illustrate paths of change from initial conditions, the simpler steady-state model illustrates conditions in the long-term, once targets are achieved and the system is in (dynamic) equilibrium (perhaps 15-30 years after initiation). The steady-state model is not intended to be predictive or to capture all or even most salient characteristics of a real economy. Rather, it provides an abstracted, compartmental view of local currency circulation, and serves as a steppingstone toward future, more sophisticated models.</p>
+          <p>A take-home message is that members choose the long-term makeup of their LEDDA economy. They steer it, not the other way around. They choose income targets, how the workforce is partitioned, and how organizations are funded. As an example, one run of the agent-based model illustrated how a community could use the LEDDA to employ ~50% of the local workforce in the nonprofit sector [<a href="#r3">3</a>].</p>
       </div>
 
     </div>
@@ -166,18 +166,19 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>To run the simulation choose starting conditions, then values for fixed variables. Finally, run the model. Several enhancements are planned for the near future:
+      <p>To run the simulation choose values for starting conditions, then values for fixed/flexible variables. Finally, press the "run" button. You might want to run once using the default values to see a possibility of how flows can balance.</p>
+      
+      <p> Several enhancements are planned for the near future:
       <ul>
-      <li>You will be able to choose an optimization algorithm, as well as choose which variables are fixed and which are flexible (available for optimization). The values specified for flexible variables will be used as starting points for the optimization run.</li>
+      <li>You will be able to choose an optimization algorithm, as well as choose which variables are fixed and which are flexible and subject to optimization. Any values specified for flexible variables will be used as starting points for the optimization run.</li>
       <li>You will be able to automatically repopulate values for the flexible variables based on the results of an optimization run.</li>
-      <li>To allow sharing of results, parameter sets that produce best fitness scores will be saved in a database for user recall.</li>
-      <li>Various enhancements might occur to this page and to the results page to make variable selection easier and the meaning of variables and results more interpretable.</li>
-      <li>Other enhancements, such as suggested by users.</li>
+      <li>To allow sharing of results, variable sets that produce best fitness scores will be saved in a database for user recall.</li>
+      <li>Various enhancements might occur to this page and to the results page to make variable selection easier and the meaning of variables and results more interpretable. If you have a suggestion on how we can improve these pages, let us know. Better yet, contribute to the coding project on <a href="https://github.com/John-Boik/Principled-Societies-Project" target="blank">Github</a>.</li>
       </ul>
       
       </p> 
       
-      <p>A spreadsheet listing variables and default settings is available for <a href="{{ url_for('static', filename='data/variable_tables.xlsx') }}" target="blank">download</a> (right click). See the <a href="glossary">glossary</a> for abbreviations and definition of terms.</p>      
+      <p>A spreadsheet listing model variables and default settings is available for <a href="{{ url_for('static', filename='data/variable_tables.xlsx') }}" target="blank">download</a>. See the <a href="glossary">glossary</a> for abbreviations and definition of terms.</p>      
 
       <div class="more-triangle" data-toggle="collapse" data-target="#how-info-more">
         <div class="triangle-text">
@@ -192,7 +193,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
 
       <div id="how-info-more" class="collapse">
         <p>
-          In the simple world of this model, the population is comprised of two-adult families and demographics and the economy are held at a static snapshot except for the direct impacts of the LEDDA (based on your choices). Thus, for example, the population does not grow or age. Also, the incomes of families that do not become members do not change. They remain equal to starting incomes, which are generated based on US Census data [<a href="#r2">2</a>]. The starting workforce partition is also generated in part using US Census data. Further, there is no inflation, and the purchasing power of a token is equal to that of the dollar.
+          In the simple world of this model, the population is comprised of two-adult families and demographics and the economy are held at a static snapshot except for the direct impacts of the LEDDA (based on your choices). Thus, for example, the population does not grow or age. Also, the incomes of families that do not become members do not change. They remain equal to starting incomes, which are generated based on US Census data [<a href="#r2">2</a>]. The starting workforce partition is generated using US labor data. Further, there is no inflation, and the purchasing power of a token is equal to that of the dollar.
         </p>
 
         <p>Once the run button is pressed, a sequence of steps solves for the flows at each node. Briefly, you have specified starting conditions and a final target income, token share of income (TSI), and workforce partition. From these alone, many things are known. The starting income distribution is known. The final size of the membership is also known. Suppose that you choose a family income target at the 90th percentile of starting incomes, say, $100,000. Then 90% of families will join the LEDDA because doing so increases their income. If you choose a target income at the starting 80th percentile of starting incomes, then 80% of the population would join the LEDDA, and so on. In this simple model, people join if it increases their income. Because final incomes are known, and the TSI and workforce partition is known, the wages paid by each type of organization, in tokens and dollars, are also known.</p>
@@ -354,7 +355,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
   <div class="row">
     <div class="col col-lg-12 col-xl-12 sect-title">
       <div class="sect-header purple-sect sh-lower">
-        <h1 class="purple-sect center">Choices for Flexible Variables</h1>
+        <h1 class="purple-sect center">Choices for Fixed/Flexible Variables</h1>
       </div>
     </div>
   </div>
@@ -397,12 +398,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_SB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_SB_subsidy">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_SB_subsidy">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_SB_subsidy_TS" type="text" value="56.36" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_SB_subsidy_TS">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_SB_subsidy_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -412,12 +413,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_NP_donation" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_NP_donation">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_NP_donation">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_NP_donation_TS" type="text" value="51.26" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_NP_donation_TS">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_NP_donation_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -427,12 +428,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_PB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_PB_subsidy">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_PB_subsidy">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_PB_subsidy_TS" type="text" value="48.13" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_PB_subsidy_TS">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_PB_subsidy_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -442,12 +443,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_nurture" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_nurture">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_nurture">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="earmark_nurture_TS" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_earmark_nurture_TS">
+      <input type="checkbox" disabled unchecked id="flexible_earmark_nurture_TS">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -486,12 +487,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_member_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_member_SB_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_nonmember_spending_to_member_SB_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_SB_pct" type="text" value="20" data-min="0" data-max="100.00" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_SB_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_member_SB_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -501,12 +502,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_member_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_member_NP_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_nonmember_spending_to_member_NP_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_NP_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_member_NP_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -516,12 +517,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_member_PB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_member_PB_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_nonmember_spending_to_member_PB_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_PB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_PB_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_member_PB_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -531,12 +532,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_nonmember_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_nonmember_SB_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_nonmember_spending_to_nonmember_SB_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_nonmember_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_nonmember_SB_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_nonmember_SB_pct">
     </div>
     </div>
   </div>
@@ -547,12 +548,12 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_nonmember_spending_to_nonmember_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_nonmember_spending_to_nonmember_NP_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_nonmember_spending_to_nonmember_NP_pct">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_nonmember_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_nonmember_NP_pct">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_nonmember_NP_pct">
     </div>
   </div>
   <div class="row input-row p-sect full-sect">
@@ -588,7 +589,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_SB_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_SB_TS">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_member_SB_TS">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>
@@ -600,7 +601,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_NP_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_NP_TS">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_member_NP_TS">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>
@@ -612,7 +613,7 @@ a desired destination. Similarly, you choose how an idealized TES economy will f
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
       <input id="person_member_spending_to_member_PB_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
       <span class="smaller-text">Flexible</span>
-      <input type="checkbox" disabled checked="" id="flexible_person_member_spending_to_member_PB_TS">
+      <input type="checkbox" disabled unchecked id="flexible_person_member_spending_to_member_PB_TS">
     </div>
     <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
     </div>

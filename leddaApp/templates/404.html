@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+
+{% block title %}
+  <title>404 Error</title>
+{% endblock %}
+
+
+{% block page_head %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35447340-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
+  <script type="text/python"
+  src="{{ url_for('static', filename='python/contact.py') }}"></script>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header blue-sect">
+        <h1>Page Not Found</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect about-sect">
+      <p>The page you were looking for is just not there.</p>
+      
+      <p>Return to the <a href="{{ url_for('index') }}">home</a> page.</p>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
