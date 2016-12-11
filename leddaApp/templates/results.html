@@ -67,7 +67,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
 <div class="container-fluid">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 center">
-      <h1 class="green-sect">Fitness Overview</h1>
+      <h1 class="blue-sect">Fitness Overview</h1>
     </div>
   </div>
 </div>
@@ -84,8 +84,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
       <p>The fitness at a single node is calculated as abs(total inflow - total outflow), for tokens and dollars separately, then added together. The grand fitness is the sum of fitness values over all nodes. It can be evaluated as:
       <ul>
       <li>0&ndash;10 T&D per person (0&ndash;<span id="threshold_lo_1" class="output_calc">...wait...</span> T&D): Excellent</li>
-      <li>10&ndash;100 T&D per person (<span id="threshold_lo_2" class="output_calc">...wait...</span>&ndash;
-        <span id="threshold_hi_1" class="output_calc">...wait...</span> T&D): OK</li>
+      <li>10&ndash;100 T&D per person (<span id="threshold_lo_2" class="output_calc">...wait...</span>&ndash;<span id="threshold_hi_1" class="output_calc">...wait...</span> T&D): OK</li>
       <li>&GT;100 T&D per person (&GT;<span class="output_calc" id="threshold_hi_2">...wait...</span> T&D): Poor</li>
       </ul>
       </p>
@@ -96,17 +95,24 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
 
       <div>
         <div id='summary_graph_container'></div>
-        <br >
         <caption>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</caption>
       </div>
-        
-        
-      <div>        
+      <br >  
+      <div class="more-triangle" data-toggle="collapse" data-target="#overview-more">
+        <div class="triangle-text">
+          more info
+        </div>
+        <div class="blue-fill">
+          <svg width="100%" viewBox="0 0 50 11">
+            <polygon points="0,0 25,10 50,0"/>
+          </svg>
+        </div>
+      </div>
+
+      <div id="overview-more" class="collapse">
+      
         <!-- ========================== Group 1 ============================================== -->
         <br>
-        <input type="button" id="more_1" value="More Details (Group 1)">
-
-
 
         <div id="org_funding_table" ></div>
         <br>
@@ -119,70 +125,137 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
 
         <div id="node_fitness_summary_table" ></div>
       </div>       
+
+    </div>
+  </div>
+</div>
+
         
-      <!-- ========================== Group 2 ============================================== -->
+<!-- ========================== Group 2 ============================================== -->
 
-      <h2 style="clear:both;">Results: Starting Conditions and Targets</h2> 
-      <p>The results in this section follow directly from the values chosen for starting conditions and targets.  </p>
-      <input type="button" id="more_2" value="More Details (Group 2)">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header green-sect sh-lower">
+        <h1 class="green-sect center">Results: Starting Conditions and Targets</h1>
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>The results in this section follow directly from the values chosen for starting conditions and targets.</p>
+      <br>
       <div id="income_dist"></div>
-      <div id="graph_person_counts"></div>
-      <div id="graph_pct_employed_workforce"></div>
-      <div id="graph_pie_employed_member_workforce"></div>
-      <div id="graph_mean_family_income"></div>
-      <div id="group_2_summary_table" ></div>
 
 
+      <br >  
+      <div class="more-triangle" data-toggle="collapse" data-target="#group2-more">
+        <div class="triangle-text">
+          more info
+        </div>
+        <div class="green-fill">
+          <svg width="100%" viewBox="0 0 50 11">
+            <polygon points="0,0 25,10 50,0"/>
+          </svg>
+        </div>
+      </div>
 
-      <!-- ========================== Group 3 ============================================== -->
-      <h2 style="clear:both;">Results: Variables</h2>  
-      <p>Given starting conditions and targets, the results in this section follow directly from the values chosen for variables.</p>
+      <div id="group2-more" class="collapse">
 
-        <input type="button" id="more_3" value="More Details (Group 3)" onClick="$('#detailed_graph_container').show();">
+        <div id="graph_person_counts"></div>
+        <div id="graph_pct_employed_workforce"></div>
+        <div id="graph_pie_employed_member_workforce"></div>
+        <div id="graph_mean_family_income"></div>
+        <div id="group_2_summary_table" ></div>
+    </div>
+  </div>
+  </div>
+</div>
 
-        <h3 style="clear:both;">Summary tables</h3> 
+<!-- ========================== Group 3 ============================================== -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header brown-sect sh-lower">
+        <h1 class="brown-sect center">Results: Fixed/Flexible Variables</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>Given starting conditions and targets, the results in this section follow directly from the values chosen for fixed/flexible variables.</p>
+      <br>
+
+      <div class="more-triangle" id="gr3_more">
+        <div class="triangle-text">
+          more info
+        </div>
+        <div class="brown-fill">
+          <svg width="100%" viewBox="0 0 50 11">
+            <polygon points="0,0 25,10 50,0"/>
+          </svg>
+        </div>
+      </div>
+
+      <div id="group3_more">
         
+        <h2 style="clear:both;" class="brown-sect" >Summary Tables</h2> 
         <div id="group_3b_node_table" ></div>
 
-        <h3 style="clear:both;">Detailed graph</h3>
+        <h2 style="clear:both;" class="brown-sect" >Detailed graph</h2>
+
+
+
+              <div id="detailed_graph_container">
+                  <div class="col col-xl-1 col-lg-1 col-med-2 col-sm-12" id="graph_left"></div>
+                  <div class="col col-xl-11 col-lg-11 col-med-11 col-xs-12" id="graph_right"></div>  
+              </div>
+              <br clear="all">
+
+
+
+
+      </div>
     </div>
   </div>
 </div>
+<!-- ========================== Group 4 ============================================== -->
+
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header purple-sect sh-lower">
+        <h1 class="purple-sect center">Results: Detailed Tables</h1>
+      </div>
+    </div>
+  </div>
 
-        <div id="detailed_graph_container">
-          <div class="col col-xl-1 col-lg-1 col-med-2 col-sm-12" id="graph_left"></div>
-          <div class="col col-xl-11 col-lg-11 col-med-11 col-xs-12" id="graph_right"></div>  
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>This section contains a large set of detailed tables containing flow information for each node. Click the "more info" triangle for "Results: Fixed/Flexible Variables" before clicking the "more info" triangle here. </p>
+      <br>
+
+      <div class="more-triangle" id="gr4_more">
+        <div class="triangle-text">
+          more info
         </div>
+        <div class="purple-fill">
+          <svg width="100%" viewBox="0 0 50 11">
+            <polygon points="0,0 25,10 50,0"/>
+          </svg>
+        </div>
+      </div>
 
-        <br clear="all">
-      <!-- ========================== Group 4 ============================================== -->
-
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
-
-       <h3 style="clear:both;">Detailed node tables</h3>
-       <input type="button" id="more_4" value="More Details (Group 4)"> 
-        
-        
+      <div id="group4_more">
         <div id="all_tables" style="clear:both;"></div>
-
+    </div>
     </div>
   </div>
 </div>
-
-<br>
-<br>
-<br>
 
 
 <script>

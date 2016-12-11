@@ -33,7 +33,7 @@ def fitness_overview_tables():
   
   # grand fitness table -------------------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Grand Fitness")
+  table <= html.CAPTION("Grand Fitness", Class="blue-sect")
   population = float(paramsDic['population'][0])
 
   # write table body and rows
@@ -96,7 +96,7 @@ def annotate_summary_graph():
   
   """
   
-  print("\nannotate summary graph:")
+  #print("\nannotate summary graph:")
 
   edges = summaryGraphDic['edges']
   keys = list(edges.keys())
@@ -160,7 +160,7 @@ def org_funding_table():
   
   # make Org source table -------------------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Organizations Revenue Sources, By Percent")
+  table <= html.CAPTION("Organizations Revenue Sources, By Percent", Class="blue-sect")
 
   # write table body and rows
   tb = html.TBODY()
@@ -211,7 +211,7 @@ def compartment_flow_summary_table():
 
   # compartment flow summary table ------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Compartment Flow Summary")
+  table <= html.CAPTION("Compartment Flow Summary", Class="blue-sect")
 
   edges = summaryGraphDic['edges']
   tb = html.TBODY()
@@ -274,7 +274,7 @@ def node_fitness_summary_table():
 
   # node fitness summary table ------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Node Fitness, Summary")
+  table <= html.CAPTION("Node Fitness, Summary", Class="blue-sect")
 
   tb = html.TBODY()
   rows = []
@@ -347,7 +347,7 @@ def params_table():
   keys.sort()
 
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Parameters and Variables")
+  table <= html.CAPTION("Parameters and Variables", Class="blue-sect")
 
   # write table body and rows
   tb = html.TBODY()
@@ -736,7 +736,7 @@ def group_2_summary_table():
   
   # Before/After
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Initial Vs. Final")
+  table <= html.CAPTION("Initial Vs. Final", Class="green-sect")
   population = float(paramsDic['population'][0])
 
   # write table body and rows
@@ -783,7 +783,7 @@ def inflow_outflow_summary_tables():
 
   # group 3b node table -------------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Node Flows and Fitness, Detailed")
+  table <= html.CAPTION("Node Flows and Fitness, Detailed", Class="brown-sect")
 
   tb = html.TBODY()
   rows = []
@@ -865,7 +865,7 @@ def inflow_outflow_summary_tables():
 def load_svg_detailed(url="/static/images/steady_state_detailed.svg"):
   req = ajax.ajax()
   req.bind('complete', load_svg_detailed_complete)
-  req.open('GET', url, False)
+  req.open('GET', url, True)
   req.send()
 
 
@@ -900,6 +900,7 @@ def set_pan_controls():
   """
   
   global pan_detailed
+  #print("pan_detailed= ", pan_detailed)
   
   pan_detailed.setMinZoom(0.1)
   pan_detailed.setMaxZoom(10.0)
@@ -914,7 +915,7 @@ def set_pan_controls():
   elt = document['svg_detailed_graph']
   elt.style.cursor = "default"
   elt.bind('click', doZoom)  
-    
+  
   for ID in ['pointer', 'zoom_in', 'zoom_out', 'pan', 'info', 'reset']:
     elt = document[ID]
     elt.bind('click', pan_zoom)
@@ -981,7 +982,7 @@ def doZoom(evt):
     # do not do zoom
     return
   
-  print("\ndoZoom:")
+  #print("\ndoZoom:")
     
   # get transformed x,y point to zoom at
   pan = pan_detailed.getPan()
@@ -1026,7 +1027,7 @@ def showModal(evt):
   Show the model dialog for info/help clicks on detailed graph
   """
   
-  print("\nshow Edge Table")
+  #print("\nshow Edge Table")
   
   elt = document['svg_detailed_graph']
   if elt.style.cursor != "help":
@@ -1035,7 +1036,7 @@ def showModal(evt):
   
   ID = evt.currentTarget.id  
   elt = document[ID]
-  print("ID= ", ID, type(ID))
+  #print("ID= ", ID, type(ID))
   ID = int(ID)
   if ID in edgeDic.keys():
     dic = edgeDic
@@ -1063,7 +1064,7 @@ def closeModal(evt):
   is clicked
   """
   
-  print("\ncloseModal:")
+  #print("\ncloseModal:")
   
   modal = document['modal_container']
   close = document['closeModal']
@@ -1088,7 +1089,7 @@ def annotate_detailed_graph_edges():
   # example: {20: {'unit': 'dollars', 'dst': 'org_member_SB', 'kind': 'spending', 
   #  'value': 10790695, 'id': 20, 'src': 'person_nonmember_SB'}
   
-  print("\nannotate detailed graph edges:")
+  #print("\nannotate detailed graph edges:")
   
   global edgeDic
   edgeDic = {}
@@ -1142,7 +1143,7 @@ def annotate_detailed_graph_nodes():
   Annotate node color and modal info for detailed graph
   """
   
-  print("\nannotate detailed graph nodes:")
+  #print("\nannotate detailed graph nodes:")
   
   global nodeDic
   nodeDic = {}
@@ -1330,7 +1331,7 @@ def write_all_tables():
   Write all node tables out 
   """
   
-  print("\nwrite all tables:")
+  #print("\nwrite all tables:")
   
   elt = document['all_tables']
   elt.html = " "
@@ -1360,7 +1361,7 @@ def write_all_tables():
 # Call Groups 
 ##########################################################################################
 
-def more_1_group(evt):
+def more_1_group():
   """
   Call more 1 groups
   """
@@ -1372,7 +1373,7 @@ def more_1_group(evt):
 
 
 # ========================================
-def more_2_group(evt):
+def more_2_group():
   """
   Call more 2 groups (Highcharts graphs)
   """
@@ -1389,16 +1390,29 @@ def more_3_group(evt):
   """
   Call more 3 groups (Detailed graph)
   """
+  if document["group3_more"].style.display == "block":
+    document["group3_more"].style.display = "none"
+    return
+  
+  if document["group3_more"].style.display != "block":
+    document["group3_more"].style.display = "block"
+  
+    if len(document["group_3b_node_table"].text) > 0:
+      return
+  
   global pan_detailed
   
   inflow_outflow_summary_tables()
   
   load_svg_detailed()
   load_svg_pan_controls()
-
+  
   pan_detailed = window.svgPanZoom("#svg_detailed_graph")
+  pan_detailed.fit()
+  
   set_pan_controls()
-
+  
+  
   window.bind('click', closeModal)
   close = document['closeModal']
 
@@ -1408,13 +1422,30 @@ def more_3_group(evt):
   annotate_detailed_graph_edges()
   annotate_detailed_graph_nodes()
 
+  document['detailed_graph_container'].style.display = "block"
+
 
 # ========================================
 def more_4_group(evt):
   """
   Call more 4 groups (very detailed tables)
   """
+  print("a= ", document["group4_more"].style.display)
+  print("b= ", len(document["all_tables"].text))
+
+  if len(document["group_3b_node_table"].text) == 0:
+    return
+
+  if document["group4_more"].style.display == "block":
+    document["group4_more"].style.display = "none"
+    return
   
+  if document["group4_more"].style.display != "block":
+    document["group4_more"].style.display = "block"
+  
+    if len(document["all_tables"].text) > 0:
+      return
+
   # write out complete set of node tables
   write_all_tables()
       
@@ -1442,13 +1473,14 @@ countsDic = results['countsDic']
 histoDic = results['histoDic']
 summaryGraphDic = results['summaryGraphDic']
 
-
-keys = list(paramsDic.keys())
-keys.sort()
-print("\nparamsDic:")
-for k in keys:
-  print(k, paramsDic[k])
-print("\n")
+if 1==2:
+  # testing
+  keys = list(paramsDic.keys())
+  keys.sort()
+  print("\nparamsDic:")
+  for k in keys:
+    print(k, paramsDic[k])
+  print("\n")
 
 
 # maxFitness used in color-coding table cells and nodes
@@ -1478,10 +1510,11 @@ annotate_summary_graph()
 
 
 # call more groups --------------------------------------------------------
-document['more_1'].bind('click', more_1_group)
-document['more_2'].bind('click', more_2_group)
-document['more_3'].bind('click', more_3_group)
-document['more_4'].bind('click', more_4_group)
+more_1_group()
+more_2_group()
+#more_3_group()
+document['gr3_more'].bind('click', more_3_group)
+document['gr4_more'].bind('click', more_4_group)
 
 
 

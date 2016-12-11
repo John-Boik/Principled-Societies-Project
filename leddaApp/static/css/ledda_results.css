@@ -24,12 +24,12 @@
 
 
 #summary_graph_container {
-  height: 750px;  
+  height: 700px;  
   }
 
 #svg_summary_graph {
   overflow:hidden;  
-  height: 800px; 
+  height: 750px; 
   /*width:60%;*/
   /*border: 1px solid gray;*/
   }
@@ -39,8 +39,8 @@
   width: 100%; 
   /*height: auto;*/
   position: relative;
-  height: 1000px;
-  display: none;
+  height: 800px;
+  /*display: none;*/
   /*min-height: 1000px;*/
   }
 
@@ -82,7 +82,7 @@
 
 #svg_detailed_graph {
   /*overflow:hidden;  */
-  height: 1000px;
+  height: 800px;
   /*width: 80%;*/
   width: 100%;
   /*border: 1px solid gray;*/
@@ -171,6 +171,11 @@
   text-align: right;
   }
 
-
-  
+#group3_more {
+  display: none;
+  }
+#group4_more {
+  display: none;
+  }
+    
 
