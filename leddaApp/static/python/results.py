@@ -1315,9 +1315,9 @@ def annotate_detailed_graph_nodes():
       table_ <= tb
     
     if nodes[i]['kind'] == 'person': 
-      nodeDic[i] = table1 + table2 + table3 
+      nodeDic[i] = table1 + html.BR() + table2 + html.BR() + table3 + html.BR() 
     else:
-      nodeDic[i] = table1 + table2
+      nodeDic[i] = table1 + html.BR() + table2 + html.BR()
 
 
 
@@ -1334,7 +1334,7 @@ def write_all_tables():
   #print("\nwrite all tables:")
   
   elt = document['all_tables']
-  elt.html = " "
+  elt.html = ""
   
   # nodes
   nodes = fitnessDic['nodes']
@@ -1343,7 +1343,9 @@ def write_all_tables():
   for i in keys:
     #i = str(i)
     elt <= nodeDic[i]
+    
     elt <= html.HR()
+    elt <= html.BR()
      
   if 1==2:
     # edges (this info is also contained in node tables)

@@ -167,9 +167,26 @@
   font-size: small;
   }
 
+.infoTable td { 
+    padding: 5px;
+  }
+
 .tableValue {
   text-align: right;
   }
+
+.summaryTable td { 
+    padding: 5px;
+  }
+
+
+table, th, td {
+   border: 1px solid black;
+}
+
+th {
+    text-align: center;
+}
 
 #group3_more {
   display: none;
