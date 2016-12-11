@@ -1430,8 +1430,8 @@ def more_4_group(evt):
   """
   Call more 4 groups (very detailed tables)
   """
-  print("a= ", document["group4_more"].style.display)
-  print("b= ", len(document["all_tables"].text))
+  #print("a= ", document["group4_more"].style.display)
+  #print("b= ", len(document["all_tables"].text))
 
   if len(document["group_3b_node_table"].text) == 0:
     return
