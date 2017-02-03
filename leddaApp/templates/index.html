@@ -2,7 +2,7 @@
 
 
 {% block title %}
-  <title>Home</title>
+  <title>Principled Societies Project</title>
 {% endblock %}
 
 
@@ -16,6 +16,21 @@
     ga('create', 'UA-35447340-1', 'auto');
     ga('send', 'pageview');
   </script>
+
+
+  <meta property="og:type" content="website" /> 
+  <meta property="og:title" content="Principled Societies Project" />
+  <meta property="og:description" content="Promoting the wellbeing centrality R&amp;D program, developing the LEDDA economic democracy framework" />
+  <meta property="og:image" content={{ url_for('static', filename="images/globe_12.png") }} />
+  <meta property="og:url" content="http://www.PrincipledSocietiesProject.org/" />
+  <meta property="og:site_name" content="Principled Societies Project" />
+
+  <meta name="twitter:title" content="Principled Societies Project" />
+  <meta name="twitter:description" content="Promoting the wellbeing centrality R&amp;D program, developing the LEDDA economic democracy framework" />
+  <meta name="twitter:image" content={{ url_for('static', filename="images/globe_12.png") }} />
+  <meta name="twitter:site" content="@JohnBoik" />
+  <meta name="twitter:creator" content="@JohnBoik" />
+
 {% endblock %}
 
 
@@ -446,6 +461,7 @@
 </div>
 
 <div class="container-fluid">
+  <a name="surveys"></a>
   <div class="row">
     <div class="col col-lg-12 col-xl-12 sect-title">
       <div class="sect-header brown-sect sh-lower">

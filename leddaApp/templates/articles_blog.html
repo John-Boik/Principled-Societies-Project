@@ -1,0 +1,72 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+  <title>PSP Articles and Media</title>
+{% endblock %}
+
+
+{% block page_head %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35447340-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header blue-sect">
+        <h1>Blog Articles</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect about-sect">
+
+      <p>Principled Societies Project blog articles are collected here. Please share and republish. <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/4.0/80x15.png" /></a> These works are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.<p>
+
+      <hr >
+      <p>
+      <img class="blog-list-pic" alt="What jobs do we find meaningful?" src={{ url_for('static', filename="images/black-and-white-man-person-street_800.jpg") }}>
+      Boik JC. <a href="/economy_of_meaning">An Economy of Meaning, or Bust</a>. February 3, 2017.
+      </p>
+
+
+      <hr >
+      <p>
+      <img class="blog-list-pic" alt="Can we can develop more meaningful economic and governance systems?" src={{ url_for('static', filename="images/industry-pollution.jpg") }}>
+      Boik JC. <a href="/wellbeing_centrality_summary">Wellbeing Centrality: Toward an Economics and Politics of Meaning</a>. February 3, 2017.
+      </p>
+
+
+      <hr >
+      <p>
+     <img class="blog-list-pic" alt="Which economic system designs can best help us to solve problems?" src={{ url_for('static', filename="images/global-warming-2034896_1280.jpg") }}>
+      Boik JC. <a href="/why_stop_at_basic_income">Why Stop at Basic Income and a Living Wage?</a>. February 3, 2017.
+      </p>
+            
+
+
+
+
+      <br>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+

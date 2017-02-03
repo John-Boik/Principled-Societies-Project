@@ -2,7 +2,7 @@
 
 <head>
 
-  <html  lang="en-US">
+  <html  lang="en-US" prefix="og: http://ogp.me/ns#">
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +25,9 @@
 
   {% block page_head %}
   {% endblock %}
+
+
+  <script type="text/javascript" src="http://platform-api.sharethis.com/js/sharethis.js#property=589349a456fa980012cf65a6"></script>
 
 </head>
 
@@ -62,10 +65,10 @@
           Home
           <span class="caret"></span>
           <ul class="dropdown-menu">
-            <li><a id="menu_home" href="/">Home</a></li>
-            <li><a id="menu_interested" href="/who_interested">Who should be interested?</a></li>
-            <li><a id="menu_about" href="/about_psp">About PSP</a></li>
-            <li><a id="menu_contact" href="/contact">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/who_interested">Who should be interested?</a></li>
+            <li><a href="/about_psp">About PSP</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -73,11 +76,11 @@
           Book
           <span class="caret"></span>
           <ul class="dropdown-menu">
-            <li><a  id="menu_edd_praise" href="/book_edd_praise">Praise for <i>Economic Direct Democracy</i></a></li>
-            <li><a  id="menu_edd_about" href="/book_edd_about">About the Book</a></li>
-            <li><a  id="menu_edd_toc" href="/book_edd_toc">Table of Contents</a></li>
-            <li><a  id="menu_edd_download" href="/book_edd_download">Download Book</a></li>
-            <li><a  id="menu_edd_license" href="/book_edd_license">Book License</a></li>
+            <li><a  href="/book_edd_praise">Praise for <i>Economic Direct Democracy</i></a></li>
+            <li><a  href="/book_edd_about">About the Book</a></li>
+            <li><a  href="/book_edd_toc">Table of Contents</a></li>
+            <li><a  href="/book_edd_download">Download Book</a></li>
+            <li><a  href="/book_edd_license">Book License</a></li>
           </ul>
         </li>
         <li>
@@ -85,11 +88,26 @@
           Interactive
           <span class="caret"></span>
           <ul class="dropdown-menu">
-            <li><a  id="model_steady_state_01" href="/model_steady_01">Steady-State Model</a></li>
+            <li><a  href="/model_steady_01">Steady-State Model</a></li>
+            <li><a  href="/#surveys">Take our surveys</a></li>
           </ul>
         </li>
         <li><a id="glossary" href="/glossary">Glossary</a></li>
-        <li><a id="media" href="/articles_media">Articles and Media</a></li>
+
+        <li>
+          <a class="dropdown-toggle" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
+          Articles and Media
+          <span class="caret"></span>
+          <ul class="dropdown-menu">
+            <li><a href="/articles_media">List of Books, Papers, Media Articles</a></li>
+            <li><a href="/articles_blog">List of Blog Articles</a></li>
+            <li><a href="/economy_of_meaning">Economy of Meaning, Or Bust</a></li>
+            <li><a href="/wellbeing_centrality_summary">Wellbeing Centrality: Toward an Economics and Politics of Meaning</a></li>
+            <li><a href="/why_stop_at_basic_income">Why Stop at Basic Income and a Living Wage?</a></li>
+            
+          </ul>
+        </li>
+        
         <li>
           <a class="dropdown-toggle" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
           Get Involved
@@ -112,11 +130,11 @@
        </div>
       </div>
 
-      <div class="col-xl-11 col-lg-8 col-med-9 col-sm-9 cols-xs-8 title-col">
+      <div class="col-xl-11 col-lg-10 col-med-9 col-sm-9 cols-xs-8 title-col">
         <div id="top-title">
           <div>
             <h1>Principled Societies Project</h1>
-            <h4 class="subtitle">Developing the LEDDA Economic Direct Democracy Framework</h4>
+            <h4 class="subtitle">Promoting the Wellbeing Centrality R&amp;D Program, Developing the LEDDA Economic Democracy Framework</h4>
             
             
           </div>
@@ -127,6 +145,9 @@
 
   </div>
 
+  <div class="sharethis-inline-share-buttons share"></div>
+
+
   {% block body %}
   
   {% endblock %}
@@ -136,7 +157,9 @@
     <div class="row">
     <hr>
       <div class="col-lg-12">
+        <div class="sharethis-inline-share-buttons share"></div>
           <h6 class="muted pull-right">Fractal globe image by <a href="https://www.flickr.com/photos/fdecomite/2173148722/" target="blank">Fdecomite</a></h6>
+          
       </div>
     </div>
   </div>

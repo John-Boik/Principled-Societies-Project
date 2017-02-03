@@ -51,13 +51,6 @@ def index():
   """
   return render_template('index.html')
 
-# -------------------------------------------------------------------------------------
-@app.route('/survey')
-def survey():
-  """
-  This is survey page 
-  """
-  return render_template('survey.html')  
 
 # -------------------------------------------------------------------------------------
 @app.route('/collaborate_engage')
@@ -142,10 +135,18 @@ def donate():
 @app.route('/articles_media')
 def articles_media():
   """
-  This is the income generation page. 
+  This is the media articles page. 
   """
   return render_template('articles_media.html') 
 
+
+# -------------------------------------------------------------------------------------
+@app.route('/articles_blog')
+def articles_blog():
+  """
+  This is the blog articles page. 
+  """
+  return render_template('articles_blog.html') 
 
 # -------------------------------------------------------------------------------------
 @app.route('/book_edd_about')
@@ -199,6 +200,33 @@ def donation_thanks():
   This is the thanks for donation page. 
   """
   return render_template('donation_thanks.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/economy_of_meaning')
+def economy_of_meaning():
+  """
+  This is the page for a blog article. 
+  """
+  return render_template('economy_of_meaning.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/why_stop_at_basic_income')
+def why_stop_at_basic_income():
+  """
+  This is the page for a blog article. 
+  """
+  return render_template('why_stop_at_basic_income.html') 
+  
+    
+# -------------------------------------------------------------------------------------
+@app.route('/wellbeing_centrality_summary')
+def wellbeing_centrality_summary():
+  """
+  This is the page for a blog article. 
+  """
+  return render_template('wellbeing_centrality_summary.html') 
 
 
 # -------------------------------------------------------------------------------------

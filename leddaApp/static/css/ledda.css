@@ -220,9 +220,9 @@ ul, li, ol {
     font-size: 2.7em;
     text-align: center;
     letter-spacing: 1px;
-    margin-top: 1.2em;
+    margin-top: 1.6em;
     margin-bottom: 1em;
-    margin-top: 2em;
+
 }
 
 
@@ -234,6 +234,16 @@ ul, li, ol {
     margin-bottom: 1em;
     margin-top: 2em;
 }
+
+.sect-header h4 {
+    font-size: 2.2em;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+
 .p-sect {
     padding-left: 14%;
     padding-right: 14%;
@@ -525,3 +535,22 @@ ul, li, ol {
 .number-lg {
   font-size: 70%;
 }
+
+.share {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  }
+
+.blog-pic {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  width: 800px;
+
+  } 
+  
+.blog-list-pic {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+
+  }   
