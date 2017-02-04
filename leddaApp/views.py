@@ -141,12 +141,12 @@ def articles_media():
 
 
 # -------------------------------------------------------------------------------------
-@app.route('/articles_blog')
+@app.route('/blog')
 def articles_blog():
   """
   This is the blog articles page. 
   """
-  return render_template('articles_blog.html') 
+  return render_template('blog.html') 
 
 # -------------------------------------------------------------------------------------
 @app.route('/book_edd_about')
