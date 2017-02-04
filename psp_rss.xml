@@ -1,7 +1,8 @@
- <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
+  <atom:link href="http://www.principledsocietiesproject.org/Data/psp_rss.xml" rel="self" type="application/rss+xml" />
   <title>Principled Societies Project</title>
   <link>http://www.PrincipledSocietiesProject.org</link>
   <description>Promoting the wellbeing centrality R&amp;D program, developing the LEDDA economic democracy framework 
@@ -10,13 +11,15 @@
   <item>
     <title>An Economy of Meaning, or Bust</title>
     <link>http://www.PrincipledSocietiesProject.org/economy_of_meaning</link>
-    <description>Current economic systems are dismal because they waste our precious time. We can pause to to reevaluate, and redesign.
+    <guid>http://www.PrincipledSocietiesProject.org/economy_of_meaning</guid>
+    <description>Current economic systems are dismal because they waste our precious time. We can pause to reevaluate, and redesign.
     </description>
   </item>
 
   <item>
     <title>Wellbeing Centrality: Toward an Economics and Politics of Meaning</title>
     <link>http://www.PrincipledSocietiesProject.org/wellbeing_centrality_summary</link>
+    <guid>http://www.PrincipledSocietiesProject.org/wellbeing_centrality_summary</guid>
     <description>The designs of current economic and governance systems may be inadequate to solve our many pressing problems. Ideas from complexity science and other fields can help us re-conceptualize systems, leading to better designs.
     </description>
   </item>
@@ -24,9 +27,11 @@
   <item>
     <title>Why Stop at Basic Income and a Living Wage?</title>
     <link>http://www.PrincipledSocietiesProject.org/why_stop_at_basic_income</link>
+    <guid>http://www.PrincipledSocietiesProject.org/why_stop_at_basic_income</guid>
     <description> We can ask the big question: Out of all conceivable economic system designs, which ones might be best at helping us to focus on and solve problems that matter?
     </description>
   </item>    
+  
 </channel>
 
 </rss> 

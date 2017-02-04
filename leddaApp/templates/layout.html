@@ -47,8 +47,10 @@
               <span id="mailsubscribe"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"></span>
               </div>
           </form>
+        </div>        
 
-        </div>
+
+
 
         <button class="navbar-toggle collapsed" aria-expand="false" data-toggle="collapse" data-target="#navbar" type="button">
           <span class="sr-only">Toggle navigation</span>
@@ -134,9 +136,13 @@
         <div id="top-title">
           <div>
             <h1>Principled Societies Project</h1>
-            <h4 class="subtitle">Promoting the Wellbeing Centrality R&amp;D Program, Developing the LEDDA Economic Democracy Framework</h4>
-            
-            
+            <h4 class="subtitle">Promoting the Wellbeing Centrality R&amp;D Program, Developing the LEDDA Economic Democracy Framework
+        <span class="rss-logo">
+        <a href="http://www.principledsocietiesproject.org/Data/psp_rss.xml">
+        <img src={{ url_for('static', filename="images/feed-icon-28x28.png") }}>
+        </a>
+        </span>            
+         </h4>   
           </div>
         </div>
       </div>
@@ -146,7 +152,6 @@
   </div>
 
   <div class="sharethis-inline-share-buttons share"></div>
-
 
   {% block body %}
   
