@@ -194,6 +194,14 @@ def book_edd_toc():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/sitemap.xml')
+@app.route('/psp_rss.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
+
+
+
+# -------------------------------------------------------------------------------------
 @app.route('/donation_thanks')
 def donation_thanks():
   """
