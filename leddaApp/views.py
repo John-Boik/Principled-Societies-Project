@@ -196,8 +196,9 @@ def book_edd_toc():
 # -------------------------------------------------------------------------------------
 @app.route('/sitemap.xml')
 @app.route('/psp_rss.xml')
+@app.route('/robots.txt')
 def static_from_root():
-    return send_from_directory(app.static_folder, request.path[1:])
+  return send_from_directory(app.static_folder, request.path[1:])
 
 
 
