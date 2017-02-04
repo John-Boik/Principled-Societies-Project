@@ -558,3 +558,8 @@ ul, li, ol {
 .rss-logo {
   float: right;
   }  
+
+.attrib {
+  margin-bottom: 20px;
+  margin-top: -20px;
+  } 
