@@ -2,3 +2,5 @@ User-agent: *
 Disallow:
 
 Sitemap: http://principledsocietiesproject.org/sitemap.xml
+
+Sitemap: http://principledsocietiesproject.org/psp_rss.xml
