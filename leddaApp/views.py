@@ -239,6 +239,15 @@ def wellbeing_centrality_summary():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/socio_prospectus')
+def socio_prospectus():
+  """
+  This is the page for a blog article. 
+  """
+  return render_template('socio_prospectus.html') 
+
+
+# -------------------------------------------------------------------------------------
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
