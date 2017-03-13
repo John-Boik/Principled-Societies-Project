@@ -248,6 +248,15 @@ def socio_prospectus():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/prospectus')
+def prospectus():
+  """
+  This is the page for the prospectus. 
+  """
+  return render_template('prospectus.html') 
+
+
+# -------------------------------------------------------------------------------------
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
