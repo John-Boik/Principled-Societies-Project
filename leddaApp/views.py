@@ -257,6 +257,19 @@ def prospectus():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/ledda_framework')
+def ledda_framework():
+  """
+  This is the page for the LEDDA. 
+  """
+  return render_template('ledda_framework.html') 
+
+
+
+
+
+
+# -------------------------------------------------------------------------------------
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

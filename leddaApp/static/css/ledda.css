@@ -563,3 +563,23 @@ ul, li, ol {
   margin-bottom: 20px;
   margin-top: -20px;
   } 
+
+
+figcaption {
+  font-size: 120%;
+  font-weight: bold;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  }
+
+.ledda li {
+  margin-bottom: 20px;
+  }
+
+.ledda li span {
+  color: #000000;
+  }
+
+
+
+
