@@ -4,7 +4,7 @@
   }
 
 body {
-    padding-top: 65px;
+    padding-top: 0px;
 }
 p {
     /*line-height: 1.9em;*/
@@ -116,7 +116,7 @@ ul, li, ol {
     padding-left: 1em;
 }
 /*nav*/
-.navbar-fixed-top {
+.navbar-default {
     background: linear-gradient(10deg, #6384a9, #093b74);
     color: #fff;
 }
