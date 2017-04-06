@@ -431,9 +431,7 @@ ul, li, ol {
 }
 
 @media screen and (max-width: 576px) {
-    #mailsubscribe {
-        float: left;
-    }
+
     .navbar-brand {
         margin-bottom: 8px;
     }
@@ -445,15 +443,15 @@ ul, li, ol {
 }
 @media screen and (max-width: 1152px) and (min-width: 766px) {
     body {
-        padding-top: 105px;
+        padding-top: 0px;
     }
     #top-title {
-        padding-top: 7%;
+        padding-top: 0%;
     }
 }
 @media screen and (max-width: 766px) and (min-width: 563px) {
     body {
-        padding-top: 60px;
+        padding-top: 0px;
     }
 }
 @media screen and (min-width: 992px) {
@@ -512,15 +510,15 @@ ul, li, ol {
 }
 @media screen and (max-width: 1152px) {
     .space-col {
-        padding-top: 4em;
+        padding-top: 0px;
     }
 }
 @media screen and (max-width: 562px) {
     body {
-        padding-top: 110px;
+        padding-top: 0px;
     }
     #top-title {
-        padding-top: 7%;
+        padding-top: 0%;
     }
     .sh-lower {
         /*margin-top: -15em;*/
@@ -589,9 +587,9 @@ p {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
-  -webkit-column-gap: 10px;
-  column-gap: 10px;
-  -moz-column-gap: 10px;
+  -webkit-column-gap: 5px;
+  column-gap: 5px;
+  -moz-column-gap: 5px;
   }
 
 .two-columns li span {
@@ -600,6 +598,10 @@ p {
 
 figure {
   margin-top: 40px;
+  }
+
+.email {
+  color: #000000;
   }
 
 
