@@ -569,7 +569,7 @@ figcaption {
   font-size: 120%;
   font-weight: bold;
   margin-bottom: 40px;
-  margin-top: 50px;
+  margin-top: 10px;
   }
 
 .ledda li {
@@ -582,6 +582,24 @@ figcaption {
 
 p {
   color: #000000;
+  }
+
+
+.two-columns {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 10px;
+  column-gap: 10px;
+  -moz-column-gap: 10px;
+  }
+
+.two-columns li span {
+  color: #000000;
+  }
+
+figure {
+  margin-top: 40px;
   }
 
 
