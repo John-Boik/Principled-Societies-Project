@@ -93,8 +93,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.50545912"
-     inkscape:cx="477.44707"
-     inkscape:cy="472.98276"
+     inkscape:cx="632.18571"
+     inkscape:cy="393.84678"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -347,17 +347,17 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:90px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000080;fill-opacity:1"
-       x="497.93219"
+       x="493.93219"
        y="468.32785"
        id="text4312"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4314"
-         x="497.93219"
+         x="493.93219"
          y="468.32785"
          style="font-size:20px;text-align:center;text-anchor:middle;fill:#000080">Emotional</tspan><tspan
          sodipodi:role="line"
-         x="497.93219"
+         x="493.93219"
          y="493.32785"
          id="tspan4316"
          style="font-size:20px;text-align:center;text-anchor:middle;fill:#000080">information</tspan></text>
@@ -385,7 +385,7 @@
          style="font-weight:bold;font-size:30.00000191px;fill:#ff0000;stroke:none;stroke-width:0.30000004;stroke-miterlimit:4;stroke-dasharray:none;"
          id="tspan8886">decisions</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000080;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99999997, 3.99999988;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker9008)"
+       style="fill:none;fill-rule:evenodd;stroke:#000080;stroke-width:2.00000018;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.00000018,8.00000072;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker9008)"
        d="M 464.98609,372.34086 602.39712,508.60923"
        id="path7339-7"
        inkscape:connector-curvature="0"
