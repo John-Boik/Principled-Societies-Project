@@ -17,8 +17,8 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="intelligent_community_brief_03.svg"
    inkscape:export-filename="/home/john/Devel/LEDDA/Git/Principled-Societies-Project/leddaApp/static/images/intelligent_community_brief_03.png"
-   inkscape:export-xdpi="65.830696"
-   inkscape:export-ydpi="65.830696">
+   inkscape:export-xdpi="71.953369"
+   inkscape:export-ydpi="71.953369">
   <defs
      id="defs4">
     <marker
@@ -93,8 +93,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.50545912"
-     inkscape:cx="632.18571"
-     inkscape:cy="393.84678"
+     inkscape:cx="330.47981"
+     inkscape:cy="389.88998"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -117,7 +117,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
