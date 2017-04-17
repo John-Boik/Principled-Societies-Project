@@ -239,6 +239,15 @@ def wellbeing_centrality_summary():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/ideals_democracy_capitalism')
+def ideals_democracy_capitalism():
+  """
+  This is the page for a blog article. 
+  """
+  return render_template('ideals_democracy_capitalism.html') 
+  
+  
+# -------------------------------------------------------------------------------------
 @app.route('/socio_prospectus')
 def socio_prospectus():
   """

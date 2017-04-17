@@ -543,7 +543,14 @@ ul, li, ol {
   margin-top: 30px;
   margin-bottom: 60px;
   width: 800px;
+  } 
 
+.blog-pic2 {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  width: 800px;
+  display: block;
+  margin-left: auto;
   } 
   
 .blog-list-pic {
@@ -569,6 +576,13 @@ figcaption {
   margin-bottom: 40px;
   margin-top: 10px;
   }
+
+.caption-blog {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  }
+
 
 .ledda li {
   margin-bottom: 20px;
