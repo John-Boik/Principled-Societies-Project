@@ -5,9 +5,27 @@
   <atom:link href="http://www.principledsocietiesproject.org/Data/psp_rss.xml" rel="self" type="application/rss+xml" />
   <title>Principled Societies Project</title>
   <link>http://www.PrincipledSocietiesProject.org/blog</link>
-  <description>Promoting the wellbeing centrality R&amp;D program, developing the LEDDA economic democracy framework 
-  </description>
+  <description>Empowering Individuals, Organizations, and Communities Solve Problems That Matter</description>
   <copyright>Creative Commons Attribution-NoDerivatives 4.0 International License</copyright>
+
+
+  <item>
+    <title>Is Solving Problems the Ideal of Democracy and Capitalism?</title>
+    <link>http://www.PrincipledSocietiesProject.org/ideals_democracy_capitalism</link>
+    <guid>http://www.PrincipledSocietiesProject.org/ideals_democracy_capitalism</guid>
+    <description>Societies can solve important problems. Doing so is the essence of sustainability. But systems innovation is necessary.
+    </description>
+  </item>
+
+  <item>
+    <title>Solving Problems That Matter Could Be the Next Big Thing</title>
+    <link>http://www.PrincipledSocietiesProject.org/socio_prospectus</link>
+    <guid>http://www.PrincipledSocietiesProject.org/socio_prospectus</guid>
+    <description>By viewing a society as a problem-solving superorganism, the natural sciences and technology sector can go wild with possibilities. Designs of economic, governance, and legal systems fall into their domain. 
+    </description>
+  </item>
+
+
   <item>
     <title>An Economy of Meaning, or Bust</title>
     <link>http://www.PrincipledSocietiesProject.org/economy_of_meaning</link>
