@@ -627,13 +627,13 @@
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_contributions"
-     y="399.77689"
-     x="449.60703"
+     y="405.77844"
+     x="445.60806"
      style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        style="font-size:10.0463953px"
-       y="399.77689"
-       x="449.60703"
+       y="405.77844"
+       x="445.60806"
        id="tspan17856-0-9-5-5-7-6-8-5">Contributions</tspan></text>
   <path
      id="path_Persons_Unemp_contributions"
@@ -712,7 +712,7 @@
        id="tspan17856-0-9-5-5">Taxes</tspan></text>
   <path
      id="path_Gov_Orgs"
-     d="M 92.988518,333.64545 C 76.113358,329.16587 21.85322,241.31639 122.50448,169.45466"
+     d="M 92.988518,333.64545 C 76.113358,329.16587 -7.1324876,218.87584 93.518771,147.01411"
      style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <path
      id="path_Gov_ROC"
@@ -724,57 +724,83 @@
      style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <path
      id="path_CBFS_Orgs"
-     d="M 97.370642,442.61475 C -122.68331,200.17176 115.01135,142.99658 253.00847,141.69094"
+     d="M 97.370642,442.61475 C 23.240193,421.64632 -64.857795,208.54351 94.989614,94.00476"
      style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend_blue)" />
   <path
      id="path_Persons_Emp_Donations"
-     d="M 291.06573,245.35158 C 278.17033,232.7851 217.41851,220.72822 249.7915,166.05176"
+     d="M 287.35732,243.23249 C 243.42713,204.8339 207.5724,165.31946 278.92899,100.35997"
      style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
   <text
      transform="scale(1.000256,0.99974406)"
      id="text_Persons_Emp_Donations"
-     y="206.91068"
-     x="250.39622"
+     y="198.9086"
+     x="256.39468"
      style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        id="tspan53623"
        style="font-size:10.0463953px"
-       y="206.91068"
-       x="250.39622">Donations to nonprofits</tspan></text>
+       y="198.9086"
+       x="256.39468">Donations</tspan></text>
   <path
      id="path_Persons_Unemp_Donations"
-     d="M 587.95653,442.1335 C 725.43827,325.29822 673.26747,92.18693 409.69706,93.74471"
+     d="M 587.95653,442.1335 C 725.43827,325.29822 639.00332,81.568359 375.43291,103.89322"
      style="fill:none;fill-rule:evenodd;stroke:#008000;stroke-width:1.222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.1919407, 2.1919407;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Lend_green)" />
+  <text
+     transform="scale(1.000256,0.99974406)"
+     id="text_Persons_Unemp_Donations"
+     y="96.447281"
+     x="430.71631"
+     style="font-style:normal;font-weight:normal;font-size:12.78632069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       id="tspan53623-7"
+       style="font-size:10.0463953px"
+       y="96.447281"
+       x="430.71631">Donations</tspan></text>
   <text
      id="text3787"
      y="288.10553"
-     x="132.9099"
+     x="128.9099"
      style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
        y="288.10553"
-       x="132.9099"
+       x="128.9099"
        id="tspan3789">Gov</tspan><tspan
        id="tspan3791"
        y="300.66333"
-       x="132.9099">Funding</tspan><tspan
+       x="128.9099">Funding</tspan><tspan
        id="tspan3797"
        y="313.22116"
-       x="132.9099">Distant</tspan></text>
+       x="128.9099">Distant</tspan></text>
   <text
      id="text3787-3"
-     y="332.24597"
-     x="78.62262"
+     y="327.57086"
+     x="72.077461"
      style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      xml:space="preserve"><tspan
-       y="332.24597"
-       x="78.62262"
+       y="327.57086"
+       x="72.077461"
        id="tspan3789-6">Gov</tspan><tspan
        id="tspan3791-7"
-       y="344.80377"
-       x="78.62262">Funding</tspan><tspan
+       y="340.12866"
+       x="72.077461">Funding</tspan><tspan
        id="tspan3797-5"
-       y="357.3616"
-       x="78.62262">Local</tspan></text>
+       y="352.68649"
+       x="72.077461">Local</tspan></text>
+  <text
+     id="text3787-3-3"
+     y="438.41446"
+     x="68.298347"
+     style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       y="438.41446"
+       x="68.298347"
+       id="tspan3789-6-5">CBFS</tspan><tspan
+       id="tspan3791-7-6"
+       y="450.97226"
+       x="68.298347">Funding</tspan><tspan
+       id="tspan3797-5-2"
+       y="463.53009"
+       x="68.298347">Local</tspan></text>
   <text
      id="text3787-3-9"
      y="193.0695"
@@ -790,31 +816,4 @@
        id="tspan4359"
        y="218.18513"
        x="167.79128">Trade</tspan></text>
-  <text
-     id="text3506"
-     y="393.44138"
-     x="604.68115"
-     style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       y="393.44138"
-       x="604.68115"
-       id="tspan3508"></tspan><tspan
-       id="tspan3510"
-       y="405.99918"
-       x="607.87946">Donations to </tspan><tspan
-       id="tspan3512"
-       y="418.55701"
-       x="604.68115">nonprofits</tspan></text>
-  <text
-     id="text3552"
-     y="430.7699"
-     x="42.056583"
-     style="font-style:normal;font-weight:normal;font-size:10.04625034px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       y="430.7699"
-       x="42.056583"
-       id="tspan3554">CBFS</tspan><tspan
-       id="tspan3556"
-       y="443.3277"
-       x="42.056583">Funding</tspan></text>
 </svg>

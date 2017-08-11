@@ -15,18 +15,18 @@ np.set_printoptions(6, 120, 150, 220, True)
 
 
 
-def gfit(new, x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending):
+def gfit(new, x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending, bounds):
   """
   This is the function that calls getFit for the the BFGS optimization
   """
   
-  x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending)
+  x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds)
   
   fitnessDic, _, _ = fitness.getFit(x, stocksDic, Print=True, Optimize=True)
   fit = fitnessDic['fitness']['total']
   
-  #if fit < 0:
-  #  fit = 0
+  if fit < 1000:
+    fit = 0
   
   return fit
 
@@ -48,19 +48,20 @@ def genetic(X, stocksDic):
   
   # names of potential flexible variables for ensuring constraints
   earmarks = ['earmark_NP_donation', 'earmark_nurture', 'earmark_PB_subsidy', 'earmark_SB_subsidy']
-  nonmemberSpending = ['person_nonmember_spending_to_member_NP_pct', 
-    'person_nonmember_spending_to_member_PB_pct', 
-    'person_nonmember_spending_to_member_SB_pct',
-    'person_nonmember_spending_to_nonmember_NP_pct',
-    'person_nonmember_spending_to_nonmember_SB_pct']
   
-  memberSpending = ['person_member_spending_to_member_NP_pct',
-    'person_member_spending_to_member_PB_pct',
-    'person_member_spending_to_member_SB_pct',
-    'person_member_spending_to_nonmember_NP_pct',
-    'person_member_spending_to_nonmember_SB_pct']
+  nonmemberSpending = ['person_nonmember_spending_to_member_NP', 
+    'person_nonmember_spending_to_member_PB', 
+    'person_nonmember_spending_to_member_SB',
+    'person_nonmember_spending_to_nonmember_NP',
+    'person_nonmember_spending_to_nonmember_SB']
   
+  memberSpending = ['person_member_spending_to_member_NP',
+    'person_member_spending_to_member_PB',
+    'person_member_spending_to_member_SB',
+    'person_member_spending_to_nonmember_NP',
+    'person_member_spending_to_nonmember_SB']
   
+
   maxGenerations = 200
   popSize = 100
 
@@ -71,11 +72,18 @@ def genetic(X, stocksDic):
   for ii, name in enumerate(flexibleList):
     if re.match("earmark_[A-Za-z_]+_TS", name):
       bounds[ii] = [X.earmarks_TS_lb, X.earmarks_TS_ub]
-    if re.match("person_member_spending_to_member_[A-Z]+_TS", name):
+    
+    elif re.match("person_member_spending_to_member_[A-Z]+_TS", name):
       bounds[ii] = [X.spending_TS_lb, X.spending_TS_ub]    
+
+    elif '_pct' in name:
+      bounds[ii] = [X.spending_pct_lb, X.spending_pct_ub]       
+
+    
     bounds[ii] = tuple(bounds[ii])
     print("{:<50s} {:>.4f}, {:>.4f}".format(name, bounds[ii][0], bounds[ii][1]))
   bounds = tuple(bounds)
+  print("\n\n")
   
   
   # initial values for flexible variables
@@ -86,32 +94,41 @@ def genetic(X, stocksDic):
     # use user-supplied values
     flexVars = np.array([X.__dict__[f] for f in flexibleList])
   
-  # adjust flexVars as needed and put back into X
-  X = adjust_flexible_values(X, flexVars, earmarks, nonmemberSpending, memberSpending)  
-  flexVars = X.new
   
+  # adjust flexVars as needed and put back into X
+  X = adjust_flexible_values(X, flexVars, earmarks, nonmemberSpending, memberSpending, bounds)  
+  flexVars = X.new
   
   if not X.doGenetic:
     # only do BFGS optimization, then return
     x = copy.deepcopy(X)
     res = minimize(gfit, x.new, 
-      args=(x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending), 
+      args=(x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending, bounds), 
       method='L-BFGS-B',
       bounds = bounds, 
       options= {
-        'disp': False,
-        'ftol' : 1e12 * np.finfo(float).eps,
-        'maxls':200,
+          'disp': True,
+          'ftol' : 1e-15, #* np.finfo(float).eps,  #high is weak, fast
+          'maxls':200,
+          'maxiter':200
         })    
 
     new = res['x']
-    print("success: ", res['success'])
-    x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending)
+    x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds)
     x.Fitness = res['fun']
-    print('\nbfgs fitness: ', x.Fitness, "\n")
+    print('\nbfgs: {:,}, success: {}, Msg: {}\n'.format(x.Fitness, res['success'], res['message']))
     
     fitnessDic, tableDic, summaryGraphDic = fitness.getFit(x, stocksDic, Print=True, Optimize=False)
     print ("fit: ", fitnessDic['fitness']['total'])  
+
+    flexVars = np.array([x.__dict__[f] for f in flexibleList])
+    flexDic = {}
+      
+    for ii, f in enumerate(flexibleList):
+      flexDic[f] = [flexVars[ii]*100]
+      print("'{:}': [{:}],".format(f, flexVars[ii]*100))
+    
+    fitnessDic['flexDic'] = flexDic
 
     return fitnessDic, tableDic, summaryGraphDic   
 
@@ -129,12 +146,12 @@ def genetic(X, stocksDic):
       # for first in population, just use initial variables
       # choose a variance, choose which elements to replace, and make a new vector
       variance  = np.random.uniform(1e-8, X.Variance)
-      Size = np.random.randint(1, len(new)+1, 1)
+      Size = np.random.randint(1, len(new)+1, 1).item()
       ia = np.sort(np.random.permutation(len(new))[0:Size])
       new[np.ix_(ia)] = abs(np.random.normal(new[np.ix_(ia)], variance))
     
     # adjust new as needed and put back into x
-    x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending)
+    x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds)
     
     # get fitness
     fitnessDic, _, _ = fitness.getFit(x, stocksDic, Print=False, Optimize=True)
@@ -153,7 +170,7 @@ def genetic(X, stocksDic):
   print("\ninitial best fit = ", xinitial.Fitness)
   #print("\ninitial best new = ", xinitial.new) 
   test1 = np.array([xinitial.__dict__[f] for f in flexibleList])
-  assert np.allclose(test1, xinitial.new)  
+  assert np.allclose(test1, xinitial.new, atol=1e-04)  
   
   print("\nBest initial score is: {:,}".format(scores[0]))
   
@@ -166,7 +183,7 @@ def genetic(X, stocksDic):
   Result = []
   for gen in range(maxGenerations):
     
-    print (" ------------ gen = {:3d} --------- fit= {:20,.0f}---".format(gen, Pop[0].Fitness))
+    print (" ------------ gen = {:3d} --------- fit= {:20,.0f} ---".format(gen, Pop[0].Fitness))
     
     # retain the best gene from the previous population
     #if (gen>0) and (gen%2 == 0):
@@ -180,8 +197,8 @@ def genetic(X, stocksDic):
       x = copy.deepcopy(X)
       
       # get random parents from top 50
-      i0, i1 = np.random.permutation(range(1, 50))[0:2] # top 50
-      if gen%2 == 0:
+      i0, i1 = np.random.permutation(range(1, popSize))[0:2] # top 50
+      if gen%5 == 0:
         v0 = Pop[i0].new.copy()
       else:
         v0 = Pop[0].new.copy()
@@ -190,7 +207,7 @@ def genetic(X, stocksDic):
       # make random vector using: new = (v1 -v0) * random + v0
       variance  = np.random.uniform(1e-8, X.Variance)
       ran = np.random.normal(0,variance, len(v0))
-      Size = np.random.randint(1, len(v0)+1, 1)
+      Size = np.random.randint(1, len(v0)+1, 1).item()
       ia = np.sort(np.random.permutation(len(v0))[0:Size])
       new = v0
       new[np.ix_(ia)] = (v1[np.ix_(ia)]-v0[np.ix_(ia)]) * ran[np.ix_(ia)] + v0[np.ix_(ia)]
@@ -199,15 +216,15 @@ def genetic(X, stocksDic):
       # do a mutation every now and then
       if np.random.rand() < .2:
         tmp = np.random.uniform(0,1, len(v0))
-        Size = np.random.randint(1, len(v0)+1, 1)
+        Size = np.random.randint(1, len(v0)+1, 1).item()
         ia = np.sort(np.random.permutation(len(v0))[0:Size])
         new[np.ix_(ia)] = tmp[np.ix_(ia)]
    
       # adjust new as needed and put back into x
-      x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending)
+      x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds)
       
       test1 = np.array([x.__dict__[f] for f in flexibleList])
-      assert np.allclose(test1, x.new)
+      assert np.allclose(test1, x.new, atol=1e-04)
     
       # get fitness
       fitnessDic, _, _ = fitness.getFit(x, stocksDic, Print=False, Optimize=True)
@@ -215,7 +232,7 @@ def genetic(X, stocksDic):
       newPop.append(x)
 
       test2 = np.array([x.__dict__[f] for f in flexibleList])
-      assert np.allclose(test2, x.new)
+      assert np.allclose(test2, x.new, atol=1e-04)
     
     Pop = newPop[0:popSize]
     scores = np.array([x.Fitness for x in Pop])
@@ -228,26 +245,27 @@ def genetic(X, stocksDic):
       x = copy.deepcopy(Pop[0])
       
       test1 = np.array([x.__dict__[f] for f in flexibleList])
-      assert np.allclose(test1, x.new)
+      assert np.allclose(test1, x.new, atol=1e-04)
       
       fitnessDic, _, _ = fitness.getFit(x, stocksDic, Print=False, Optimize=True)
       
+      t0 = time.time()
       res = minimize(gfit, x.new, 
-        args=(x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending), 
+        args=(x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending, bounds), 
         method='L-BFGS-B',
         bounds = bounds, 
         options= {
           'disp': False,
-          'ftol' : 1e11 * np.finfo(float).eps,
+          'ftol' : 1e-10, #* np.finfo(float).eps,  #high is weak, fast
           'maxls':200,
-          'maxiter':2
+          'maxiter':10
           })
-      
+      print("BFGS time: {}".format(np.round(time.time()-t0)/60,2))
       new = res['x']
-      x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending)
+      x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds)
       x.Fitness = res['fun']
       
-      print('bfgs: ', x.Fitness, "success: ", res['success'], "\n")
+      print('bfgs: {:,} vs {:,}, success: {}, Msg: {}\n'.format(x.Fitness, scores[0], res['success'], res['message']))
       
       fitnessDic, _, _ = fitness.getFit(x, stocksDic, Print=False, Optimize=True)
       
@@ -262,7 +280,17 @@ def genetic(X, stocksDic):
     
     #print("\nGen= ", gen, "score= {:,}".format(scores[0]))
     
-    if bestf <= 1:
+    
+    if (gen%2 == 0) and (gen > 0):
+      flexVars = np.array([x.__dict__[f] for f in flexibleList])
+      print("\nFlexible:")
+      for ii, f in enumerate(flexibleList):
+        print("'{:}': [{:}],".format(f, flexVars[ii]*100))
+      print("\n")
+      
+    
+    
+    if bestf <= np.minimum(10000, X.population):
       break
     
     if (len(Result) > 10)  and (np.unique([int(round(x.Fitness)) for x in Result[-10:]]).size == 1):
@@ -282,25 +310,28 @@ def genetic(X, stocksDic):
     x = copy.deepcopy(Pop[0])
     new = x.new
     res = minimize(gfit, x.new, 
-      args=(x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending), 
+      args=(x, stocksDic, flexibleList, earmarks, nonmemberSpending, memberSpending, bounds), 
       method='L-BFGS-B',
       bounds = bounds, 
       options= {
-        'disp': False,
-        'ftol' : 1e11 * np.finfo(float).eps,
+          'disp': True,
+          'ftol' : 1e-10,  #* np.finfo(float).eps,  #high is weak, fast
+          'maxls':200,
+          'maxiter':200
+
         })
 
     new = res['x']
-    x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending)
+    x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds)
     x.Fitness = res['fun']
-    print('final bfgs: ', x.Fitness, "success: ", res['success'], "\n")
+    print('final bfgs: {:,} vs {:,}, success: {}, Msg: {}\n'.format(x.Fitness, scores[0], res['success'], res['message']))
     if  x.Fitness < scores[0]:
       scores[0] = x.Fitness
       Pop[0] = x  
             
   new = Pop[0].new
   x = copy.deepcopy(Pop[0])
-  #x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending)
+  #x = adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds)
   
   # run fitness for the winning gene, printing results  
   fitnessDic, tableDic, summaryGraphDic = fitness.getFit(x, stocksDic, Print=True, Optimize=False)
@@ -308,9 +339,18 @@ def genetic(X, stocksDic):
   print('final genetic: ', x.Fitness, " fitdic: ", fitnessDic['fitness']['total'], "\n")
   flexVars = np.array([x.__dict__[f] for f in flexibleList])
   
+  flexDic = {}
+    
   print("\nFlexible:")
   for ii, f in enumerate(flexibleList):
+    flexDic[f] = [flexVars[ii]*100]
     print("['{:}', {:}],".format(f, flexVars[ii]*100))
+
+  print("\nFlexible:")
+  for ii, f in enumerate(flexibleList):
+    print("'{:}': [{:}],".format(f, flexVars[ii]*100))
+  
+  fitnessDic['flexDic'] = flexDic
   
   return fitnessDic, tableDic, summaryGraphDic    
 
@@ -322,91 +362,142 @@ def genetic(X, stocksDic):
 #######################################################################################
 
 
-def adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending):
+def adjust_flexible_values(x, new, earmarks, nonmemberSpending, memberSpending, bounds):
   """
   Adjusts any values for flexible so that constraints are met
   """
   
   flexibleList = x.flexibleList
   if not isinstance(new, np.ndarray):
-    new = np.array(new)
+    new = np.abs(np.array(new))
   
   # put unadjusted new into x
   _ = [x.__dict__.__setitem__(flexibleList[i], new[i]) for i in range(new.size)]
+
   
-  # All earmarks must sum to < .999
-  fixed = 0
-  unfixed = 0
-  idx = []
-  for name in earmarks:
-    if name in flexibleList:
-      idx.append(flexibleList.index(name))
-      unfixed += x.__dict__[name]
-    else:
-      fixed += x.__dict__[name]
-
-  if fixed + unfixed > .999:
-    mult = (.999 - fixed) / unfixed
-    new[idx] = new[idx] * mult  
-
-  if np.any(np.isnan(new)):
-    pdb.set_trace()
-  
-  # each earmark_TS must be TSI < ts < .999
-  idx = []
-  for name in earmarks:
-    if name + "_TS" in flexibleList:
-      idx.append(flexibleList.index(name + "_TS"))
-  new[idx] = np.minimum(new[idx], .999 )  
-  new[idx] = np.maximum(new[idx], x.TSI)  
-
-  # total fraction nonmember spending must be == 1
-  fixed = 0
-  unfixed = 0
-  idx = []
-  for name in nonmemberSpending:
-    if name in flexibleList:
-      idx.append(flexibleList.index(name))
-      unfixed += x.__dict__[name]
-    else:
-      fixed += x.__dict__[name]
-  mult = (1 - fixed) / unfixed
-  new[idx] = new[idx] * mult 
- 
-  if np.any(np.isnan(new)):
-    pdb.set_trace()
+  # all must sum to < .999 and be in bounds
+  namesDic = {'earmarks': earmarks}
+  for groupname in namesDic.keys():  
+    names = namesDic[groupname]
+    idx = []
+    fixed = 0
+    for name in names:
+      if name in flexibleList:
+        idx.append(flexibleList.index(name))
+      else:
+        fixed += x.__dict__[name]
     
-  # total fraction member spending must be == 1
-  fixed = 0
-  unfixed = 0
-  idx = []
-  for name in memberSpending:
-    if name in flexibleList:
-      idx.append(flexibleList.index(name))
-      unfixed += x.__dict__[name]
-    else:
-      fixed += x.__dict__[name]
-  
-  if len(idx) > 0:
-    if unfixed == 0:
-      # set all spending to an equal number
-      new[idx] = 1 / len(new[idx]) 
-    else:
-      mult = (1 - fixed) / unfixed
-      new[idx] = new[idx] * mult 
+    n = 0
+    while True:
+      n += 1
+      
+      unfixed = new[idx].sum()
 
-  if np.any(np.isnan(new)):
-    pdb.set_trace()
+      if fixed + unfixed > .999:
+        mult = (.999 - fixed) / unfixed
+        new[idx] = new[idx] * mult  
 
-  # each member spending_TS must be < .999
-  idx = []
-  for name in memberSpending:
-    if name[0:-3] + "_TS" in flexibleList:
-      idx.append(flexibleList.index(name[0:-3] + "_TS"))
-  new[idx] = np.minimum(new[idx], .999)
-  
-  if np.any(np.isnan(new)):
-    pdb.set_trace()
+      # must be in bounds
+      for ii in idx:
+        new[idx] = np.maximum(bounds[ii][0], new[idx])      
+        new[idx] = np.minimum(bounds[ii][1], new[idx])  
+      
+      if np.any(np.isnan(new)):
+        print(groupname, n, idx, new[idx], fixed, unfixed, names) 
+        raise Exception
+
+      unfixed = new[idx].sum()
+    
+      if fixed + unfixed <= .999:
+        break
+      else:
+        #print(groupname, n, idx, new[idx], fixed, unfixed, names)    
+        if n > 20:
+          print(groupname, n, idx, new[idx], fixed, unfixed, names) 
+          raise Exception
+
+  # all pct must sum to 1 and be in bounds
+  namesDic = {'memberSpending': memberSpending, 'nonmemberSpending': nonmemberSpending}
+  for groupname in namesDic.keys():  
+    names = namesDic[groupname]
+    if groupname in ['memberSpending', 'nonmemberSpending']:
+      # add _pct to name
+      names = [i+"_pct" for i in names]
+    idx = []
+    fixed = 0
+    for name in names:
+      if name in flexibleList:
+        idx.append(flexibleList.index(name))
+      else:
+        fixed += x.__dict__[name]
+    
+    n = 0
+    while True:
+      n += 1
+      
+      new[idx] = new[idx]
+      unfixed = new[idx].sum() 
+
+      if np.allclose(fixed + unfixed, 1, atol=1e-06) == False:
+        mult = (1 - fixed) / unfixed
+        new[idx] = new[idx] * mult  
+
+      # must be in bounds
+      for ii in idx:
+        new[idx] = np.maximum(bounds[ii][0], new[idx])      
+        new[idx] = np.minimum(bounds[ii][1], new[idx])  
+      
+      if np.any(np.isnan(new)):
+        print(groupname, n, idx, new[idx], fixed, unfixed, names) 
+        raise Exception
+
+      unfixed = new[idx].sum()
+    
+      if np.allclose(fixed + unfixed, 1, atol=1e-06):
+        break
+      else:
+        #print(groupname, n, idx, new[idx], fixed, unfixed, names)    
+        if n > 20:
+          print("Error: ", groupname, n, idx, new[idx], fixed, unfixed, names) 
+          #raise Exception
+          break
+
+
+
+  # each TS must be in bounds
+  namesDic = {'earmarks': earmarks, 'memberSpending': memberSpending}
+
+  for groupname in namesDic.keys():  
+    names = namesDic[groupname]
+    # add _TS to name
+    names = [i+"_TS" for i in names]
+    idx = []
+    for name in names:
+      if name in flexibleList:
+        idx.append(flexibleList.index(name))
+
+    # must be in bounds
+    for ii in idx:
+      new[idx] = np.maximum(bounds[ii][0], new[idx])      
+      new[idx] = np.minimum(bounds[ii][1], new[idx])  
+
+    if np.any(np.isnan(new)):
+      print(groupname, n, idx, new[idx])
+      raise Exception    
+
+
+
+  # each earmark_TS must be TSI < ts < .999
+  #  idx = []
+  #  for name in earmarks:
+  #    if name + "_TS" in flexibleList:
+  #      idx.append(flexibleList.index(name + "_TS"))
+  #  new[idx] = np.minimum(new[idx], .999 )  
+  #  new[idx] = np.maximum(new[idx], x.TSI)  
+
+
+
+
 
   # put adjusted new into x
   _ = [x.__dict__.__setitem__(flexibleList[i], new[i]) for i in range(new.size)]

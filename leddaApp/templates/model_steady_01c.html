@@ -1,0 +1,1052 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  <title>PSP Steady-State Model, Expert</title>
+{% endblock %}
+
+
+{% block page_head %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35447340-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta property="fb:app_id" content="312890269112844" /> 
+  <meta property="og:type" content="website" /> 
+  <meta property="og:title" content="PSP Steady-State Model, Expert" />
+  <meta property="og:description" content="Expert steady-state model of the token exchange system, a component of the LEDDA framework" />
+  <meta property="og:image" content="http://www.PrincipledSocietiesProject.org/static/images/globe_12.png" />
+  <meta property="og:url" content="http://www.PrincipledSocietiesProject.org/model_steady_01c" />
+  <meta property="og:site_name" content="Principled Societies Project" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PSP Steady-State Model, Expert" />
+  <meta name="twitter:description" content="Expert steady-state model of the token exchange system, a component of the LEDDA framework" />
+  <meta name="twitter:image" content="http://www.PrincipledSocietiesProject.org/static/images/globe_12.png" />
+  <meta name="twitter:site" content="@JohnBoik" />
+  <meta name="twitter:creator" content="@JohnBoik" />
+
+
+  <script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
+  <!--<script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>-->
+  <script src="{{ url_for('static', filename='javascript/custom_jquery.knob.js') }}"></script>
+
+{% endblock %}
+
+
+{% block body %}
+
+<br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 center">
+      <h1 class="blue-sect">Expert Steady-State Model</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+
+      <h2 class="blue-sect">Running the Model</h2>
+
+      <p>The expert steady-state model refers to a version of the model that allows the user to alter a large number of parameters. Currently, it does not allow for automatic minimization of fitness scores. Thus, the user can change paramters and press the run button in an iterative fashion to see how adjustments to paramters change the results. For a simpler model, see the <a href="model_steady_01b">standard steady-state model</a> page. 
+      </p>
+
+      <p>To run the model choose values for starting conditions, then values for fixed/flexible variables. Finally, press the "run" button. You might want to press the "run" button once using the default values to see how flows can balance.
+      </p>
+      
+      <p> Several enhancements are planned for the future:</p>
+      <ul>
+      <li>Inputs to the model will be simplified. The end goal is to present choices on a few key targets (like the income target and workforce partition) and then have the model optimize all other variables to discover ways that the desired targets can be achieved.</li>
+      <li>Users will be able to choose an optimization algorithm, as well as choose which variables are fixed and which are flexible and subject to optimization.</li>
+      <li>Users will be able to automatically repopulate values for the flexible variables based on the results of an optimization run.</li>
+      <li>To allow sharing of results, variable sets that produce best fitness scores will be saved in a database for user recall.</li>
+      <li>Various other enhancements will occur to this page and to the results page to make variable selection easier and the meaning of variables and results more interpretable. If you have suggestions on how we can improve these pages, let us know. Better yet, contribute to the coding project on <a href="https://github.com/John-Boik/Principled-Societies-Project" target="blank">Github</a>.</li>
+      </ul>
+       
+      
+      <p>A spreadsheet listing model variables and default settings is available for <a href="{{ url_for('static', filename='data/variable_tables.xlsx') }}" target="blank">download</a>. See the <a href="glossary">glossary</a> for abbreviations and definition of terms.
+      </p>      
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid blue-cont">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header blue-sect sh-lower">
+        <h1 class="blue-sect center">Choices for Starting Conditions</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>In this section, choose values for starting conditions. Use the dials or type in values in center of a dial. Refresh the page to obtain default values.</p>
+      <br>
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col">
+      <div class="knob-label">Adult Population</div>
+      <input id="population" type="text" value="10000" data-min="1000" data-max="1000000" data-width="160" data-fgColor="#0f1672" class="dial">
+    </div>
+
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col">
+      <div class="knob-label">Initial Unemployment Rate (%)</div>
+      <select id="unemployment_rate" class="selectpicker" data-style="btn-primary">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+        <option value="11">11</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+
+  </div>
+
+
+  <div class="row input-row p-sect">
+
+    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-12 col-xs-12 input-col space-col">
+      <div class="knob-label">Family income target, post-CBFS T&amp;D</div>
+      <input id="family_income_target_final" type="text" value="50000" data-min="21600" data-max="300000" data-step="100" data-width="160" data-fgColor="#0f1672" class="dial">
+    </div>
+
+    <div class="col col-xl-6 col-lg-6 col-med-6 col-sm-12 col-xs-12 input-col">
+      <div class="knob-label">Token share of income, TSI (%):</div>
+      <input id="TSI" type="text" value="50" data-min="1" data-max="99" data-step="1" data-width="160" data-fgColor="#0f1672" class="dial">
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <p>The higher the family income target, the larger the volume of dollars and tokens required in local circulation. A LEDDA adjusts the volume of currency in local circulation in two ways: (1) by creating or destroying tokens, by fiat; and (2) by adjusting its trade balance (in dollars) with the Rest-of-Counties node. The latter can be thought of as a sophisticated make-local, buy-local program. In this steady-state model, a LEDDA can only draw in as many dollars as the Rest-of-Counties node has in excess.</p>
+      
+      <p>A good family income target and token share of income might be such that the dollar income of member families is equal to the national average, and the token share of income is high enough to expand the membership to a desired percentage of the local population. An example is a dollar income of about $80,000 per family (the <a href="http://www.census.gov/data/tables/time-series/demo/income-poverty/historical-income-households.html" target="blank" >national average</a>) and a TSI of about 35%.  With these values the post-CBFS family income of members is 80,000/(1-0.35)= 123,000 T&amp;D.  An income target of about 110,000 T&amp;D was used in the agent-based model, which was equivalent to the 90th percentile of starting incomes for the population studied [<a href="#r2">2</a>]. Thus, in that simulation, 90% of the local population eventually joined the LEDDA.</p> 
+      
+      <p>If the dollar portion of the family income target is chosen to be equal to the national average dollar income, then the LEDDA would be acting to evenly redistribute income; its members would receive an equal share of the national income pie. A lower family income target can be chosen. Whatever value is chosen will determine, along with the TSI, the percent of the population that joins the LEDDA.</p>.
+      
+      <p> Note that because taxes must be paid in dollars, too high of a TSI can cause problems. Also, in practice, the volume of tokens cannot be any larger than can be beneficially used. Too high of a TSI and token volume could lead to inflation of the token, which by design is intended to be inflation-free.</p> 
+   
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-xl-12 col-lg-12 col-med-12 col-sm-12 col-xs-12">
+      <h3 class="blue-sect">Workforce Partition</h3>
+      <p>The sum of workforce partition values is 100%. This partition refers to the LEDDA workforce, not the total local workforce. If the LEDDA membership rate is high (90% of the local population, for example), then the LEDDA workforce partition will be similar to the total workforce partition.</p>
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
+      <div class="knob-label">Standard Business (%)</div>
+      <input id="workforce_partition_SB" type="text" value="33" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="wf-pcnt-dial">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
+      <div class="knob-label">Nonprofit (%)</div>
+      <input id="workforce_partition_NP" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="wf-pcnt-dial">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-6 col-xs-12 input-col">
+      <div class="knob-label">Principled Business (%)</div>
+      <input id="workforce_partition_PB" type="text" value="50" data-min="0" data-max="100" data-step="1" data-width="160" data-fgColor="#0f1672" class="wf-pcnt-dial">
+    </div>
+  </div>
+
+</div>
+
+<div class="container-fluid c-full">
+  <div class="row triangle-collapse c-full">
+    <div class="col-lg-12 col-xl-12 col-med-12 col-sm-12 col-xs-12 c-full">
+      <div class="box-line purple-back">
+      </div>
+      <div class="invert-triangle purple-fill">
+        <svg width="100%" viewBox="0 0 100 50">
+          <polygon points="0,0 50,20 100,0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header purple-sect sh-lower">
+        <h1 class="purple-sect center">Choices for Fixed/Flexible Variables</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>In this section, choose values for fixed/flexible variables. Use the dials or type in values in center of a dial. Refresh the page to obtain default values. Currently, all variables in this section are fixed, meaning that they are not subject to optimization during a run. As already noted, the ability to optimize flexible variables will be coming soon.</p>
+      <br>
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <h3 class="purple-sect">CBFS Earmarks</h3>
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <p>Earmarks refer to the percent of gross (pre-CBFS, pre-tax) income that will be contributed to the CBFS. The family income target is equal to the gross income target minus CBFS contributions. The total of all four earmarks (one for each arm of the CBFS) will sum to something less than 100%. If the sum is 65%, for example, then gross family income would be 1/(1-0.65) = 2.86 times higher than the (post-CBFS) family income target.</p>
+      
+      <p>Values in the Token Share column should be roughly similar.  That is, each arm of the CBFS should receive roughly similar token/T&amp;D ratios. Further, token share values should be roughly similar in magnitude to the TSI. When optimization is added as run option, lower and upper bounds for these token shares can be set.</p>  
+    </div>
+  </div>
+
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
+      <h4>Earmark Type</h4>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
+      <h4>Earmark Value (%)</h4>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
+      <h4>Token Share (%)</h4>
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Subsidy, SB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_SB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_SB_subsidy">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_SB_subsidy_TS" type="text" value="56.36" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_SB_subsidy_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Donation, NP</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_NP_donation" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_NP_donation">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_NP_donation_TS" type="text" value="51.26" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_NP_donation_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Subsidy, PB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_PB_subsidy" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_PB_subsidy">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_PB_subsidy_TS" type="text" value="48.13" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_PB_subsidy_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Nurture</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_nurture" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-pcnt-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_nurture">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmark_nurture_TS" type="text" value="25" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_earmark_nurture_TS">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="bld larger-text p-left-1">Sum</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <div class="bld larger-text p-left-1" id="total_earmark"></div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <h3 class="purple-sect">Person Spending, Percent</h3>
+      <p>In this section you can set where persons spend their discretionary income. Columns in the table exist for nonmembers and members. Each group can spend their income in any one of the five types of local organizations. The percentages in each column will sum to 100% of discretionary income, which is defined as gross income minus taxes minus CBFS contributions minus regular dollar donations to nonprofits.</p>
+      
+      <p>It might be that member and nonmember persons support different organizations to a different degree. For example, perhaps members would tend to support member organizations. Further, perhaps most of the spending goes to for-profit organizations (Principled Businesses and standard businsesses), whereas nonprofits might receive more of their revenue from CBFS donations. Keep in mind that many nonprofits do receive some revenue from the sale of products and services.</p> 
+    </div>
+  </div>
+
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
+      <h4>Organization Type</h4>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
+      <h4>Person Nonmember (%)</h4>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
+      <h4>Person Member (%)</h4>
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Member, SB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_nonmember_spending_to_member_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_nonmember_spending_to_member_SB_pct">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_member_SB_pct" type="text" value="20" data-min="0" data-max="100.00" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_member_SB_pct">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Member, NP</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_nonmember_spending_to_member_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_nonmember_spending_to_member_NP_pct">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_member_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_member_NP_pct">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Member, PB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_nonmember_spending_to_member_PB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_nonmember_spending_to_member_PB_pct">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_member_PB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_member_PB_pct">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Nonmember SB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_nonmember_spending_to_nonmember_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_nonmember_spending_to_nonmember_SB_pct">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_nonmember_SB_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_nonmember_SB_pct">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Nonmember NP</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_nonmember_spending_to_nonmember_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="nonmemb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_nonmember_spending_to_nonmember_NP_pct">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_nonmember_NP_pct" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="memb-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_nonmember_NP_pct">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="bld larger-text p-left-1">Sum</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <div class="bld larger-text p-left-1" id="sum_nonmember"></div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <div class="bld larger-text p-left-1" id="sum_member"></div>
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <h3 class="purple-sect">Person Spending, Token Share</h3>
+      <p>In this section you can set the token share of spending by member persons to different member organizations. Nonmember persons and nonmember organizations do not receive tokens. Token Share values for all member organizations should be roughly similar.  That is, each should receive roughly similar token/T&amp;D ratios. Further, token share values should be roughly similar in magnitude to the TSI. When optimization is added as run option, lower and upper bounds for these token shares can be set.</p> 
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
+      <h4>Person Member</h4>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Member, SB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_member_SB_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_member_SB_TS">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Member, NP</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_member_NP_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_member_NP_TS">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">Member, PB</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="person_member_spending_to_member_PB_TS" type="text" value="20" data-min="0" data-max="100" data-step=".0001" data-width="95" data-fgColor="#8052A1" class="earmark-ts-dial">
+      <span class="smaller-text">Flexible</span>
+      <input type="checkbox" disabled id="flexible_person_member_spending_to_member_PB_TS">
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+    </div>
+  </div>
+</div>
+  
+<div class="container-fluid c-full">
+  <div class="row triangle-collapse c-full">
+    <div class="col-lg-12 col-xl-12 col-med-12 col-sm-12 col-xs-12 c-full">
+      <div class="box-line brown-back">
+      </div>
+      <div class="invert-triangle brown-fill">
+        <svg width="100%" viewBox="0 0 100 50">
+          <polygon points="0,0 50,20 100,0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 sect-title">
+      <div class="sect-header brown-sect sh-lower">
+        <h1 class="brown-sect center">Run Model</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <p>In this section you can choose run options and run the model. The upper and lower bounds for token shares pertain to optimization runs and are currently disabled. They will be enabled when optimization is added as a run option.</p>
+      <br>
+    </div>
+  </div>
+
+
+  <div class="row input-row p-sect full-sect" >
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col">
+     <h4>Token Share Group</h4> 
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col">
+      <h4>Lower Bound (%)</h4>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-3 col-xs-4 input-col">
+      <h4>Upper Bound (%)</h4>
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">All Earmarks</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmarks_TS_lb" type="text" value="0" data-min="0" data-max="0" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="earmarks_TS_ub" type="text" value="100" data-min="100" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
+    </div>
+  </div>
+  <div class="row input-row p-sect full-sect">
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-2 input-col tbl-col">
+      <div class="t-vert-label">All Member Person Spending</div>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="spending_TS_lb" type="text" value="0" data-min="0" data-max="0" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
+    </div>
+    <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-4 col-xs-4 input-col tbl-col">
+      <input id="spending_TS_ub" type="text" value="100" data-min="100" data-max="100" data-step="1" data-width="95" data-fgColor="#A56911" class="run-dial" disabled>
+    </div>
+  </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <p>Optimization currently disabled.</p>
+    </div>
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <input type="checkbox" disabled id="doBFGS">
+      <span class="">Optimization using L-BFGS-B algorithm</span>
+    </div>
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <input type="checkbox" disabled id="doGenetic">
+      <span class="">Optimization using genetic algorithm</span>
+    </div>
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <input type="checkbox" disabled id="doRandomStart">
+      <span class="">Use random initialization for optimization</span>
+    </div>
+  </div>
+
+  <div id="hidden_form">
+  
+  </div>
+
+  <br>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <button id="submit" type="button" class="run-button btn btn-success" value="Run">Run</button>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <h2 class="blue-sect bld">References</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect-narrow">
+
+      <a id="r1"></a>
+      <p>1. Russell Cooper, A. Andrew John. <i>Theory and Applications of Macroeconomics. Creative Commons version; unspecified date.</i>
+      <a href="http://2012books.lardbucket.org/books/theory-and-applications-of-macroeconomics/s20-16-the-circular-flow-of-income.html" target="blank">link</a> </p>
+
+      <a id="r2"></a>
+      <p>2. Boik JC. First Micro-Simulation Model of a LEDDA Community Currency-Dollar Economy. <i>International Journal of Community Currency Research</i>; 2015.
+      <a href="http://ijccr.net/2014/10/14/first-micro-simulation-model-of-a-ledda-community-currency-dollar-economy/"  target="blank">link</a> </p>
+
+      <a id="r3"></a>
+      <p>3. Boik JC. LEDDA Framework: Innovation for Thriving, Resilient Communities. Poster for <i>De Lang Conference X: Humans Machines and the Future of Work</i>. Rice University; 2016.
+      <a href="rice_poster">link</a> </p>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var wf_dials;
+  var earmark_dials;
+  var no_update = false;
+
+  function stop_update() {
+    //stop dial update event from propagating into feedback loop
+    no_update = true;
+    setTimeout(function() {
+      no_update = false;
+    }, 100);
+  };
+
+  $(function() {
+
+    $(".earmark-ts-dial").knob({
+      'step': .0001,
+      height: 120,
+      'draw': function(v) {
+        $(this.i).css('font-size', '10pt');
+      },
+      'format': function(v) {
+        v = v.toFixed(4);
+        return v;
+      },
+      'release': function(v) {
+        if (isNaN(v)) {
+          v = 0;
+          $(this).val(0).trigger('change');
+          return v;
+        }
+      }
+    });
+
+    $(".run-dial").knob({
+      height: 120,
+      'draw': function(v) {
+        $(this.i).css('font-size', '10pt');
+      },
+      'release': function(v) {
+        if (isNaN(v)) {
+          $(this).val(0).trigger('change');
+          v = 0;
+          return v;
+        }
+        //v = v.toLocaleString();
+      },
+      'format': function(v) {
+        return v;
+        //return v.toLocaleString();
+      },
+      'draw': function(v) {
+        $(this.i).css('font-size', '12pt'); 
+      }
+
+    });
+    
+    $(".dial").knob({
+      'release': function(v) {
+        if (isNaN(v)) {
+          $(this).val(0).trigger('change');
+          v = 0;
+          return v;
+        }
+        //v = v.toLocaleString();
+      },
+      'format': function(v) {
+        return v;
+        //return v.toLocaleString();
+      },
+      'draw': function(v) {
+        $(this.i).css('font-size', '12pt'); 
+      }
+
+    });
+    
+    //for member Percent of Person total spending group.
+    $('.memb-dial').knob({
+      'step': .0001,
+      height: 120,
+      'format': function(v) {
+        v = v.toFixed(4);
+        return v;
+      },
+      'draw': function(v) {
+        $(this.i).val(this.val().toFixed(4));
+        $(this.i).css('font-size', '10pt');
+      },
+      'release': function(v) {
+        if (isNaN(v)) {
+          $(this).val(0).trigger('change');
+          v = 0;
+          return v;
+        }
+        var el_vals = [];
+        var element_index; //where in array is clicked element
+        var id = this.i.attr('id');
+        if (no_update) {
+          return;
+        }
+        var total_member = sum_member();
+        if (v >= 100 && total_member > 100) {
+          $('.memb-dial').each(function() {
+            $(this).val(0).trigger('change');
+          });
+          return;
+        }
+        var id = this.i.attr('id');
+        for (var i = 0, l = member_dials.length; i < l; i ++) {
+          var el = member_dials[i];
+          el_vals[i] = $(el).val();
+          var el_id = $(el).attr('id');
+          if (id == el_id) {
+              element_index = i;
+          }
+        }
+        while (total_member != 100) {
+          if ((total_member - 100) >= 3) {
+            subtract = 1;
+          }
+          else if ((total_member - 100) >= .5) {
+            subtract = .1;
+          }
+          else {
+            subtract = .0001;
+          }
+          if (total_member > 100) {
+            subtract = subtract;
+          }
+          else {
+            subtract = -subtract;
+          }
+          for (var i = 0, l = member_dials.length; i < l; i ++) {
+              if (i == element_index) {
+                el_vals[i] = v;
+              }
+              else {
+                if (subtract > 0 ) {
+                  if (el_vals[i] >= subtract) {
+                    el_vals[i] = +(el_vals[i] -= subtract).toFixed(4);
+                  }
+                }
+                else {
+                    el_vals[i] = +(el_vals[i] -= subtract).toFixed(4);
+                }
+              }
+              total_member = 0;
+              for (var j = 0, k = el_vals.length; j < k; j ++) {
+                total_member += +el_vals[j];
+              }
+              total_member = +total_member.toFixed(4)
+              if (total_member == 100) {
+                break;
+              }
+          }
+        }
+
+        //reset elements with adjusted values
+        stop_update();
+        for (var i = 0, l = member_dials.length; i < l; i ++) {
+            var el = member_dials[i];
+            var el_id = $(el).attr('id');
+            $(el).val(el_vals[i]).trigger('change');
+        }
+        display_member_total();
+      }
+    });
+
+    //for nonmember Percent of Person total spending group.
+    $('.nonmemb-dial').knob({
+      'step': .0001,
+      height: 120,
+      'format': function(v) {
+        v = v.toFixed(4);
+        return v;
+      },
+      'draw': function(v) {
+        $(this.i).val(this.val().toFixed(4));
+        $(this.i).css('font-size', '10pt');
+      },
+      'release': function(v) {
+        if (isNaN(v)) {
+          $(this).val(0).trigger('change');
+          v = 0;
+          return v;
+        }
+        var el_vals = [];
+        var element_index; //where is clicked element
+        var id = this.i.attr('id');
+        if (no_update) {
+          return;
+        }
+        var total_nonmember = sum_nonmember();
+        if (v >= 100 && total_nonmember > 100) {
+          $('.nonmemb-dial').each(function() {
+            $(this).val(0).trigger('change');
+          });
+          return;
+        }
+        var id = this.i.attr('id');
+        for (var i = 0, l = nonmember_dials.length; i < l; i ++) {
+          var el = nonmember_dials[i];
+          el_vals[i] = $(el).val();
+          var el_id = $(el).attr('id');
+          if (id == el_id) {
+              element_index = i;
+          }
+        }
+        while (total_nonmember != 100) {
+          //take away larger "bites" if difference is higher.
+          //if we try to step down by .0001 with larger differences it won't be timely and may freeze browser.
+          if ((total_nonmember - 100) >= 3) {
+            subtract = 1;
+          }
+          else if ((total_nonmember - 100) >= .5) {
+            subtract = .1;
+          }
+          else {
+            subtract = .0001;
+          }
+
+          if (total_nonmember > 100) {
+            subtract = subtract;
+          }
+          else {
+            subtract = -subtract;
+          }
+          for (var i = 0, l = nonmember_dials.length; i < l; i ++) {
+              if (i == element_index) {
+                el_vals[i] = v;
+              }
+              else {
+                if (subtract > 0 ) {
+                  if (el_vals[i] >= subtract) {
+                    el_vals[i] = +(el_vals[i] -= subtract).toFixed(4);
+                  }
+                }
+                else {
+                    el_vals[i] = +(el_vals[i] -= subtract).toFixed(4);
+                }
+              }
+              total_nonmember = 0;
+              for (var j = 0, k = el_vals.length; j < k; j ++) {
+                total_nonmember += +el_vals[j];
+              }
+              total_nonmember = +total_nonmember.toFixed(4)
+              if (total_nonmember == 100) {
+                break;
+              }
+          }
+        }
+        //reset elements with adjusted values
+        stop_update();
+        for (var i = 0, l = nonmember_dials.length; i < l; i ++) {
+            var el = nonmember_dials[i];
+            var el_id = $(el).attr('id');
+            $(el).val(el_vals[i]).trigger('change');
+        }
+        display_nonmember_total();
+      }
+    });
+    //bind wf participation dials to sum up to 100%.
+    $('.wf-pcnt-dial').knob({
+      'draw': function(v) {
+        $(this.i).css('font-size', '12pt'); 
+      },
+      'release': function(v) {
+        if (no_update) {
+          return;
+        }
+        if (isNaN(v)) {
+          $(this).val(0).trigger('change');
+          v = 0;
+          return v;
+        }
+        var dif = Math.floor(100 - sum_wf_participation());
+        var split_dif = [Math.floor(dif/2), Math.ceil(dif/2)]
+        var id = this.i.attr('id');
+        var c = 0; 
+        for (var i = 0, l = wf_dials.length; i < l; i ++) {
+            var el = wf_dials[i];
+            var el_id = $(el).attr('id');
+            if (id == el_id) {
+              continue;
+            }
+            var new_val = +$(el).val() + split_dif[c];
+            c += 1;
+            stop_update();
+            if (new_val < 0) {
+              //can't go below zero. so find other element and add change to that.
+              for (var j = 0, k = wf_dials.length; j < k; j ++) {
+                var m = wf_dials[j];
+                var m_id = $(m).attr('id');
+                if (m_id == el_id) {
+                  $(m).val(0).trigger('change');
+                }
+                if (m_id == el_id || m_id == id) {
+                  continue;
+                }
+                var o_val = 100 - v
+                $(m).val(o_val).trigger('change');
+              }
+            }
+            else {
+              $(el).val(new_val).trigger('change');
+            }
+        }
+      }
+    });
+
+    $('.earmark-pcnt-dial').knob({
+      'step': .0001,
+      height: 120,
+      'draw': function(v) {
+        $(this.i).css('font-size', '10pt');
+      
+      },
+      'format': function(v) {
+        v = v.toFixed(4);
+        return v;
+      },
+      'release': function(v) {
+        if (isNaN(v)) {
+          v = 0;
+          $(this).val(0).trigger('change');
+          return v;
+        }
+        var el_vals = [];
+        if (no_update) {
+          return;
+        }
+        var total_earmark = sum_earmark();
+        //in this case sum must be less or eqto than 100
+        if (total_earmark <= 100) {
+            display_earmark_total();
+            return;
+        }
+        //don't enter the while loop
+        if (v >= 98 && total_earmark > 100) {
+          $('.earmark-pcnt-dial').each(function() {
+            $(this).val(0).trigger('change');
+          });
+          return;
+        }
+        subtract = .0001;
+        for (var i = 0, l = earmark_dials.length; i < l; i ++) {
+          var el = earmark_dials[i];
+          el_vals[i] = +$(el).val();
+        }
+        var id = this.i.attr('id');
+        while (total_earmark > 100) {
+          if ((total_earmark - 100) >= 3) {
+            subtract = 1;
+          }
+          else if ((total_earmark - 100) >= 2) {
+            subtract = .1;
+          }
+          else {
+            subtract = .0001;
+          }
+          
+          for (var i = 0, l = earmark_dials.length; i < l; i ++) {
+              var el = earmark_dials[i];
+              var el_id = $(el).attr('id');
+              if (id == el_id) {
+                el_vals[i] = v;
+              }
+              else {
+                if (el_vals[i] >= subtract) {
+                  el_vals[i] -= subtract;
+                }
+              }
+              total_earmark = 0;
+              for (var j = 0, k = el_vals.length; j < k; j ++) {
+                total_earmark += el_vals[j];
+              }
+              if (total_earmark <= 100) {
+                break;
+              }
+          }
+        }
+        //reset elements with adjusted values
+        stop_update();
+        for (var i = 0, l = earmark_dials.length; i < l; i ++) {
+            var el = earmark_dials[i];
+            var el_id = $(el).attr('id');
+            if (id == el_id) {
+              continue;
+            }
+            var d_val = el_vals[i].toFixed(4);
+            console.log(d_val);
+            $(el).val(d_val).trigger('change');
+        }
+        display_earmark_total();
+      }
+    });
+
+    wf_dials = $('.wf-pcnt-dial');
+    earmark_dials = $('.earmark-pcnt-dial');
+    nonmember_dials = $('.nonmemb-dial');
+    member_dials = $('.memb-dial');
+  });
+
+  function display_earmark_total() {
+    var sum = sum_earmark().toFixed(4) + ' %';
+    $('#total_earmark').text(sum);
+  }
+
+  function display_nonmember_total() {
+    var sum = sum_nonmember().toFixed(4) + ' %';
+    $('#sum_nonmember').text(sum);
+  }
+
+  function display_member_total() {
+    var sum = sum_member().toFixed(4) + ' %';
+    $('#sum_member').text(sum);
+  }
+
+  function sum_earmark() {
+    var total = 0;
+    for (var i = 0, l = earmark_dials.length; i < l; i ++) {
+        total += +$(earmark_dials[i]).prop('value');
+    }
+    return total;
+  }
+
+  function sum_nonmember() {
+    var total = 0;
+    for (var i = 0, l = nonmember_dials.length; i < l; i ++) {
+        total += +$(nonmember_dials[i]).prop('value');
+    }
+    return total;
+  }
+
+  function sum_member() {
+    var total = 0;
+    for (var i = 0, l = member_dials.length; i < l; i ++) {
+        total += +$(member_dials[i]).prop('value');
+    }
+    return total;
+  }
+
+  function sum_wf_participation() {
+    var np =($('#workforce_partition_NP').val());
+    var pb =($('#workforce_partition_PB').val());
+    var sb =($('#workforce_partition_SB').val());
+    return +np + +pb + +sb;
+  }
+
+  $(document).ready(function() {
+    display_earmark_total();
+    display_member_total();
+    display_nonmember_total();
+    brython(1);
+  });
+
+</script>
+
+<script type="text/python" src="{{ url_for('static', filename='python/steady_01.py') }}"></script>
+
+{% endblock %}
+
+
+

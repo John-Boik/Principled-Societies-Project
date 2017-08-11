@@ -177,6 +177,8 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
     ])
   wage_fractions_NP = wage_fractions_NP/wage_fractions_NP.sum()
     
+  # keep track of total person spending to orgs in order to measure spending/CBFS revenue partition
+  total_person_spending = 0
    
   # NP donations, CBFS contributions, taxes, and spending
   for pn in personNodes:
@@ -241,6 +243,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
     tokens  = np.maximum(0, tokens)
     total   = dollars + tokens
     
+    
     for org in ['org_member_NP', 'org_member_PB', 'org_member_SB', 'org_nonmember_NP', 
       'org_nonmember_SB']:
         
@@ -248,6 +251,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
         assert np.allclose(dollars, total)
         spendkey = 'person_member_spending_to_' + org[4:] + "_pct"
         dollars_ = total * X.__dict__[spendkey]
+        total_person_spending += dollars_
         G.edge[pn][org][0]['value'] = np.maximum(0, dollars_)
       
       else:
@@ -256,6 +260,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
           # only dollars to nonmember orgs
           spendkey = 'person_member_spending_to_' + org[4:] + "_pct"
           dollars_ = total * X.__dict__[spendkey] 
+          total_person_spending += dollars_
           G.edge[pn][org][0]['value'] =  np.maximum(0, dollars_)
         else:
           # member person and member org: tokens and dollars
@@ -264,6 +269,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
           total_ = total * X.__dict__[spendkey] 
           tokens_  = total_ * X.__dict__[sharekey]      
           dollars_ = total_ * (1- X.__dict__[sharekey])
+          total_person_spending += total_
           G.edge[pn][org][0]['value'] =  np.maximum(0, dollars_)
           G.edge[pn][org][1]['value'] =  np.maximum(0, tokens_)         
 
@@ -308,24 +314,45 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
   # =====================================================================
   #  CBFS to organizations
   # ===================================================================== 
-
+  
+  # keep track of total CBFS spending to orgs in order to measure spending/CBFS revenue partition
+  total_CBFS_spending = 0
+    
   dollars, tokens, total = sumEdges(G, 'CBFS_SB_subsidy', ['in']) 
   dollars = np.maximum(0, dollars)
   tokens  = np.maximum(0, tokens)
+  total   = dollars + tokens
+  total_CBFS_spending += total
+  
   G.edge['CBFS_SB_subsidy']['org_member_SB'][0]['value'] = dollars
   G.edge['CBFS_SB_subsidy']['org_member_SB'][1]['value'] = tokens
   
   dollars, tokens, total = sumEdges(G, 'CBFS_PB_subsidy', ['in']) 
   dollars = np.maximum(0, dollars)
   tokens  = np.maximum(0, tokens)
+  total   = dollars + tokens
+  total_CBFS_spending += total
+
   G.edge['CBFS_PB_subsidy']['org_member_PB'][0]['value'] = dollars
   G.edge['CBFS_PB_subsidy']['org_member_PB'][1]['value'] = tokens  
 
   dollars, tokens, total = sumEdges(G, 'CBFS_NP_donation', ['in']) 
   dollars = np.maximum(0, dollars)
   tokens  = np.maximum(0, tokens)
+  total   = dollars + tokens
+  total_CBFS_spending += total
+
   G.edge['CBFS_NP_donation']['org_member_NP'][0]['value'] = dollars
   G.edge['CBFS_NP_donation']['org_member_NP'][1]['value'] = tokens  
+
+  # add to fitness total the difference for revenue partition
+  try:
+    ratio = X.CBFS_spending_ratio
+    expected_CBFS = ratio * (total_person_spending + total_CBFS_spending)
+    delta_CBFS_ratio = int(round(abs(total_CBFS_spending - expected_CBFS),0)) 
+    #print("difference for CBFS/person spending ratio = {:.2E}".format(delta_CBFS_ratio))
+  except:
+    delta_CBFS_ratio = 0 
 
 
   # =====================================================================
@@ -359,7 +386,7 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
       assert dollar_pool >= 0
   
   # calculate fitness and collect node and edge values in dict
-  fitnessDic = calc_fitness(G, nodes, Optimize, Print)
+  fitnessDic = calc_fitness(G, nodes, Optimize, Print, delta_CBFS_ratio)
   
   if Optimize:
     summaryGraphDic = None
@@ -394,7 +421,21 @@ def getFit(X, stocksDic, Print=False, Optimize=False):
     for k in keys:
       print("  ", k, ": ", fitnessDic['edges'][k])  
       
-  
+
+
+  if not Optimize:
+    # create a flexDic to hold returned, unchanged parameters
+    flexibleList = X.flexibleList
+    flexVars = np.array([X.__dict__[f] for f in flexibleList])
+    flexDic = {}
+        
+    for ii, f in enumerate(flexibleList):
+      flexDic[f] = [flexVars[ii]*100]
+      #print("'{:}': [{:}],".format(f, flexVars[ii]*100))
+    
+    fitnessDic['flexDic'] = flexDic
+    
+ 
   return fitnessDic, tableDic, summaryGraphDic
 
   
@@ -485,7 +526,7 @@ def getTax(G, node, total, taxRate, deduction):
 
 
 # ===================================================================== 
-def calc_fitness(G, nodes, Optimize, Print):
+def calc_fitness(G, nodes, Optimize, Print, delta_CBFS_ratio):
   """
   Calculates fitness and collects node and edge values in dict
   """
@@ -594,7 +635,7 @@ def calc_fitness(G, nodes, Optimize, Print):
   
   fitnessDic['fitness'] = {'dollars': int(round(fitness_dollars)), 
     'tokens': int(round(fitness_tokens)), 
-    'total': int(round(fitness_dollars + fitness_tokens))}
+    'total': int(round(fitness_dollars + fitness_tokens + delta_CBFS_ratio))}
   
   if Optimize:
     return fitnessDic 

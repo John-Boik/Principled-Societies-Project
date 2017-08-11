@@ -668,7 +668,7 @@ def make_stocks(X):
   cntLedda_2 = LeddaWF * pct_WF_employed  - \
     (stocksDic['final'][6]['cntLedda'] + stocksDic['final'][7]['cntLedda'])
   
-  assert np.allclose(cntLedda_1, cntLedda_2, atol=1)
+  assert np.allclose(cntLedda_1, cntLedda_2, atol=2)
   
   stocksDic['final'][8].update({'cntLedda': int(round(cntLedda_2))})
   stocksDic['final'][8].update({'pctLedda': 1.})

@@ -73,6 +73,117 @@ def fitness_overview_tables():
   document['grand_fitness_table'].html = ' '
   document['grand_fitness_table'] <= table
   
+  
+  # scenario table -------------------------------------------------
+  table = html.TABLE(Class="summaryTable") 
+  table <= html.CAPTION("Overview Results", Class="blue-sect")
+  population = float(paramsDic['population'][0])
+
+  edges = summaryGraphDic['edges']
+
+  spending = edges['path_Persons_Emp_spending'] + edges['path_Persons_Unemp_spending']
+  CBFS_funding = edges['path_CBFS_Orgs']
+  CBFS_spending_ratio = CBFS_funding / (CBFS_funding + spending) * 100
+  
+  penalty = fitnessDic['fitness']['total'] - fitnessDic['fitness']['dollars'] - fitnessDic['fitness']['tokens']
+  
+  pct_final = [countsDic['SB_pct_employed_Ledda_final'], countsDic['NP_pct_employed_Ledda_final'],
+    countsDic['PB_pct_employed_Ledda_final']]
+  
+  nodes = fitnessDic['nodes']
+  keys = list(nodes.keys())
+  keys.sort()
+  i = keys[0]
+  print("node name: ", i, "  ", nodes[i]['name'])
+  
+      
+  # write table body and rows
+  tb = html.TBODY()
+  rows = []
+
+  row = html.TR()
+  row <= html.TH("Item") + html.TH("Unit") + html.TH("Result")
+  rows.append(row)
+  
+  row = html.TR()
+  row <= html.TD("Population") 
+  r1 = html.TD("Adults") 
+  r2 = html.TD("{:,}".format(int(population)), Class="tableValue") 
+  row <= r1 + r2
+  rows.append(row)
+
+
+  row = html.TR()
+  row <= html.TD("LEDDA workforce partition, SB")
+  r1 =   html.TD("Percent")
+  r2 =   html.TD("{:}".format(round(pct_final[0],2)), Class="tableValue")
+  row <= r1 + r2
+  rows.append(row)
+
+  row = html.TR()
+  row <= html.TD("LEDDA workforce partition, NP")
+  r1 =   html.TD("Percent")
+  r2 =   html.TD("{:}".format(round(pct_final[1],2)), Class="tableValue")
+  row <= r1 + r2
+  rows.append(row)
+
+  row = html.TR()
+  row <= html.TD("LEDDA workforce partition, PB")
+  r1 =   html.TD("Percent")
+  r2 =   html.TD("{:}".format(round(pct_final[2],2)), Class="tableValue")
+  row <= r1 + r2
+  rows.append(row)
+  
+  row = html.TR()
+  row <= html.TD("CBFS/(CBFS+spending) partition of Orgs revenue") 
+  r1 = html.TD("Percent") 
+  r2 =   html.TD("{:}".format(round(CBFS_spending_ratio,2)), Class="tableValue")
+  row <= r1 + r2
+  rows.append(row)
+
+  row = html.TR()
+  row <= html.TD("Fitness penalty due to partition of Orgs revenue") 
+  r1 = html.TD("T&D") 
+  r2 =   html.TD("{:,}".format(int(round(penalty,0))), Class="tableValue")
+  row <= r1 + r2
+  rows.append(row)
+
+
+  if 'actual_postCBFS_income_dollars_mean' in nodes[i].keys():
+    row = html.TR()
+    row <= html.TD("Post-CBFS family income") + \
+      html.TD("") + \
+      html.TD("{:,} dollars, {:,} tokens, {:,} T&D".format(
+      nodes[i]['actual_postCBFS_income_dollars_mean']*2,
+      nodes[i]['actual_postCBFS_income_tokens_mean']*2,
+      nodes[i]['actual_postCBFS_income_total_mean']*2))
+    rows.append(row)  
+
+  if 'actual_preCBFS_income_dollars_mean' in nodes[i].keys():
+    row = html.TR()
+    row <= html.TD("Pre-CBFS family income") + \
+      html.TD("") + \
+      html.TD("{:,} dollars, {:,} tokens, {:,} T&D".format(
+      nodes[i]['actual_preCBFS_income_dollars_mean']*2,
+      nodes[i]['actual_preCBFS_income_tokens_mean']*2,
+      nodes[i]['actual_preCBFS_income_total_mean']*2))
+    rows.append(row)  
+
+  row = html.TR()
+  row <= html.TD("Token share of income (TSI)") 
+  r1 = html.TD("Percent") 
+  r2 =   html.TD("{:}".format(round(nodes[i]['actual_preCBFS_income_tokens_mean']/nodes[i]['actual_preCBFS_income_total_mean'],2)),
+    Class="tableValue")
+  row <= r1 + r2
+  rows.append(row)
+  
+  tb <= rows
+  table <= tb 
+    
+  document['scenario_table'].html = ' '
+  document['scenario_table'] <= table
+    
+  
 
 def load_svg_summary(url="/static/images/steady_state_summary_4.svg"):
   req = ajax.ajax()
@@ -340,7 +451,7 @@ def node_fitness_summary_table():
 def params_table():
   """
   Make a table to show the parameters used (different from choices if
-  minimization was used).
+  randomization was used).
   
   """
   keys = list(paramsDic.keys())
@@ -354,7 +465,8 @@ def params_table():
   rows = []
 
   row = html.TR()
-  row <= html.TH("Item") + html.TH("Value") 
+  row <= html.TH("Item") + html.TH("Input/Default") + \
+    html.TH("Output") 
   rows.append(row)
 
   
@@ -362,7 +474,11 @@ def params_table():
     row = html.TR()
     if k[0:9] in ['flexible_', 'doOptimiz']:
       continue
-    row <= html.TD(k) + html.TD(str(paramsDic[k][0]), Class="tableValue") 
+    v0 = paramsDic[k][0]
+    v1 = ""
+    if k in flexDic.keys():
+      v1 = flexDic[k][0]
+    row <= html.TD(k) + html.TD(str(v0), Class="tableValue") + html.TD(str(v1), Class="tableValue")
     rows.append(row)
     
   
@@ -1474,6 +1590,9 @@ paramsDic = results['paramsDic']
 countsDic = results['countsDic']
 histoDic = results['histoDic']
 summaryGraphDic = results['summaryGraphDic']
+flexDic = fitnessDic['flexDic']
+
+print("flexDic: ", flexDic)
 
 if 1==2:
   # testing

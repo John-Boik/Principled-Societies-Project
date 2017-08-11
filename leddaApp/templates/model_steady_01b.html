@@ -1,0 +1,254 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  <title>PSP Steady-State Model, Standard</title>
+{% endblock %}
+
+
+{% block page_head %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35447340-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta property="fb:app_id" content="312890269112844" /> 
+  <meta property="og:type" content="website" /> 
+  <meta property="og:title" content="PSP Steady-State Model, Standard" />
+  <meta property="og:description" content="Standard steady-state model of the token exchange system, a component of the LEDDA framework" />
+  <meta property="og:image" content="http://www.PrincipledSocietiesProject.org/static/images/globe_12.png" />
+  <meta property="og:url" content="http://www.PrincipledSocietiesProject.org/model_steady_01b" />
+  <meta property="og:site_name" content="Principled Societies Project" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PSP Steady-State Model" />
+  <meta name="twitter:description" content="Standard steady-state model of the token exchange system, a component of the LEDDA framework" />
+  <meta name="twitter:image" content="http://www.PrincipledSocietiesProject.org/static/images/globe_12.png" />
+  <meta name="twitter:site" content="@JohnBoik" />
+  <meta name="twitter:creator" content="@JohnBoik" />
+
+
+  <script src="{{ url_for('static', filename='brython/src/brython.js') }}"></script>
+  <!--<script type="text/python" src="{{ url_for('static', filename='python/layout.py') }}"></script>-->
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 center">
+      <h1 class="blue-sect">Standard Steady-State Model</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+
+      <h2 class="blue-sect">Running the Model</h2>
+
+      <p>The standard steady-state model refers to a version of the model that has a limited number of parameter choices, via scenarios. Results for these are precalculated. Thus, the standard model is simple and fast. It is intended to provide an easy introduction to the steady-state model and give a flavor of results and possibilities. The <a href="model_steady_01c">expert steady-state model</a> allows the user to specify a larger number of parameters.
+      </p>
+      
+      <p>The standard model uses only three user-specified parameters: county population, target workforce partition, and target partition of organization revenue. Behind the scenes it employs numerous default values that are listed on the results page. See the <a href="model_steady_01a">model overview</a> page for the meaning of the partitions and their relationship to decision-making in economic direct democracy. To run the model, choose a desired scenario and then press the "run" button. A results window will open containing information about currency flows and fitness scores. 
+      </p>
+      
+      <p>Apart from the table of parameters given on this page and on the results page, a spreadsheet listing internal model variables and default settings is available for <a href="{{ url_for('static', filename='data/variable_tables.xlsx') }}" target="blank">download</a>. See the <a href="glossary">glossary</a> for abbreviations and definition of terms.
+      </p>      
+
+      <h2 class="blue-sect">Parameter Choices</h2>
+      
+      <p>The drop down box contains scenario choices, as per the table below. The first and second scenarios are identical except for the revenue partition. Both have a fairly equal distribution of the LEDDA workforce within the standard business (SB), principled business (PB), and nonprofit (NP) sectors. Scenario 1 provides organization revenue by emphasizing flows from the CBFS, while Scenario 2 emphasizes flows from person spending.
+      </p>
+      
+      <p>Scenario 3 illustrates the possibility of achieving target incomes and other goals by shifting most of the LEDDA workforce to the nonprofit sector, and by providing organization revenue by emphasizing flows from the CBFS. Scenario 4 is identical, except for a county population of 100,000. In that Scenario, roughly 9 billion in currency (tokens and dollars, T&D) flows annually from the CBFS to local organizations (mostly nonprofits). Individuals in the county pay roughly $1.5 billion in taxes. Like all scenarios, the annual income for every LEDDA family, regardless of work status, is 110,000 T&D. This is after CBFS contributions are made. About 90% of county families join the LEDDA because it is in their best financial interests to do so. Additional estimates are given on the results page.
+      </p>
+      
+      <p>It is worth stating directly that nonprofits (including schools) could greatly benefit from the LEDDA framework. Jobs created in that sector are generally funded through the CBFS (via grants). Thus, in Scenarios 3 and 4, about 70 percent of the LEDDA workforce could be teachers, scientists, artists, doctors, nurses, field biologists, parks rangers, police, or firefighters, just to name a few. A LEDDA could fund any kind of effort or nonprofit program that it wishes, although its decisions would be scored by how collective wellbeing changes over time. Of course, a LEDDA could also fund any kind of for-profit business or project that it wishes.
+      </p>
+
+
+<table border="0" cellspacing="0"><colgroup width="156"></colgroup> <colgroup width="95"></colgroup> <colgroup span="2" width="109"></colgroup> <colgroup width="85"></colgroup>
+<tbody>
+<tr>
+<td align="center" height="17"><strong>Item</strong></td>
+<td align="center"><strong>Scenario 1</strong></td>
+<td align="center"><strong>Scenario 2</strong></td>
+<td align="center"><strong>Scenario 3</strong></td>
+<td align="center"><strong>Scenario 4</strong></td>
+</tr>
+<tr>
+<td align="left" height="17"><strong>Parameter:</strong></td>
+<td align="center"><strong>&nbsp;</strong></td>
+<td align="center"><strong>&nbsp;</strong></td>
+<td align="center"><strong>&nbsp;</strong></td>
+<td align="center"><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td align="left" height="17">Adult population</td>
+<td align="center">10,000</td>
+<td align="center">10,000</td>
+<td align="center">10,000</td>
+<td align="center">100,000</td>
+</tr>
+<tr>
+<td align="left" height="17">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" height="17"><strong>Workforce Partition:</strong></td>
+<td align="center"><strong>Percent</strong></td>
+<td align="center"><strong>Percent</strong></td>
+<td align="center"><strong>Percent</strong></td>
+<td align="center"><strong>Percent</strong></td>
+</tr>
+<tr>
+<td align="left" height="17">SB</td>
+<td align="center">33</td>
+<td align="center">33</td>
+<td align="center">12</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td align="left" height="17">PB</td>
+<td align="center">33</td>
+<td align="center">33</td>
+<td align="center">18</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td align="left" height="17">NP</td>
+<td align="center">34</td>
+<td align="center">34</td>
+<td align="center">70</td>
+<td align="center">34</td>
+</tr>
+<tr>
+<td align="right" height="17">Sum partition</td>
+<td align="center">100</td>
+<td align="center">100</td>
+<td align="center">100</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="left" height="17">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" height="17"><strong>Revenue Partition:</strong></td>
+<td align="center"><strong>% of Total</strong></td>
+<td align="center"><strong>% of Total</strong></td>
+<td align="center"><strong>% of Total</strong></td>
+<td align="center"><strong>% of Total</strong></td>
+</tr>
+<tr>
+<td align="left" height="17">Persons Spending</td>
+<td align="center">60</td>
+<td align="center">40</td>
+<td align="center">30</td>
+<td align="center">67</td>
+</tr>
+<tr>
+<td align="left" height="17">CBFS Funding</td>
+<td align="center">40</td>
+<td align="center">60</td>
+<td align="center">70</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td align="right" height="17">Sum partition</td>
+<td align="center">100</td>
+<td align="center">100</td>
+<td align="center">100</td>
+<td align="center">100</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+
+
+
+<p>&nbsp;</p>
+
+      
+      <div class="col col-xl-4 col-lg-4 col-med-4 col-sm-12 col-xs-12 input-col">
+        <div >Parameter Scenarios</div>
+        <select id="scenario" class="selectpicker" data-style="btn-primary">
+          <option value="1">Scenario 1</option>
+          <option value="2">Sceniaro 2</option>
+          <option value="3">Sceniaro 3</option>
+          <option value="4">Sceniaro 4</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div id="hidden_form"> </div>
+
+  <div class="row input-row p-sect">
+    <div class="col col-lg-12 col-xl-12 col-md-12 col-xs-12">
+      <button id="submit" type="button" class="run-button btn btn-success" value="Run">Run</button>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect">
+      <h2 class="blue-sect bld">References</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-lg-12 col-xl-12 p-sect-narrow">
+
+      <a id="r1"></a>
+      <p>1. Russell Cooper, A. Andrew John. <i>Theory and Applications of Macroeconomics. Creative Commons version; unspecified date.</i>
+      <a href="http://2012books.lardbucket.org/books/theory-and-applications-of-macroeconomics/s20-16-the-circular-flow-of-income.html" target="blank">link</a> </p>
+
+      <a id="r2"></a>
+      <p>2. Boik JC. First Micro-Simulation Model of a LEDDA Community Currency-Dollar Economy. <i>International Journal of Community Currency Research</i>; 2015.
+      <a href="http://ijccr.net/2014/10/14/first-micro-simulation-model-of-a-ledda-community-currency-dollar-economy/"  target="blank">link</a> </p>
+
+      <a id="r3"></a>
+      <p>3. Boik JC. LEDDA Framework: Innovation for Thriving, Resilient Communities. Poster for <i>De Lang Conference X: Humans Machines and the Future of Work</i>. Rice University; 2016.
+      <a href="rice_poster">link</a> </p>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function() {
+    brython(1);
+  });
+</script>
+
+<script type="text/python" src="{{ url_for('static', filename='python/steady_01b.py') }}"></script>
+
+{% endblock %}
+
+
+

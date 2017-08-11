@@ -78,13 +78,31 @@ def rice_poster():
 
 
 # -------------------------------------------------------------------------------------
-@app.route('/model_steady_01')
-def model_steady_state_01():
+@app.route('/model_steady_01a')
+def model_steady_state_01a():
   """
-  This is the steady_01 page. 
+  This is the steady_01 page, 1. 
   """
-  return render_template('model_steady_01.html')  
+  return render_template('model_steady_01a.html')  
 
+
+# -------------------------------------------------------------------------------------
+@app.route('/model_steady_01b')
+def model_steady_state_01b():
+  """
+  This is the steady_01 page, 2. 
+  """
+  return render_template('model_steady_01b.html')  
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/model_steady_01c')
+def model_steady_state_01c():
+  """
+  This is the steady_01 page, 3. 
+  """
+  return render_template('model_steady_01c.html')  
+  
 
 # -------------------------------------------------------------------------------------
 @app.route('/glossary')
@@ -335,7 +353,7 @@ def runModel():
   """
   Run SS model 
   """
-  
+  print("jjjjj")
   data = dict(request.form)
   
   K = list(data.keys())
@@ -348,7 +366,7 @@ def runModel():
     for k in K:
       print(k, data[k])
   
-  
+
   # remove lists, make floats, convert % to fractions
   _ = [data.__setitem__(k, float(data[k][0])/100.) \
     for k in K if ((k[0:9] not in ['flexible_']) and (k not in ['doGenetic', 'doBFGS','doRandomStart']))]
