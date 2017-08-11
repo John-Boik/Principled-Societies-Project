@@ -82,12 +82,13 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
       <div id="grand_fitness_table" ></div>
 
       <p>The fitness at a single node is calculated as abs(total inflow - total outflow), for tokens and dollars separately, then added together. The grand fitness is the sum of fitness values over all nodes. It can be evaluated as:
+      </p>
       <ul>
       <li>0&ndash;10 T&D per person (0&ndash;<span id="threshold_lo_1" class="output_calc">...wait...</span> T&D): Excellent</li>
       <li>10&ndash;100 T&D per person (<span id="threshold_lo_2" class="output_calc">...wait...</span>&ndash;<span id="threshold_hi_1" class="output_calc">...wait...</span> T&D): OK</li>
       <li>&GT;100 T&D per person (&GT;<span class="output_calc" id="threshold_hi_2">...wait...</span> T&D): Poor</li>
       </ul>
-      </p>
+
       
       <p>If the grand fitness falls well into the last category, then all results except fitness might be meaningless. Aside from rounding and related issues, a fitness score near zero can be achieved in many ways.</p>
 
@@ -216,7 +217,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
                   <div class="col col-xl-1 col-lg-1 col-med-2 col-sm-12" id="graph_left"></div>
                   <div class="col col-xl-11 col-lg-11 col-med-11 col-xs-12" id="graph_right"></div>  
               </div>
-              <br clear="all">
+              <br>
 
 
 
