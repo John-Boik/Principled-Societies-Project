@@ -76,7 +76,7 @@ def fitness_overview_tables():
   
   # scenario table -------------------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Results for Selected Targets", Class="blue-sect")
+  table <= html.CAPTION("Results for Selected Targets and Variables", Class="blue-sect")
   population = float(paramsDic['population'][0])
 
   edges = summaryGraphDic['edges']

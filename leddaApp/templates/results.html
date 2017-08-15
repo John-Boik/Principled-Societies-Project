@@ -89,7 +89,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
 
       <div id="grand_fitness_table" ></div>
 
-      <p>The fitness score at a single node is calculated as the absolute value of (total inflow - total outflow), for tokens and dollars separately. The grand fitness is calculated by summing the fitness scores over all nodes, and by adding a fitness penalty if the revenue partition is off from its target. (The penalty is calculated as the absolute difference in T&D flows from the CBFS to organizations between what is expected given the revenue partition target and and what actually occurs.) The grand fitness score can be evaluated as:
+      <p>The fitness score at a single node is calculated as the absolute value of inflow minus outflow, for tokens and dollars separately. The grand fitness is calculated by summing the fitness scores over all nodes, and by adding a fitness penalty for any differences between the revenue partition target and the actual revenue partition. (The penalty is calculated as the absolute difference in T&D flows from the CBFS to organizations between what is expected given the target and and what actually occurs.) The grand fitness score can be evaluated as:
       </p>
       
       <ul>
@@ -101,7 +101,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
 
       <div id="scenario_table" ></div>
 
-      <p>On the remainder of this page, the sizes of arrows on graphs indicate the relative volume of flow. Further, nodes on graphs and the cells of some tables are color coded to visually highlight their fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red (worst), signifying either a fitness of 1,000 T&D or the maximum node fitness, whichever is larger. If the grand fitness score is high but the fitness scores of individual nodes are low, then most of the fitness score comes from a mismatch between the target partition of revenue and the actual partition. See the table above for the value of this fitness penalty.  
+      <p>On the remainder of this page, the sizes of arrows on graphs indicate the relative size of the flow. Further, nodes on graphs and the cells of some tables are color coded to visually highlight their fitness scores. For these, a linear gradient is used between gray, signifying zero fitness (best), and red (worst), signifying either a fitness of 1,000 T&D or the maximum node fitness, whichever is larger. If the grand fitness score is high but the fitness scores of individual nodes are low, then most of the fitness score comes from a mismatch between the revenue partition target and the actual partition. See the table above for the value of this fitness penalty.  
       </p> 
 
       <figure>
@@ -117,12 +117,17 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
       </p>
       <br>
       <div id="income_dist"></div>
+      <br>
       <div id="graph_person_counts"></div>
+      <br>
       <div id="graph_pct_employed_workforce"></div>
+      <br>
       <div id="graph_pie_employed_member_workforce"></div>
+      <br>
       <div id="graph_mean_family_income"></div>
+      <br>
       <div id="group_2_summary_table" ></div>
-
+      <br>
       
       <!-- ========================== Group 1 ============================================== -->
       <h2 class="blue-sect">Summary of Flows</h2>
