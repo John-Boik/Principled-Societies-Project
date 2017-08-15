@@ -201,7 +201,7 @@
       <p>Trade with outside areas is handled via organizations, which purchase products from outside the local area and sell to customers within the local area. (In an improved model, persons would also purchase goods and services directly from outside areas.) At steady-state, a LEDDA balances its trade with outside areas so that inflows of dollars equal outflows. 
       </p>
       
-      <p>In summary, flows at nodes are solved sequentially, given a parameter set. Once flows at one node are solved, they are used to solve flows at other nodes. After the flows for all nodes are solved, a grand fitness score is produced that is the sum of flow discrepancies over all nodes, for tokens and dollars, plus a penalty for any discrepancy related to the revenue partition target. A perfect score is zero. Different parameter sets are tried until a fitness score near zero is achieved or no further progress can be made.
+      <p>In summary, flows at nodes are solved sequentially, given a parameter set. Once flows at one node are solved, they are used to solve flows at other nodes. After the flows for all nodes are solved, a grand fitness score is calculated as the sum of flow discrepancies over all nodes, for tokens and dollars, plus a penalty for any discrepancy related to the revenue partition target. A perfect score is zero. Different parameter sets are tried until a grand fitness score near zero is achieved or no further progress can be made.
       </p>
 
       <p>
