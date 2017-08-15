@@ -76,7 +76,7 @@ def fitness_overview_tables():
   
   # scenario table -------------------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Overview Results", Class="blue-sect")
+  table <= html.CAPTION("Results for Selected Targets", Class="blue-sect")
   population = float(paramsDic['population'][0])
 
   edges = summaryGraphDic['edges']
@@ -385,7 +385,7 @@ def node_fitness_summary_table():
 
   # node fitness summary table ------------------------------------
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Node Fitness, Summary", Class="blue-sect")
+  table <= html.CAPTION("Node Fitness, Summary", Class="brown-sect")
 
   tb = html.TBODY()
   rows = []
@@ -458,7 +458,7 @@ def params_table():
   keys.sort()
 
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Parameters and Variables", Class="blue-sect")
+  table <= html.CAPTION("Parameters and Variables", Class="brown-sect")
 
   # write table body and rows
   tb = html.TBODY()
@@ -852,7 +852,7 @@ def group_2_summary_table():
   
   # Before/After
   table = html.TABLE(Class="summaryTable") 
-  table <= html.CAPTION("Initial Vs. Final", Class="green-sect")
+  table <= html.CAPTION("Initial Vs. Final", Class="blue-sect")
   population = float(paramsDic['population'][0])
 
   # write table body and rows
@@ -1227,7 +1227,7 @@ def annotate_detailed_graph_edges():
     elt.bind('click', showModal)
 
     table = html.TABLE(Class="infoTable")
-    table <= html.CAPTION("Summary for Edge ID: {}".format(i))
+    table <= html.CAPTION("Summary for Edge ID: {}".format(i), Class="brown-sect")
     
     tb = html.TBODY()
     rows = []
@@ -1274,7 +1274,7 @@ def annotate_detailed_graph_nodes():
     
     # table 1: summary info ------------------------------------------------------
     table1 = html.TABLE(Class="infoTable")
-    table1 <= html.CAPTION("Summary for Node ID: {}, Name: {}".format(i, nodes[i]['name']))
+    table1 <= html.CAPTION("Summary for Node ID: {}, Name: {}".format(i, nodes[i]['name']), Class="brown-sect")
     
     tb = html.TBODY()
     rows = []
@@ -1351,10 +1351,10 @@ def annotate_detailed_graph_nodes():
         continue
       
       if itable == 0:
-        table_ <= html.CAPTION("Total Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name']))
+        table_ <= html.CAPTION("Total Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name']), Class="brown-sect")
         count = 1 
       else:
-        table_ <= html.CAPTION("Per Person Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name'])) 
+        table_ <= html.CAPTION("Per Person Flows for Node ID: {}, Name: {}".format(i, nodes[i]['name']), Class="brown-sect") 
         count = nodes[i]['count']
       
       # write table body and rows
@@ -1541,10 +1541,13 @@ def more_3_group(evt):
   annotate_detailed_graph_nodes()
 
   document['detailed_graph_container'].style.display = "block"
+  
+  # call group 4
+  more_4_group()
 
 
 # ========================================
-def more_4_group(evt):
+def more_4_group():
   """
   Call more 4 groups (very detailed tables)
   """
@@ -1554,6 +1557,7 @@ def more_4_group(evt):
   if len(document["group_3b_node_table"].text) == 0:
     return
 
+  """
   if document["group4_more"].style.display == "block":
     document["group4_more"].style.display = "none"
     return
@@ -1563,7 +1567,10 @@ def more_4_group(evt):
   
     if len(document["all_tables"].text) > 0:
       return
-
+  """
+  if len(document["all_tables"].text) > 0:
+    return
+  
   # write out complete set of node tables
   write_all_tables()
       
@@ -1635,7 +1642,7 @@ more_1_group()
 more_2_group()
 #more_3_group()
 document['gr3_more'].bind('click', more_3_group)
-document['gr4_more'].bind('click', more_4_group)
+#document['gr4_more'].bind('click', more_4_group)
 
 
 

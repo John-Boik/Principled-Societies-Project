@@ -67,7 +67,7 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
 <div class="container-fluid">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 center">
-      <h1 class="blue-sect">Fitness Overview</h1>
+      <h1 class="blue-sect">Results Overview</h1>
     </div>
   </div>
 </div>
@@ -76,104 +76,64 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
 <div class="container-fluid">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-med-12 col-sm-12 cols-xs-12 p-sect result-col">
-
-      <p>The grand fitness is <span id="output_grand_fitness" class="output_calc" >...wait...</span> T&D.</p>
+      <br>
+      <p>This page displays results from running the steady-state model. Although it contains a large amount of information, the take-home message is simple. First, if the grand fitness score is close to zero, you have successfully run the model. This means that flows balance at all nodes and your targets (for family income, workforce partition, revenue partition, etc.) are achieved. Congratulations! The point is, you achieved your targets <i>and</i> the numbers add up. They make logical sense. Two plus two equals four, for all nodes. You can use the information on this page to understand volumes of currency flow, differences between starting and ending conditions, and other aspects of currency flow.
+      </p>
+      
+      <p>Second, if the grand fitness score is not close to zero, the model was unable to identify a set of flows for which your targets could be achieved. Perhaps the model needs better starting estimates for parameters, or needs to search longer or harder to find a suitable set of flows. Or perhaps you are asking it to do something that can't logically be done. All results on this page are invalid, except for flow and fitness information. You can use this information to try and understand what went wrong and how you might fix it.
+      </p>    
+      
+      <h2 class="blue-sect">Fitness Overview</h2>
+      
+      <p>The grand fitness score is <span id="output_grand_fitness" class="output_calc" >...wait...</span> T&D.</p>
 
       <div id="grand_fitness_table" ></div>
 
-      <p>The fitness at a single node is calculated as abs(total inflow - total outflow), for tokens and dollars separately, then added together. The grand fitness is the sum of fitness values over all nodes. It can be evaluated as:
+      <p>The fitness score at a single node is calculated as the absolute value of (total inflow - total outflow), for tokens and dollars separately. The grand fitness is calculated by summing the fitness scores over all nodes, and by adding a fitness penalty if the revenue partition is off from its target. (The penalty is calculated as the absolute difference in T&D flows from the CBFS to organizations between what is expected given the revenue partition target and and what actually occurs.) The grand fitness score can be evaluated as:
       </p>
+      
       <ul>
       <li>0&ndash;10 T&D per person (0&ndash;<span id="threshold_lo_1" class="output_calc">...wait...</span> T&D): Excellent</li>
       <li>10&ndash;100 T&D per person (<span id="threshold_lo_2" class="output_calc">...wait...</span>&ndash;<span id="threshold_hi_1" class="output_calc">...wait...</span> T&D): OK</li>
       <li>&GT;100 T&D per person (&GT;<span class="output_calc" id="threshold_hi_2">...wait...</span> T&D): Poor</li>
       </ul>
-
       
-      <p>If the grand fitness falls well into the last category, then all results except fitness might be meaningless. Aside from rounding and related issues, a fitness score near zero can be achieved in many ways.</p>
 
       <div id="scenario_table" ></div>
 
+      <p>On the remainder of this page, the sizes of arrows on graphs indicate the relative volume of flow. Further, nodes on graphs and the cells of some tables are color coded to visually highlight their fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red (worst), signifying either a fitness of 1,000 T&D or the maximum node fitness, whichever is larger. If the grand fitness score is high but the fitness scores of individual nodes are low, then most of the fitness score comes from a mismatch between the target partition of revenue and the actual partition. See the table above for the value of this fitness penalty.  
+      </p> 
 
-      <p>Results are presented in five groups: this overview and increasingly more detailed Groups 1 to 4. <b>Examine them in order (by clicking the "more info" downward facing triangles).</b> If they are examined out of order, some features might not work properly. The cells and nodes of some tables and graphs on this page are color coded to visually highlight their fitness values. For these, a linear gradient is used between gray, signifying zero fitness (best), and red, signifying either a fitness of 1,000 T&D or the maximum node fitness, whichever is larger.</p> 
-
-      <div>
+      <figure>
         <div id='summary_graph_container'></div>
-        <caption>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</caption>
-      </div>
+        <figcaption>Figure 1. Compartments and flows in 20-node steady-state model. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.</figcaption>
+      </figure>
       <br >  
-      <div class="more-triangle" data-toggle="collapse" data-target="#overview-more">
-        <div class="triangle-text">
-          more info
-        </div>
-        <div class="blue-fill">
-          <svg width="100%" viewBox="0 0 50 11">
-            <polygon points="0,0 25,10 50,0"/>
-          </svg>
-        </div>
-      </div>
 
-      <div id="overview-more" class="collapse">
-      
-        <!-- ========================== Group 1 ============================================== -->
-        <br>
+      <!-- ========================== Group 2 ============================================== -->
+      <h2 class="blue-sect">Starting Conditions and Targets</h2>
 
-        <div id="org_funding_table" ></div>
-        <br>
-          
-        <div id="compartment_flow_summary_table" ></div>
-        <br>
-
-        <div id="params_table" ></div>
-        <br>
-
-        <div id="node_fitness_summary_table" ></div>
-      </div>       
-
-    </div>
-  </div>
-</div>
-
-        
-<!-- ========================== Group 2 ============================================== -->
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col col-lg-12 col-xl-12 sect-title">
-      <div class="sect-header green-sect sh-lower">
-        <h1 class="green-sect center">Results: Starting Conditions and Targets</h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>The results in this section follow directly from the values chosen for starting conditions and targets.</p>
+      <p>The results in this section follow directly from the default or chosen starting conditions and targets.
+      </p>
       <br>
       <div id="income_dist"></div>
+      <div id="graph_person_counts"></div>
+      <div id="graph_pct_employed_workforce"></div>
+      <div id="graph_pie_employed_member_workforce"></div>
+      <div id="graph_mean_family_income"></div>
+      <div id="group_2_summary_table" ></div>
 
+      
+      <!-- ========================== Group 1 ============================================== -->
+      <h2 class="blue-sect">Summary of Flows</h2>
+      
+      <div id="org_funding_table" ></div>
+      <br>
+        
+      <div id="compartment_flow_summary_table" ></div>
+      <br>
 
-      <br >  
-      <div class="more-triangle" data-toggle="collapse" data-target="#group2-more">
-        <div class="triangle-text">
-          more info
-        </div>
-        <div class="green-fill">
-          <svg width="100%" viewBox="0 0 50 11">
-            <polygon points="0,0 25,10 50,0"/>
-          </svg>
-        </div>
-      </div>
-
-      <div id="group2-more" class="collapse">
-
-        <div id="graph_person_counts"></div>
-        <div id="graph_pct_employed_workforce"></div>
-        <div id="graph_pie_employed_member_workforce"></div>
-        <div id="graph_mean_family_income"></div>
-        <div id="group_2_summary_table" ></div>
     </div>
-  </div>
   </div>
 </div>
 
@@ -183,14 +143,15 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
   <div class="row">
     <div class="col col-lg-12 col-xl-12 sect-title">
       <div class="sect-header brown-sect sh-lower">
-        <h1 class="brown-sect center">Results: Fixed/Flexible Variables</h1>
+        <h1 class="brown-sect center">Detailed Results</h1>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>Given starting conditions and targets, the results in this section follow directly from the values chosen for fixed/flexible variables.</p>
+      <p>Click on the "more info" triangle below for a detailed graph of flows and numerous tables of information about fitness and flows at each node. The data might take a moment to load. Please be patient. 
+      </p>
       <br>
 
       <div class="more-triangle" id="gr3_more">
@@ -205,58 +166,43 @@ src="{{ url_for('static', filename='python/results.py') }}"></script>
       </div>
 
       <div id="group3_more">
-        
-        <h2 style="clear:both;" class="brown-sect" >Summary Tables</h2> 
-        <div id="group_3b_node_table" ></div>
 
         <h2 style="clear:both;" class="brown-sect" >Detailed graph</h2>
+        
+        <p>The interactive graph below shows all nodes and flows. Click on the "Info" icon, then click on a node or flow for a pop-up window containing more detailed information. This same information, and more, is also provided in the summary tables and detailed tables in the following sections.  
+        </p>
+          
+        <figure>
+          <div id="detailed_graph_container">
+            <div class="col col-xl-1 col-lg-1 col-med-2 col-sm-12" id="graph_left"></div>
+            
+            <div class="col col-xl-11 col-lg-11 col-med-11 col-xs-12" id="graph_right"></div>  
+          </div>
+          
+          <figcaption>Figure 2. Details of flows between nodes. Dollar-only flows are in dotted green. Dollar and/or tokens flows are in solid blue.  Line weight signifies size of flow. Node color indicates fitness.
+          </figcaption>
+        </figure>
+        <br>
 
+        <h2 style="clear:both;" class="brown-sect" >Summary Tables</h2> 
 
+        <div id="group_3b_node_table" ></div>
+        <br>
 
-              <div id="detailed_graph_container">
-                  <div class="col col-xl-1 col-lg-1 col-med-2 col-sm-12" id="graph_left"></div>
-                  <div class="col col-xl-11 col-lg-11 col-med-11 col-xs-12" id="graph_right"></div>  
-              </div>
-              <br>
+        <div id="node_fitness_summary_table" ></div>
+        <br> 
 
+        <div id="params_table" ></div>
+        <br>
 
+        <h2 style="clear:both;" class="brown-sect" >Detailed Tables</h2> 
 
-
+        <p>This section contains a large set of detailed tables containing flow information for each node. 
+        </p>
+        
+        <div id="all_tables" style="clear:both;"></div>
+      
       </div>
-    </div>
-  </div>
-</div>
-<!-- ========================== Group 4 ============================================== -->
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col col-lg-12 col-xl-12 sect-title">
-      <div class="sect-header purple-sect sh-lower">
-        <h1 class="purple-sect center">Results: Detailed Tables</h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col col-lg-12 col-xl-12 p-sect">
-      <p>This section contains a large set of detailed tables containing flow information for each node. Click the "more info" triangle for "Results: Fixed/Flexible Variables" before clicking the "more info" triangle here. </p>
-      <br>
-
-      <div class="more-triangle" id="gr4_more">
-        <div class="triangle-text">
-          more info
-        </div>
-        <div class="purple-fill">
-          <svg width="100%" viewBox="0 0 50 11">
-            <polygon points="0,0 25,10 50,0"/>
-          </svg>
-        </div>
-      </div>
-
-      <div id="group4_more">
-      <div id="all_tables" style="clear:both;"></div>
-    </div>
     </div>
   </div>
 </div>
