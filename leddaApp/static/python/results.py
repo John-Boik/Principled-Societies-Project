@@ -981,7 +981,7 @@ def inflow_outflow_summary_tables():
 def load_svg_detailed(url="/static/images/steady_state_detailed.svg"):
   req = ajax.ajax()
   req.bind('complete', load_svg_detailed_complete)
-  req.open('GET', url, True)
+  req.open('GET', url, False)
   req.send()
 
 
