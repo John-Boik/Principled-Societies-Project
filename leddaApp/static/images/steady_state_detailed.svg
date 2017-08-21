@@ -8,8 +8,8 @@
    version="1.1"
    id= "svg_detailed_graph"
    viewBox="0.00 0.00 1237.39 1368.00"
-   width="700.12128"
-   height="628.8877">
+   height="100%" 
+   width="100%"
    >
 
 <g id="graph00" >
