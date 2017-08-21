@@ -7,7 +7,10 @@
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
    id= "svg_detailed_graph"
-   viewBox="0.00 0.00 1237.39 1368.00">
+   viewBox="0.00 0.00 1237.39 1368.00"
+   height="100%" 
+   width="100%"
+   >
 
 <g id="graph00" >
 <g id="graph0"  transform="scale(0.288879 0.288879) rotate(0) translate(14.4 4721.14)">
