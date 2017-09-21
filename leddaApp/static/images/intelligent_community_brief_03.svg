@@ -92,14 +92,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0052096"
-     inkscape:cx="414.354"
-     inkscape:cy="505.92602"
+     inkscape:zoom="0.71079052"
+     inkscape:cx="584.88364"
+     inkscape:cy="341.14497"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="643"
+     inkscape:window-width="1360"
+     inkscape:window-height="694"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1"
@@ -254,28 +254,6 @@
          id="tspan4605" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#ff0000;fill-opacity:1;stroke:#280b0b;stroke-width:0.50000006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="1071.5502"
-       y="39.017925"
-       id="text4138-1-6"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="1071.5502"
-         y="39.017925"
-         id="tspan4142-7-0"
-         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.00000381px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#ff0000;stroke:#280b0b;stroke-width:0.50000006;stroke-miterlimit:4;stroke-dasharray:none">Social</tspan><tspan
-         sodipodi:role="line"
-         x="1077.6342"
-         y="82.767929"
-         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.00000381px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#ff0000;stroke:#280b0b;stroke-width:0.50000006;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan4492-6">Choice </tspan><tspan
-         sodipodi:role="line"
-         x="1071.5502"
-         y="126.51794"
-         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.00000381px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold Italic';fill:#ff0000;stroke:#280b0b;stroke-width:0.50000006;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan9182">System</tspan></text>
-    <text
-       xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.30000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        x="739.80194"
        y="600.28986"
@@ -343,30 +321,29 @@
          x="1014.2489"
          y="333.74844"
          style="font-weight:bold;font-size:27.5px;text-align:center;text-anchor:middle;fill:#ff0000;stroke:none;stroke-width:0.30000004;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan4304">anticpate outcomes</tspan></text>
+         id="tspan4304">anticipate outcomes</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:90px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000080;fill-opacity:1"
-       x="493.93219"
-       y="468.32785"
+       x="471.04956"
+       y="435.74884"
        id="text4312"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4314"
-         x="493.93219"
-         y="468.32785"
-         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000080">Emotional</tspan><tspan
+         x="471.04956"
+         y="435.74884"
+         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000080">Use of</tspan><tspan
          sodipodi:role="line"
-         x="493.93219"
-         y="493.32785"
+         x="471.04956"
+         y="460.74884"
+         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000080"
+         id="tspan3412">emotional</tspan><tspan
+         sodipodi:role="line"
+         x="471.04956"
+         y="485.74884"
          id="tspan4316"
          style="font-size:20px;text-align:center;text-anchor:middle;fill:#000080">information</tspan></text>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:4.00000036;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 794.214,179.66348 987.92526,75.158671"
-       id="path7339"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.30000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
@@ -527,5 +504,24 @@
          x="269.69852"
          y="34.913914"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;fill:#008080;stroke:none;">F</tspan></text>
+    <rect
+       style="opacity:0.13999999;fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3414"
+       width="61.902908"
+       height="29.544567"
+       x="862.73425"
+       y="499.63202" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.30000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="939.32526"
+       y="520.82959"
+       id="text4138-1-6-2-6-8-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="939.32526"
+         y="520.82959"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.50000191px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;text-anchor:start;fill:#ff0000;stroke:none;stroke-width:0.30000004;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan4295">Social choice system</tspan></text>
   </g>
 </svg>
