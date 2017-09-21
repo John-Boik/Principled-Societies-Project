@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="intelligent_community_brief_03.svg"
-   inkscape:export-filename="/home/john/Devel/LEDDA/Git/Principled-Societies-Project/leddaApp/static/images/intelligent_community_brief.png"
+   inkscape:export-filename="intelligent_community_brief.png"
    inkscape:export-xdpi="71.953369"
    inkscape:export-ydpi="71.953369">
   <defs
@@ -93,7 +93,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.71079052"
-     inkscape:cx="584.88364"
+     inkscape:cx="665.07605"
      inkscape:cy="341.14497"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -514,13 +514,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:35px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.30000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="939.32526"
-       y="520.82959"
+       x="937.32526"
+       y="522.82959"
        id="text4138-1-6-2-6-8-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="939.32526"
-         y="520.82959"
+         x="937.32526"
+         y="522.82959"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.50000191px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;text-anchor:start;fill:#ff0000;stroke:none;stroke-width:0.30000004;stroke-miterlimit:4;stroke-dasharray:none"
          id="tspan4295">Social choice system</tspan></text>
   </g>
