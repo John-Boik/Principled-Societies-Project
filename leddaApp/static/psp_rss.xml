@@ -2,53 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
-  <atom:link href="http://www.principledsocietiesproject.org/Data/psp_rss.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="https://principledsocietiesproject.org/Data/psp_rss.xml" rel="self" type="application/rss+xml" />
   <title>Principled Societies Project</title>
-  <link>http://www.PrincipledSocietiesProject.org/blog</link>
+  <link>https://principledsocietiesproject.org/blog</link>
   <description>Empowering Individuals, Organizations, and Communities Solve Problems That Matter</description>
   <copyright>Creative Commons Attribution-NoDerivatives 4.0 International License</copyright>
 
 
-  <item>
-    <title>Is Solving Problems the Ideal of Democracy and Capitalism?</title>
-    <link>http://www.PrincipledSocietiesProject.org/ideals_democracy_capitalism</link>
-    <guid>http://www.PrincipledSocietiesProject.org/ideals_democracy_capitalism</guid>
-    <description>Societies can solve important problems. Doing so is the essence of sustainability. But systems innovation is necessary.
-    </description>
-  </item>
+
 
   <item>
-    <title>Solving Problems That Matter Could Be the Next Big Thing</title>
-    <link>http://www.PrincipledSocietiesProject.org/socio_prospectus</link>
-    <guid>http://www.PrincipledSocietiesProject.org/socio_prospectus</guid>
-    <description>By viewing a society as a problem-solving superorganism, the natural sciences and technology sector can go wild with possibilities. Designs of economic, governance, and legal systems fall into their domain. 
+    <title>Blog Articles</title>
+    <link>https://principledsocietiesproject.org/blog</link>
+    <guid>https://principledsocietiesproject.org/blog</guid>
+    <description>Blog articles, including: Equality: A Beneficial Alternative to Collapse, and Metamodel for New Social Choice Systems.
     </description>
   </item>
 
 
-  <item>
-    <title>An Economy of Meaning, or Bust</title>
-    <link>http://www.PrincipledSocietiesProject.org/economy_of_meaning</link>
-    <guid>http://www.PrincipledSocietiesProject.org/economy_of_meaning</guid>
-    <description>Current economic systems are dismal because they waste our precious time. We can pause to reevaluate, and redesign.
-    </description>
-  </item>
 
-  <item>
-    <title>Wellbeing Centrality: Toward an Economics and Politics of Meaning</title>
-    <link>http://www.PrincipledSocietiesProject.org/wellbeing_centrality_summary</link>
-    <guid>http://www.PrincipledSocietiesProject.org/wellbeing_centrality_summary</guid>
-    <description>The designs of current economic and governance systems may be inadequate to solve our many pressing problems. Ideas from complex systems science and other fields can help us re-conceptualize systems, leading to better designs.
-    </description>
-  </item>
 
-  <item>
-    <title>Why Stop at Basic Income and a Living Wage?</title>
-    <link>http://www.PrincipledSocietiesProject.org/why_stop_at_basic_income</link>
-    <guid>http://www.PrincipledSocietiesProject.org/why_stop_at_basic_income</guid>
-    <description> We can ask the big question: Out of all conceivable economic system designs, which ones might be best at helping us to focus on and solve problems that matter?
-    </description>
-  </item>    
   
 </channel>
 
