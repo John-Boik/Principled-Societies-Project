@@ -18,15 +18,15 @@ Communities worldwide face a challenging mix of existing and emerging problems i
 
 ## Installation
 
-[...coming soon...]
+[...coming ...]
 
 ## Tests
 
-[...coming soon...]
+[...coming ...]
 
 ## Contributors
 
-[...coming soon...]
+[...coming ...]
 
 ## License
 
