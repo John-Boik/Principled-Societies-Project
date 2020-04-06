@@ -4,18 +4,18 @@
 <channel>
   <atom:link href="https://principledsocietiesproject.org/Data/psp_rss.xml" rel="self" type="application/rss+xml" />
   <title>Principled Societies Project</title>
-  <link>https://principledsocietiesproject.org/blog</link>
-  <description>Empowering Individuals, Organizations, and Communities Solve Problems That Matter</description>
+  <link>https://principledsocietiesproject.org/articles_media</link>
+  <description>Science-based research and development of new societal systems</description>
   <copyright>Creative Commons Attribution-NoDerivatives 4.0 International License</copyright>
 
 
 
 
   <item>
-    <title>Blog Articles</title>
-    <link>https://principledsocietiesproject.org/blog</link>
-    <guid>https://principledsocietiesproject.org/blog</guid>
-    <description>Blog articles, including: Equality: A Beneficial Alternative to Collapse, and Metamodel for New Social Choice Systems.
+    <title>Articles, Papers, Books, Media</title>
+    <link>https://principledsocietiesproject.org/articles_media</link>
+    <guid>https://principledsocietiesproject.org/articles_media</guid>
+    <description>Books, academic papers, blog articles, media, and other works about the Principled Societies Project and LEDDA Framework.
     </description>
   </item>
 
