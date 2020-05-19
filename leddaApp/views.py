@@ -260,7 +260,15 @@ def runModel():
   
   K = list(data.keys())
   K.sort()
-  paramsDic = data.copy()
+
+  # On Apache server, data[key] is a list, not a value. So change here to value.
+  for k,v in data.items():
+    if isinstance(v, list):
+        data[k] = v[0]
+    else:
+        data[k] = v
+
+  paramsDic_ = data.copy()
   
   if False:
     # for testing
@@ -271,7 +279,7 @@ def runModel():
           print("   float={}".format(float(data[k])/100.))
   
 
-  # remove lists, make floats, convert % to fractions. Not sure why original used data[k][0]
+  # remove lists, make floats, convert % to fractions. Original used paramsDic[k][0]
   _ = [data.__setitem__(k, float(data[k])/100.) \
     for k in K if ((k[0:9] not in ['flexible_']) and (k not in ['doGenetic', 'doBFGS','doRandomStart']))]
   
