@@ -62,7 +62,7 @@ def setup(data):
   HDF5 file. It also sets up model parameters and calls a fitness function. It returns fitness data.
   """
   
-  Print = False
+  Print = True
   
   if Print:
     print("\nin setup")
@@ -959,7 +959,3 @@ def checkFamilyIncome(X, Year, threshold_family, Membership=None, Idd=None):
     return persons
 
  
-
-
-
-

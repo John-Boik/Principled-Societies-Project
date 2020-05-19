@@ -1,0 +1,138 @@
+body{
+margin:0;
+padding:0;
+background-color: #808080;  /*50% gray*/
+color:black;
+font-family: Verdana, Arial, Sans-Serif;
+}
+
+
+#wrapper0{
+width: 950px;
+margin-right: auto;
+margin-left: auto;
+padding:0;
+background:white;
+
+border-right:solid;
+border-left:solid;
+border-width:5px;
+border-color:#666666; /*60% gray*/
+}
+
+.wrapper1b{
+width: 950px;
+margin:0;
+padding:0px;
+height:20px;
+clear:both;
+}
+
+#wrapper1{
+width: 950px;
+margin: 5px;
+clear:both;
+padding: 0px;
+}
+
+#wrapper3{
+width: 950px;
+margin: 0;
+background-image: url('background.png');
+background-repeat:repeat-y;
+overflow:hidden;
+clear:both;
+}
+
+
+/* text*/
+#box3L{
+width:685px;
+float:left;
+padding:0px 0px 0px 0px;
+padding-right:15px;
+padding-left:15px;
+}
+
+
+
+/* articles */
+#box3R{
+margin-left:715px;
+clear:right;
+padding-right:10px;
+padding-left:10px;
+font-size:small;
+
+}
+
+
+
+
+
+
+
+
+h1{
+color: #782b05; 
+margin-top: 10px;
+padding-top: 0px;
+font-size:25px;
+}
+h2.home{
+	margin:0 0 0 0px;
+	text-decoration:none;
+	color:white;
+	font-weight:bold;
+	background:#1142aa;
+	text-align: center;
+}
+
+h2{
+color: #a64a00; 
+margin-top: 10px;
+padding-top: 0px;
+font-size:20px;
+}
+/* ---------------------- */
+
+.hovermenu ul{
+font: bold 23px arial;
+padding-left: 0;
+margin-left: 0;
+height: 20px;
+}
+
+.hovermenu ul li{
+list-style: none;
+display: inline;
+}
+
+.hovermenu ul li a{
+padding: 2px 0.5em;
+text-decoration: none;
+float: right;
+color: white;
+background-color: #06276f; /* You Can Change this color */
+border: 2px solid white; /*You can change this color*/
+}
+
+.hovermenu ul li a:hover{
+background-color: #4573d5; /*You Can Change This Color*/
+border-style: outset;
+}
+
+html>body .hovermenu ul li a:active{ /* Apply mousedown effect only to NON IE browsers */
+border-style: inset;
+}
+
+.bookTitle{
+font: bold 35px arial;
+color:#071b51;
+}
+
+li
+{
+margin: 0em 0;
+}
+

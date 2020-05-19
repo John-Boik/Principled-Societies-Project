@@ -40,7 +40,7 @@ app.config.update(dict(
 mail = Mail(app)
 
 #######################################################################################
-#               Serve basic pages
+# Basic pages
 #######################################################################################
 
 @app.route('/')
@@ -53,58 +53,6 @@ def index():
 
 
 # -------------------------------------------------------------------------------------
-@app.route('/collaborate_engage')
-def collaborate_engage():
-  """
-  This is collaborate_engage page 
-  """
-  return render_template('collaborate_engage.html')  
-
-# -------------------------------------------------------------------------------------
-@app.route('/who_interested')
-def who_should_be_interested():
-  """
-  This is who should be interested page
-  """
-  return render_template('who_interested.html')  
-
-# -------------------------------------------------------------------------------------
-@app.route('/rice_poster')
-def rice_poster():
-  """
-  This is the Rice poster page
-  """
-  return render_template('rice_poster.html')  
-
-
-# -------------------------------------------------------------------------------------
-@app.route('/model_steady_01a')
-def model_steady_state_01a():
-  """
-  This is the steady_01 page, 1. 
-  """
-  return render_template('model_steady_01a.html')  
-
-
-# -------------------------------------------------------------------------------------
-@app.route('/model_steady_01b')
-def model_steady_state_01b():
-  """
-  This is the steady_01 page, 2. 
-  """
-  return render_template('model_steady_01b.html')  
-
-
-# -------------------------------------------------------------------------------------
-@app.route('/model_steady_01c')
-def model_steady_state_01c():
-  """
-  This is the steady_01 page, 3. 
-  """
-  return render_template('model_steady_01c.html')  
-  
-
-# -------------------------------------------------------------------------------------
 @app.route('/glossary')
 def glossary():
   """
@@ -113,15 +61,6 @@ def glossary():
   return render_template('glossary.html')  
 
   
-# -------------------------------------------------------------------------------------
-@app.route('/income_generation')
-def income_generation():
-  """
-  This page is about income distributions are generated for the models. 
-  """
-  return render_template('income_generation.html') 
-
-
 # -------------------------------------------------------------------------------------
 @app.route('/about_psp')
 def about_psp():
@@ -141,15 +80,6 @@ def contact():
 
 
 # -------------------------------------------------------------------------------------
-@app.route('/donate')
-def donate():
-  """
-  This is the donate page. 
-  """
-  return render_template('donate.html') 
-
-
-# -------------------------------------------------------------------------------------
 @app.route('/articles_media')
 def articles_media():
   """
@@ -159,12 +89,67 @@ def articles_media():
 
 
 # -------------------------------------------------------------------------------------
-@app.route('/blog')
-def articles_blog():
+@app.route('/rice_poster')
+def rice_poster():
   """
-  This is the blog articles page. 
+  This is the Rice poster page. Its linked to in articles_media
   """
-  return render_template('blog.html') 
+  return render_template('rice_poster.html')  
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/ledda_framework')
+def ledda_framework():
+  """
+  This is the page for the LEDDA. 
+  """
+  return render_template('ledda_framework.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/contact_form', methods=['POST'])
+def contact_form():
+  """
+  This mails the contact form. 
+  """
+  
+  form = dict(request.form)
+  
+  if not re.match(r"[^@]+@[^@]+\.[^@]+", form['email'][0]):
+    return jsonify(msg="Email validation fails")
+  
+  match = re.match(
+    "facebook|twitter|instagram|youtube|you tube|design|website|follower|fan|visitor|roi",
+    form['message'][0].lower())
+
+  print("match: ", match)
+  if match:
+    return jsonify(msg="Message validation fails")
+        
+  msg = Message("PSP Message", sender= 'info@PrincipledSocietiesProject.org', 
+    recipients=['info@PrincipledSocietiesProject.org'])
+  msg.body = ("""
+    From: {:} <{:}>,
+    {:}
+    """).format(form['name'][0], form['email'][0], form['message'][0])
+
+  print("test: ", (form['magic'][0] in ['4', 'four']))
+  print((not match))
+  print((form['other']==""))
+  print(form['other'][0], form['other'] is None)
+  if (form['magic'][0] in ['4', 'four']) and (not match) and (form['other'][0]==""):  
+    mail.send(msg)
+    #pass
+    print("sent")
+    
+  print("msg= ", str(msg))
+  
+  return jsonify(msg="OK")
+
+
+#######################################################################################
+# Book EDD
+#######################################################################################
 
 # -------------------------------------------------------------------------------------
 @app.route('/book_edd_about')
@@ -211,6 +196,11 @@ def book_edd_toc():
   return render_template('book_edd_toc.html') 
 
 
+
+#######################################################################################
+# Misc
+#######################################################################################
+
 # -------------------------------------------------------------------------------------
 @app.route('/sitemap.xml')
 @app.route('/psp_rss.xml')
@@ -219,6 +209,178 @@ def static_from_root():
   return send_from_directory(app.static_folder, request.path[1:])
 
 
+# -------------------------------------------------------------------------------------
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+      
+
+
+
+  
+#######################################################################################
+# Run the steady state model
+#######################################################################################
+
+# -------------------------------------------------------------------------------------
+@app.route('/model_steady_01a')
+def model_steady_state_01a():
+  """
+  This is the steady_01 page, 1. 
+  """
+  return render_template('model_steady_01a.html')  
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/model_steady_01b')
+def model_steady_state_01b():
+  """
+  This is the steady_01 page, 2. 
+  """
+  return render_template('model_steady_01b.html')  
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/model_steady_01c')
+def model_steady_state_01c():
+  """
+  This is the steady_01 page, 3. 
+  """
+  return render_template('model_steady_01c.html')  
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/runModel', methods=['POST'])
+def runModel():
+  """
+  Run SS model 
+  """
+  print("jjjjj")
+  data = dict(request.form)
+  
+  K = list(data.keys())
+  K.sort()
+  paramsDic = data.copy()
+  
+  if False:
+    # for testing
+    print("\ninitial data:")
+    for k in K:
+      print("k={}, data[k]={}, type={}".format(k, data[k], type(data[k])))
+      if (k[0:9] not in ['flexible_']) and (k not in ['doGenetic', 'doBFGS','doRandomStart']):
+          print("   float={}".format(float(data[k])/100.))
+  
+
+  # remove lists, make floats, convert % to fractions. Not sure why original used data[k][0]
+  _ = [data.__setitem__(k, float(data[k])/100.) \
+    for k in K if ((k[0:9] not in ['flexible_']) and (k not in ['doGenetic', 'doBFGS','doRandomStart']))]
+  
+  # for checkboxes, convert on/off to integers 1/0
+  for k in K:
+    if (k[0:9] in ['flexible_']) or (k in ['doGenetic', 'doBFGS','doRandomStart']):
+      if data[k] == 'true':
+        data[k] = 1
+      else:
+        data[k] = 0
+
+  if (data['doGenetic'] or data['doBFGS']):
+    data['doOptimization'] = 1
+  else:
+    data['doOptimization'] = 0
+  
+  # fix nonfractions
+  data['family_income_target_final'] = data['family_income_target_final'] * 100
+  data['population'] = data['population'] * 100
+  
+  #print("\ndata:")
+  #_ = [print("{}= {}".format(k, data[k])) for k in K]
+  
+  
+  X, stocksDic, countsDic, histoDic = setup_model.setup(data)
+  
+  # delete attributes of X that are no long necessary
+  del X.TP
+  del X.TF
+  
+  if X.doOptimization == 0:
+    # just run the fitness function once and return
+    fitnessDic, tableDic, summaryGraphDic = fitness.getFit(X, stocksDic, Print=False, Optimize=False)
+  else:
+    # call optimizer (genetic algorithm)
+    fitnessDic, tableDic, summaryGraphDic = optimizer.genetic(X, stocksDic)    
+    
+  resultDic = {
+    "msg":"OK", 
+    'fitnessDic': fitnessDic, 
+    'tableDic':tableDic, 
+    'paramsDic':paramsDic, 
+    'countsDic': countsDic, 
+    'histoDic': histoDic,
+    'summaryGraphDic': summaryGraphDic
+    }
+  
+  
+  return render_template('results.html', results=resultDic) 
+  
+
+#######################################################################################
+# Book CNN
+#######################################################################################
+
+# -------------------------------------------------------------------------------------
+@app.route('/omp_books')
+def omp_books():
+  """
+  This page is for Oregon Medical Press books by JB. CNN is free to download. This is to avoid
+  need for a seperate server for OMP (as it is defunct).
+  """
+  return render_template('omp_books.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/omp_book_info')
+def omp_book_info():
+  """
+  Information about OMP books. 
+  """
+  return render_template('omp_book_info.html')  
+
+
+
+'''
+# -------------------------------------------------------------------------------------
+@app.route('/income_generation')
+def income_generation():
+  """
+  This page is about income distributions are generated for the models. 
+  """
+  return render_template('income_generation.html') 
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/who_interested')
+def who_should_be_interested():
+  """
+  This is who should be interested page
+  """
+  return render_template('who_interested.html')  
+
+
+# -------------------------------------------------------------------------------------
+@app.route('/collaborate_engage')
+def collaborate_engage():
+  """
+  This is collaborate_engage page 
+  """
+  return render_template('collaborate_engage.html')  
+
+# -------------------------------------------------------------------------------------
+@app.route('/blog')
+def articles_blog():
+  """
+  This is the blog articles page. 
+  """
+  return render_template('blog.html') 
 
 # -------------------------------------------------------------------------------------
 @app.route('/donation_thanks')
@@ -282,145 +444,16 @@ def prospectus():
   """
   return render_template('prospectus.html') 
 
-
 # -------------------------------------------------------------------------------------
-@app.route('/ledda_framework')
-def ledda_framework():
+@app.route('/donate')
+def donate():
   """
-  This is the page for the LEDDA. 
+  This is the donate page. 
   """
-  return render_template('ledda_framework.html') 
+  return render_template('donate.html') 
 
 
-
-
-
-
-# -------------------------------------------------------------------------------------
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-      
-
-# -------------------------------------------------------------------------------------
-@app.route('/contact_form', methods=['POST'])
-def contact_form():
-  """
-  This mails the contact form. 
-  """
-  
-  form = dict(request.form)
-  
-  if not re.match(r"[^@]+@[^@]+\.[^@]+", form['email'][0]):
-    return jsonify(msg="Email validation fails")
-  
-  match = re.match(
-    "facebook|twitter|instagram|youtube|you tube|design|website|follower|fan|visitor|roi",
-    form['message'][0].lower())
-
-  print("match: ", match)
-  if match:
-    return jsonify(msg="Message validation fails")
-        
-  msg = Message("PSP Message", sender= 'info@PrincipledSocietiesProject.org', 
-    recipients=['info@PrincipledSocietiesProject.org'])
-  msg.body = ("""
-    From: {:} <{:}>,
-    {:}
-    """).format(form['name'][0], form['email'][0], form['message'][0])
-
-  print("test: ", (form['magic'][0] in ['4', 'four']))
-  print((not match))
-  print((form['other']==""))
-  print(form['other'][0], form['other'] is None)
-  if (form['magic'][0] in ['4', 'four']) and (not match) and (form['other'][0]==""):  
-    mail.send(msg)
-    #pass
-    print("sent")
-    
-  print("msg= ", str(msg))
-  
-  return jsonify(msg="OK")
-
-
-  
-#######################################################################################
-# Run the steady state model
-#######################################################################################
-
-@app.route('/runModel', methods=['POST'])
-def runModel():
-  """
-  Run SS model 
-  """
-  print("jjjjj")
-  data = dict(request.form)
-  
-  K = list(data.keys())
-  K.sort()
-  paramsDic = data.copy()
-  
-  if 1==2:
-    # for testing
-    print("initial data:")
-    for k in K:
-      print(k, data[k])
-  
-
-  # remove lists, make floats, convert % to fractions
-  _ = [data.__setitem__(k, float(data[k][0])/100.) \
-    for k in K if ((k[0:9] not in ['flexible_']) and (k not in ['doGenetic', 'doBFGS','doRandomStart']))]
-  
-  # for checkboxes, convert on/off to integers 1/0
-  for k in K:
-    if (k[0:9] in ['flexible_']) or (k in ['doGenetic', 'doBFGS','doRandomStart']):
-      if data[k][0] == 'true':
-        data[k] = 1
-      else:
-        data[k] = 0
-
-  if (data['doGenetic'] or data['doBFGS']):
-    data['doOptimization'] = 1
-  else:
-    data['doOptimization'] = 0
-  
-  # fix nonfractions
-  data['family_income_target_final'] = data['family_income_target_final'] * 100
-  data['population'] = data['population'] * 100
-  
-  #print("\ndata:")
-  #_ = [print("{}= {}".format(k, data[k])) for k in K]
-  
-  
-  X, stocksDic, countsDic, histoDic = setup_model.setup(data)
-  
-  # delete attributes of X that are no long necessary
-  del X.TP
-  del X.TF
-  
-  if X.doOptimization == 0:
-    # just run the fitness function once and return
-    fitnessDic, tableDic, summaryGraphDic = fitness.getFit(X, stocksDic, Print=False, Optimize=False)
-  else:
-    # call optimizer (genetic algorithm)
-    fitnessDic, tableDic, summaryGraphDic = optimizer.genetic(X, stocksDic)    
-    
-  resultDic = {
-    "msg":"OK", 
-    'fitnessDic': fitnessDic, 
-    'tableDic':tableDic, 
-    'paramsDic':paramsDic, 
-    'countsDic': countsDic, 
-    'histoDic': histoDic,
-    'summaryGraphDic': summaryGraphDic
-    }
-  
-  
-  return render_template('results.html', results=resultDic) 
-  
-
-  
-  
+'''
 
 
 

@@ -34,7 +34,7 @@ def fitness_overview_tables():
   # grand fitness table -------------------------------------------------
   table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Grand Fitness", Class="blue-sect")
-  population = float(paramsDic['population'][0])
+  population = float(paramsDic['population'])
 
   # write table body and rows
   tb = html.TBODY()
@@ -61,10 +61,11 @@ def fitness_overview_tables():
   rows.append(row)
   
   row = html.TR()
+  
   row <= html.TD("Per Person Basis") + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['dollars']/population))), Class="tableValue") + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['tokens'] /population))), Class="tableValue") + \
-    html.TD("{:,}".format(int(round(fitnessDic['fitness']['total']  /population))), Class="tableValue") 
+    html.TD("{:,}".format(fitnessDic['fitness']['dollars']/population), Class="tableValue") + \
+    html.TD("{:,}".format(fitnessDic['fitness']['tokens'] /population), Class="tableValue") + \
+    html.TD("{:,}".format(fitnessDic['fitness']['total']  /population), Class="tableValue") 
   rows.append(row)
   
   tb <= rows
@@ -77,12 +78,14 @@ def fitness_overview_tables():
   # scenario table -------------------------------------------------
   table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Selected Variables and Results for Selected Targets", Class="blue-sect")
-  population = float(paramsDic['population'][0])
+  population = float(paramsDic['population'])
 
   edges = summaryGraphDic['edges']
 
   spending = edges['path_Persons_Emp_spending'] + edges['path_Persons_Unemp_spending']
   CBFS_funding = edges['path_CBFS_Orgs']
+  
+  
   CBFS_spending_ratio = CBFS_funding / (CBFS_funding + spending) * 100
   
   penalty = fitnessDic['fitness']['total'] - fitnessDic['fitness']['dollars'] - fitnessDic['fitness']['tokens']
@@ -196,6 +199,7 @@ def load_svg_summary(url="/static/images/steady_state_summary_4.svg"):
 def load_svg_summary_complete(req):
   if req.status == 200 or req.status == 0:
     document['summary_graph_container'].html = req.text
+    
   else:
     raise Exception()
     
@@ -474,7 +478,7 @@ def params_table():
     row = html.TR()
     if k[0:9] in ['flexible_', 'doOptimiz']:
       continue
-    v0 = paramsDic[k][0]
+    v0 = paramsDic[k]
     v1 = ""
     if k in flexDic.keys():
       v1 = flexDic[k][0]
@@ -853,7 +857,7 @@ def group_2_summary_table():
   # Before/After
   table = html.TABLE(Class="summaryTable") 
   table <= html.CAPTION("Initial Vs. Final", Class="blue-sect")
-  population = float(paramsDic['population'][0])
+  population = float(paramsDic['population'])
 
   # write table body and rows
   tb = html.TBODY()
@@ -1625,7 +1629,7 @@ for i in keys:
 # call Group 0 summary info ------------------------------------------------
 document['output_grand_fitness'].text ='...wait...'
 document['output_grand_fitness'].text = "{:,}".format(fitnessDic['fitness']['total'])
-population = float(paramsDic['population'][0])
+population = float(paramsDic['population'])
 document['threshold_lo_1'].text = "{:,}".format(int(round(10*population)))
 document['threshold_lo_2'].text = "{:,}".format(int(round(10*population)))
 document['threshold_hi_1'].text = "{:,}".format(int(round(100*population)))
@@ -1643,12 +1647,3 @@ more_2_group()
 #more_3_group()
 document['gr3_more'].bind('click', more_3_group)
 #document['gr4_more'].bind('click', more_4_group)
-
-
-
-
-
-
-
-
-
