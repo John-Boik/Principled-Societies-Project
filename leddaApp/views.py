@@ -268,7 +268,7 @@ def runModel():
     else:
         data[k] = v
 
-  paramsDic_ = data.copy()
+  paramsDic = data.copy()
   
   if False:
     # for testing
