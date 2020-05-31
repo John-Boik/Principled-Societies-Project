@@ -103,7 +103,7 @@ def submit_contact(evt):
     alert("A message is required")
     return
 
-  if magic not in ['4', 'four']:
+  if magic.lower() not in ['4', 'four']:
     alert("Really?  How many legs?")
     return
   
@@ -156,5 +156,3 @@ def sent_message(req):
 ##########################################################################################
   
 document['show_contact'].bind('click', show_contact)
-
-
