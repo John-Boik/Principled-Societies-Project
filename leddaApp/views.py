@@ -146,7 +146,7 @@ def contact_form():
                      
     else:
         print("msg= ", str(msg))
-        return jsonify(msg="Mail not sent. Message validation fails")
+        return jsonify(msg="Mail not sent. Email validation fails")
     
     return jsonify(msg="OK")
 
