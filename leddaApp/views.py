@@ -88,6 +88,15 @@ def articles_media():
 
 
 # -------------------------------------------------------------------------------------
+@app.route('/videos')
+def videos():
+    """
+    This is the videos page. 
+    """
+    return render_template('videos.html') 
+
+
+# -------------------------------------------------------------------------------------
 @app.route('/rice_poster')
 def rice_poster():
     """
