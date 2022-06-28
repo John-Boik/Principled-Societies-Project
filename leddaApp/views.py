@@ -17,7 +17,7 @@ from leddaApp import setup_model
 from leddaApp import fitness
 from leddaApp import optimizer
 
-from leddaApp.secrets import MAIL_SERVER, MAIL_PASSWORD, MAIL_USERNAME, MAIL_PORT, MAIL_USE_SSL, MAIL_USE_TLS
+from leddaApp.secrets import MAIL_SERVER, MAIL_PASSWORD, MAIL_USERNAME, MAIL_PORT
 
 app.config.from_envvar('leddaApp_SETTINGS', silent=True)
 
