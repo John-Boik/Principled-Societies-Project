@@ -31,7 +31,6 @@ app.config.update(dict(
     DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'data'),
     MAIL_SERVER = MAIL_SERVER,
     MAIL_PORT = MAIL_PORT, 
-    MAIL_USE_SSL = MAIL_USE_SSL, 
     MAIL_USERNAME = MAIL_USERNAME, 
     MAIL_PASSWORD = MAIL_PASSWORD,
     MAIL_USE_SSL = True
