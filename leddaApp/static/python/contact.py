@@ -132,7 +132,7 @@ def sent_message(req):
   """
   
   if req.status not in [200, 0]:
-    document['msg_container'].html = "<p>An error occurred.</p>" + req.status
+    document['msg_container'].html = "<p>An error occurred.</p>" + str(req.status)
     document['contact_submit'].disabled = False
     return
   
