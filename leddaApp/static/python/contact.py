@@ -51,7 +51,7 @@ def show_contact(evt):
   div = html.DIV()
   label = html.LABEL()
   span = html.SPAN()
-  span.text = "Are you a human? If so, how many legs does a dog have? "
+  span.text = "Are you a human? If so, how many legs does a dog have (e.g., 3, 4)? "
   widget = html.INPUT(id="magic",
     placeholder="How many?", type="text", tabindex="4", size="9", required=True)
   label <= span + html.BR() + widget
